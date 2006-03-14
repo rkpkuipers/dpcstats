@@ -22,7 +22,7 @@ echo '<td align="right">' . number_format($ts->getDailyFlushers(), 0, ',', '.') 
 
 echo '</tr>';
 echo '<tr>';
-echo '<td align="left">Current output</td>';
+echo '<td align="left">Current Output</td>';
 echo '<td align="right">' . number_format($ts->getDailyOutput(), 0, ',', '.') . ' ' . $project->getWuName() . '</td>';
 ?>
 </tr>
