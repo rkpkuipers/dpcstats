@@ -445,11 +445,11 @@ function change( imageName, newSource )
 	{
 		$ml = new MemberList($project->getPrefix() . '_teamOffsetDaily', $project->getCurrentDate(), 0, 5, $db);
 		$ml->generateFlushList();
-		getTop5Table($project, $ml, 'index_r7_c1.jpg', 'teamOffsetDaily');
+		getTop5Table($project, $ml, 'Top 5 Teams', 'teamOffsetDaily');
 		
 		$ml = new MemberList($project->getPrefix() . '_memberOffsetDaily', $project->getCurrentDate(), 0, 5, $db);
 		$ml->generateFlushList();
-		getTop5Table($project, $ml, 'index_r9_c1.jpg', 'memberOffsetDaily');
+		getTop5Table($project, $ml, 'Top 5 Members', 'memberOffsetDaily');
 	}
 
 	if ( $sbActive == 'on' )
@@ -457,12 +457,14 @@ function change( imageName, newSource )
 		getShoutboxTable($db, $project, $tabel, $team);
 	}
 ?>
-       <img name="links-bar" src="images/search-bar.jpg" width="180" height="45" alt="">
-       <br>
+       <table width="180px" cellspacing="0" cellpadding="0">
+        <tr cellspacing="0" cellpadding="0" style="background-image:url(images/left-banner.jpg); height:45px">
+         <td align="center" style="font-size:13px; font-weight:bold; color:#FFFFFF;">Search</td>
+	</tr>
+       </table>					
        <table width="180" cellpadding="2" cellspacing="1">
         <tr>
          <td align="center">
-          <br>
           <form name="Search" action="index.php" method="get">
            <p>
             <input class="TextField" type="text" name="searchString" style="width:155px">

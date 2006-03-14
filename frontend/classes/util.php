@@ -69,13 +69,17 @@ function getCalender($datum)
 	echo '<br>';
 }
 
-function getTop5Table($project, $ml, $headerImage, $tabel)
+function getTop5Table($project, $ml, $headertext, $tabel)
 {
 	$mbs = $ml->getMembers();
 	if ( count($mbs) > 0 )
 	{
-		echo '<a href="index.php?mode=Teams&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '">';
-		echo '<img name="index_r7_c1" src="images/' . $headerImage . '" width="180" height="45" alt=""></a>';
+		echo '<table width="180px" cellspacing="0" cellpadding="0">';
+		echo '<tr cellspacing="0" cellpadding="0" style="background-image:url(images/left-banner.jpg); height:45px">';
+		echo '<td align="center" style="font-size:13px; font-weight:bold; color:#FFFFFF; cursor:pointer;" ';
+		echo 'onclick=\'window.open("' . $baseUrl . '/index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '", "_self")\'>' . $headertext . '</td>';
+		echo '</tr></table>';
+						
 		echo '<table cellspacing="2" width="175">';
 		
 		for($i=0;$i<count($mbs);$i++)
@@ -114,7 +118,12 @@ function getTop5Table($project, $ml, $headerImage, $tabel)
 
 function getShoutboxTable($db, $project, $tabel, $team)
 {
-	echo '<a href="index.php?mode=shoutbox"><img src="images/shoutBox.jpg" alt="shoutbox"></a>';
+	echo '<table width="180px" cellspacing="0" cellpadding="0">';
+	echo '<tr cellspacing="0" cellpadding="0" style="background-image:url(images/left-banner.jpg); height:45px">';
+	echo '<td align="center" style="font-size:13px; font-weight:bold; color:#FFFFFF; cursor:pointer;" ';
+	echo 'onclick=\'window.open("' . $baseUrl . '/index.php?mode=shoutbox", "_self")\'>Shoutbox</td>';
+	echo '</tr></table>';
+
 	echo '<table width="180px" cellspacing="2">';
 
 	$shoutbox = new Shoutbox($db);
