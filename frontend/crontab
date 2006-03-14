@@ -1,0 +1,9 @@
+MAILTO={email}
+
+1,20,40 * * * *    {statsdir}/stats/20-statsrun.sh
+*/60 * * * *	{statsdir}/stats/60-statsrun.sh
+18 */4 * * *	{statsdir}/stats/240-statsrun.sh
+0    3 * * *	{statsdir}/stats/additional/additional.sh
+
+43   2 * * *	{statsdir}/stats/optimize.php > /dev/null
+

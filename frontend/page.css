@@ -1,0 +1,148 @@
+.TextField
+{
+        background-color: #EAEAEA;
+	background: #EAEAEA;
+        border-color: #005FA9;
+        border-style: solid;
+        border-width: 1px;
+        color: #005FA9;
+        font-size: 8pt;
+        font-family: verdana,arial,sans-serif;
+}
+
+body
+{
+	margin-bottom : 0%;
+	margin-right: 0%;
+	margin-left: 0%;
+	margin-top: 0%;
+	margin : 0px;
+	padding : 0px;
+}
+
+img.smiley
+{
+        cursor: pointer;
+}
+
+img
+{
+	border : 0;
+}
+
+td
+{
+        font-family: verdana,arial,sans-serif;
+        font-size: 11px;
+}
+
+a
+{
+        color: #005FA9;
+}
+
+a:hover
+{
+        color:#6F6F6F
+}
+
+.cap
+{
+        font-weight:bold;
+        text-decoration:underline;
+}
+
+.menu
+{
+        color: #000000;
+        text-decoration: none;
+}
+
+.outerTable
+{
+	background-color : #808080;
+	border : 0;
+}
+
+.innerTable
+{
+	background-color : #CBCBCB;
+	border : 0;
+	width : 100%;
+}
+
+.score
+{
+	color : #FF0000;
+}
+
+.altScore
+{
+	color : #0000FF;
+}
+
+hr
+{
+	width : 98%;
+}
+
+.styleCell
+{
+	width : 50%;
+	height : 100%;
+}
+
+.uExample
+{
+	text-decoration : underline;
+}
+
+.firstCell
+{
+	background-color : #EAEAEA;
+}
+
+.oddCell
+{
+	background-color:#B3B3B3;
+}
+
+.evenCell
+{
+	background-color : #C0C0C0;
+}
+
+.pageCell
+{
+	width : 780px;
+}
+
+.cellHeight1
+{
+	height : 38px;
+}
+
+.cellHeight2
+{
+	height : 94px;
+}
+
+.cellHeight3
+{
+	height : 6px;
+}
+
+.cellHeight4
+{
+	height : 1px;
+}
+
+.cellHeight5
+{
+	height : 50px;
+}
+
+.cellHeight6
+{
+	height : 40px;
+}

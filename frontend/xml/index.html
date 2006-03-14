@@ -1,0 +1,67 @@
+<html>
+<head>
+<style>
+td
+{
+	vertical-align:top;
+}
+</style>
+</head>
+<body>
+<table border="1">
+<tr>
+<td>Variabele</td>
+<td>Omschrijving</td>
+<td>Waarden</td>
+</tr>
+<tr>
+<td valign="top">tabel</td>
+<td valign="top">Tabel waar de data uit moet komen</td>
+<td>memberOffset<br>teamOffset<br>subteamOffset</td>
+</tr>
+<tr>
+<td>prefix</td>
+<td>Project</td>
+<td>
+d2ol - D2OL<br>
+fah - Folding@Home<br>
+rah - Rosetta@Home<br>
+sah - Seti@Home<br>
+smp - Simap<br>
+sob - Seventeen or Bust<br>
+tsc - TSC<br>
+ud - UD-Grid<br>
+ufl - &micro;fluids
+</td>
+</tr>
+<tr>
+<td>datum</td>
+<td>Datum in YYYY-MM-DD formaat</td>
+<td>Alle data waarop data voor het project beschikbaar is</td>
+</tr>
+<tr>
+<td>team</td>
+<td>Bij data uit subteam tabel, welk subteams data opgehaald moet worden</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Offset van de lijst</td>
+<td>0 tot lengte lijst</td>
+</tr>
+<tr>
+<td>listsize</td>
+<td>Lengte van de op te halen lijst</td>
+<td>0 tot lengte lijst</td>
+</tr>
+</table>
+<br>
+<pre>
+Het xml script is te vinden onder http://tadah.mine.nu/xml/list.php Meerdere variabelen kunnen gecombineerd worden. 
+De eerste wordt na een ? geplaatst. Alles wat daar na komt wordt door een & voorafgegaan:
+list.php?tabel=teamOffset&prefix=sob of
+list.php?prefix=rah&tabel=subteamOffset&naam=Los%20Alcoholicos
+De volgorde van de variabelen maakt niet uit. 
+Prefix is verplicht, team is alleen verplicht als voor mode subteamOffset wordt meegegeven.
+</pre>
+</body>
+</html>
