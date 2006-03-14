@@ -97,13 +97,13 @@ for($i=0;$i<count($mbs);$i++)
 */
 
 	$page .= '<td class="da">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
-	$page .= '<td><a href="http://tadah.mine.nu/?prefix=' . $project . '&amp;mode=detail&amp;tabel=memberOffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
+	$page .= '<td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;mode=detail&amp;tabel=memberOffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
 	$page .= '<td class="ov">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
 	$page .= '<td class="ri">(' . $mbs[$i]->getRank() . ')</td>';
 	$page .= '</tr>';
 }
 
-$page .= '<tr><td></td><td><a href="http://tadah.mine.nu/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=memberOffset">More...</a></td></tr>';
+$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=memberOffset">More...</a></td></tr>';
 $page .= '</table>';
 
 $page .= '<p>Overall Top 30</p>';
@@ -135,13 +135,13 @@ for($i=0;$i<count($mbs);$i++)
 		$page .= '<td class="le">(<img src="http://www.tweakers.net/g/dpc/down.gif" alt="-" title="down" />' . ( $change - ( $change * 2 )) . ')</td>';
 	
 	$page .= '<td class="ov">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
-	$page .= '<td><a href="http://tadah.mine.nu/?prefix=' . $project . '&amp;mode=detail&amp;tabel=memberOffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
+	$page .= '<td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;mode=detail&amp;tabel=memberOffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
 	$page .= '<td class="da">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
 	$page .= '<td class="ri">'./*(' . $mbs[$i]->getFlushRank() . ')*/'</td>';
 	$page .= '</tr>';
 }
 
-$page .= '<tr><td></td><td><a href="http://tadah.mine.nu/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=memberOffset">More...</a></td></tr>';
+$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=memberOffset">More...</a></td></tr>';
 $page .= '</table>';
 $page .= '<p>Teams Monthly Top 15</p>';
 $page .= '<table>';
@@ -175,13 +175,13 @@ for($i=0;$i<count($mbs);$i++)
 */
 
         $page .= '<td class="da">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
-        $page .= '<td><a href="http://tadah.mine.nu/?prefix=' . $project . '&amp;mode=detail&amp;tabel=teamOffset&amp;datum=' . $datum . 
+        $page .= '<td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;mode=detail&amp;tabel=teamOffset&amp;datum=' . $datum . 
 '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
         $page .= '<td class="ov">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
         $page .= '<td class="ri">(' . $mbs[$i]->getRank() . ')</td>';
         $page .= '</tr>';
 }
-$page .= '<tr><td></td><td><a href="http://tadah.mine.nu/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=teamOffset">More...</a></td></tr>';
+$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=teamOffset">More...</a></td></tr>';
 $page .= '</table>';
 
 $page .= '<p>Teams Overall Top 15</p>';
@@ -214,13 +214,13 @@ for($i=0;$i<count($mbs);$i++)
                 $page .= '    <td class="le">(<img src="http://www.tweakers.net/g/dpc/down.gif" alt="-" title="down" />' . ( $change - ( $change * 2 )) . ')</td>';
 
         $page .= '    <td class="ov">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
-        $page .= '    <td><a href="http://tadah.mine.nu/?prefix=' . $project . '&amp;mode=detail&amp;tabel=teamOffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
+        $page .= '    <td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;mode=detail&amp;tabel=teamOffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
         $page .= '    <td class="da">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
         $page .= '    <td class="ri">(' . $mbs[$i]->getFlushRank() . ')</td>';
         $page .= '   </tr>';
 }
 
-$page .= '<tr><td></td><td><a href="http://tadah.mine.nu/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=memberOffset">More...</a></td></tr>';
+$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=memberOffset">More...</a></td></tr>';
 $page .= '  </table>';
 
 $fmc = new FlushList($project . '_memberOffset', $db);
@@ -235,11 +235,11 @@ for($i=0;$i<5;$i++)
 {
 	$page .= '<tr>';
 	$page .= '<td>' . ( $i + 1 ) . '.</td>';
-	$page .= '<td><a href="http://tadah.mine.nu/index.php?prefix=' . $project . '&amp;mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . $fl[$i]->getName() . '">' . $fl[$i]->getName() . '</a></td>';
+	$page .= '<td><a href="' . $baseUrl . '/index.php?prefix=' . $project . '&amp;mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . $fl[$i]->getName() . '">' . $fl[$i]->getName() . '</a></td>';
 	$page .= '<td>' . number_format($fl[$i]->getCredits(), 0, ',', '.') . '</td>';
 	$page .= '</tr>';
 }
-$page .= '<tr><td><a href="http://tadah.mine.nu/?prefix=' . $project . '&amp;mode=Flush">More...</a></td></tr>';
+$page .= '<tr><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;mode=Flush">More...</a></td></tr>';
 $page .= '</table>';
 
 $mi = new MemberInfo('Dutch Power Cows', $project . '_teamOffset', $datum, $project, 'teamOffset');
@@ -297,7 +297,7 @@ if ( $mi->getFlush() > 0 )
                 for($i=0;$i<count($ol);$i++)
                 {
                         $page .= '<tr>';
-                        $page .= '<td width="190" align="left"><a href="http://tadah.mine.nu/index.php?mode=detail&amp;prefix=' . $project . '&amp;tabel=' . $tabel . '&amp;naam=' . $ol[$i]->getName() . '&amp;datum=' . $datum . '">' . $ol[$i]->getName() . '</a></td>';
+                        $page .= '<td width="190" align="left"><a href="' . $baseUrl . '/index.php?mode=detail&amp;prefix=' . $project . '&amp;tabel=' . $tabel . '&amp;naam=' . $ol[$i]->getName() . '&amp;datum=' . $datum . '">' . $ol[$i]->getName() . '</a></td>';
                         $page .= '<td width="50" align="right">' . number_format($ol[$i]->getAverage(), 0, ',', '.') . '</td>';
                         $page .= '<td align="right" width="50">' . number_format($ol[$i]->getDagen(), 0, ',', '.') . '</td>';
                         $page .= '</tr>';
@@ -313,7 +313,7 @@ $page .= '<p>' . strtoupper($project) . ' Links</p>';
 $page .= '<a href="' . $prj->getWebsite() . '">' . strtoupper($project) . ' webpage</a><br />';
 $page .= '<a href="' . $prj->getForum() . '">' . strtoupper($project) . ' forum</a><br />';
 $page .= '<a href="http://www.dutchpowercows.org/doc.php?id=316">DPCH Suggestiepagina</a><br />';
-$page .= '<a href="http://tadah.mine.nu/?prefix=' . $project . '">Bron</a>';
+$page .= '<a href="' . $baseUrl . '/?prefix=' . $project . '">Bron</a>';
 
 $page .= '</div>';
 

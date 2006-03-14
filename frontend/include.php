@@ -6,7 +6,7 @@ $db->connect();
 # Globals
 
 $listsize = 30;
-$baseUrl = 'tadah.mine.nu';
+$baseUrl = 'http://tadah.mine.nu';
 
 $jpgraphdir = '/usr/local/jpgraph-php5/';
 

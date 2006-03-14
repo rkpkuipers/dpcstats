@@ -269,7 +269,7 @@ function change( imageName, newSource )
 <?
 	if ( in_array($project->getPrefix(), array('fah', 'sah', 'smp', 'sob', 'ufl', 'rah')) )
 	{
-		$indUrl = 'http://tadah.mine.nu/index.php?mode=Individuals&amp;tabel=individualOffset&amp;datum=' . 
+		$indUrl = $baseUrl . '/index.php?mode=Individuals&amp;tabel=individualOffset&amp;datum=' . 
 			$datum . '&amp;prefix=' . $project->getPrefix();
 ?>
       <td align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/spacer.3.jpg); width:100" class="cellHeight5" onclick='window.open("<? echo $indUrl; ?>", "_self")'>
@@ -399,7 +399,7 @@ function change( imageName, newSource )
 	echo getMenuHeader('General Links', 'glActive');
 	if ( $glActive == 'on' )
 	{
-		echo getMenuEntry('Bug Tracker', 'http://tadah.mine.nu/mantis/view_all_bug_page.php', $link++);
+		echo getMenuEntry('Bug Tracker', $baseUrl . '/mantis/view_all_bug_page.php', $link++);
 		echo getMenuEntry('GOT - /5', 'http://gathering.tweakers.net/forum/list_topics/5', $link++);
 		echo getMenuEntry('Toggle Calendar', 'index.php?prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . 
 				'&amp;datum=' . $datum. '&amp;mode=' . $mode  . '&amp;naam=' . rawurlencode($naam) . 
@@ -420,18 +420,18 @@ function change( imageName, newSource )
 	echo getMenuHeader('Project Links', 'plActive');
 	if ( $plActive == 'on' )
 	{
-		echo getMenuEntry('Average Production', 'http://' . $baseUrl . '/index.php?mode=avgProd&tabel=memberOffset&prefix=' . $project->getPrefix(), $link++);
+		echo getMenuEntry('Average Production', $baseUrl . '/index.php?mode=avgProd&tabel=memberOffset&prefix=' . $project->getPrefix(), $link++);
 		echo getMenuEntry('DPC FAQ', 'http://www.dutchpowercows.org/faqs/' . $project->getWDOPrefix(), $link++);
 		echo getMenuEntry('DPCH', 'http://www.dutchpowercows.org/dpch/' . $project->getWDOPrefix(), $link++);
 		echo trBackground($link++) . $dotPrefix . '<td align="left">Official <a href="' . $project->getForum() . '">Forum</a> & ' . 
 				'<a href="' . $project->getWebsite() . '">Website</a><td></tr>';
-		echo getMenuEntry('Member Graphs', 'http://' . $baseUrl . '/index.php?mode=memberGraphs&prefix=' . $project->getPrefix(), $link++);
-		echo getMenuEntry('Monthly Stats', 'http://' . $baseUrl . '/index.php?mode=monthlyStats&amp;prefix=' . $project->getPrefix(), $link++);
+		echo getMenuEntry('Member Graphs', $baseUrl . '/index.php?mode=memberGraphs&prefix=' . $project->getPrefix(), $link++);
+		echo getMenuEntry('Monthly Stats', $baseUrl . '/index.php?mode=monthlyStats&amp;prefix=' . $project->getPrefix(), $link++);
 	}
 	echo getMenuHeader('Old Projects', 'opActive');
 	if ( $opActive == 'on' )
 	{
-		echo getMenuEntry('Find a Drug', 'http://' . $baseUrl . '/index.php?mode=Members&tabel=memberOffset&amp;naam=&amp;datum=2006-01-26' . 
+		echo getMenuEntry('Find a Drug', $baseUrl . '/index.php?mode=Members&tabel=memberOffset&amp;naam=&amp;datum=2006-01-26' . 
 				'&amp;prefix=fad', $link++);
 	}
 	echo '</table>';

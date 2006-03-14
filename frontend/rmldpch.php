@@ -96,13 +96,13 @@ for($i=0;$i<count($mbs);$i++)
 		$page .= '<td class="le">(<img src="http://www.tweakers.net/g/dpc/down.gif" alt="-" title="down" />' . ( $change - ( $change * 2 )) . ')</td>';
 		
 	$page .= '<td class="da">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
-	$page .= '<td><a href="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
+	$page .= '<td><a href="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
 	$page .= '<td class="ov">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
 		$page .= '<td class="ri">(' . $mbs[$i]->getCurrRank() . ')</td>';
 	$page .= '</tr>';
 }
 
-$page .= '<tr><td></td><td><a href="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberOffset' . $tableSuffix . '">More...</a></td></tr>';
+$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberOffset' . $tableSuffix . '">More...</a></td></tr>';
 $page .= '</table>';
 
 $page .= '<p>Overall Top 30</p>';
@@ -135,13 +135,13 @@ for($i=0;$i<count($mbs);$i++)
 		$page .= '<td class="le">(<img src="http://www.tweakers.net/g/dpc/down.gif" alt="-" title="down" />' . ( $change - ( $change * 2 )) . ')</td>';
 	
 	$page .= '<td class="ov">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
-	$page .= '<td><a href="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
+	$page .= '<td><a href="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
 	$page .= '<td class="da">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
 	$page .= '<td class="ri">(' . $mbs[$i]->getFlushRank() . ')</td>';
 	$page .= '</tr>';
 }
 
-$page .= '<tr><td></td><td><a href="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberOffset' . $tableSuffix . '">More...</a></td></tr>';
+$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberOffset' . $tableSuffix . '">More...</a></td></tr>';
 $page .= '</table>';
 $page .= '<p>Teams Daily Top 15</p>';
 $page .= '<table>';
@@ -196,13 +196,13 @@ for($i=0;$i<count($mbs);$i++)
 	}
 
         $page .= '<td class="da">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
-        $page .= '<td><a href="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;datum=' . $datum . 
+        $page .= '<td><a href="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;datum=' . $datum . 
 '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
         $page .= '<td class="ov">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
         $page .= '<td class="ri">(' . $mbs[$i]->getCurrRank() . ')</td>';
         $page .= '</tr>';
 }
-$page .= '<tr><td></td><td><a href="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamOffset' . $tableSuffix . '">More...</a></td></tr>';
+$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamOffset' . $tableSuffix . '">More...</a></td></tr>';
 $page .= '</table>';
 
 $page .= '<p>Teams Overall Top 15</p>';
@@ -252,13 +252,13 @@ for($i=0;$i<count($mbs);$i++)
                 $page .= '    <td class="le">(<img src="http://www.tweakers.net/g/dpc/down.gif" alt="-" title="down" />' . ( $change - ( $change * 2 )) . ')</td>';
 
         $page .= '    <td class="ov">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
-        $page .= '    <td><a href="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
+        $page .= '    <td><a href="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
         $page .= '    <td class="da">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
         $page .= '    <td class="ri">(' . $mbs[$i]->getFlushRank() . ')</td>';
         $page .= '   </tr>';
 }
 
-$page .= '<tr><td></td><td><a href="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamOffset' . $tableSuffix . '">More...</a></td></tr>';
+$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamOffset' . $tableSuffix . '">More...</a></td></tr>';
 $page .= '  </table>';
 
 $fmc = new FlushList($project->getPrefix() . '_memberOffset', $db);
@@ -283,12 +283,12 @@ for($i=0;$i<$top;$i++)
 {
 	$page .= '<tr>';
 	$page .= '<td class="ri">' . ( $i + 1 ) . '.</td>';
-	$page .= '<td><a href="http://tadah.mine.nu/index.php?prefix=' . $project->getprefix() . '&amp;mode=detail&amp;tabel=memberOffset&amp;naam=' . $fl[$i]->getName() . '">' . $fl[$i]->getName() . '</a></td>';
+	$page .= '<td><a href="' . $baseUrl . '/index.php?prefix=' . $project->getprefix() . '&amp;mode=detail&amp;tabel=memberOffset&amp;naam=' . $fl[$i]->getName() . '">' . $fl[$i]->getName() . '</a></td>';
 	$page .= '<td class="ri">' . number_format($fl[$i]->getCredits(), 0, ',', '.') . '</td>';
 	$page .= '<td align="right" width="65">' . date("d-m-Y", strtotime($fl[$i]->getDate())) . '</td>';
 	$page .= '</tr>';
 }
-$page .= '<tr><td><a href="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;mode=Flush">More...</a></td></tr>';
+$page .= '<tr><td><a href="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=Flush">More...</a></td></tr>';
 $page .= '</table>';
 
 $mp = new MijlPalen($project->getPrefix() . '_memberOffset', $datum, $project->getPrefix());
@@ -301,7 +301,7 @@ if ( count($mpl) > 0 )
 	for($i=0;$i<count($mpl);$i++)
 	{
 		$page .= '   <tr>';
-		$page .= '    <td><a href="http://tadah.mine.nu/?mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . $mpl[$i]->getName() . '&amp;datum=' . $datum . '" rel="external">' . $mpl[$i]->getName() . '</a></td>';
+		$page .= '    <td><a href="' . $baseUrl . '/?mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . $mpl[$i]->getName() . '&amp;datum=' . $datum . '" rel="external">' . $mpl[$i]->getName() . '</a></td>';
 		$page .= '    <td class="ri">' . number_format($mpl[$i]->getCredits(), 0, ',', '.') . '</td>';
 		$page .= '   </tr>';
 	}
@@ -371,7 +371,7 @@ if ( $mi->getFlush() > 0 )
                 for($i=0;$i<count($ol);$i++)
                 {
                         $page .= '<tr>';
-                        $page .= '<td width="190" align="left"><a href="http://tadah.mine.nu/index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . $ol[$i]->getName() . '&amp;datum=' . $datum . '">' . $ol[$i]->getName() . '</a></td>';
+                        $page .= '<td width="190" align="left"><a href="' . $baseUrl . '/index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . $ol[$i]->getName() . '&amp;datum=' . $datum . '">' . $ol[$i]->getName() . '</a></td>';
                         $page .= '<td width="50" align="right">' . number_format($ol[$i]->getAverage(), 0, ',', '.') . '</td>';
                         $page .= '<td align="right" width="50">' . number_format($ol[$i]->getDagen(), 0, ',', '.') . '</td>';
                         $page .= '</tr>';
@@ -391,7 +391,7 @@ if ( count($nml) > 0 )
         for($i=0;$i<count($nml);$i++)
         {
                 $page .= '<tr>';
-                $page .= '<td align="left" width="70%"><a href="http://tadah.mine.nu/index.php?mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;prefix=' . $project->getprefix() . '&amp;datum=' . $datum . '&amp;naam=' . $nml[$i]->getName() . '">' . $nml[$i]->getName() . '</a></td>';
+                $page .= '<td align="left" width="70%"><a href="' . $baseUrl . '/index.php?mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;prefix=' . $project->getprefix() . '&amp;datum=' . $datum . '&amp;naam=' . $nml[$i]->getName() . '">' . $nml[$i]->getName() . '</a></td>';
                 $page .= '<td align="right" width="30%">' . number_format($nml[$i]->getCredits(), 0, ',', '.') . '</td>';
                 $page .= '</tr>';
         }
@@ -429,7 +429,7 @@ while ( $line = mysql_fetch_array($result) )
 	$dpchLinks[$line['name']] = $line['link'];
 }
 
-$page .= '<a href="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '">Bron</a>';
+$page .= '<a href="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '">Bron</a>';
 $page .= '</div>';
 
 #echo strlen($page);
@@ -487,13 +487,13 @@ for($i=0;$i<count($mbs);$i++)
 		$rmlpage .= '[td valign=middle]([img]http://www.tweakers.net/g/dpc/down.gif[/img]' . ( $change - ( $change * 2 )) . ')[/td]';
 		
 	$rmlpage .= '[td align="right"][red]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/red][/td]';
-	$rmlpage .= '[td][url="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+	$rmlpage .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
 	$rmlpage .= '[td align="right"][blue]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/blue][/td]';
 	$rmlpage .= '[td align="right"](' . $mbs[$i]->getCurrRank() . ')[/td]';
 	$rmlpage .= '[/tr]';
 }
 
-$rmlpage .= '[tr][td][/td][td][url="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberOffset' . $tableSuffix . '"]More...[/url][/td][/tr]' . "\n\n";
+$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberOffset' . $tableSuffix . '"]More...[/url][/td][/tr]' . "\n\n";
 $rmlpage .= '[/table]' . "\n";
 
 $rmlpage .= '[table bgcolor=transparent]';
@@ -527,13 +527,13 @@ for($i=0;$i<count($mbs);$i++)
 		$rmlpage .= '[td]([img]http://www.tweakers.net/g/dpc/down.gif[/img]' . ( $change - ( $change * 2 )) . ')[/td]';
 	
 	$rmlpage .= '[td align="right"][red]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/red][/td]';
-	$rmlpage .= '[td][url="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+	$rmlpage .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
 	$rmlpage .= '[td align="right"][blue]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/blue][/td]';
 	$rmlpage .= '[td align="right"](' . $mbs[$i]->getFlushRank() . ')[/td]';
 	$rmlpage .= '[/tr]';
 }
 
-$rmlpage .= '[tr][td][/td][td][url="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberOffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
+$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberOffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
 $rmlpage .= '[/table]' . "\n";
 $rmlpage .= '[table bgcolor=transparent]';
 $rmlpage .= '[tr][td colspan="6"][img=450,1]http://gathering.tweakers.net/global/templates/got/images/layout/pixel.gif[/img][/td][/tr]';
@@ -587,12 +587,12 @@ for($i=0;$i<count($mbs);$i++)
                 $rmlpage .= '[td]([img]http://www.tweakers.net/g/dpc/down.gif[/img]' . ( $change - ( $change * 2 )) . ')[/td]';
 
         $rmlpage .= '[td align="right"][red]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/red][/td]';
-        $rmlpage .= '[td][url="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+        $rmlpage .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
         $rmlpage .= '[td align="right"][blue]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/blue][/td]';
         $rmlpage .= '[td align="right"](' . $mbs[$i]->getCurrRank() . ')[/td]';
         $rmlpage .= '[/tr]';
 }
-$rmlpage .= '[tr][td][/td][td][url="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamOffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
+$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamOffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
 $rmlpage .= '[/table]' . "\n";
 
 $rmlpage .= '[table bgcolor=transparent]';
@@ -641,13 +641,13 @@ for($i=0;$i<count($mbs);$i++)
                 $rmlpage .= '    [td]([img]http://www.tweakers.net/g/dpc/down.gif[/img]' . ( $change - ( $change * 2 )) . ')[/td]';
 
         $rmlpage .= '    [td align="right"][red]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/red][/td]';
-        $rmlpage .= '    [td][url="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+        $rmlpage .= '    [td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
         $rmlpage .= '    [td align="right"][blue]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/blue][/td]';
         $rmlpage .= '    [td align="right"](' . $mbs[$i]->getFlushRank() . ')[/td]';
         $rmlpage .= '   [/tr]';
 }
 
-$rmlpage .= '[tr][td][/td][td][url="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamOffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
+$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamOffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
 $rmlpage .= '  [/table]' . "\n";
 
 # Code wordt voor de HTML uitvoer al aangeroepen
@@ -669,12 +669,12 @@ for($i=0;$i<$top;$i++)
 {
 	$rmlpage .= '[tr]';
 	$rmlpage .= '[td align="right"]' . ( $i + 1 ) . '.[/td]';
-	$rmlpage .= '[td][url="http://tadah.mine.nu/index.php?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberOffset&amp;naam=' . rawurlencode($fl[$i]->getName()) . '"]' . $fl[$i]->getName() . '[/url][/td]';
+	$rmlpage .= '[td][url="' . $baseUrl . '/index.php?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberOffset&amp;naam=' . rawurlencode($fl[$i]->getName()) . '"]' . $fl[$i]->getName() . '[/url][/td]';
 	$rmlpage .= '[td align="right"]' . number_format($fl[$i]->getCredits(), 0, ',', '.') . '[/td]';
 	$rmlpage .= '[td align="right" width="65"]' . date("d-m-Y", strtotime($fl[$i]->getDate())) . '[/td]';
 	$rmlpage .= '[/tr]';
 }
-$rmlpage .= '[tr][td][url="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '&amp;mode=Flush"]More...[/url][/td][/tr]';
+$rmlpage .= '[tr][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=Flush"]More...[/url][/td][/tr]';
 $rmlpage .= '[/table]' . "\n";
 
 $mp = new MijlPalen($project->getPrefix() . '_memberOffset', $datum, $project->getPrefix());
@@ -687,7 +687,7 @@ if ( count($mpl) > 0 )
 	for($i=0;$i<count($mpl);$i++)
 	{
 		$rmlpage .= '   [tr]';
-		$rmlpage .= '    [td][url="http://tadah.mine.nu/?mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . rawurlencode($mpl[$i]->getName()) . '&amp;datum=' . $datum . '"]' . $mpl[$i]->getName() . '[/url][/td]';
+		$rmlpage .= '    [td][url="' . $baseUrl . '/?mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . rawurlencode($mpl[$i]->getName()) . '&amp;datum=' . $datum . '"]' . $mpl[$i]->getName() . '[/url][/td]';
 		$rmlpage .= '    [td align="right"]' . number_format($mpl[$i]->getCredits(), 0, ',', '.') . '[/td]';
 		$rmlpage .= '   [/tr]';
 	}
@@ -735,7 +735,7 @@ if ( $mi->getFlush() > 0 )
                 for($i=0;$i<count($tl);$i++)
                 {
                         $rmlpage .= '[tr]';
-                        $rmlpage .= '[td width="190" align="left"][url="http://tadah.mine.nu/index.php?mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;naam=' . rawurlencode($tl[$i]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '"]' . $tl[$i]->getName() . '[/url][/td]';
+                        $rmlpage .= '[td width="190" align="left"][url="' . $baseUrl . '/index.php?mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;naam=' . rawurlencode($tl[$i]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '"]' . $tl[$i]->getName() . '[/url][/td]';
                         $rmlpage .= '[td width="50" align="right"]' . number_format($tl[$i]->getAverage(), 0, ',', '.') . '[/td]';
                         $rmlpage .= '[td align="right" width="50"]' . number_format($tl[$i]->getDagen(), 0, ',', '.') . '[/td]';
                         $rmlpage .= '[/tr]';
@@ -757,7 +757,7 @@ if ( $mi->getFlush() > 0 )
                 for($i=0;$i<count($ol);$i++)
                 {
                         $rmlpage .= '[tr]';
-                        $rmlpage .= '[td width="190" align="left"][url="http://tadah.mine.nu/index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamOffset' . $tableSuffix . '&amp;naam=' . rawurlencode($ol[$i]->getName()) . '&amp;datum=' . $datum . '"]' . $ol[$i]->getName() . '[/url][/td]';
+                        $rmlpage .= '[td width="190" align="left"][url="' . $baseUrl . '/index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamOffset' . $tableSuffix . '&amp;naam=' . rawurlencode($ol[$i]->getName()) . '&amp;datum=' . $datum . '"]' . $ol[$i]->getName() . '[/url][/td]';
                         $rmlpage .= '[td width="50" align="right"]' . number_format($ol[$i]->getAverage(), 0, ',', '.') . '[/td]';
                         $rmlpage .= '[td align="right" width="50"]' . number_format($ol[$i]->getDagen(), 0, ',', '.') . '[/td]';
                         $rmlpage .= '[/tr]';
@@ -777,7 +777,7 @@ if ( count($nml) > 0 )
         for($i=0;$i<count($nml);$i++)
         {
                 $rmlpage .= '[tr]';
-                $rmlpage .= '[td align="left" width="70%"][url="http://tadah.mine.nu/index.php?mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($nml[$i]->getName()) . '"]' . $nml[$i]->getName() . '[/url][/td]';
+                $rmlpage .= '[td align="left" width="70%"][url="' . $baseUrl . '/index.php?mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($nml[$i]->getName()) . '"]' . $nml[$i]->getName() . '[/url][/td]';
                 $rmlpage .= '[td align="right" width="30%"]' . number_format($nml[$i]->getCredits(), 0, ',', '.') . '[/td]';
                 $rmlpage .= '[/tr]';
         }
@@ -809,7 +809,7 @@ $rmlpage .= '[url="http://www.dutchpowercows.org/doc.php?id=316"]DPCH Suggestiep
 foreach($dpchLinks as $name => $link)
 	$rmlpage .= '[url="' . $link . '"]' . $name . '[/url]' . "\n";
 
-$rmlpage .= '[url="http://tadah.mine.nu/?prefix=' . $project->getPrefix() . '"]Bron[/url][/small]';
+$rmlpage .= '[url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '"]Bron[/url][/small]';
 
 echo '<br /><br /><b>RML</b><br />';
 
