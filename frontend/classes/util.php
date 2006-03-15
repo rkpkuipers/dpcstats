@@ -118,6 +118,8 @@ function getTop5Table($project, $ml, $headertext, $tabel)
 
 function getShoutboxTable($db, $project, $tabel, $team)
 {
+	global $baseUrl;
+
 	echo '<table width="180px" cellspacing="0" cellpadding="0">';
 	echo '<tr cellspacing="0" cellpadding="0" style="background-image:url(images/left-banner.jpg); height:45px">';
 	echo '<td align="center" style="font-size:13px; font-weight:bold; color:#FFFFFF; cursor:pointer;" ';
@@ -203,20 +205,23 @@ function getShoutboxTable($db, $project, $tabel, $team)
 	<br>
 	&nbsp;<b>Smilies:</b><br>
 	&nbsp;&nbsp;
-	<img class="smiley" src="/images/smilies/smile.gif" onClick="document.shoutbox.bericht.value+=':) '" alt=":)">&nbsp;
-	<img class="smiley" src="/images/smilies/biggrin.gif" onClick="document.shoutbox.bericht.value+=':D '" alt=":D">&nbsp;
-	<img class="smiley" src="/images/smilies/clown.gif" onClick="document.shoutbox.bericht.value+=':+ '" alt=":+">&nbsp;
-	<img class="smiley" src="/images/smilies/cry.gif" onClick="document.shoutbox.bericht.value+=':\'( '" alt=":'(">&nbsp;
-	<img class="smiley" src="/images/smilies/devil.gif" onClick="document.shoutbox.bericht.value+='>:) '" alt=">:)">&nbsp;
-	<img class="smiley" src="/images/smilies/frown.gif" onClick="document.shoutbox.bericht.value+=':( '" alt=":(">&nbsp;
-	<img class="smiley" src="/images/smilies/frusty.gif" onClick="document.shoutbox.bericht.value+='|:( '" alt="|:("><br>
+<?
+	$smDir = $baseUrl . '/images/smilies/';
+?>
+	<img class="smiley" src="<? echo $smDir; ?>smile.gif" onClick="document.shoutbox.bericht.value+=':) '" alt=":)">&nbsp;
+	<img class="smiley" src="<? echo $smDir; ?>biggrin.gif" onClick="document.shoutbox.bericht.value+=':D '" alt=":D">&nbsp;
+	<img class="smiley" src="<? echo $smDir; ?>clown.gif" onClick="document.shoutbox.bericht.value+=':+ '" alt=":+">&nbsp;
+	<img class="smiley" src="<? echo $smDir; ?>cry.gif" onClick="document.shoutbox.bericht.value+=':\'( '" alt=":'(">&nbsp;
+	<img class="smiley" src="<? echo $smDir; ?>devil.gif" onClick="document.shoutbox.bericht.value+='>:) '" alt=">:)">&nbsp;
+	<img class="smiley" src="<? echo $smDir; ?>frown.gif" onClick="document.shoutbox.bericht.value+=':( '" alt=":(">&nbsp;
+	<img class="smiley" src="<? echo $smDir; ?>frusty.gif" onClick="document.shoutbox.bericht.value+='|:( '" alt="|:("><br>
 	&nbsp;&nbsp;
-	<img class="smiley" src="/images/smilies/kwijl.gif" onClick="document.shoutbox.bericht.value+=':9~ '" alt=":9~">&nbsp;
-	<img class="smiley" src="/images/smilies/puh2.gif" onClick="document.shoutbox.bericht.value+=':P '" alt=":P">&nbsp;
-	<img class="smiley" src="/images/smilies/pukey.gif" onClick="document.shoutbox.bericht.value+=':r '" alt=":r">&nbsp;
-	<img class="smiley" src="/images/smilies/redface.gif" onClick="document.shoutbox.bericht.value+=':o '" alt=":0">&nbsp;
-	<img class="smiley" src="/images/smilies/wink.gif" onClick="document.shoutbox.bericht.value+=';) '" alt=";)">&nbsp;
-	<img class="smiley" src="/images/smilies/bye.gif" onClick="document.shoutbox.bericht.value+=':w '" alt=":w"><br>
+	<img class="smiley" src="<? echo $smDir; ?>kwijl.gif" onClick="document.shoutbox.bericht.value+=':9~ '" alt=":9~">&nbsp;
+	<img class="smiley" src="<? echo $smDir; ?>puh2.gif" onClick="document.shoutbox.bericht.value+=':P '" alt=":P">&nbsp;
+	<img class="smiley" src="<? echo $smDir; ?>pukey.gif" onClick="document.shoutbox.bericht.value+=':r '" alt=":r">&nbsp;
+	<img class="smiley" src="<? echo $smDir; ?>redface.gif" onClick="document.shoutbox.bericht.value+=':o '" alt=":0">&nbsp;
+	<img class="smiley" src="<? echo $smDir; ?>wink.gif" onClick="document.shoutbox.bericht.value+=';) '" alt=";)">&nbsp;
+	<img class="smiley" src="<? echo $smDir; ?>bye.gif" onClick="document.shoutbox.bericht.value+=':w '" alt=":w"><br>
 
 	&nbsp;&nbsp;<small><a href="http://www.tweakers.net">&copy; Tweakers.net</a></small>
 	<br><br>
