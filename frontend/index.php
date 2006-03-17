@@ -519,7 +519,7 @@ function change( imageName, newSource )
      <tr>
       <td colspan="12" class="pageCell" style="background-image:url(images/index_r12_c1.jpg); background-position:right top; background-repeat:repeat-y" align="center">
        <a href="mailto:speedkikker@planet.nl">Contact</a> 
-       | <a href="traffic/awstats.tadah.mine.nu.html">Site Traffic</a>
+       | <a href="http://rkuipers.mine.nu/traffic/awstats.tadah.mine.nu.html">Site Traffic</a>
        | &copy;opyright 2004-2006 TaDaH
        | <a href="?mode=changelog">Version <? echo $project->getVersion() . ' (' . date("d-m-Y", strtotime($project->getLastPageUpdate())) . ')';?></a> 
        | <? $duration = microtime_diff($start_time, microtime()); $duration = sprintf("%0.3f", $duration);?> Page loaded in <?=$duration?> seconds
