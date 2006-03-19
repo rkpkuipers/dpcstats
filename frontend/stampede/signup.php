@@ -111,6 +111,20 @@ while ( $line = $db->fetchArray($result) )
 <tr><td></td></tr>
 <?
 $query = 'SELECT
+		count(name)AS teamCount,
+		stampedeTeam
+	FROM
+		stampedeParticipants
+	GROUP BY
+		stampedeTeam';
+
+$result = $db->selectQuery($query);
+
+$teamSize;
+while ( $line = $db->fetchArray($result) )
+	$teamSize[$line['stampedeTeam']] = $line['teamCount'];
+	
+$query = 'SELECT
 		name,
 		stampedeTeam
 	FROM
@@ -127,7 +141,7 @@ while ( $line = $db->fetchArray($result) )
 	if ( $cTeam != $line['stampedeTeam'] )
 	{
 		if ( $cTeam != '' ) echo '<tr><td><hr></td></tr>';
-		echo '<tr><td align="center"><h4>' . $line['stampedeTeam'] . '</h4></td></tr>';
+		echo '<tr><td align="center"><h4>' . $line['stampedeTeam'] . ' (' . $teamSize[$line['stampedeTeam']] . ' leden)</h4></td></tr>';
 		$cTeam = $line['stampedeTeam'];
 	}
 	echo '<tr><td>' . $line['name'] . '</td></tr>';
