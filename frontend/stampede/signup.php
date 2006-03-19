@@ -44,7 +44,7 @@ if ( ( $nick != '' ) && ( $team != '' ) )
 <body>
 <center><h2>Stampede V - Inschrijfformulier</h2></center>
 <hr>
-Join een team door je nick te selecteren uit de Nickname lijst en het team wat je wilt joinen uit het Stampede team lijstje. Van team veranderen kan door nogmaals je nick te selecteren en dan het nieuwe team in de tweede box. Op dezelfde manier kan de inschrijving ongedaan gemaakt worden door No Team te joinen. De inschrijving sluit om middernacht op 28 maart, het formulier zal dan uitgeschkaled worden.
+Join een team door je nick te selecteren uit de Nickname lijst en het team wat je wilt joinen uit het Stampede team lijstje. Van team veranderen kan door nogmaals je nick te selecteren en dan het nieuwe team in de tweede box. Op dezelfde manier kan de inschrijving ongedaan gemaakt worden door No Team te joinen. De inschrijving sluit om middernacht op 28 maart, het formulier zal dan uitgeschakeld worden.
 <hr>
 <center>
 <form name="addMember" action="signup.php" method="post">
