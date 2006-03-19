@@ -44,6 +44,8 @@ if ( ( $nick != '' ) && ( $team != '' ) )
 <body>
 <center><h2>Stampede V - Inschrijfformulier</h2></center>
 <hr>
+Join een team door je nick te selecteren uit de Nickname lijst en het team wat je wilt joinen uit het Stampede team lijstje. Van team veranderen kan door nogmaals je nick te selecteren en dan het nieuwe team in de tweede box. Op dezelfde manier kan de inschrijving ongedaan gemaakt worden door No Team te joinen. De inschrijving sluit om middernacht op 28 maart, het formulier zal dan uitgeschkaled worden.
+<hr>
 <center>
 <form name="addMember" action="signup.php" method="post">
 <table>
@@ -87,6 +89,7 @@ while ( $line = $db->fetchArray($result) )
 <td>
 <select name="team">
 <option>No Team</option>
+<option>Bearhunters</option>
 <option>eXtreme Stampers</option>
 <option>Furious Dutch Cows</option>
 <option>Joint Forces</option>
@@ -133,5 +136,7 @@ while ( $line = $db->fetchArray($result) )
 <tr><td><hr></td></tr>
 </table>
 </center>
+<hr>
+<div align="right"><a href="mailto:speedkikker@planet.nl">Mail Webmaster</a></div>
 </body>
 </html>
