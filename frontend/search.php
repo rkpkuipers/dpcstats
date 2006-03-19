@@ -56,6 +56,7 @@ else
 	searchTabel('subteamOffset', 'fad', $searchString, 'FAD SubTeams');
 	searchTabel('teamOffset', 'rah', $searchString, 'R@H Teams');
 	searchTabel('memberOffset', 'rah', $searchString, 'R@H Members');
+	searchTabel('subteamOffset', 'rah', $searchString, 'R@H SubTeam Members');
 	searchTabel('memberOffset', 'sah', $searchString, 'S@H Members');
 	searchTabel('subteamOffset', 'sah', $searchString, 'S@H SubTeam Members');
 	searchTabel('memberOffset', 'ufl', $searchString, '&micro;Fluid Members');
