@@ -16,6 +16,8 @@ $query = 'SELECT
 				REPLACE(name, \'~\', \' - \')
 			FROM
 				stampedeParticipants
+			WHERE
+				offset = 0
 			ORDER BY
 				name
 		)
