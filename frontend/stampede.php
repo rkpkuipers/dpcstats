@@ -2,6 +2,8 @@
 
 $project = new Project($db, 'sp5', 'memberOffsetDaily');
 
+$subteamCount = 5;
+
 $ts = new TableStatistics($project->getPrefix() . '_' . $speedTabel, $datum, $db);
 $ts->gather();
 
@@ -65,22 +67,22 @@ if ( $ts->getDailyFlushers() > $listsize )
         echo '<input type="hidden" name="datum" value="' . $datum . '">';
         echo '<input type="submit" value="List" class="TextField">';
         echo '</p>';
-        echo '</form>';
+        echo '</form>'; 
 	echo '</td>';
 }
 
 ?>
 <td align="right">
+<?/*
 <form name="Daily" action="graphs/dailyBars.php" method="post">
 <p>
 <input type="hidden" name="tabel" value="<? echo $tabel ?>">
 <input type="hidden" name="prefix" value="<? echo $project->getPrefix() ?>">
 </p>
 <?
-#echo '<td align="right">
-echo '<INPUT TYPE="image" SRC="images/graph.jpg" value="Graph"></td>';
+echo '<INPUT TYPE="image" SRC="images/graph.jpg" value="Graph"></td>'; */
 echo '</tr></table>';
-echo '<hr>';
+#echo '<hr>';
 
 if ( $flushList == 2 )
 	$ml = new MemberList($project->getPrefix() . '_' . $speedTabel, $datum, 0, $ts->getDailyFlushers(), $db, $team);
@@ -108,24 +110,7 @@ for($i=0;$i<count($mbs);$i++)
 
         $change = $mbs[$i]->getYesterday() - ( $pos + $dlow );
 
-        if ( $change == 0 )
-        {
-                $image = '<img src="images/yellow.gif" alt="yellow">';
-                $change = '';
-        }
-        elseif ( $change < 0 )
-        {
-                $image = '<img src="images/red.gif" alt="red">';
-                $change = $change - ( $change * 2 );
-        }
-        elseif ( $change > 0 )
-	{
-		if ( ( $change + ( $pos + $dlow ) ) > $ts->getPrevDayFlushCount() )
-			$change = "";
-                $image = '<img src="images/green.gif" alt="green">';
-	}
-
-        echo '<td align="center" width="30">' . $image . $change . '</td>';
+        echo '<td align="center" width="30">' . getChangeImage($change) . '</td>';
 	echo '<td align="right" width="65" class="score">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
 	echo '<td align="right" width="70"><font size="1px">(' . number_format($mbs[$i]->getFlush() / ( $ts->getDailyOutput() / 100 ), 2, ',', '.') . ' %)</font></td>';
 	
@@ -157,9 +142,39 @@ for($i=0;$i<count($mbs);$i++)
 	
 	echo ')</td>';
 	
-	echo '<td><input class="TextField" type="checkbox" name="teams[]" value="' . $mbs[$i]->getName() . '"></td>';
+#	echo '<td><input class="TextField" type="checkbox" name="teams[]" value="' . $mbs[$i]->getName() . '"></td>';
         echo '</tr>';
 	$pos++;
+
+	$subteam[$mbs[$i]->getName()] = new MemberList(	$project->getPrefix() . '_subteamOffset', 
+							$datum, 
+							0, 
+							$listsize, 
+							$db, 
+							$mbs[$i]->getName());
+	$subteam[$mbs[$i]->getName()]->generateFlushList();
+	$stMembers = $subteam[$mbs[$i]->getName()]->getMembers();
+	if ( count($stMembers) < $subteamCount ) $cCount = ( count($stMembers) - 1 );
+	else $cCount = $subteamCount;
+	for($j=0;$j<=$cCount;$j++)
+	{
+		echo '<tr>';
+		echo '<td colspan="1" width="30px"></td>';
+		echo '<td colspan="8" cellspacing="1">';
+		echo '<table width="100%" cellspacing="1" cellpadding="1">';
+		echo trBackground($j);
+		echo '<td width="30px" align="right">' . ( $j + 1 ) . '.</td>';
+		echo '<td width="30px" align="center">' . getChangeImage( $stMembers[$j]->getYesterday() - ( $j + 1 ) ) . '</td>';
+		echo '<td align="right" width="65px" class="score">' . number_format($stMembers[$j]->getFlush(), 0, '.', ',') . '</td>';
+		echo '<td><a href="index.php?mode=detail&amp;naam=' . rawurlencode($stMembers[$j]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset&amp;datum=' . $datum . '">' . $stMembers[$j]->getName() . '</a></td>';
+		echo '<td align="right" width="65px" class="altScore">' . number_format($stMembers[$j]->getCredits(), 0, ',', '.') . '</td>';
+		echo '<td width="30px" align="right">(' . $stMembers[$j]->getCurrRank() . ')</td>';
+		echo '</tr>';
+		echo '</table>';
+		echo '</td>';
+		echo '</tr>';
+	}
+	echo '<tr><td colspan="9"></td></tr>';
 }
 echo '</form>';
 echo '</table>';

@@ -328,3 +328,25 @@ function getMenuEntry($link, $target, $cellNo)
 
 	return $html;
 }
+
+function getChangeImage($change)
+{
+        if ( $change == 0 )
+        {
+                $image = '<img src="images/yellow.gif" alt="yellow">';
+                $change = '';
+        }
+        elseif ( $change < 0 )
+        {
+                $image = '<img src="images/red.gif" alt="red">';
+                $change = $change - ( $change * 2 );
+        }
+        elseif ( $change > 0 )
+	{
+		if ( ( $change + ( $pos + $dlow ) ) > $ts->getPrevDayFlushCount() )
+			$change = "";
+                $image = '<img src="images/green.gif" alt="green">';
+	}
+	
+	return $image . $change;
+}
