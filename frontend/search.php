@@ -14,9 +14,9 @@ function searchTabel($tabel, $prefix, $string, $tabelNaam)
 		AND	dag = \'' . date("Y-m-d") . '\'';
         $result = $db->selectQuery($query);
 
-	echo openColorTable(63);
 	if ( mysql_affected_rows() > 0 )
 	{
+		echo openColorTable(63);
 		echo '<b>' . mysql_affected_rows() . ' matching ' .$tabelNaam . ' found</b>';
         	echo '<hr>';
 		echo '<table width="100%">';
@@ -28,14 +28,16 @@ function searchTabel($tabel, $prefix, $string, $tabelNaam)
 			echo '</tr>';
 		}
 		echo '</table>';
+		closeTable(2);
+		echo '<br>';
 	}
+	/*
 	else
 	{
 		echo '<b>No matching ' . $tabelNaam . ' found</b>';
 		echo '<hr>';
 	}
-	closeTable(2);
-	echo '<br>';
+	*/
 }
 
 if ( trim($searchString) == '' )
