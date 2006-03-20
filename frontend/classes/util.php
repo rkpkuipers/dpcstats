@@ -329,7 +329,7 @@ function getMenuEntry($link, $target, $cellNo)
 	return $html;
 }
 
-function getChangeImage($change)
+function getChangeImage($change, $ts)
 {
         if ( $change == 0 )
         {

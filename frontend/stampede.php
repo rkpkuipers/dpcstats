@@ -110,7 +110,7 @@ for($i=0;$i<count($mbs);$i++)
 
         $change = $mbs[$i]->getYesterday() - ( $pos + $dlow );
 
-        echo '<td align="center" width="30">' . getChangeImage($change) . '</td>';
+        echo '<td align="center" width="30">' . getChangeImage($change, $ts) . '</td>';
 	echo '<td align="right" width="65" class="score">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
 	echo '<td align="right" width="70"><font size="1px">(' . number_format($mbs[$i]->getFlush() / ( $ts->getDailyOutput() / 100 ), 2, ',', '.') . ' %)</font></td>';
 	
@@ -164,7 +164,7 @@ for($i=0;$i<count($mbs);$i++)
 		echo '<table width="100%" cellspacing="1" cellpadding="1">';
 		echo trBackground($j);
 		echo '<td width="30px" align="right">' . ( $j + 1 ) . '.</td>';
-		echo '<td width="30px" align="center">' . getChangeImage( $stMembers[$j]->getYesterday() - ( $j + 1 ) ) . '</td>';
+		echo '<td width="30px" align="center">' . getChangeImage( $stMembers[$j]->getYesterday() - ( $j + 1 ) , $ts) . '</td>';
 		echo '<td align="right" width="65px" class="score">' . number_format($stMembers[$j]->getFlush(), 0, '.', ',') . '</td>';
 		echo '<td><a href="index.php?mode=detail&amp;naam=' . rawurlencode($stMembers[$j]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset&amp;datum=' . $datum . '">' . $stMembers[$j]->getName() . '</a></td>';
 		echo '<td align="right" width="65px" class="altScore">' . number_format($stMembers[$j]->getCredits(), 0, ',', '.') . '</td>';
