@@ -23,16 +23,31 @@ if ( ( $nick != '' ) && ( $team != '' ) )
 	}
 	else
 	{
+		$query = 'SELECT
+				(cands+daily)AS offset
+			FROM
+				rah_individualOffset
+			WHERE
+				dag = \'' . date("Y-m-d") . '\'
+			AND	naam = \'' . str_replace('~', ' - ', $nick) . '\'';
+		$result = $db->selectQuery($query);
+		if ( $line = $db->fetchArray($result) )
+			$offset = $line['offset'];
+		else
+			$offset = 0;
+			
 		$query = 'REPLACE INTO 
 				stampedeParticipants
 			(
 				name,
-				stampedeTeam
+				stampedeTeam,
+				offset
 			)
 			VALUES
 			(
 				\'' . $nick . '\',
-				\'' . $team . '\'
+				\'' . $team . '\',
+				' . $offset . '
 			)';
 	}
 	$db->selectQuery($query);
