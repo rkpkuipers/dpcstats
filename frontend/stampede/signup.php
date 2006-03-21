@@ -166,6 +166,11 @@ while ( $line = $db->fetchArray($result) )
 </table>
 </center>
 <hr>
-<div align="right"><a href="mailto:speedkikker@planet.nl">Mail Webmaster</a></div>
+<table width="100%">
+<tr>
+<td><a href="teams.php">Grafische weergave aanmeldingen</a></td>
+<td align="right"><a href="mailto:speedkikker@planet.nl">Mail Webmaster</a></td>
+</tr>
+</table>
 </body>
 </html>
