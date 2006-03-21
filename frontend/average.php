@@ -51,9 +51,9 @@ echo openColorTable();
 </tr>
 <?
 $query = 'SELECT 
-		a.naam, 
+		' . ($tabel=='subteamOffset'?'CONCAT(m.subteam,"~",a.naam)AS naam':'a.naam') . ',
 		a.avgDaily, 
-		a.avgMonthly 
+		a.avgMonthly
 	FROM 
 		averageProduction a, 
 		' . $project->getPrefix() . '_' . $tabel . ' m 
