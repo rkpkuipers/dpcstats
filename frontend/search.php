@@ -50,19 +50,21 @@ else
 	searchTabel('teamOffset', 'd2ol', $searchString, 'D2OL Teams');
 	searchTabel('memberOffset', 'sob', $searchString, 'SoB Members');
 	searchTabel('teamOffset', 'sob', $searchString, 'SoB Teams');
-	searchTabel('subteamOffset', 'sob', $searchString, 'SoB SubTeams');
+	searchTabel('subteamOffset', 'sob', $searchString, 'SoB Subteams Members');
 	searchTabel('memberOffset', 'fad', $searchString, 'FAD Members');
 	searchTabel('teamOffset', 'fad', $searchString, 'FAD Teams');
-	searchTabel('subteamOffset', 'fad', $searchString, 'FAD SubTeams');
+	searchTabel('subteamOffset', 'fad', $searchString, 'FAD Subteam Members');
 	searchTabel('teamOffset', 'rah', $searchString, 'R@H Teams');
 	searchTabel('memberOffset', 'rah', $searchString, 'R@H Members');
-	searchTabel('subteamOffset', 'rah', $searchString, 'R@H SubTeam Members');
+	searchTabel('subteamOffset', 'rah', $searchString, 'R@H Subteam Members');
 	searchTabel('memberOffset', 'sah', $searchString, 'S@H Members');
-	searchTabel('subteamOffset', 'sah', $searchString, 'S@H SubTeam Members');
+	searchTabel('subteamOffset', 'sah', $searchString, 'S@H Subteam Members');
 	searchTabel('memberOffset', 'ufl', $searchString, '&micro;Fluid Members');
 	searchTabel('teamOffset', 'ufl', $searchString, '&micro;Fluid Teams');
+	searchTabel('subteamOffset', 'ufl', $searchString, '&micro;Fluid Subteam Members');
 	searchTabel('teamOffset', 'fah', $searchString, 'F@H Teams');
 	searchTabel('memberOffset', 'fah', $searchString, 'F@H Members');
+	searchTabel('subteamOffset', 'fah', $searchString, 'F@H Subteam Members');
 }
 
 ?>
