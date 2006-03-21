@@ -109,6 +109,7 @@ while ( $line = $db->fetchArray($result) )
 <option>Furious Dutch Cows</option>
 <option>Joint Forces</option>
 <option>Lucky Angel: Stampede Chicken</option>
+<option>Stampertjes</option>
 <option>The Fok! Flock</option>
 </select>
 </td>
