@@ -2,14 +2,13 @@
 
 $project = new Project($db, 'sp5', 'memberOffsetDaily');
 
-$subteamCount = 5;
+$subteamCount = 10;
 
 $ts = new TableStatistics($project->getPrefix() . '_' . $speedTabel, $datum, $db);
 $ts->gather();
 
-if ( $ts->getDailyFlushers() <= 0 )
-	return 0;
-
+if ( $ts->getDailyFlushers() > 0 )
+{
 echo openColorTable();
 ?>
 
@@ -154,31 +153,34 @@ for($i=0;$i<count($mbs);$i++)
 							$mbs[$i]->getName());
 	$subteam[$mbs[$i]->getName()]->generateFlushList();
 	$stMembers = $subteam[$mbs[$i]->getName()]->getMembers();
-	if ( count($stMembers) < $subteamCount ) $cCount = ( count($stMembers) - 1 );
+	if ( count($stMembers) < $subteamCount ) $cCount = ( count($stMembers) );
 	else $cCount = $subteamCount;
-	for($j=0;$j<=$cCount;$j++)
+
+	echo '<tr>';
+	echo '<td colspan="1"></td>';
+	echo '<td colspan="8">';
+	for($j=0;$j<$cCount;$j++)
 	{
-		echo '<tr>';
-		echo '<td colspan="1" width="30px"></td>';
-		echo '<td colspan="8" cellspacing="1">';
 		echo '<table width="100%" cellspacing="1" cellpadding="1">';
 		echo trBackground($j);
 		echo '<td width="30px" align="right">' . ( $j + 1 ) . '.</td>';
 		echo '<td width="30px" align="center">' . getChangeImage( $stMembers[$j]->getYesterday() - ( $j + 1 ) , $ts) . '</td>';
-		echo '<td align="right" width="65px" class="score">' . number_format($stMembers[$j]->getFlush(), 0, '.', ',') . '</td>';
-		echo '<td><a href="index.php?mode=detail&amp;naam=' . rawurlencode($stMembers[$j]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset&amp;datum=' . $datum . '">' . $stMembers[$j]->getName() . '</a></td>';
+		echo '<td align="right" width="65px" class="score">' . number_format($stMembers[$j]->getFlush(), 0, ',', '.') . '</td>';
+		echo '<td><a href="index.php?mode=detail&amp;naam=' . rawurlencode($stMembers[$j]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset&amp;datum=' . $datum . '&amp;team=' . rawurlencode($mbs[$i]->getName()) . '">' . $stMembers[$j]->getName() . '</a></td>';
 		echo '<td align="right" width="65px" class="altScore">' . number_format($stMembers[$j]->getCredits(), 0, ',', '.') . '</td>';
 		echo '<td width="30px" align="right">(' . $stMembers[$j]->getCurrRank() . ')</td>';
 		echo '</tr>';
 		echo '</table>';
-		echo '</td>';
-		echo '</tr>';
 	}
-	echo '<tr><td colspan="9"></td></tr>';
+	echo '</td></tr>';
+
+	if ( $i < ( count($mbs) - 1 ) )
+		echo '<tr><td colspan="9">&nbsp;</td></tr>';
 }
 echo '</form>';
 echo '</table>';
 closeTable(2);
+}
 ?>
 <br>
 <?
@@ -237,15 +239,9 @@ if ( $ts->getTotalMembers() > $listsize )
 }
 
 ?>
-<form name="progress" method="post" action="index.php">
-<input type="hidden" name="tabel" value="<? echo $tabel?>">
-<input type="hidden" name="prefix" value="<? echo $project->getPrefix() ?>">
-<input type="hidden" name="mode" value="Graph">
 </td>
-<td align="right"><INPUT TYPE="image" SRC="images/graph.jpg" value="Graph"></td>
 </tr>
 </table>
-<hr>
 
 <table border="0">
 
@@ -304,12 +300,45 @@ for($i=0;$i<count($mbs);$i++)
 	echo '<a href="index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '&amp;team=' . rawurlencode($team) . '">' . $mbs[$i]->getName() . '</a></td>';
 	echo '<td align="right" width="65" class="altScore">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
 	echo '<td align="right" width="35">(' . $mbs[$i]->getFlushRank() . ')</td>';
-	echo '<td><input class="TextField" type="checkbox" name="teams[]" value="' . $mbs[$i]->getName() . '"></td>';
+#	echo '<td><input class="TextField" type="checkbox" name="teams[]" value="' . $mbs[$i]->getName() . '"></td>';
         echo '</tr>';
+
+	if ( ! isset($subteam[$mbs[$i]->getName()]) ) $subteam[$mbs[$i]->getName()] = new MemberList( 	$project->getPrefix() . '_subteamOffset',
+													$datum,
+								                                        0,
+													$listsize,
+													$db,
+													$mbs[$i]->getName());
+	$subteam[$mbs[$i]->getName()]->generateRankList();
+	$stMembers = $subteam[$mbs[$i]->getName()]->getMembers();
+																																							        if ( count($stMembers) < $subteamCount ) $cCount = ( count($stMembers) );
+	else $cCount = $subteamCount;
+
+	 echo '<tr>';
+	 echo '<td colspan="1"></td>';
+	 echo '<td colspan="8">';
+	 for($j=0;$j<$cCount;$j++)
+	 {
+		echo '<table width="100%" cellspacing="1" cellpadding="1">';
+		echo trBackground($j);
+		echo '<td width="30px" align="right">' . ( $j + 1 ) . '.</td>';
+		echo '<td width="30px" align="center">' . getChangeImage( $stMembers[$j]->getYesterday() - ( $j + 1 ) , $ts) . '</td>';
+		echo '<td align="right" width="65px" class="score">' . number_format($stMembers[$j]->getCredits(), 0, ',', '.') . '</td>';
+		echo '<td><a href="index.php?mode=detail&amp;naam=' . rawurlencode($stMembers[$j]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset&amp;datum=' . $datum . '&amp;team=' . rawurlencode($mbs[$i]->getName()) . '">' . $stMembers[$j]->getName() . '</a></td>';
+		echo '<td align="right" width="65px" class="altScore">' . number_format($stMembers[$j]->getFlush(), 0, ',', '.') . '</td>';
+		echo '<td width="30px" align="right">(' . $stMembers[$j]->getCurrRank() . ')</td>';
+		echo '</tr>';
+		echo '</table>';
+	 }
+	 echo '</td>';
+	 echo '</tr>';
+
+	 if ( $i < ( count($mbs) - 1 ) )
+		 echo '<tr><td colspan="9">&nbsp;</td></tr>';
 }
 
+echo '</form>';
 ?>
-</form>
 </table>
 </td></tr></table>
 </td></tr></table>
