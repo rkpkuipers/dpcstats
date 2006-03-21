@@ -30,7 +30,7 @@ $graph->title->SetFont(FF_FONT2,FS_BOLD);
 
 $p1 = new PiePlot($data);
 $p1->SetLegends($legend);
-$p1->SetSliceColors(array('black', 'blue', 'green', 'red', 'yellow', 'brown'));
+$p1->SetSliceColors(array('black', 'blue', 'green', 'red', 'yellow', 'brown', 'orange'));
 $p1->SetCenter(0.3);
 
 $graph->Add($p1);
