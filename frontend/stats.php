@@ -168,8 +168,8 @@ cronjobs.</P>
 <P STYLE="margin-bottom: 0in; font-weight: medium">To be written</P>
 <P STYLE="margin-bottom: 0in"><B>Links</B></P>
 <br>
-<a href="/backup/mysql.struct.sql.bz2">Database dump zonder data</a> (<? echo filesize('/var/www/tadah.mine.nu/backup/mysql.struct.sql.bz2'); ?> bytes)<br>
-<a href="/backup/mysql.<? echo date("Y-m-d"); ?>.sql.bz2">Database dump met data</a> (<? echo number_format((filesize('/var/www/tadah.mine.nu/backup/mysql.' . date("Y-m-d") . '.sql.bz2') / 1000000), 0, '', ''); ?> MB) <br>
-<a href="/backup/webdir.tar">Frontend</a> (<? echo number_format(filesize('/var/www/tadah.mine.nu/backup/webdir.tar')/1000, 0, '', ''); ?> KB)<br>
-<a href="/backup/statsdir.tar">Backend</a> (<? echo number_format(filesize('/var/www/tadah.mine.nu/backup/statsdir.tar')/1000, 0, '', ''); ?> KB)<br>
+<a href="/backup/mysql.struct.sql.bz2">Database dump zonder data</a><br>
+<a href="/backup/mysql.<? echo date("Y-m-d"); ?>.sql.bz2">Database dump met data</a><br>
+<a href="http://rkuipers.mine.nu/viewcvs/tstats.tar.gz?view=tar">Frontend</a><br>
+<a href="/backup/statsdir.tar">Backend</a><br>
 <a href="crontab">Cronjobs</a>
