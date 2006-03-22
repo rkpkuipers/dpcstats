@@ -1,6 +1,6 @@
 <?php 
-include ('/var/www/tadah.mine.nu/classes.php');
-include ('/var/www/tadah.mine.nu/include.php');
+include ('/var/www/tstats/classes.php');
+include ('/var/www/tstats/include.php');
 include ($jpgraphdir . "/jpgraph.php"); 
 include ($jpgraphdir . "/jpgraph_line.php"); 
 
