@@ -8,7 +8,7 @@ if ( ! isset($naam) )
 	return;
 }
 
-$mi = new MemberInfo($naam, $project->getPrefix() . '_' . $tabel, $datum, $project->getPrefix(), $speedTabel);
+$mi = new MemberInfo($db, $naam, $project->getPrefix() . '_' . $tabel, $datum, $project->getPrefix(), $speedTabel, $team);
 
 if ( $mi->getCredits() == 0 )
 {
@@ -72,14 +72,14 @@ echo '<tr><td align="left">To next member</td><td align=right>';
 if ( $mi->getNaamNext() == '' )
 	echo number_format( $mi->getDistanceNext(), 0, ',', '.');
 else
-	echo '<a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . $mi->getNaamNext() . '">' . number_format( $mi->getDistanceNext(), 0, ',', '.') . '</a>';
+	echo '<a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;team=' . rawurlencode($team) . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . $mi->getNaamNext() . '">' . number_format( $mi->getDistanceNext(), 0, ',', '.') . '</a>';
 echo '</td></tr>';
 
 echo '<tr><td align="left">From previous member</td><td align=right>';
 if ( $mi->getNaamPrev() == '' )
 	echo number_format($mi->getDistancePrev(), 0, ',', '.');
 else
-	echo '<a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . $mi->getNaamPrev() . '">' . number_format($mi->getDistancePrev(), 0, ',', '.') . '</a>';
+	echo '<a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;team=' . rawurlencode($team) . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . $mi->getNaamPrev() . '">' . number_format($mi->getDistancePrev(), 0, ',', '.') . '</a>';
 
 echo '</td></tr>';
 echo '</table><hr><table border="0" width="100%">';
@@ -102,7 +102,8 @@ $query = 'SELECT
 	FROM
 		' . $project->getPrefix() . '_' . $tabel . '
 	WHERE
-		naam = \'' . $naam . '\'
+		naam = \'' . $naam . '\'' . 
+	( $tabel=='subteamOffset'?'AND subteam = \'' . $team . '\'':'') . '
 	ORDER BY
 		dag DESC
 	LIMIT	7';
@@ -121,9 +122,7 @@ while ( $line = mysql_fetch_array($result, MYSQL_ASSOC) )
 
         $output .= trBackground($i);
         $output .= '<td width="60%">';
-#	$output .= '<a href="index.php?prefix=' . $project->getPrefix() . '&amp;datum=' . $line['dag'] . '">';
 	$output .= date("d-m-Y", strtotime($line['dag']));
-#	$output .= '</a>';
 	$output .= '</td>';
         $output .= '<td align=right width="40%">';
 	$output .= number_format($line['daily'], 0, ',', '.') . '</td>';
@@ -164,7 +163,14 @@ if ( $frame == 'm' )
 
 #if ( $mi->getFlush() > 0 )
 {
-$query = 'SELECT avgDaily, avgMonthly FROM averageProduction WHERE naam=\'' . $mi->getRealNaam() .'\' AND tabel = \'' . $project->getPrefix() . '_' . $tabel . '\'';
+$query = 'SELECT 
+		avgDaily, 
+		avgMonthly 
+	FROM 
+		averageProduction 
+	WHERE 
+		naam = \'' . $mi->getRealNaam() .'\' 
+	AND 	tabel = \'' . $project->getPrefix() . '_' . $tabel . '\'';
 $result = mysql_query($query);
 if ( $line = mysql_fetch_array($result) )
 {

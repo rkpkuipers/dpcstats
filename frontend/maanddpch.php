@@ -242,7 +242,7 @@ for($i=0;$i<5;$i++)
 $page .= '<tr><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;mode=Flush">More...</a></td></tr>';
 $page .= '</table>';
 
-$mi = new MemberInfo('Dutch Power Cows', $project . '_teamOffset', $datum, $project, 'teamOffset');
+$mi = new MemberInfo($db, 'Dutch Power Cows', $project . '_teamOffset', $datum, $project, 'teamOffset');
 
 if ( $mi->getFlush() > 0 )
 {

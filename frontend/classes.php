@@ -47,9 +47,11 @@ class MemberInfo
 	var $prevDayFlushCount;
 	var $subteam;
 
-	function MemberInfo($naam, $tabel, $datum, $prefix, $speedTabel)
+	private $team;
+
+	function MemberInfo($db, $naam, $tabel, $datum, $prefix, $speedTabel, $team)
 	{
-		$this->db = new DataBase();
+		$this->db = $db;
 		$this->naam = $naam;
 		$this->tabel = $tabel;
 		$this->speedTabel = $speedTabel;
@@ -67,41 +69,73 @@ class MemberInfo
 		$this->prevDayFlushCount = 0;
 		$this->subteam = FALSE;
 
+		$this->team = $team;
+
 		$this->gatherInformation();
 	}
 
 	function gatherInformation()
 	{
+		$query = 'SELECT
+				COUNT(*)AS memberCount
+			FROM
+				' . $this->prefix . '_subteamOffset
+			WHERE
+				subteam = \'' . $this->naam . '\'';
+
+		$result = $this->db->selectQuery($query);
+
+		if ( $line = $this->db->fetchArray($result) )
+		{
+			if ( $line['memberCount'] == 0 )
+				$this->subteam = false;
+			else
+				$this->subteam = true;
+		}
+		else
+			$this->subteam = false;
+
+		if ( is_numeric(strpos($this->tabel, 'subteamOffset')) && ( strpos($this->tabel, 'subteamOffset') > 0 ) )
+			$where = ' AND subteam = \'' . $this->team . '\' ';
+		else
+			$where;
+			
 		$query = 'SELECT 
 				AVG(dailypos) AS pos 
 			FROM 
 				' . $this->tabel . ' 
 			WHERE 
 				naam=\'' . $this->naam . '\' 
-			AND 	dag > \'' . getPrevWeek($this->datum) . '\' 
+			AND 	dag > \'' . getPrevWeek($this->datum) . '\'
+			' . $where . '
 			GROUP BY 
 				naam';
 
 		$result = $this->db->selectQuery($query);
 
-		if ( $line = mysql_fetch_row($result) )
-		        $this->avgDailyPos = $line['0'];
+		if ( $line = $this->db->fetchArray($result) )
+		        $this->avgDailyPos = $line['pos'];
 
 		$query = 'SELECT
-			( o.cands + o.daily ) AS candidates,
-			o.daily AS flush
+			( o.cands + o.daily ) AS credits,
+			o.daily AS flush,
+			o.currRank,
+			o.dailyPos
 		FROM
 			' . $this->prefix . '_' . $this->speedTabel . ' o
 		WHERE
 			o.naam = \'' . $this->naam . '\'
-		AND	o.dag = \'' . $this->datum . '\'';
+		AND	o.dag = \'' . $this->datum . '\'
+		' . $where;
 
 		$result = $this->db->selectQuery($query);
 		
-		if ( $line = mysql_fetch_row($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		{
-			$this->candidates = $line['0'];
-			$this->flush = $line['1'];
+			$this->candidates = $line['credits'];
+			$this->flush = $line['flush'];
+			$this->rank = $line['currRank'];
+			$this->dailyRank = $line['dailyPos'];
 		}
 
 		$query = 'SELECT
@@ -117,126 +151,70 @@ class MemberInfo
 			$this->nodes = $line['0'];
 
 		$query = 'SELECT 
-			COUNT(naam)AS aantal 
-		FROM 
-			' . $this->prefix . '_' . $this->speedTabel . ' 
-		WHERE 
-			( ( cands + daily ) > ' . ( $this->candidates ) . ' )
-		AND	dag = \'' . $this->datum . '\'';
-		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
-			$this->rank = ( $line['0'] + 1 );
-
-		$query = 'SELECT
-			COUNT(naam)AS aantal
-		FROM
-			' . $this->prefix . '_' . $this->speedTabel . '
-		WHERE	
-			( ( daily ) > ' . ( $this->getFlush() ) . ' )
-		AND	dag = \'' . date("Y-m-d") . '\'';
-		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
-			$this->dailyRank = ( $line['0'] + 1 );
-
-		$query = 'SELECT 
 			daily, 
 			dag 
 		FROM 
 			' . $this->tabel . ' 
 		WHERE 
 			naam = \'' . $this->naam . '\'
+		AND	dag = \'' . $this->datum . '\'
+		' . $where . '
 		ORDER BY 
 			daily DESC 
-		limit 	1';
-		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
-		{
-			$this->lFlushSize = $line['0'];
-			$this->lFlushDate = $line['1'];
-		}
-
-		$query = 'SELECT 
-			MIN( cands + daily )AS difference
-		FROM 
-			' . $this->prefix . '_' . $this->speedTabel . ' 
-		WHERE 
-			dag = \'' . $this->datum . '\' 
-		AND 	( cands + daily ) > ' . $this->candidates . ' 
-		GROUP BY 
-			dag';
-		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
-		{
-			$this->distanceNext = ( $line['0'] - $this->candidates );
-			$query = 'SELECT
-					naam
-	                        FROM
-	                                ' . $this->prefix . '_' . $this->speedTabel . '
-	                        WHERE
-        	                        dag = \'' . $this->datum . '\'
-		                AND     cands+daily = ' . ( $this->candidates + $this->distanceNext );
-			        $result = $this->db->selectQuery($query);
-			        if ( $line = mysql_fetch_row($result) )
-				        $this->naamNext = $line['0'];
-				else
-				        $this->naamNext = '';
-		}
-		else
-		{
-			$this->distanceNext = "-";
-			$this->naamNext = '';
-		}
-
-		$query = 'SELECT 
-			MAX( cands + daily )AS difference, 
-			naam 
-		FROM 
-			' . $this->prefix . '_' . $this->speedTabel . ' 
-		WHERE 
-			dag = \'' . $this->datum . '\' 
-		AND 	( cands + daily ) < ' . $this->candidates . ' 
-		GROUP BY 
-			( cands + daily ) 
-		ORDER BY 
-			difference DESC 
 		LIMIT 	1';
+		
 		$result = $this->db->selectQuery($query);
-                if ( $line = mysql_fetch_row($result) )
-                        $this->distancePrev = ( $this->candidates - $line['0']);
-                else
-                        $this->distancePrev = "-";
-
-		$query = 'SELECT
-				naam
-			FROM
-				' . $this->prefix . '_' . $this->speedTabel . '
-			WHERE
-				dag = \'' . $this->datum . '\'
-			AND	cands+daily = ' . ( $this->candidates - $this->distancePrev );
-		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
-			$this->naamPrev = $line['0'];
-		else
-			$this->naamPrev = '';
-
-		$query = 'SELECT
-				COUNT(*)
-			FROM
-				' . $this->prefix . '_subteamOffset
-			WHERE
-				subteam = \'' . $this->naam . '\'';
-
-		$result = $this->db->selectQuery($query);
-
-		if ( $line = mysql_fetch_array($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		{
-			if ( $line['0'] == 0 )
-				$this->subteam = false;
-			else
-				$this->subteam = true;
+			$this->lFlushSize = $line['daily'];
+			$this->lFlushDate = $line['dag'];
+		}
+
+		$query = 'SELECT
+				o.naam,
+				o.cands
+			FROM
+				' . $this->prefix . '_' . $this->speedTabel . ' o
+			WHERE
+				currRank = ' . ( $this->rank - 1 ) . '
+			AND	dag = \'' . $this->datum . '\'' .
+				$where;
+
+		$result = $this->db->selectQuery($query);
+
+		if ( $line = $this->db->fetchArray($result) )
+		{
+			$this->naamNext = $line['naam'];
+			$this->distanceNext = ( $line['cands'] - $this->candidates );
 		}
 		else
-			$this->subteam = false;
+		{
+			$this->naamNext = '';
+			$this->distanceNext = '-';
+		}
+
+		$query = 'SELECT
+				o.naam,
+				o.cands
+			FROM
+				' . $this->prefix . '_' . $this->speedTabel . ' o
+			WHERE
+				currRank = ' . ( $this->rank + 1 ) . '
+			AND	dag = \'' . $this->datum . '\'' . 
+				$where;
+
+		$result = $this->db->selectQuery($query);
+
+		if ( $line = $this->db->fetchArray($result) )
+		{
+			$this->distancePrev = ( $this->candidates - $line['cands'] );
+			$this->naamPrev = $line['naam'];
+		}
+		else
+		{
+			$this->distancePrev = '-';
+			$this->naamPrev = '';
+		}
 	}
 
 	function getAvgDailyPos()

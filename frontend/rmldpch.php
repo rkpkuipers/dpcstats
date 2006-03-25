@@ -308,7 +308,7 @@ if ( count($mpl) > 0 )
 	$page .= '  </table>';
 }
 
-$mi = new MemberInfo($project->getTeamName(), $project->getPrefix() . '_teamOffset', $datum, $project->getPrefix(), 'teamOffset' . $tableSuffix);
+$mi = new MemberInfo($db, $project->getTeamName(), $project->getPrefix() . '_teamOffset', $datum, $project->getPrefix(), 'teamOffset' . $tableSuffix);
 
 if ( $mi->getFlush() > 0 )
 {
@@ -694,7 +694,7 @@ if ( count($mpl) > 0 )
 	$rmlpage .= '  [/table]' . "\n";
 }
 
-$mi = new MemberInfo($project->getTeamName(), $project->getPrefix() . '_teamOffset', $datum, $project->getPrefix(), 'teamOffset' . $tableSuffix);
+$mi = new MemberInfo($db, $project->getTeamName(), $project->getPrefix() . '_teamOffset', $datum, $project->getPrefix(), 'teamOffset' . $tableSuffix);
 
 if ( $mi->getFlush() > 0 )
 {
