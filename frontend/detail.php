@@ -132,7 +132,7 @@ while ( $line = mysql_fetch_array($result, MYSQL_ASSOC) )
 }
 $output .= '</table>';
 $output .= '<hr>';
-$output .= '<div align="right"><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . $naam . '">More...</a></div>';
+$output .= '<div align="right"><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '&amp;naam=' . $naam . '">More...</a></div>';
 $query = 'select avgDaily from averageProduction where naam=\'' . $naam . '\'';
 $result = mysql_query($query);
 $avgDaily = 0;

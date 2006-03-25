@@ -3,9 +3,9 @@
 <?
 echo '<center>';
 echo '<br>';
-echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;naam=' . $naam . '&amp;prefix=' . $project->getPrefix() . '&amp;timespan=7">';
+echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;naam=' . $naam . '&amp;prefix=' . $project->getPrefix() . '&amp;timespan=7&amp;team=' . rawurlencode($team) . '">';
 echo '<br><br>';
-echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;naam=' . $naam . '&amp;prefix=' . $project->getPrefix() . '&amp;timespan=31&amp;labelInterval=2">';
+echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;naam=' . $naam . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '&amp;timespan=31&amp;labelInterval=2">';
 echo '</center>';
 echo '<br>';
 
@@ -17,7 +17,8 @@ $query = 'SELECT
 	FROM 
 		' . $project->getPrefix() . '_' . $tabel . ' 
 	WHERE 
-		naam = \'' . $naam . '\' 
+		naam = \'' . $naam . '\' ' .
+	($tabel=='subteamOffset'?'AND subteam = \'' . $team . '\'':'') . ' 
 	ORDER BY 
 		' . $sort . ' DESC';
 $result = mysql_query($query);
