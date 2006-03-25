@@ -23,6 +23,8 @@ require ('classes/changelog.php');
 
 require ('classes/subteam.php');
 
+require ('classes/AverageProduction.php');
+
 class MemberInfo
 {
 	var $db;
@@ -408,72 +410,5 @@ class TableStatisticsMonthly
 	function getTotalOutput()
 	{
 		return $this->totalOutput;
-	}
-}
-
-class AverageList
-{
-	var $members;
-	var $tabel;
-	var $datum;
-	
-	var $db;
-
-	function AverageList($tabel, $datum)
-	{
-		$this->db = new DataBase();
-		
-		$this->tabel = $tabel;
-		$this->datum = $datum;
-	}
-
-	function gather()
-	{
-		$quer2y = 'SELECT 
-				naam, 
-				avgDaily 
-			FROM 
-				averageProduction 
-			WHERE 
-				naam IN 
-				( 
-					SELECT 
-						DISTINCT(naam) 
-					FROM 
-						' . $this->tabel . ' 
-					WHERE
-						dag = \'' . date("Y-m-d") . '\'
-				) 
-			AND	avgDaily > 0
-			AND	tabel = \'' . $this->tabel . '\'
-			ORDER BY 
-				avgDaily DESC';
-
-		$query = 'SELECT 
-				a.naam, 
-				a.avgDaily, 
-				a.avgMonthly 
-			FROM 
-				averageProduction a, 
-				' . $this->tabel . ' m 
-			WHERE 
-				a.tabel = \'' . $this->tabel . '\' 
-			AND 	a.naam = m.naam 
-			AND 	m.dag = \'' . $this->datum . '\'
-			AND 	avgDaily > 0
-			ORDER BY 
-				avgDaily DESC';
-				echo $query;
-		$result = $this->db->selectQuery($query);
-
-		while ( $line = mysql_fetch_array($result) )
-		{
-			$this->members[count($this->members)] = new Member($line['naam'], $line['avgDaily']);
-		}
-	}
-
-	function getMemberList()
-	{
-		return $this->members;
 	}
 }

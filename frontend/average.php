@@ -38,46 +38,24 @@ if ( in_array($project->getPrefix(), array('fah', 'rah', 'sah', 'smp', 'sob', 'u
 <hr>
 </center>
 <br>
-<br>
 <center>
 <?
-echo openColorTable();
-?>
-<tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><a href="index.php?mode=avgProd&amp;prefix=<? echo $project->getPrefix(); ?>&amp;tabel=<? echo $tabel; ?>&amp;sort=avgDaily">WeekAvg</a></td>
-<td><a href="index.php?mode=avgProd&amp;prefix=<? echo $project->getPrefix(); ?>&amp;tabel=<? echo $tabel; ?>&amp;sort=avgMonthly">MonthAvg</a></td>
-</tr>
-<?
-$query = 'SELECT 
-		' . ($tabel=='subteamOffset'?'CONCAT(m.subteam,"~",a.naam)AS naam':'a.naam') . ',
-		a.avgDaily, 
-		a.avgMonthly
-	FROM 
-		averageProduction a, 
-		' . $project->getPrefix() . '_' . $tabel . ' m 
-	WHERE 
-		tabel = \'' . $project->getPrefix() . '_' . $tabel . '\' 
-	AND 	a.naam = m.naam 
-	AND	m.dag = \'' . $datum . '\' 
-	AND NOT 
-		avgMonthly=0 
-	ORDER BY 
-		' . $sort . ' DESC 
-	LIMIT 
-		100';
-$result = $db->selectQuery($query);
-$i=0;
-while ( $line = $db->fetchArray($result) )
+$avgProduction = new AverageList($db, $project->getPrefix() . '_' . $tabel, $datum);
+$avgProduction->gather();
+
+$avgProductionList = $avgProduction->getList();
+
+echo openColorTable(87);
+echo '<tr><td></td><td></td><td><a href="index.php?mode=avgProd&amp;prefix=<? echo $project->getPrefix(); ?>&amp;tabel=<? echo $tabel; ?>&amp;sort=avgDaily">WeekAvg</a></td><td><a href="index.php?mode=avgProd&amp;prefix=<? echo $project->getPrefix(); ?>&amp;tabel=<? echo $tabel; ?>&amp;sort=avgMonthly">MonthAvg</a></td></tr>';
+
+for($member=0;$member<count($avgProductionList);$member++)
 {
-	echo trBackground($i);
-	echo '<td align="right" width="25">' . ( $i + 1 ) . '.</td>';
-	echo '<td align="left" width="200"><a href="index.php?mode=detail&amp;naam=' . $line['naam'] . '&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '">' . $line['naam'] . '</a></td>';
-	echo '<td align="right" width="55"><font color="red">' . number_format( /*$ap[$i]->getFlush() */ $line['avgDaily'], 0, ',', '.') . '</font></td>';
-	echo '<td align="right" width="55"><font color="red">' . number_format( $line['avgMonthly'], 0, ',' , '.') . '</font></td>';
+	echo trBackground($member);
+	echo '<td align="right" width="4%">' . ( $member + 1 ) . '.</td>';
+	echo '<td align="left" width="80%"><a href="index.php?mode=detail&amp;naam=' . rawurlencode($avgProductionList[$member]['realname']) . '&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($avgProductionList[$member]['team']) . '">' . $avgProductionList[$member]['name'] . '</a></td>';
+	echo '<td align="right" width="8%" style="color:#FF0000">' . $avgProductionList[$member]['daily'] . '</td>';
+	echo '<td align="right" width="8%" style="color:#FF0000">' . $avgProductionList[$member]['monthly'] . '</td>';
 	echo '</tr>';
-	$i++;
 }
 ?>
 </table>
