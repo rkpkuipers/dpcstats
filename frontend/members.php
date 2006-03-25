@@ -4,9 +4,11 @@ if ( $tabel == 'subteamOffset' )
 else
 	$ts = new TableStatistics($project->getPrefix() . '_' . $speedTabel, $datum, $db);
 $ts->gather();
-?>
-<br>
-<?
+
+if ( $mode == 'Subteam' )
+	echo '<center><h3>' . $team . '</h3></center>';
+else
+	echo '<br>';
 
 if ( $ts->getDailyFlushers() > 0 )
 {
