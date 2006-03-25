@@ -1,43 +1,19 @@
 <?
-class TOMember extends Member
-{
-	var $dagen;
-	var $average;
-
-	function TOMember($naam, $dagen, $average=0)
-	{
-		$this->Member($naam, 0);
-		$this->dagen = $dagen;
-		$this->average = $average;
-	}
-
-	function getDagen()
-	{
-		return $this->dagen;
-	}
-
-	function getAverage()
-	{
-		return $this->average;
-	}
-}
-
 class TOSuperClass
 {
-        var $tabel;
-        var $db;
-        var $avgProduction;
-        var $memberInfo;
-        var $datum;
-        var $listsize;
-        var $fieldname;
-        var $TOMemberList;
+        protected $tabel;
+        protected $db;
+        protected $avgProduction;
+        protected $memberInfo;
+        protected $datum;
+        protected $listsize;
+        protected $fieldname;
+	protected $team;
 
-	function TOSuperClass()
+	function __construct($db, $datum)
 	{
-		$this->db = new DataBase();
-		
-		$this->TOMemberList = array();
+		$this->db = $db;
+		$this->datum = $datum;
 	}
 
         function getAverageProduction()
@@ -48,23 +24,20 @@ class TOSuperClass
 
 class TOThreats extends TOSuperClass
 {
-	function TOThreats($tabel, $avgProduction, $memberinfo, $datum, $listsize, $fieldname)
+	function TOThreats($db, $tabel, $avgProduction, $memberinfo, $datum, $listsize, $fieldname, $team)
         {
-		$this->TOSuperClass();
+		parent::__construct($db, $datum);
 
+		$this->team = $team;
                 $this->tabel = $tabel;
-	#	if ( $this->avgProduction == "" )
-	#		$this->avgProduction = 0;
-	#	else
-	                $this->avgProduction = $avgProduction;
+		$this->avgProduction = $avgProduction;
                 $this->memberInfo = $memberinfo;
-                $this->datum = $datum;
                 $this->listsize = $listsize;
                 $this->fieldname = $fieldname;
         }
 
         function getThreatList()
-        {
+	{
                 $query = 'SELECT
                                 o.naam,
                                 ( o.cands + o.daily ) AS cands,
@@ -84,7 +57,8 @@ class TOThreats extends TOSuperClass
                         AND     id>' . $this->memberInfo->getRank() . '
                         AND     dag = \'' . $this->datum . '\'
                         AND     ap.naam = o.naam
-			AND	ap.tabel = \'' . $this->tabel . '\'
+			AND	ap.tabel = \'' . $this->tabel . '\' ' .
+			((is_numeric(strpos($this->tabel, 'subteamOffset'))&&(strpos($this->tabel, 'subteamOffset')>0))?'AND o.subteam = \'' . $this->team . '\'':'') . '
                         HAVING  dagen > 0
                         ORDER BY
                                 dagen
@@ -93,27 +67,30 @@ class TOThreats extends TOSuperClass
 
                 $result = $this->db->selectQuery($query);
 
+		$members = array();
                 while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
                 {
-                        $this->TOMemberList[count($this->TOMemberList)] = new TOMember($line['naam'], $line['dagen'], $line['average']);
+			$members[] = array(	'name' => $line['naam'], 
+						'days' => $line['dagen'], 
+						'average' => $line['average']);
                 }
 
-                return $this->TOMemberList;
+                return $members;
         }
 }
 
 class Opertunities extends TOSuperClass
 {
-        function Opertunities($tabel, $avgProduction, $memberinfo, $datum, $listsize, $fieldname)
+        function __construct($db, $tabel, $avgProduction, $memberinfo, $datum, $listsize, $fieldname, $team)
         {
-		$this->TOSuperClass();
+		parent::__construct($db, $datum);
 
                 $this->tabel = $tabel;
                 $this->avgProduction = $avgProduction;
                 $this->memberInfo = $memberinfo;
-                $this->datum = $datum;
                 $this->listsize = $listsize;
 		$this->fieldname = $fieldname;
+		$this->team = $team;
         }
 
 	function getOpertunityList()
@@ -133,19 +110,23 @@ class Opertunities extends TOSuperClass
 			AND 	o.dag = \'' . $this->datum . '\'
 			AND	o.cands > ' . $this->memberInfo->getCredits() . '
 			AND	ap.naam = o.naam
-			AND	ap.tabel = \'' . $this->tabel . '\'
+			AND	ap.tabel = \'' . $this->tabel . '\' ' .
+			((is_numeric(strpos($this->tabel, 'subteamOffset'))&&(strpos($this->tabel, 'subteamOffset')>0))?'AND o.subteam = \'' . $this->team . '\'':'') . '
 			ORDER BY 
 				dagen 
 			LIMIT ' . $this->listsize;
 
 		$result = $this->db->selectQuery($query);
 
+		$members = array();
 		while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
 		{
-			$this->TOMemberList[count($this->TOMemberList)] = new TOMember($line['naam'], $line['dagen'], $line['average']);
+			$members[] = array(	'name' => $line['naam'], 
+						'days' => $line['dagen'], 
+						'average' => $line['average']);
 		}
 
-		return $this->TOMemberList;
+		return $members;
 	}
 }
 ?>

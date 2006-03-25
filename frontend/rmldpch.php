@@ -334,7 +334,7 @@ if ( $mi->getFlush() > 0 )
 	$charArray = array('avgMonthly');
 	$headArray = array('monthly');
 
-        $t = new TOThreats($project->getPrefix() . '_teamOffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly');
+        $t = new TOThreats($db, $project->getPrefix() . '_teamOffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly', $project->getTeamName());
 	$tl = $t->getThreatList();;
 
         if ( count($tl) > 0 )
@@ -349,15 +349,15 @@ if ( $mi->getFlush() > 0 )
                 for($i=0;$i<count($tl);$i++)
                 {
                         $page .= '<tr>';
-                        $page .= '<td width="190" align="left"><a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . $tl[$i]->getName() . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '">' . $tl[$i]->getName() . '</a></td>';
-                        $page .= '<td width="50" align="right">' . number_format($tl[$i]->getAverage(), 0, ',', '.') . '</td>';
-                        $page .= '<td align="right" width="50">' . number_format($tl[$i]->getDagen(), 0, ',', '.') . '</td>';
+                        $page .= '<td width="190" align="left"><a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . $tl[$i]['name'] . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '">' . $tl[$i]['name'] . '</a></td>';
+                        $page .= '<td width="50" align="right">' . number_format($tl[$i]['average'], 0, ',', '.') . '</td>';
+                        $page .= '<td align="right" width="50">' . number_format($tl[$i]['days'], 0, ',', '.') . '</td>';
                         $page .= '</tr>';
                 }
                 $page .= '</table>';
         }
 
-        $o = new Opertunities($project->getPrefix() . '_teamOffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly');
+        $o = new Opertunities($db, $project->getPrefix() . '_teamOffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly', $project->getTeamName());
         $ol = $o->getOpertunityList();;
         if ( count($ol) > 0 )
         {
@@ -371,9 +371,9 @@ if ( $mi->getFlush() > 0 )
                 for($i=0;$i<count($ol);$i++)
                 {
                         $page .= '<tr>';
-                        $page .= '<td width="190" align="left"><a href="' . $baseUrl . '/index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . $ol[$i]->getName() . '&amp;datum=' . $datum . '">' . $ol[$i]->getName() . '</a></td>';
-                        $page .= '<td width="50" align="right">' . number_format($ol[$i]->getAverage(), 0, ',', '.') . '</td>';
-                        $page .= '<td align="right" width="50">' . number_format($ol[$i]->getDagen(), 0, ',', '.') . '</td>';
+                        $page .= '<td width="190" align="left"><a href="' . $baseUrl . '/index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . $ol[$i]['name'] . '&amp;datum=' . $datum . '">' . $ol[$i]['name'] . '</a></td>';
+                        $page .= '<td width="50" align="right">' . number_format($ol[$i]['average'], 0, ',', '.') . '</td>';
+                        $page .= '<td align="right" width="50">' . number_format($ol[$i]['days'], 0, ',', '.') . '</td>';
                         $page .= '</tr>';
                 }
                 $page .= '</table>';
@@ -720,7 +720,7 @@ if ( $mi->getFlush() > 0 )
 	$charArray = array('avgMonthly');
 	$headArray = array('monthly');
 
-        $t = new TOThreats($project->getPrefix() . '_teamOffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly');
+        $t = new TOThreats($db, $project->getPrefix() . '_teamOffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly', $project->getTeamName());
 	$tl = $t->getThreatList();;
 
         if ( count($tl) > 0 )
@@ -735,15 +735,15 @@ if ( $mi->getFlush() > 0 )
                 for($i=0;$i<count($tl);$i++)
                 {
                         $rmlpage .= '[tr]';
-                        $rmlpage .= '[td width="190" align="left"][url="' . $baseUrl . '/index.php?mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;naam=' . rawurlencode($tl[$i]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '"]' . $tl[$i]->getName() . '[/url][/td]';
-                        $rmlpage .= '[td width="50" align="right"]' . number_format($tl[$i]->getAverage(), 0, ',', '.') . '[/td]';
-                        $rmlpage .= '[td align="right" width="50"]' . number_format($tl[$i]->getDagen(), 0, ',', '.') . '[/td]';
+                        $rmlpage .= '[td width="190" align="left"][url="' . $baseUrl . '/index.php?mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;naam=' . rawurlencode($tl[$i]['name']) . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '"]' . $tl[$i]['name'] . '[/url][/td]';
+                        $rmlpage .= '[td width="50" align="right"]' . number_format($tl[$i]['average'], 0, ',', '.') . '[/td]';
+                        $rmlpage .= '[td align="right" width="50"]' . number_format($tl[$i]['days'], 0, ',', '.') . '[/td]';
                         $rmlpage .= '[/tr]';
                 }
                 $rmlpage .= '[/table]' . "\n";
         }
 
-        $o = new Opertunities($project->getPrefix() . '_teamOffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly');
+        $o = new Opertunities($db, $project->getPrefix() . '_teamOffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly', $project->getTeamName());
         $ol = $o->getOpertunityList();;
         if ( count($ol) > 0 )
         {
@@ -757,9 +757,9 @@ if ( $mi->getFlush() > 0 )
                 for($i=0;$i<count($ol);$i++)
                 {
                         $rmlpage .= '[tr]';
-                        $rmlpage .= '[td width="190" align="left"][url="' . $baseUrl . '/index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamOffset' . $tableSuffix . '&amp;naam=' . rawurlencode($ol[$i]->getName()) . '&amp;datum=' . $datum . '"]' . $ol[$i]->getName() . '[/url][/td]';
-                        $rmlpage .= '[td width="50" align="right"]' . number_format($ol[$i]->getAverage(), 0, ',', '.') . '[/td]';
-                        $rmlpage .= '[td align="right" width="50"]' . number_format($ol[$i]->getDagen(), 0, ',', '.') . '[/td]';
+                        $rmlpage .= '[td width="190" align="left"][url="' . $baseUrl . '/index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamOffset' . $tableSuffix . '&amp;naam=' . rawurlencode($ol[$i]['name']) . '&amp;datum=' . $datum . '"]' . $ol[$i]['name'] . '[/url][/td]';
+                        $rmlpage .= '[td width="50" align="right"]' . number_format($ol[$i]['average'], 0, ',', '.') . '[/td]';
+                        $rmlpage .= '[td align="right" width="50"]' . number_format($ol[$i]['days'], 0, ',', '.') . '[/td]';
                         $rmlpage .= '[/tr]';
                 }
                 $rmlpage .= '[/table]' . "\n";

@@ -162,7 +162,7 @@ if ( $frame == 'm' )
 	closeTable(2);
 }
 
-if ( $mi->getFlush() > 0 )
+#if ( $mi->getFlush() > 0 )
 {
 $query = 'SELECT avgDaily, avgMonthly FROM averageProduction WHERE naam=\'' . $mi->getRealNaam() .'\' AND tabel = \'' . $project->getPrefix() . '_' . $tabel . '\'';
 $result = mysql_query($query);
@@ -181,7 +181,7 @@ $headArray = array('weekly', 'monthly');
 
 for($j=0;$j<count($lineArray);$j++)
 {
-	$t = new TOThreats($project->getPrefix() . '_' . $tabel, $lineArray[$j], $mi, $datum, $listsize, $charArray[$j]);
+	$t = new TOThreats($db, $project->getPrefix() . '_' . $tabel, $lineArray[$j], $mi, $datum, $listsize, $charArray[$j], $team);
 	$tl = $t->getThreatList();;
 
 	echo '<br>';
@@ -197,18 +197,18 @@ for($j=0;$j<count($lineArray);$j++)
 		for($i=0;$i<count($tl);$i++)
 		{
 			echo trBackground($i);
-			echo '<td width="190" align="left"><a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . $tl[$i]->getName() . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '">' . $tl[$i]->getName() . '</a></td>';
-			echo '<td width="50" align="right">' . number_format($tl[$i]->getAverage(), 0, ',', '.') . '</td>';
-			echo '<td align="right" width="50">' . number_format($tl[$i]->getDagen(), 0, ',', '.') . '</td>';
+			echo '<td width="190" align="left"><a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . $tl[$i]['naam'] . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '">' . $tl[$i]['name'] . '</a></td>';
+			echo '<td width="50" align="right">' . number_format($tl[$i]['average'], 0, ',', '.') . '</td>';
+			echo '<td align="right" width="50">' . number_format($tl[$i]['days'], 0, ',', '.') . '</td>';
 			echo '</tr>';
 		}
 		echo '</table>';
 		echo '<hr>';
 	}
 
-        $o = new Opertunities($project->getPrefix() . '_' . $tabel, $lineArray[$j], $mi, $datum, $listsize, $charArray[$j]);
-        $ol = $o->getOpertunityList();;
-        if ( count($ol) > 0 )
+	$o = new Opertunities($db, $project->getPrefix() . '_' . $tabel, $lineArray[$j], $mi, $datum, $listsize, $charArray[$j], $team);
+	$ol = $o->getOpertunityList();;
+	if ( count($ol) > 0 )
         {
                 echo '<b>When do you get them</b>';
                 echo '<hr>';
@@ -217,9 +217,9 @@ for($j=0;$j<count($lineArray);$j++)
                 for($i=0;$i<count($ol);$i++)
                 {
                         echo trBackground($i);
-                        echo '<td width="190" align="left"><a href="index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . $ol[$i]->getName() . '">' . $ol[$i]->getName() . '</a></td>';
-			echo '<td width="50" align="right">' . number_format($ol[$i]->getAverage(), 0, ',', '.') . '</td>';
-                        echo '<td align="right" width="50">' . number_format($ol[$i]->getDagen(), 0, ',', '.') . '</td>';
+                        echo '<td width="190" align="left"><a href="index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . $ol[$i]['name'] . '">' . $ol[$i]['name'] . '</a></td>';
+			echo '<td width="50" align="right">' . number_format($ol[$i]['average'], 0, ',', '.') . '</td>';
+                        echo '<td align="right" width="50">' . number_format($ol[$i]['days'], 0, ',', '.') . '</td>';
                         echo '</tr>';
                 }
                 echo '</table>';
