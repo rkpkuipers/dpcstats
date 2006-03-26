@@ -483,7 +483,7 @@ function change( imageName, newSource )
 		echo '<tr><td colspan="2"><hr></td></tr>';
 		echo '<tr>';
 		echo '<td colspan="2" align="center">';
-		echo '<a href="xml/list.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '">';
+		echo '<a href="xml/list.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '&amp;datum=' . $datum . '">';
 		echo '<img src="images/xml.gif" alt="xml" border="0">';
 		echo '</a>';
 		echo '</td>';
