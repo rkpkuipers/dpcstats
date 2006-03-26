@@ -11,7 +11,7 @@ require ('classes/tableStatistics.php');
 
 require ('classes/inhaalStats.php');
 
-require ('classes/NewRetMembers.php');
+require ('classes/movement.php');
 
 require ('classes/shoutbox.php');
 

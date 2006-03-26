@@ -90,33 +90,32 @@ else
 		$xmlstring .= ' </mijlpalen>' . "\n";
 	}
 
-	$rm = new Leaves($prefix . '_' . $tabel, $datum);
-	$rml = $rm->getLeaves();
+	$movement = new Movement($db, $prefix . '_' . $tabel, $datum);
+	$leaves = $movement->getMembers(0);
 
-	if ( count($rml) > 0 )
+	if ( count($leaves) > 0 )
 	{
 		$xmlstring .= ' <retirements>' . "\n";
-		for($user=0;$user<count($rml);$user++)
+		for($user=0;$user<count($leaves);$user++)
 		{
 			$xmlstring .= '  <user>' . "\n";
-			$xmlstring .= '   <name>' . urlencode($rml[$user]->getName()) . '</name>' . "\n";
-			$xmlstring .= '   <workunits>' . $rml[$user]->getCredits() . '</workunits>' . "\n";
+			$xmlstring .= '   <name>' . urlencode($leaves[$user]['name']) . '</name>' . "\n";
+			$xmlstring .= '   <workunits>' . $leaves[$user]['credits'] . '</workunits>' . "\n";
 			$xmlstring .= '  </user>' . "\n";
 		}
 		$xmlstring .= ' </retirements>' . "\n";
 	}
 
-	$nm = new Joins($prefix . '_' . $tabel, $datum);
-	$nml = $nm->getJoins();
+	$joins = $movement->getMembers(1);
 
-	if ( count($nml) > 0 )
+	if ( count($joins) > 0 )
 	{
 		$xmlstring .= ' <joins>' . "\n";
-		for($i=0;$i<count($nml);$i++)
+		for($i=0;$i<count($joins);$i++)
 		{
 			$xmlstring .= '  <user>' . "\n";
-			$xmlstring .= '   <name>' . urlencode($nml[$i]->getName()) . '</name>' . "\n";
-			$xmlstring .= '   <workunits>' . $nml[$i]->getCredits() . '</workunits>' . "\n";
+			$xmlstring .= '   <name>' . urlencode($joins[$i]['name']) . '</name>' . "\n";
+			$xmlstring .= '   <workunits>' . $joins[$i]['credits'] . '</workunits>' . "\n";
 			$xmlstring .= '  </user>' . "\n";
 		}
 		$xmlstring .= ' </joins>' . "\n";

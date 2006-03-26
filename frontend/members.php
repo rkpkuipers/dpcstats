@@ -332,54 +332,58 @@ if ( count($mpl) > 0 )
 	closeTable(2);
 }
 
-$rm = new Leaves($project->getPrefix() . '_' . $tabel, $datum, $db);
-$rml = $rm->getLeaves();
+# Initialize Joins/Leaves class
+$movement = new Movement($db, $project->getPrefix() . '_' . $tabel, $datum);
 
-if ( count($rml) > 0 )
+$leaves = $movement->getMembers(0);
+
+if ( count($leaves) > 0 )
 {
         echo '<br>';
         echo openColorTable(50);
-        echo '<b>' . count($rml) . ' Retired Member';
-        if ( count($rml) != 1 )
+        echo '<b>' . count($leaves) . ' Retired Member';
+        if ( count($leaves) != 1 )
                 echo 's';
-        echo ' ( ' . number_format($rm->getTotCands(), 0, ',', '.') . ' ' . $project->getWuName() . ' )</b>';
+        echo ' ( ' . number_format($movement->getTotalCredits(0), 0, ',', '.') . ' ' . $project->getWuName() . ' )</b>';
         echo '<hr>';
         echo '<table width="100%">';
-        for($i=0;$i<count($rml);$i++)
+        for($i=0;$i<count($leaves);$i++)
         {
                 echo trBackground($i+1);
-                echo '<td align="left" width="70%">' . $rml[$i]->getName() . '</td>';
-                echo '<td align="right" width="30%">' . number_format($rml[$i]->getCredits(), 0, ',', '.') . '</td>';
+                echo '<td align="left" width="70%">' . $leaves[$i]['name'] . '</td>';
+                echo '<td align="right" width="30%">' . number_format($leaves[$i]['credits'], 0, ',', '.') . '</td>';
                 echo '</tr>';
         }
         echo '</table>';
         closeTable(2);
 }
 
-$nm = new Joins($project->getPrefix() . '_' . $tabel, $datum, $db);
-$nml = $nm->getJoins();
+# Get joins
+$joins = $movement->getMembers(1);
 
-if ( count($nml) > 0 )
+if ( count($joins) > 0 )
 {
         echo '<br>';
         echo openColorTable(50);
-        echo '<b>' . count($nml) . ' New Member';
-        if ( count($nml) != 1 )
+        echo '<b>' . count($joins) . ' New Member';
+        if ( count($joins) != 1 )
                 echo 's';
-        echo ' ( ' . number_format($nm->getTotCands(), 0, ',', '.') . ' ' . $project->getWuName() . ' )</b>';
+        echo ' ( ' . number_format($movement->getTotalCredits(1), 0, ',', '.') . ' ' . $project->getWuName() . ' )</b>';
         echo '<hr>';
         echo '<table width="100%">';
-        for($i=0;$i<count($nml);$i++)
+        for($i=0;$i<count($joins);$i++)
         {
                 echo trBackground($i+1);
                 echo '<td align="left" width="70%"><a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . 
-'&amp;naam=' . rawurlencode($nml[$i]->getName()) . '&amp;team=' . rawurlencode($team) . '">' . $nml[$i]->getName() . '</a></td>';
-                echo '<td align="right" width="30%">' . number_format($nml[$i]->getCredits(), 0, ',', '.') . '</td>';
+'&amp;naam=' . rawurlencode($joins[$i]['name']) . '&amp;team=' . rawurlencode($team) . '">' . $joins[$i]['name'] . '</a></td>';
+                echo '<td align="right" width="30%">' . number_format($joins[$i]['credits'], 0, ',', '.') . '</td>';
                 echo '</tr>';
         }
         echo '</table>';
         closeTable(2);
 }
+
+unset($leaves, $joins, $movement);
 
 ?>
 </td></tr></table>

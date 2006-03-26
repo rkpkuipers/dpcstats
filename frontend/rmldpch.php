@@ -308,7 +308,7 @@ if ( count($mpl) > 0 )
 	$page .= '  </table>';
 }
 
-$mi = new MemberInfo($db, $project->getTeamName(), $project->getPrefix() . '_teamOffset', $datum, $project->getPrefix(), 'teamOffset' . $tableSuffix);
+$mi = new MemberInfo($db, $project->getTeamName(), $project->getPrefix() . '_teamOffset', $datum, $project->getPrefix(), 'teamOffset' . $tableSuffix, $project->getTeamName());
 
 if ( $mi->getFlush() > 0 )
 {
@@ -380,36 +380,34 @@ if ( $mi->getFlush() > 0 )
         }
 }
 
+$movement = new Movement($db, $project->getPrefix() . '_memberOffset', $datum);
+$joins = $movement->getMembers(1);
 
-$nm = new Joins($project->getPrefix() . '_memberOffset', $datum);
-$nml = $nm->getJoins();
-
-if ( count($nml) > 0 )
+if ( count($joins) > 0 )
 {
 	$page .= '  <p>Nieuwe Leden</p>';
         $page .= '<table>';
-        for($i=0;$i<count($nml);$i++)
+        for($i=0;$i<count($joins);$i++)
         {
                 $page .= '<tr>';
-                $page .= '<td align="left" width="70%"><a href="' . $baseUrl . '/index.php?mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;prefix=' . $project->getprefix() . '&amp;datum=' . $datum . '&amp;naam=' . $nml[$i]->getName() . '">' . $nml[$i]->getName() . '</a></td>';
-                $page .= '<td align="right" width="30%">' . number_format($nml[$i]->getCredits(), 0, ',', '.') . '</td>';
+                $page .= '<td align="left" width="70%"><a href="' . $baseUrl . '/index.php?mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;prefix=' . $project->getprefix() . '&amp;datum=' . $datum . '&amp;naam=' . $joins[$i]['name'] . '">' . $joins[$i]['name'] . '</a></td>';
+                $page .= '<td align="right" width="30%">' . number_format($joins[$i]['credits'], 0, ',', '.') . '</td>';
                 $page .= '</tr>';
         }
         $page .= '</table>';
 }
 
-$rm = new Leaves($project->getPrefix() . '_memberOffset', $datum);
-$rml = $rm->getLeaves();
+$leaves = $movement->getMembers(0);
 
-if ( count($rml) > 0 )
+if ( count($leaves) > 0 )
 {
 	$page .= '  <p>Leaves</p>'; 
         $page .= '<table>';
-        for($i=0;$i<count($rml);$i++)
+        for($i=0;$i<count($leaves);$i++)
         {
                 $page .= '<tr>';
-                $page .= '<td align="left" width="70%">' . $rml[$i]->getName() . '</td>';
-                $page .= '<td align="right" width="30%">' . number_format($rml[$i]->getCredits(), 0, ',', '.') . '</td>';
+                $page .= '<td align="left" width="70%">' . $leaves[$i]['name'] . '</td>';
+                $page .= '<td align="right" width="30%">' . number_format($leaves[$i]['credits'], 0, ',', '.') . '</td>';
                 $page .= '</tr>';
         }
         $page .= '</table>';
@@ -694,7 +692,7 @@ if ( count($mpl) > 0 )
 	$rmlpage .= '  [/table]' . "\n";
 }
 
-$mi = new MemberInfo($db, $project->getTeamName(), $project->getPrefix() . '_teamOffset', $datum, $project->getPrefix(), 'teamOffset' . $tableSuffix);
+$mi = new MemberInfo($db, $project->getTeamName(), $project->getPrefix() . '_teamOffset', $datum, $project->getPrefix(), 'teamOffset' . $tableSuffix, $project->getTeamName());
 
 if ( $mi->getFlush() > 0 )
 {
@@ -766,40 +764,35 @@ if ( $mi->getFlush() > 0 )
         }
 }
 
-
-$nm = new Joins($project->getPrefix() . '_memberOffset', $datum);
-$nml = $nm->getJoins();
-
-if ( count($nml) > 0 )
+if ( count($joins) > 0 )
 {
 	$rmlpage .= '  [b]Nieuwe Leden[/b]';
         $rmlpage .= '[table bgcolor=transparent width="300"]';
-        for($i=0;$i<count($nml);$i++)
+        for($i=0;$i<count($joins);$i++)
         {
                 $rmlpage .= '[tr]';
-                $rmlpage .= '[td align="left" width="70%"][url="' . $baseUrl . '/index.php?mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($nml[$i]->getName()) . '"]' . $nml[$i]->getName() . '[/url][/td]';
-                $rmlpage .= '[td align="right" width="30%"]' . number_format($nml[$i]->getCredits(), 0, ',', '.') . '[/td]';
+                $rmlpage .= '[td align="left" width="70%"][url="' . $baseUrl . '/index.php?mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($joins[$i]['name']) . '"]' . $joins[$i]['name'] . '[/url][/td]';
+                $rmlpage .= '[td align="right" width="30%"]' . number_format($joins[$i]['credits'], 0, ',', '.') . '[/td]';
                 $rmlpage .= '[/tr]';
         }
         $rmlpage .= '[/table]' . "\n";
 }
 
-$rm = new Leaves($project->getPrefix() . '_memberOffset', $datum);
-$rml = $rm->getLeaves();
-
-if ( count($rml) > 0 )
+if ( count($leaves) > 0 )
 {
 	$rmlpage .= '  [b]Leaves[/b]'; 
         $rmlpage .= '[table bgcolor=transparent width="300"]';
-        for($i=0;$i<count($rml);$i++)
+        for($i=0;$i<count($leaves);$i++)
         {
                 $rmlpage .= '[tr]';
-                $rmlpage .= '[td align="left" width="70%"]' . $rml[$i]->getName() . '[/td]';
-                $rmlpage .= '[td align="right" width="30%"]' . number_format($rml[$i]->getCredits(), 0, ',', '.') . '[/td]';
+                $rmlpage .= '[td align="left" width="70%"]' . $leaves[$i]['name'] . '[/td]';
+                $rmlpage .= '[td align="right" width="30%"]' . number_format($leaves[$i]['credits'], 0, ',', '.') . '[/td]';
                 $rmlpage .= '[/tr]';
         }
         $rmlpage .= '[/table]' . "\n";
 }
+
+unset($movement, $joins, $leaves);
 
 $rmlpage .= '[small][b]' . $project->getDpchTitle() . ' Links[/b]' . "\n";
 $rmlpage .= '[url="' . $project->getWebsite() . '"]' . $project->getDpchTitle() . ' webpage[/url]' . "\n";
