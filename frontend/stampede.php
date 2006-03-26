@@ -90,6 +90,7 @@ else
 
 $ml->generateFlushList();
 $mbs = $ml->getMembers();
+
 echo "<table>";
 for($i=0;$i<count($mbs);$i++)
 {
@@ -387,7 +388,7 @@ if ( count($leaves) > 0 )
         for($i=0;$i<count($leaves);$i++)
         {
                 echo trBackground($i+1);
-                echo '<td align="left" width="70%">' . $laves[$i]['name'] . '</td>';
+                echo '<td align="left" width="70%">' . $leaves[$i]['name'] . '</td>';
                 echo '<td align="right" width="30%">' . number_format($leaves[$i]['credits'], 0, ',', '.') . '</td>';
                 echo '</tr>';
         }
@@ -395,7 +396,7 @@ if ( count($leaves) > 0 )
         closeTable(2);
 }
 
-$joins = $movement->getCredits(1);
+$joins = $movement->getMembers(1);
 
 if ( count($joins) > 0 )
 {
@@ -407,7 +408,7 @@ if ( count($joins) > 0 )
         echo ' ( ' . number_format($movement->getTotalCredits(1), 0, ',', '.') . ' ' . $project->getWuName() . ' )</b>';
         echo '<hr>';
         echo '<table width="100%">';
-        for($i=0;$i<count($nml);$i++)
+        for($i=0;$i<count($joins);$i++)
         {
                 echo trBackground($i+1);
                 echo '<td align="left" width="70%"><a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . 
