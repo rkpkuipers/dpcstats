@@ -291,7 +291,7 @@ for($i=0;$i<$top;$i++)
 $page .= '<tr><td><a href="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=Flush">More...</a></td></tr>';
 $page .= '</table>';
 
-$mp = new MijlPalen($project->getPrefix() . '_memberOffset', $datum, $project->getPrefix());
+$mp = new MijlPalen($project->getPrefix() . '_memberOffset', $datum, $project->getPrefix(), $db);
 $mpl = $mp->getMijlpalen();
 
 if ( count($mpl) > 0 )
@@ -677,7 +677,7 @@ for($i=0;$i<$top;$i++)
 $rmlpage .= '[tr][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=Flush"]More...[/url][/td][/tr]';
 $rmlpage .= '[/table]' . "\n";
 
-$mp = new MijlPalen($project->getPrefix() . '_memberOffset', $datum, $project->getPrefix());
+$mp = new MijlPalen($project->getPrefix() . '_memberOffset', $datum, $project->getPrefix(), $db);
 $mpl = $mp->getMijlpalen();
 
 if ( count($mpl) > 0 )

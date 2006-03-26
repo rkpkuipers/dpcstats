@@ -10,12 +10,9 @@ class MijlPalen
 	private $milestones;
 	private $subteam;
 
-	function MijlPalen($tabel, $dag, $prefix, $db = 'None', $subteam = '')
+	function MijlPalen($tabel, $dag, $prefix, $db, $subteam = '')
 	{
-		if ( $db == 'None' )
-			$this->dbase = new DataBase();
-		else
-			$this->dbase = $db;
+		$this->dbase = $db;
 	
 		$this->tabel = $tabel;
 		$this->dag = $dag;
@@ -111,7 +108,7 @@ class MijlPalen
 	                ( floor( $total / $paal ) != floor( ( $total - $daily ) / $paal ) )
         	   )
 	        {
-			$this->palen[count($this->palen)] = new Member($naam, ( floor( $total / $paal ) * $paal ));
+			$this->palen[] = new Member($naam, ( floor( $total / $paal ) * $paal ));
 	        }
 	}
 
