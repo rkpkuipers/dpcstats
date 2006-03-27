@@ -314,7 +314,7 @@ if ( $mi->getFlush() > 0 )
 	$query = 'SELECT 
 			avgMonthly 
 		FROM 
-			averageProduction 
+			averageproduction 
 		WHERE 
 			naam = \'' . $project->getTeamName() . '\' 
 		AND 	tabel = \'' . $project->getPrefix() . '_teamOffset\'';
@@ -698,7 +698,7 @@ if ( $mi->getFlush() > 0 )
 	$query = 'SELECT 
 			avgMonthly 
 		FROM 
-			averageProduction 
+			averageproduction 
 		WHERE 
 			naam = \'' . $project->getTeamName() . '\' 
 		AND 	tabel = \'' . $project->getPrefix() . '_teamOffset\'';

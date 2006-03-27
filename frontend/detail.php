@@ -133,7 +133,7 @@ while ( $line = mysql_fetch_array($result, MYSQL_ASSOC) )
 $output .= '</table>';
 $output .= '<hr>';
 $output .= '<div align="right"><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '&amp;naam=' . $naam . '">More...</a></div>';
-$query = 'select avgDaily from averageProduction where naam=\'' . $naam . '\'';
+$query = 'select avgDaily from averageproduction where naam=\'' . $naam . '\'';
 $result = mysql_query($query);
 $avgDaily = 0;
 if ( $line = mysql_fetch_array($result) )
@@ -167,7 +167,7 @@ $query = 'SELECT
 		avgDaily, 
 		avgMonthly 
 	FROM 
-		averageProduction 
+		averageproduction 
 	WHERE 
 		naam = \'' . $mi->getRealNaam() .'\' 
 	AND 	tabel = \'' . $project->getPrefix() . '_' . $tabel . '\'';

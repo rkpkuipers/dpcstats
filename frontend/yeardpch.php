@@ -233,7 +233,7 @@ if ( $mi->getFlush() > 0 )
 	$query = 'SELECT 
 			avgMonthly 
 		FROM 
-			averageProduction 
+			averageproduction 
 		WHERE 
 			naam = \'Dutch Power Cows\' 
 		AND 	tabel = \'' . $project . '_teamOffset\'';

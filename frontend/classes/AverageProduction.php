@@ -29,7 +29,7 @@ class AverageList
 				a.avgDaily, 
 				a.avgMonthly 
 			FROM 
-				averageProduction a, 
+				averageproduction a, 
 				' . $this->tabel . ' m 
 			WHERE 
 				a.tabel = \'' . $this->tabel . '\' 

@@ -51,7 +51,7 @@ class TOThreats extends TOSuperClass
 				ap.' . $this->fieldname . ' AS average
                         FROM
                                 ' . $this->tabel . ' o,
-                                averageProduction ap
+                                averageproduction ap
                         WHERE
                                 ap.' . $this->fieldname . ' > ' . $this->avgProduction . '
                         AND     id>' . $this->memberInfo->getRank() . '
@@ -102,7 +102,7 @@ class Opertunities extends TOSuperClass
 				ap.' . $this->fieldname . ' AS average
 			FROM 
 				' . $this->tabel . ' o,
-				averageProduction ap
+				averageproduction ap
 			WHERE 
 				o.daily < ' . $this->avgProduction . ' 
 			AND 	o.id < ' . $this->memberInfo->getRank() . ' 
