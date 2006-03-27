@@ -168,8 +168,8 @@ cronjobs.</P>
 <P STYLE="margin-bottom: 0in; font-weight: medium">To be written</P>
 <P STYLE="margin-bottom: 0in"><B>Links</B></P>
 <br>
-<a href="/backup/mysql.struct.sql.bz2">Database dump zonder data</a><br>
-<a href="/backup/mysql.<? echo date("Y-m-d"); ?>.sql.bz2">Database dump met data</a><br>
+<a href="http://rkuipers.mine.nu/statsbackup/mysql.struct.sql.bz2">Database dump zonder data</a><br>
+<a href="http://rkuipers.mine.nu/statsbackup/mysql.<? echo date("Y-m-d"); ?>.sql.bz2">Database dump met data</a><br>
 <a href="http://rkuipers.mine.nu/viewcvs/tstats.tar.gz?view=tar">Frontend</a><br>
-<a href="/backup/statsdir.tar">Backend</a><br>
+<a href="http://rkuipers.mine.nu/statsbackup/statsdir.tar">Backend</a><br>
 <a href="crontab">Cronjobs</a>
