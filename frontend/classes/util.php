@@ -350,6 +350,29 @@ function getChangeImage($change, $ts)
 	return $image . $change;
 }
 
+function getDPCHChangeImage($change, $ts)
+{
+        if ( $change == 0 )
+        {
+                $image = '<img src="http://www.tweakers.net/g/dpc/stil.gif" alt="yellow">';
+                $change = '';
+        }
+        elseif ( $change < 0 )
+        {
+                $image = '<img src="http://www.tweakers.net/g/dpc/down.gif" alt="red">';
+                $change = $change - ( $change * 2 );
+        }
+        elseif ( $change > 0 )
+	{
+		if ( ( $change + ( $pos + $dlow ) ) > $ts->getPrevDayFlushCount() )
+			$change = "";
+                $image = '<img src="http://www.tweakers.net/g/dpc/up.gif" alt="green">';
+	}
+	
+	return '(' . $image . $change . ')';
+}
+
+
 function openColorTable($width = 0)
 {
 	$output = "";
