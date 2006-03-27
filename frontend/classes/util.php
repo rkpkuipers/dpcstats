@@ -350,3 +350,147 @@ function getChangeImage($change, $ts)
 	
 	return $image . $change;
 }
+
+function openColorTable($width = 0)
+{
+	$output = "";
+	if ( $width == 0 )
+		$output .= '<table class="outerTable">';
+	else
+		$output .= '<table class="outerTable" width="' . $width . '%">';
+	$output .= '<tr><td>';
+	$output .= '<table class="innerTable">';
+	$output .= '<tr><td>';
+	return $output;
+}
+
+function closeTable($times)
+{
+	for($i=0;$i<$times;$i++)
+		echo '</td></tr></table>';
+}
+
+function getCurrentDate($prefix)
+{
+	return date("Y-m-d");
+/*
+        switch($prefix)
+        {
+	case 'fah':
+		return date("Y-m-d", strtotime("+30 minutes", date("U")));
+		break;
+	default:
+		return date("Y-m-d");
+        }*/
+}
+
+function getPrevDate($datum = '')
+{
+	if ( $datum == '' )
+		$datum = date("Y-m-d");
+	
+	$datum = date("U", strtotime($datum));
+
+        return date("Y-m-d", strtotime("-1 day", $datum));
+}
+
+function getPrevWeek($datum = '')
+{
+	if ( $datum == '' )$datum = date("Y-m-d");
+	return date("Y-m-d", strtotime("-1 week" ));
+}
+
+function trBackground($row)
+{
+	if ( $row == 0 )
+		return '<tr class="firstCell">';
+	elseif ( $row % 2 == 0 )
+		return '<tr class="evenCell">';
+	else
+		return '<tr class="oddCell">';
+}
+
+function trBackgroundColor($row)
+{
+        if ( $row == 0 )
+                return 'EAEAEA';
+        elseif ( $row % 2 == 0 )
+                return 'C0C0C0';
+        else
+                return 'CCCCCC';
+}
+
+
+function checkTable($tabel)
+{
+	if (
+            ( $tabel != 'memberOffset' ) &&
+            ( $tabel != 'teamOffset' ) &&
+            ( $tabel != 'subteamOffset' ) &&
+	    ( $tabel != 'memberOffsetDaily' ) &&
+	    ( $tabel != 'subteamOffsetDaily' ) &&
+	    ( $tabel != 'teamOffsetDaily' ) &&
+	    ( $tabel != 'individualOffset' ) &&
+	    ( $tabel != 'individualOffsetDaily') 
+   	   )die('Onjuiste tabel opgegeven');
+}
+
+function getURL($link)
+{
+	global $project, $tabel, $naam, $datum, $debug, $mode;
+
+	$href = 'index.php?mode=' . $mode . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) .
+		'&amp;datum=' . $datum . '&amp;prefix=' . $project->getPrefix();
+	
+	if ( $debug == 1 )
+		$href .= '&amp;debug=1';
+	
+	return '<a href="' . $href . '">' . $link . '</a>';
+}
+
+function getCompleteURL($link, $naam = '', $mode = '', $tabel = '', $prefix = '', $team = '')
+{
+	if ( $naam == '' )
+		global $naam;
+	
+	if ( $mode == '' )
+		global $mode;
+	
+	if ( $tabel == '' )
+		global $tabel;
+	
+	if ( $prefix == '' )
+	{
+		global $project;
+		$prefix = $project->getPrefix();
+	}
+	
+	if ( $team == '' )
+		global $team;
+	
+	if ( $datum == '' )
+		global $datum;
+	
+	$href = 'index.php?mode=' . $mode . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) .
+		'&amp;datum=' . $datum . '&amp;team=' . rawurlencode($team) . '&amp;prefix=' . $prefix;
+
+	if ( $debug == 1 )
+		$href .= '&amp;debug=1';
+	
+	return '<a href="' . $href . '">' . $link . '</a>';
+}
+
+function getURLByDate($link, $datum)
+{
+	#return getCompleteURL($link, $datum = $datum);
+	global $project, $tabel, $naam, $debug, $mode;
+
+	$href = 'index.php?mode=' . $mode . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) .
+		'&amp;datum=' . $datum . '&amp;prefix=' . $project->getPrefix();
+	
+	if ( $debug == 1 )
+		$href .= '&amp;debug=1';
+	
+	return '<a href="' . $href . '">' . $link . '</a>';
+}
+?>
