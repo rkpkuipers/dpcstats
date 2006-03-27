@@ -1,7 +1,6 @@
 <?php
 
 $db = new DataBase();
-$db->connect();
 
 # Globals
 
