@@ -75,7 +75,7 @@ function getTop5Table($project, $ml, $headertext, $tabel)
 	if ( count($mbs) > 0 )
 	{
 		echo '<table width="180px" cellspacing="0" cellpadding="0">';
-		echo '<tr cellspacing="0" cellpadding="0" style="background-image:url(images/left-banner.jpg); height:45px">';
+		echo '<tr style="background-image:url(images/left-banner.jpg); height:45px">';
 		echo '<td align="center" style="font-size:13px; font-weight:bold; color:#FFFFFF; cursor:pointer;" ';
 		echo 'onclick=\'window.open("' . $baseUrl . '/index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '", "_self")\'>' . $headertext . '</td>';
 		echo '</tr></table>';
@@ -109,7 +109,6 @@ function getTop5Table($project, $ml, $headertext, $tabel)
 			echo '<td width="30px" align="center">' . $image . '' . $change . '</td>';
 			echo '<td><a href="index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '">' . $mbs[$i]->getShortName() . '</a></td>';
 			echo '</tr>';
-			echo '<tr>';
 		}
 		
 		echo '</table><br>';
@@ -121,7 +120,7 @@ function getShoutboxTable($db, $project, $tabel, $team)
 	global $baseUrl;
 
 	echo '<table width="180px" cellspacing="0" cellpadding="0">';
-	echo '<tr cellspacing="0" cellpadding="0" style="background-image:url(images/left-banner.jpg); height:45px">';
+	echo '<tr style="background-image:url(images/left-banner.jpg); height:45px">';
 	echo '<td align="center" style="font-size:13px; font-weight:bold; color:#FFFFFF; cursor:pointer;" ';
 	echo 'onclick=\'window.open("' . $baseUrl . '/index.php?mode=shoutbox", "_self")\'>Shoutbox</td>';
 	echo '</tr></table>';

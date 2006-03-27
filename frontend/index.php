@@ -282,7 +282,7 @@ function change( imageName, newSource )
 		echo '<td style="background-image:url(images/spacer.3.jpg); width:100" class="cellHeight5"></td>';
 ?>
       <td colspan="2"><img name="spacer.4.jpg" src="images/spacer.4.jpg" width="103" class="cellHeight5" alt=""></td>
-      <td><a href="?<? echo http_build_query(array('mode' => 'Graph', 'tabel' => 'teamOffset', 'prefix' => $project->getPrefix(), 'teams' => array($project->getTeamName()), 'timespan' => 14)); ?>" onmouseover="change('index_r4_c8', 'images/Out-Graph-blue.jpg')" 
+      <td><a href="?mode=Graph&amp;tabel=teamOffset&amp;prefix=<? echo $project->getPrefix(); ?>&amp;teams[0]=<? echo rawurlencode($project->getTeamName()); ?>" onmouseover="change('index_r4_c8', 'images/Out-Graph-blue.jpg')" 
 <? 
 	if ( $mode == 'Graph' )
 	{ 
@@ -420,18 +420,18 @@ function change( imageName, newSource )
 	echo getMenuHeader('Project Links', 'plActive');
 	if ( $plActive == 'on' )
 	{
-		echo getMenuEntry('Average Production', $baseUrl . '/index.php?mode=avgProd&tabel=memberOffset&prefix=' . $project->getPrefix(), $link++);
+		echo getMenuEntry('Average Production', $baseUrl . '/index.php?mode=avgProd&amp;tabel=memberOffset&amp;prefix=' . $project->getPrefix(), $link++);
 		echo getMenuEntry('DPC FAQ', 'http://www.dutchpowercows.org/faqs/' . $project->getWDOPrefix(), $link++);
 		echo getMenuEntry('DPCH', 'http://www.dutchpowercows.org/dpch/' . $project->getWDOPrefix(), $link++);
 		echo trBackground($link++) . $dotPrefix . '<td align="left">Official <a href="' . $project->getForum() . '">Forum</a> & ' . 
 				'<a href="' . $project->getWebsite() . '">Website</a><td></tr>';
-		echo getMenuEntry('Member Graphs', $baseUrl . '/index.php?mode=memberGraphs&prefix=' . $project->getPrefix(), $link++);
+		echo getMenuEntry('Member Graphs', $baseUrl . '/index.php?mode=memberGraphs&amp;prefix=' . $project->getPrefix(), $link++);
 		echo getMenuEntry('Monthly Stats', $baseUrl . '/index.php?mode=monthlyStats&amp;prefix=' . $project->getPrefix(), $link++);
 	}
 	echo getMenuHeader('Old Projects', 'opActive');
 	if ( $opActive == 'on' )
 	{
-		echo getMenuEntry('Find a Drug', $baseUrl . '/index.php?mode=Members&tabel=memberOffset&amp;naam=&amp;datum=2006-01-26' . 
+		echo getMenuEntry('Find a Drug', $baseUrl . '/index.php?mode=Members&amp;tabel=memberOffset&amp;naam=&amp;datum=2006-01-26' . 
 				'&amp;prefix=fad', $link++);
 	}
 	echo '</table>';
@@ -458,7 +458,7 @@ function change( imageName, newSource )
 	}
 ?>
        <table width="180px" cellspacing="0" cellpadding="0">
-        <tr cellspacing="0" cellpadding="0" style="background-image:url(images/left-banner.jpg); height:45px">
+        <tr style="background-image:url(images/left-banner.jpg); height:45px">
          <td align="center" style="font-size:13px; font-weight:bold; color:#FFFFFF;">Search</td>
 	</tr>
        </table>					
