@@ -1,6 +1,5 @@
 <?        
 	require('../classes.php');
-	include('../include.php');
 
 if ( isset($HTTP_GET_VARS['tabel']) )
         $tabel = $HTTP_GET_VARS['tabel'];

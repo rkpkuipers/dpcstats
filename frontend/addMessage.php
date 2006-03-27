@@ -1,7 +1,6 @@
 <?
 
 include ('classes.php');
-include ('include.php');
 
 function parseCode($text)
 {

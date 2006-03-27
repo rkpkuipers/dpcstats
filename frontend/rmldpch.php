@@ -1,7 +1,6 @@
 <?
 
 include ('classes.php');
-include ('include.php');
 
 if ( isset($_GET['project']) )
 	$prefix = $_GET['project'];

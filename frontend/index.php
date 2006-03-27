@@ -1,6 +1,5 @@
 <? 
 require('classes.php');
-require('include.php');
 
 $start_time = microtime();
 

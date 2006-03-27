@@ -1,6 +1,5 @@
 <?
 include('../classes.php');
-include('../include.php');
 
 if ( isset($_REQUEST['nick']) )
 {

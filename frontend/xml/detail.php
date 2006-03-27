@@ -1,7 +1,6 @@
 <?
 
 include ('../classes.php');
-include ('../include.php');
 
 # Tabel from which the data is retrieved
 if ( isset($_REQUEST['tabel']) )

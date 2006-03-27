@@ -1,6 +1,5 @@
 <?php
 include('../classes.php');
-include('../include.php');
 
 include ($jpgraphdir . "/jpgraph.php");
 include ($jpgraphdir . "/jpgraph_bar.php");
