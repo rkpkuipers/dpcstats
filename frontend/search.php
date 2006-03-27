@@ -6,38 +6,35 @@ function searchTabel($tabel, $prefix, $string, $tabelNaam)
 	global $db;
 
         $query = 'SELECT 
-			DISTINCT(naam) 
+			DISTINCT(naam) ' .
+			($tabel=='subteamOffset'?',subteam':'') . '
 		FROM 
 			' . $prefix . '_' . $tabel . ' 
 		WHERE 
 			naam LIKE \'%' . $string . '%\'
 		AND	dag = \'' . date("Y-m-d") . '\'';
+
         $result = $db->selectQuery($query);
 
-	if ( mysql_affected_rows() > 0 )
+	if ( $db->getNumAffectedRows() > 0 )
 	{
 		echo openColorTable(63);
-		echo '<b>' . mysql_affected_rows() . ' matching ' .$tabelNaam . ' found</b>';
+		echo '<b>' . $db->getNumAffectedRows() . ' matching ' .$tabelNaam . ' found</b>';
         	echo '<hr>';
 		echo '<table width="100%">';
 		$pos = 1;
-	        while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
+	        while ($line = $db->fetchArray($result))
 		{
 			echo trBackground($pos++);
-        	        echo '<td><a href="index.php?mode=detail&tabel=' . $tabel . 'Daily&amp;prefix=' . $prefix . '&amp;naam=' . $line['naam'] . '">' . $line['naam'] . '</a></td>';
+        	        echo '<td><a href="index.php?mode=detail&tabel=' . $tabel . 'Daily&amp;prefix=' . $prefix . 
+				'&amp;naam=' . rawurlencode($line['naam']) . '&amp;team=' . rawurlencode($line['subteam']) . 
+				'">' . $line['naam'] . '</a></td>';
 			echo '</tr>';
 		}
 		echo '</table>';
 		closeTable(2);
 		echo '<br>';
 	}
-	/*
-	else
-	{
-		echo '<b>No matching ' . $tabelNaam . ' found</b>';
-		echo '<hr>';
-	}
-	*/
 }
 
 if ( trim($searchString) == '' )
@@ -59,12 +56,16 @@ else
 	searchTabel('subteamOffset', 'rah', $searchString, 'R@H Subteam Members');
 	searchTabel('memberOffset', 'sah', $searchString, 'S@H Members');
 	searchTabel('subteamOffset', 'sah', $searchString, 'S@H Subteam Members');
+	searchTabel('teamOffset', 'sah', $searchString, 'S@H Teams');
 	searchTabel('memberOffset', 'ufl', $searchString, '&micro;Fluid Members');
 	searchTabel('teamOffset', 'ufl', $searchString, '&micro;Fluid Teams');
 	searchTabel('subteamOffset', 'ufl', $searchString, '&micro;Fluid Subteam Members');
 	searchTabel('teamOffset', 'fah', $searchString, 'F@H Teams');
 	searchTabel('memberOffset', 'fah', $searchString, 'F@H Members');
 	searchTabel('subteamOffset', 'fah', $searchString, 'F@H Subteam Members');
+	searchTabel('memberOffset', 'smp', $searchString, 'Simap Members');
+	searchTabel('subteamOffset', 'smp', $searchString, 'Simap Subteam Members');
+	searchTabel('teamOffset', 'smp', $searchString, 'Simap Teams');
 }
 
 ?>
