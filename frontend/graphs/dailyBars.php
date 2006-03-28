@@ -24,13 +24,13 @@ if ( isset($_POST['prefix']) )
 
 function createLine($naam, $no, $tabel)
 {
-        global $lines, $dagen, $timespan, $project;
+        global $lines, $dagen, $timespan, $project, $db;
 
         $query = 'SELECT dag, daily FROM ' . $project->getPrefix() . '_' . $tabel . ' WHERE naam = \'' . $naam . '\' ORDER BY dag DESC LIMIT ' . $timespan;
-        $result = mysql_query($query);
+        $result = $db->selectQuery($query);
         $pos = 0;
         $lines[$no] = array();
-        while ( $line = mysql_fetch_array($result) )
+        while ( $line = $db->fetchArray($result) )
         {
                 $lines[$no][$pos] = $line['daily'];
                 $pos++;

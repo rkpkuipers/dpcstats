@@ -70,7 +70,7 @@ if ( ( $poster != '' ) && ( $bericht != '' ) )
 			\'' . parseCode(htmlspecialchars($bericht)) . '\', 
 			\''. date("Y-m-d-H:i:s") . '\',
 			\'' . $email . '\')';
- 	mysql_query($query);
+ 	$db->selectQuery($query);
  }
 
  // page ending rejumping 2 index.

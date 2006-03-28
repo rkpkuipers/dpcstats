@@ -21,16 +21,16 @@ else
 
 function getNodeNames()
 {
-	global $teams;
+	global $teams, $db;
 
 	$tmpNamen = array();
 
 	for($i=0;$i<count($teams);$i++)
 	{
 		$query = 'SELECT description FROM nodeOwners WHERE nodeid = ' . $teams[$i];
-		$result = mysql_query($query);
-		if ( $line = mysql_fetch_row($result) )
-			$tmpNamen[$i] = $line['0'];
+		$result = $db->selectQuery($query);
+		if ( $line = $db->fetchArray($result) )
+			$tmpNamen[$i] = $line['description'];
 	}
 	return $tmpNamen;	
 }

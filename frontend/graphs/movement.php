@@ -13,13 +13,13 @@ $dagen = array();
 $timespan = 14;
 function createLine($tabel)
 {
-	global $lines, $dagen, $project;
+	global $lines, $dagen, $project, $db;
 
 	$query = 'SELECT COUNT(naam) AS leden, dag FROM ' . $project->getPrefix() . '_memberOffset where dag>\'' . date("Y-m-d", strtotime("-1 month" )) . '\' group by dag';
-	$result = mysql_query($query);
+	$result = $db->selectQuery($query);
 	$pos = 0;
 	$lines = array();
-	while ( $line = mysql_fetch_array($result) )
+	while ( $line = $db->fetchArray($result) )
 	{
 		$lines[$pos] = $line['leden'];
 		#$pos++;

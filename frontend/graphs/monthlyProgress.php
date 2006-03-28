@@ -26,7 +26,7 @@ else
 
 function getMonthOutput($tabel, $naam, $maand)
 {
-	global $project;
+	global $project, $db;
 
 	$query = 'SELECT 
 			MAX((cands+daily)) AS output
@@ -36,10 +36,10 @@ function getMonthOutput($tabel, $naam, $maand)
 			naam = \'' . $naam . '\' 
 		AND 
 			dag like \'' . $maand . '-%\'';
-	$result = mysql_query($query);
+	$result = $db->selectQuery($query);
 
-	if ( $line = mysql_fetch_row($result) )
-		$output = $line[0];
+	if ( $line = $db->fetchArray($result) )
+		$output = $line['output'];
 	else
 		$output = 0;
 

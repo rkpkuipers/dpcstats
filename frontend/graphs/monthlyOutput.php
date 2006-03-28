@@ -26,13 +26,13 @@ else
 
 function getMonthOutput($tabel, $naam, $maand)
 {
-	global $project;
+	global $project, $db;
 	$query = 'SELECT SUM(daily) AS output FROM ' . $project->getPrefix() . '_' . $tabel . ' WHERE naam = \'' . $naam . '\' AND dag LIKE \'' . $maand . '-%\'';
 	echo $query;
-	$result = mysql_query($query);
+	$result = $db->selectQuery($query);
 
-	if ( $line = mysql_fetch_row($result) )
-		$output = $line[0];
+	if ( $line = $db->fetchArray($result) )
+		$output = $line['output'];
 	else
 		$output = 0;
 

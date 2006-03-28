@@ -63,7 +63,7 @@ class ChangeLog
 		
 		$result = $this->db->selectQuery($query);
 		
-		while ( $line = mysql_fetch_array($result) )
+		while ( $line = $this->db->fetchArray($result) )
 		{
 			$this->changes[] = new Change($line['dag'], $line['entry'], $line['author'], $line['version']);
 		}

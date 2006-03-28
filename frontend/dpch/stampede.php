@@ -380,9 +380,9 @@ if ( $mi->getFlush() > 0 )
 			naam = \'' . $project->getTeamName() . '\' 
 		AND 	tabel = \'' . $project->getPrefix() . '_teamOffset\'';
 		
-	$result = mysql_query($query);
+	$result = $db->selectQuery($query);
 	
-	if ( $line = mysql_fetch_array($result) )
+	if ( $line = $db->fetchArray($result) )
 	{
                 $lineArray = array($line['avgMonthly']);
 	}
@@ -479,9 +479,9 @@ $page .= '<a href="' . $project->getForum() . '">' . $project->getDpchTitle() . 
 $page .= '<a href="http://www.dutchpowercows.org/doc.php?id=316">DPCH Suggestiepagina</a><br />';
 
 $query = 'SELECT link, name FROM links WHERE prefix = \'' . $project->getPrefix() . '-dpch\'';
-$result = mysql_query($query);
+$result = $db->selectQuery($query);
 $dpchLinks = array();
-while ( $line = mysql_fetch_array($result) )
+while ( $line = $db->fetchArray($result) )
 {
 	$page .= '<a href="' . $line['link'] . '">' . $line['name'] . '</a><br />';
 	$dpchLinks[$line['name']] = $line['link'];
@@ -764,9 +764,9 @@ if ( $mi->getFlush() > 0 )
 			naam = \'' . $project->getTeamName() . '\' 
 		AND 	tabel = \'' . $project->getPrefix() . '_teamOffset\'';
 		
-	$result = mysql_query($query);
+	$result = $db->selectQuery($query);
 	
-	if ( $line = mysql_fetch_array($result) )
+	if ( $line = $db->fetchArray($result) )
 	{
                 $lineArray = array($line['avgMonthly']);
 	}

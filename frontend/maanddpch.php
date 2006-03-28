@@ -253,7 +253,7 @@ if ( $mi->getFlush() > 0 )
 			naam = \'Dutch Power Cows\' 
 		AND 	tabel = \'' . $project . '_teamOffset\'';
 		
-	$result = mysql_query($query);
+	$result = $db->selectQuery($query);
 	
 	if ( $line = $db->fetchArray($result) )
 	{

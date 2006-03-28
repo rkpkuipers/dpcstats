@@ -208,7 +208,7 @@ class MemberList
 
 		$result = $this->db->selectQuery($query);
 
-		while ( $line = mysql_fetch_array($result, MYSQL_ASSOC) )
+		while ( $line = $this->db->fetchArray($result) )
 		{
 			$this->members[] = new DetailedMember($db,
 							      $this->tabel,
@@ -254,7 +254,7 @@ class MemberList
                 LIMIT   ' . $this->listOffset . ',' . $this->listsize;
                 $result = $this->db->selectQuery($query);
 
-                while ( $line = mysql_fetch_array($result, MYSQL_ASSOC) )
+                while ( $line = $this->db->fetchArray($result) )
                 {
                         $tmpMemberID = count($this->members);
                         $this->members[$tmpMemberID] = new DetailedMember($this->db,
@@ -299,7 +299,7 @@ class MemberList
 
                 $result = $this->db->selectQuery($query);
 
-                while ( $line = mysql_fetch_array($result, MYSQL_ASSOC) )
+                while ( $line = $this->db->fetchArray($result) )
                 {
                         $tmpMemberID = count($this->members);
                         $this->members[$tmpMemberID] = new DetailedMember($db,
@@ -387,7 +387,7 @@ class MemberList
                 $result = $this->db->selectQuery($query);
 
 		$this->members = array();
-                while ( $line = mysql_fetch_array($result, MYSQL_ASSOC) )
+                while ( $line = $this->db->fetchArray($result, MYSQL_ASSOC) )
                 {
                         $this->members[] = new DetailedMember($db,
 							      $this->tabel,
@@ -436,7 +436,7 @@ class MemberList
                 $result = $this->db->selectQuery($query);
 
                 $this->members = array();
-                while ( $line = mysql_fetch_array($result, MYSQL_ASSOC) )
+                while ( $line = $this->db->fetchArray($result, MYSQL_ASSOC) )
                 {
                         $tmpMemberID = count($this->members);
                         $this->members[$tmpMemberID] = new DetailedMember($this->db,
@@ -482,7 +482,7 @@ class MemberList
                 $result = $this->db->selectQuery($query);
 
                 $this->members = array();
-                while ( $line = mysql_fetch_array($result, MYSQL_ASSOC) )
+                while ( $line = $this->db->fetchArray($result, MYSQL_ASSOC) )
                 {
                         $tmpMemberID = count($this->members);
                         $this->members[$tmpMemberID] = new DetailedMember($this->db,
@@ -632,7 +632,7 @@ class MemberInfo
 			AND	n.prefix = \'' . $this->prefix . '\'';
 		$result = $this->db->selectQuery($query);
 
-		if ( $line = mysql_fetch_array($result) )
+		if ( $line = $this->db->fetchArray($result) )
 			$this->nodes = $line['0'];
 
 		$query = 'SELECT 

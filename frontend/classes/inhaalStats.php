@@ -68,7 +68,7 @@ class TOThreats extends TOSuperClass
                 $result = $this->db->selectQuery($query);
 
 		$members = array();
-                while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
+                while ($line = $this->db->fetchArray($result, MYSQL_ASSOC))
                 {
 			$members[] = array(	'name' => $line['naam'], 
 						'days' => $line['dagen'], 
@@ -119,7 +119,7 @@ class Opertunities extends TOSuperClass
 		$result = $this->db->selectQuery($query);
 
 		$members = array();
-		while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
+		while ($line = $this->db->fetchArray($result, MYSQL_ASSOC))
 		{
 			$members[] = array(	'name' => $line['naam'], 
 						'days' => $line['dagen'], 

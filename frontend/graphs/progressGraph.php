@@ -34,7 +34,7 @@ $sDate = date("Y-m-d", strtotime("-" . $timespan . " days"));
 
 function createLine($naam, $no, $tabel)
 {
-	global $lines, $dagen, $timespan, $prefix;
+	global $lines, $dagen, $timespan, $prefix, $db;
 
 	$query = 'SELECT 
 			dag, 
@@ -47,10 +47,10 @@ function createLine($naam, $no, $tabel)
 			dag DESC 
 		LIMIT 	' . $timespan;
 	#echo $query;
-	$result = mysql_query($query);
+	$result = $db->selectQuery($query);
 	$pos = 0;
 	$lines[$no] = array();
-	while ( $line = mysql_fetch_array($result) )
+	while ( $line = $db->fetchArray($result) )
 	{
 		$lines[$no][$pos] = $line['cands'];
 		$pos++;

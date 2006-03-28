@@ -21,7 +21,7 @@ $query = 'SELECT
 	($tabel=='subteamOffset'?'AND subteam = \'' . $team . '\'':'') . ' 
 	ORDER BY 
 		' . $sort . ' DESC';
-$result = mysql_query($query);
+$result = $db->selectQuery($query);
 
 echo '<center>';
 echo openColorTable();

@@ -14,7 +14,7 @@ $timespan = 14;
 
 function createLine($tabel)
 {
-	global $lines, $dagen, $project;
+	global $lines, $dagen, $project, $db;
 
 	$query = 'SELECT 
 			distinct(dag) 
@@ -25,14 +25,14 @@ function createLine($tabel)
 		ORDER BY 
 			dag';
 	#echo $query;
-	$result = mysql_query($query);
+	$result = $db->selectQuery($query);
 
 	$pos = 0;
 	$lines = array();
-	while($line = mysql_fetch_array($result))
+	while($line = $db->fetchArray($result))
 	{
 		$cntQuery = 'SELECT 
-				COUNT(naam) 
+				COUNT(naam)AS cntNaam
 			FROM 
 				movement 
 			WHERE 
@@ -40,9 +40,9 @@ function createLine($tabel)
 			AND 	tabel=\'' . $project->getPrefix() . '_memberOffset\' 
 			AND 	datum = \'' . $line['dag'] . '\'';
 #		echo $cntQuery;
-		$cntResult = mysql_query($cntQuery);
-		if ( $cntline = mysql_fetch_row($cntResult) )
-			$lines[$pos] = $cntline[0];
+		$cntResult = $db->selectQuery($cntQuery);
+		if ( $cntline = $db->fetchArray($cntResult) )
+			$lines[$pos] = $cntline['cntNaam'];
 		else
 			$lines[$pos] = 0;
 

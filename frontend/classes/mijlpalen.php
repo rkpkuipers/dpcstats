@@ -80,7 +80,7 @@ class MijlPalen
 	        
 		$result =$this->dbase->selectQuery($query);
 		
-		while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
+		while ($line = $this->dbase->fetchArray($result, MYSQL_ASSOC)) 
 		{
                 	$tmpNaam = '';
                 	if ( ( $this->tabel == 'nodeOffset' ) && ( strlen($line['description']) > 0 ) )

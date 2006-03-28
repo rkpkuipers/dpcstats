@@ -47,7 +47,7 @@ class FlushList
 		
 		$result = $this->db->selectQuery($query);
 		
-		while ( $line = mysql_fetch_array($result) )
+		while ( $line = $this->db->fetchArray($result) )
 		{
 			$this->flushList[] = new FlushMember($line['naam'], $line['daily'], $line['dag']);
 		}
@@ -71,7 +71,7 @@ class FlushList
 		$result = $this->db->selectQuery($query);
 
 		$names = array();
-		while ( ( $line = mysql_fetch_array($result) ) && ( count($names) < 30 ) )
+		while ( ( $line = $this->db->fetchArray($result) ) && ( count($names) < 30 ) )
 		{
 			if ( ! isset($names[$line['naam']]) )
 			{

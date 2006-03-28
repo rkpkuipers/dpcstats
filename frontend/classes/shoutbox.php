@@ -109,7 +109,7 @@ class ShoutBox
 			
                 $result = $this->db->selectQuery($query);
 
-		while ( $line = mysql_fetch_array($result) )
+		while ( $line = $this->db->fetchArray($result) )
                 {
 			$this->messages[] = new Message($line['naam'], 
 									      $this->parseSmiley($line['bericht']), 

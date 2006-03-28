@@ -337,7 +337,7 @@ function change( imageName, newSource )
 	$result = $db->selectQuery($query);
 
 	echo '.';
-	while ( $line = mysql_fetch_array($result) )
+	while ( $line = $db->fetchArray($result) )
 	{
 		echo ': <a href="index.php?prefix=' . $line['project'] . '&amp;datum=' . $datum . '"><b>' . $line['description'] . '</b></a> :';
 	}

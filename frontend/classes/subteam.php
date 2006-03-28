@@ -39,7 +39,7 @@ class SubTeam
 
 		$result = $this->db->selectQuery($query);
 
-		while ( $line = mysql_fetch_array($result) )
+		while ( $line = $this->db->fetchArray($result) )
 			$this->members[] = $line['member'];
 	}
 
@@ -71,7 +71,7 @@ class SubTeam
 
 		$result = $this->db->selectQuery($query);
 
-		if ( $line = mysql_fetch_array($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		{
 			$this->leader = $line[0];
 			$this->email = $line[1];
@@ -90,7 +90,7 @@ class SubTeam
 
 		$result = $this->db->selectQuery($query);
 
-		if ( $line = mysql_fetch_array($result) )
+		if ( $line = $this->db->fetchArray($result) )
 			$this->updateTeam();
 		else
 			$this->insertTeam();

@@ -64,7 +64,7 @@ class Project
 			AND	p.project = \'' . $this->prefix . '\'';
 		$result = $this->db->selectQuery($query);
 
-		if ( $line = mysql_fetch_array($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		{
 			$this->description = $line['0'];
 			$this->wuName = $line['1'];
@@ -99,7 +99,7 @@ class Project
 
 		$result = $this->db->selectQuery($query);
 
-		if ( $line = mysql_fetch_array($result) )
+		if ( $line = $this->db->fetchArray($result) )
 			$this->lastPageUpdate = $line['lastPageUpdate'];
 		else
 			$this->lastPageUpdate = 'Unknown';
@@ -134,7 +134,7 @@ class Project
 				LIMIT 	1';
 			$result = $this->db->selectQuery($query);
 
-			if ( $line = mysql_fetch_array($result) )
+			if ( $line = $this->db->fetchArray($result) )
 				$this->teamRank = $line['currRank'];
 		}
 
@@ -155,7 +155,7 @@ class Project
 				LIMIT	1';
 			$result = $this->db->selectQuery($query);
 
-			if ( $line = mysql_fetch_array($result) )
+			if ( $line = $this->db->fetchArray($result) )
 				$this->teamDaily = $line['dailypos'];
 		}
 

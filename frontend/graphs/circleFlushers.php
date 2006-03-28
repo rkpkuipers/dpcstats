@@ -37,7 +37,7 @@ $query = 'SELECT
 $result = $db->selectQuery($query);
 
 $total = $ts->getDailyOutput();
-while ( $line = mysql_fetch_array($result) )
+while ( $line = $db->fetchArray($result) )
 {
 	$percentage = number_format($line['daily'] / ( $ts->getDailyOutput() / 100 ), 2, ',', '.');
 	#echo $percentage . ' ' . $line['daily'] . '<br>';

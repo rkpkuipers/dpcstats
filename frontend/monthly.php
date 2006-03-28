@@ -41,7 +41,7 @@ $ts->gather();
 
 {
 	$query = 'SELECT distinct(dag) FROM ' . $project->getPrefix() . '_' . $tabel . ' WHERE dag LIKE \'%-01\' ORDER BY dag';
-	$result = mysql_query($query);
+	$result = $db->selectQuery($query);
 
 	echo '<br>';
 	echo '<form name="maandselectie" action="index.php">';
@@ -50,7 +50,7 @@ $ts->gather();
 	echo '<input type="hidden" name="tabel" value="' . $tabel . '">';
 	echo '<input type="hidden" name="prefix" value="' . $project->getPrefix() . '">';
 	echo '&nbsp;<select name="maand" class="Textfield">';
-	while ($line = mysql_fetch_array($result) )
+	while ($line = $db->fetchArray($result) )
 	{
 		echo '<option value=';
 		if 	( 

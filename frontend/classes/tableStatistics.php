@@ -23,7 +23,7 @@ class STTableStatistics extends TableStatistics
 			AND	of.subteam = \'' . $this->subteam . '\'';
 
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		        $this->dailyFlushers = $line['0'];
 		else
 			$this->dailyFlushers = 0;
@@ -36,7 +36,7 @@ class STTableStatistics extends TableStatistics
 			AND	of.subteam = \'' . $this->subteam . '\'';
 
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		        $this->totalMembers = $line['0'];
 		else
 			$this->totalMembers = 0;
@@ -53,7 +53,7 @@ class STTableStatistics extends TableStatistics
 				of.dag';
 				
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		        $this->dailyOutput = $line['0'];
 		else
 		        $this->dailyOutput = 0;
@@ -65,7 +65,7 @@ class STTableStatistics extends TableStatistics
 			WHERE 	of.dag = \'' . $this->datum . '\'
 			AND	of.subteam = \'' . $this->subteam . '\'';
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result))
+		if ( $line = $this->db->fetchArray($result))
 		        $this->totalOutput = $line['0'];
 		else
 			$this->totalOutput = 0;
@@ -79,7 +79,7 @@ class STTableStatistics extends TableStatistics
                         AND     daily > 0
                         AND	of.subteam = \'' . $this->subteam . '\'';
                 $result = $this->db->selectQuery($query);
-                if ( $line = mysql_fetch_row($result) )
+                if ( $line = $this->db->fetchArray($result) )
                         $this->prevDayFlushCount = $line['0'];
                 else
                         $this->prevDayFlushCount = 0;
@@ -118,7 +118,7 @@ class TableStatistics
 			AND NOT	of.daily = 0';
 
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		        $this->dailyFlushers = $line['0'];
 		else
 			$this->dailyFlushers = 0;
@@ -130,7 +130,7 @@ class TableStatistics
 			WHERE 	dag = \'' . $this->datum . '\'';
 
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		        $this->totalMembers = $line['0'];
 		else
 			$this->totalMembers = 0;
@@ -145,7 +145,7 @@ class TableStatistics
 			GROUP BY 
 				dag';
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		        $this->dailyOutput = $line['0'];
 		else
 		        $this->dailyOutput = 0;
@@ -156,7 +156,7 @@ class TableStatistics
 				' . $this->tabel . ' 
 			WHERE 	dag = \'' . $this->datum . '\'';
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result))
+		if ( $line = $this->db->fetchArray($result))
 		        $this->totalOutput = $line['0'];
 		else
 			$this->totalOutput = 0;
@@ -169,7 +169,7 @@ class TableStatistics
                                 dag = \'' . getPrevDate($this->datum) . '\'
                         AND     daily > 0';
                 $result = $this->db->selectQuery($query);
-                if ( $line = mysql_fetch_row($result) )
+                if ( $line = $this->db->fetchArray($result) )
                         $this->prevDayFlushCount = $line['0'];
                 else
                         $this->prevDayFlushCount = 0;
@@ -232,7 +232,7 @@ class TableStatisticsYearly
 				of.dag >= \'' . $this->datum . '\' 
 			AND	daily > 0';
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		        $this->dailyFlushers = $line['0'];
 		else
 			$this->dailyFlushers = 0;
@@ -243,7 +243,7 @@ class TableStatisticsYearly
 				' . $this->tabel . ' 
 			WHERE 	dag >= \'' . $this->datum . '\'';
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		        $this->totalMembers = $line['0'];
 		else
 			$this->totalMembers = 0;
@@ -256,7 +256,7 @@ class TableStatisticsYearly
 			WHERE 	dag >= \'' . date("Y-m-01", strtotime($this->datum)) . '\' 
 			AND 	daily>0';
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		        $this->dailyOutput = $line['0'];
 		else
 		        $this->dailyOutput = 0;
@@ -268,7 +268,7 @@ class TableStatisticsYearly
 				' . $this->tabel . ' 
 			WHERE 	dag = \'' . $this->datum . '\'';
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result))
+		if ( $line = $this->db->fetchArray($result))
 		        $this->totalOutput = $line['0'];
 		else
 			$this->totalOutput = 0;
@@ -326,7 +326,7 @@ class TableStatisticsMonthly
 				of.dag >= \'' . $this->datum . '\' 
 			AND	daily > 0';
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		        $this->dailyFlushers = $line['0'];
 		else
 			$this->dailyFlushers = 0;
@@ -337,7 +337,7 @@ class TableStatisticsMonthly
 				' . $this->tabel . ' 
 			WHERE 	dag >= \'' . $this->datum . '\'';
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		        $this->totalMembers = $line['0'];
 		else
 			$this->totalMembers = 0;
@@ -350,7 +350,7 @@ class TableStatisticsMonthly
 			WHERE 	dag >= \'' . date("Y-m-01", strtotime($this->datum)) . '\'';
 
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result) )
+		if ( $line = $this->db->fetchArray($result) )
 		        $this->dailyOutput = $line['0'];
 		else
 		        $this->dailyOutput = 0;
@@ -362,7 +362,7 @@ class TableStatisticsMonthly
 				' . $this->tabel . ' 
 			WHERE 	dag = \'' . $this->datum . '\'';
 		$result = $this->db->selectQuery($query);
-		if ( $line = mysql_fetch_row($result))
+		if ( $line = $this->db->fetchArray($result))
 		        $this->totalOutput = $line['0'];
 		else
 			$this->totalOutput = 0;
