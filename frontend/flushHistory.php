@@ -32,7 +32,7 @@ echo '<td align="center"><a href="index.php?mode=history&amp;tabel=' . $tabel . 
 echo '<td align="center">Total</td>';
 echo '</tr>';
 $pos = 0;
-while($line = mysql_fetch_array($result))
+while($line = $db->fetchArray($result))
 {
 	echo trBackground($pos++);
 	echo '<td width="110">' . $line['dag'] . '</td>';

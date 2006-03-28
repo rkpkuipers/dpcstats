@@ -60,13 +60,13 @@ function switchArray($data)
 			dag DESC 
 		LIMIT 	' . $timespan;
 
-	$result = mysql_query($query);
+	$result = $db->selectQuery($query);
 	
 	$pos = 0;
 	$maxValue = 0;
 	$datax = array();
 	$datay = array();
-	while ( $line = mysql_fetch_array( $result, MYSQL_ASSOC ) )
+	while ( $line = $db->fetchArray($result) )
 	{
 		$datax[$pos] = date("d-m-Y", strtotime($line['dag']));
 		$datay[$pos] = $line['daily'];
@@ -130,4 +130,6 @@ function switchArray($data)
 
         // Finally send the graph to the browser
         $graph->Stroke();
+
+	$db->disconnect();
 ?>

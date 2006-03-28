@@ -37,13 +37,13 @@ function getNodeNames()
 
 function createLine($naam, $no, $tabel)
 {
-        global $lines, $dagen, $timespan;
+        global $lines, $dagen, $timespan, $db;
 
         $query = 'SELECT dag, daily FROM ' . $tabel . ' WHERE naam = \'' . $naam . '\' ORDER BY dag DESC LIMIT ' . $timespan;
-        $result = mysql_query($query);
+        $result = $db->selectQuery($query);
         $pos = 0;
         $lines[$no] = array();
-        while ( $line = mysql_fetch_array($result) )
+        while ( $line = $db->fetchArray($result) )
         {
                 $lines[$no][$pos] = $line['daily'];
                 $pos++;
@@ -89,4 +89,6 @@ $graph->legend->Pos(0.05,0.5,"right","center");
 // Display the graph
 $graph->Stroke();
 echo '<hr>';
+
+$db->disconnect();
 ?>
