@@ -108,7 +108,7 @@ $query = 'SELECT
 		dag DESC
 	LIMIT	7';
 
-$result = mysql_query($query);
+$result = $db->selectQuery($query);
 
 echo '<b>Flush History</b>';
 echo '<hr>';
@@ -117,7 +117,7 @@ $i = 0;
 $output = "";
 $output .= '<table width="100%">';
 $output .= '<tr><td width="33%">Date</td><td width="33%">Output</td><td width="33%">Daily Rank</td></tr>';
-while ( $line = mysql_fetch_array($result, MYSQL_ASSOC) )
+while ( $line = $db->fetchArray($result) )
 {
 
         $output .= trBackground($i);
@@ -134,9 +134,9 @@ $output .= '</table>';
 $output .= '<hr>';
 $output .= '<div align="right"><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '&amp;naam=' . $naam . '">More...</a></div>';
 $query = 'select avgDaily from averageproduction where naam=\'' . $naam . '\'';
-$result = mysql_query($query);
+$result = $db->selectQuery($query);
 $avgDaily = 0;
-if ( $line = mysql_fetch_array($result) )
+if ( $line = $db->fetchArray($result) )
 {
         $avgDaily += $line['avgDaily'];
 }
@@ -171,8 +171,8 @@ $query = 'SELECT
 	WHERE 
 		naam = \'' . $mi->getRealNaam() .'\' 
 	AND 	tabel = \'' . $project->getPrefix() . '_' . $tabel . '\'';
-$result = mysql_query($query);
-if ( $line = mysql_fetch_array($result) )
+$result = $db->selectQuery($query);
+if ( $line = $db->fetchArray($result) )
 {
 	if ( $line['avgDaily'] == $line['avgMonthly'] )
 		$lineArray = array($line['avgDaily']);

@@ -22,7 +22,7 @@ $query = 'SELECT
 		dag LIKE \'' . $prevMonth . '%\'';
 $result = $db->selectQuery($query);
 
-if ( $line = mysql_fetch_array($result) )
+if ( $line = $db->fetchArray($result) )
 	$maand = $line['0'];
 else
 	die('Error determining month');
@@ -255,7 +255,7 @@ if ( $mi->getFlush() > 0 )
 		
 	$result = mysql_query($query);
 	
-	if ( $line = mysql_fetch_array($result) )
+	if ( $line = $db->fetchArray($result) )
 	{
                 $lineArray = array($line['avgMonthly']);
 	}

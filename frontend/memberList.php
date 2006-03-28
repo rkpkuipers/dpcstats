@@ -6,17 +6,17 @@ $members = array();
 
 $query = 'SELECT DISTINCT(naam) FROM d2ol_memberOffset';
 $result = $db->selectQuery($query);
-while ( $line = mysql_fetch_array($result) )
+while ( $line = $db->fetchArray($result) )
 	$members[] = $line['naam'];
 
 $query = 'SELECT DISTINCT(naam) FROM tsc_memberOffset';
 $result = $db->selectQuery($query);
-while ( $line = mysql_fetch_array($result) )
+while ( $line = $db->fetchArray($result) )
 	$members[] = $line['naam'];
 
 $query = 'SELECT DISTINCT(naam) FROM tsc_memberOffsetBackup';
 $result = $db->selectQuery($query);
-while ( $line = mysql_fetch_array($result) )
+while ( $line = $db->fetchArray($result) )
         $members[] = $line['naam'];
 
 $members = array_unique($members);
