@@ -642,7 +642,6 @@ class MemberInfo
 			' . $this->tabel . ' 
 		WHERE 
 			naam = \'' . $this->naam . '\'
-		AND	dag = \'' . $this->datum . '\'
 		' . $where . '
 		ORDER BY 
 			daily DESC 
