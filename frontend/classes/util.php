@@ -354,19 +354,41 @@ function getDPCHChangeImage($change, $ts)
 {
         if ( $change == 0 )
         {
-                $image = '<img src="http://www.tweakers.net/g/dpc/stil.gif" alt="yellow">';
+                $image = '<img src="http://tadah.mine.nu/images/y.gif" alt="yellow">';
                 $change = '';
         }
         elseif ( $change < 0 )
         {
-                $image = '<img src="http://www.tweakers.net/g/dpc/down.gif" alt="red">';
+                $image = '<img src="http://tadah.mine.nu/images/r.gif" alt="red">';
                 $change = $change - ( $change * 2 );
         }
         elseif ( $change > 0 )
 	{
 		if ( ( $change + ( $pos + $dlow ) ) > $ts->getPrevDayFlushCount() )
 			$change = "";
-                $image = '<img src="http://www.tweakers.net/g/dpc/up.gif" alt="green">';
+                $image = '<img src="http://tadah.mine.nu/images/g.gif" alt="green">';
+	}
+	
+	return '(' . $image . $change . ')';
+}
+
+function getRMLDPCHChangeImage($change, $ts)
+{
+        if ( $change == 0 )
+        {
+                $image = '[img]http://www.tweakers.net/g/dpc/stil.gif[/img]';
+                $change = '';
+        }
+        elseif ( $change < 0 )
+        {
+                $image = '[img]http://www.tweakers.net/g/dpc/down.gif[/img]';
+                $change = $change - ( $change * 2 );
+        }
+        elseif ( $change > 0 )
+	{
+		if ( ( $change + ( $pos + $dlow ) ) > $ts->getPrevDayFlushCount() )
+			$change = "";
+                $image = '[img]http://www.tweakers.net/g/dpc/up.gif[/img]';
 	}
 	
 	return '(' . $image . $change . ')';

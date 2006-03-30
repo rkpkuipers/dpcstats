@@ -1,6 +1,6 @@
 <?
 
-include ('classes.php');
+include ('/var/www/tstats/classes.php');
 
 if ( isset($_GET['project']) )
 	$prefix = $_GET['project'];
