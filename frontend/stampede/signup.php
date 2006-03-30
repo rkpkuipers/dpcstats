@@ -1,5 +1,6 @@
 <?
 include('../classes.php');
+/*
 
 if ( isset($_REQUEST['nick']) )
 {
@@ -51,14 +52,17 @@ if ( ( $nick != '' ) && ( $team != '' ) )
 	}
 	$db->selectQuery($query);
 }
-
+*/
 ?>
 
 <html>
 <body>
 <center><h2>Stampede V - Inschrijfformulier</h2></center>
 <hr>
-Join een team door je nick te selecteren uit de Nickname lijst en het team wat je wilt joinen uit het Stampede team lijstje. Van team veranderen kan door nogmaals je nick te selecteren en dan het nieuwe team in de tweede box. Op dezelfde manier kan de inschrijving ongedaan gemaakt worden door No Team te joinen. <s>De inschrijving sluit om middernacht op 28 maart, het formulier zal dan uitgeschakeld worden.</s> De sluiting van de inschrijvingstermijn is uitgesteld naar 30 maart.
+Vanaf middernacht 30 Maart is de inschrijving voor iedereen gesloten. Vanaf 7 April is er een nieuwe mogelijkheid om lid te worden van een stampede team.
+<?
+/*
+Join een team door je nick te selecteren uit de Nickname lijst en het team wat je wilt joinen uit het Stampede team lijstje. Van team veranderen kan door nogmaals je nick te selecteren en dan het nieuwe team in de tweede box. Op dezelfde manier kan de inschrijving ongedaan gemaakt worden door No Team te joinen. <s>De inschrijving sluit om middernacht op 28 maart, het formulier zal dan uitgeschakeld worden.</s> De sluiting van de inschrijvingstermijn is uitgesteld naar 30 maart. 
 <hr>
 <center>
 <form name="addMember" action="signup.php" method="post">
@@ -120,6 +124,8 @@ while ( $line = $db->fetchArray($result) )
 </tr>
 </table>
 </form>
+*/?>
+<center>
 <hr>
 <table>
 <tr><td><h3>Huidige Indeling</h3></td></tr>
