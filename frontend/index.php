@@ -521,7 +521,7 @@ function change( imageName, newSource )
        <a href="mailto:speedkikker@planet.nl">Contact</a> 
        | <a href="http://rkuipers.mine.nu/traffic/awstats.tadah.mine.nu.html">Site Traffic</a>
        | &copy;opyright 2004-2006 TaDaH
-       | <a href="?mode=changelog">Version <? echo $project->getVersion() . ' (' . date("d-m-Y", strtotime($project->getLastPageUpdate())) . ')';?></a> 
+       | <a href="http://rkuipers.mine.nu/viewcvs/tstats">Revision <? echo $project->getVersion() . ' (' . date("d-m-Y", strtotime($project->getLastPageUpdate())) . ')';?></a> 
        | <? $duration = microtime_diff($start_time, microtime()); $duration = sprintf("%0.3f", $duration);?> Page loaded in <?=$duration?> seconds
       </td>
       <td><img src="images/spacer.gif" width="1" height="34" alt=""></td>
