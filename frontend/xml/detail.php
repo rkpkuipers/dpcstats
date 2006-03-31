@@ -24,6 +24,11 @@ if ( isset($_REQUEST['naam']) )
 else
 	die('Detail mode requires a name');
 
+if ( isset($_REQUEST['team']) )
+	$team = $_REQUEST['team'];
+else
+	$team = 'Dutch Power Cows';
+
 if ( ! is_array($naam) )
 	$naam = array($naam);
 
@@ -31,7 +36,7 @@ $xmlstring = '<detail>' . "\n";
 
 for($i=0;$i<count($naam);$i++)
 {
-	$mi = new MemberInfo($naam[$i], $prefix . '_' . $tabel, $datum, $prefix, $tabel);
+	$mi = new MemberInfo($db, $naam[$i], $prefix . '_' . $tabel, $datum, $prefix, $tabel, $team);
 	
 	$xmlstring .= '<user>' . "\n";
 	$xmlstring .= '<name>' . $naam[$i] . '</name>' . "\n";
@@ -57,6 +62,20 @@ for($i=0;$i<count($naam);$i++)
 	$xmlstring .= '<credits>' . $mi->getLargestFlush() . '</credits>' . "\n";
 	$xmlstring .= '<date>' . $mi->getLargestFlushDate() . '</date>' . "\n";
 	$xmlstring .= '</largestflush>' . "\n";
+
+	$xmlstring .= '<flushhistory>' . "\n";
+
+	$flushHistory = $mi->getFlushHistory(7);
+	foreach($flushHistory as $flush)
+	{
+		$xmlstring .= '<flush>' . "\n";
+		$xmlstring .= '<date>' . $flush['date'] . '</date>' . "\n";
+		$xmlstring .= '<credits>' . $flush['flush'] . '</credits>' . "\n";
+		$xmlstring .= '<flushrank>' . $flush['flushrank'] . '</flushrank>' . "\n";
+		$xmlstring .= '</flush>' . "\n";
+	}
+	$xmlstring .= '</flushhistory>' . "\n";
+	unset($flushHistory);
 	
 	$xmlstring .= '</user>' . "\n";
 }
