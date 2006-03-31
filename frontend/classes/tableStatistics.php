@@ -313,7 +313,6 @@ class TableStatisticsMonthly
 		$this->datum = $datum;
 		
 		$this->db = new DataBase();
-		$this->db->connect();
 	}
 
 	function gather()
