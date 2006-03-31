@@ -2,12 +2,12 @@
 {
         background-color: #EAEAEA;
 	background: #EAEAEA;
-        border-color: #005FA9;
-        border-style: solid;
-        border-width: 1px;
-        color: #005FA9;
-        font-size: 8pt;
-        font-family: verdana,arial,sans-serif;
+	border-color: #005FA9;
+	border-style: solid;
+	border-width: 1px;
+	color: #005FA9;
+	font-size: 8pt;
+	font-family: verdana,arial,sans-serif;
 }
 
 body
@@ -44,18 +44,6 @@ a
 a:hover
 {
         color:#6F6F6F
-}
-
-.cap
-{
-        font-weight:bold;
-        text-decoration:underline;
-}
-
-.menu
-{
-        color: #000000;
-        text-decoration: none;
 }
 
 .outerTable
