@@ -94,42 +94,25 @@ echo '<tr><td align="left">Flush Date</td><td align=right><a href="index.php?tab
 <?php
 echo openColorTable();
 
-$query = 'SELECT
-		naam,
-		daily,
-		dailypos,
-		dag
-	FROM
-		' . $project->getPrefix() . '_' . $tabel . '
-	WHERE
-		naam = \'' . $naam . '\'' . 
-	( $tabel=='subteamOffset'?'AND subteam = \'' . $team . '\'':'') . '
-	ORDER BY
-		dag DESC
-	LIMIT	7';
-
-$result = $db->selectQuery($query);
+$flushHistory = $mi->getFlushHistory(7);
 
 echo '<b>Flush History</b>';
 echo '<hr>';
 
-$i = 0;
 $output = "";
 $output .= '<table width="100%">';
 $output .= '<tr><td width="33%">Date</td><td width="33%">Output</td><td width="33%">Daily Rank</td></tr>';
-while ( $line = $db->fetchArray($result) )
+$pos = 0;
+foreach($flushHistory as $flush)
 {
-
-        $output .= trBackground($i);
-        $output .= '<td width="60%">';
-	$output .= date("d-m-Y", strtotime($line['dag']));
-	$output .= '</td>';
-        $output .= '<td align=right width="40%">';
-	$output .= number_format($line['daily'], 0, ',', '.') . '</td>';
-	$output .= '<td>' . $line['dailypos'] . '</td>';
-        $output .= '</tr>';
-        $i++;
+	$output .= trBackground($pos++);
+	$output .= '<td width="60%">' . date("d-m-Y", strtotime($flush['date'])) . '</td>';
+	$output .= '<td align="right" width="40%">' . number_format($flush['flush'], 0, ',', '.') . '</td>';
+	$output .= '<td>' . $flush['flushrank'] . '</td>';
+	$output .= '</tr>';
 }
+unset($pos);
+
 $output .= '</table>';
 $output .= '<hr>';
 $output .= '<div align="right"><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '&amp;naam=' . $naam . '">More...</a></div>';

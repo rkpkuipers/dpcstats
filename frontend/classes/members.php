@@ -701,6 +701,36 @@ class MemberInfo
 		}
 	}
 
+	function getFlushHistory($timeperiod)
+	{
+		$query = 'SELECT
+				naam,
+				daily,
+				dailypos,
+				dag
+			FROM
+				' . $this->tabel . '
+			WHERE
+				naam = \'' . $this->naam . '\'' .
+			( $this->speedTabel=='subteamOffset'?'AND subteam = \'' . $this->team . '\'':'') . '
+			ORDER BY
+				dag DESC ' .
+			( $timeperiod==0?'':'LIMIT ' . $timeperiod);
+
+		$result = $this->db->selectQuery($query);
+
+		$flush = array();
+		while ( $line = $this->db->fetchArray($result) )
+		{
+			$flush[] = array(	'name' => $line['naam'],
+						'flush' => $line['daily'],
+						'flushrank' => $line['dailypos'],
+						'date' => $line['dag']);
+		}
+
+		return $flush;
+	}
+
 	function getAvgDailyPos()
 	{
 		return $this->avgDailyPos;
