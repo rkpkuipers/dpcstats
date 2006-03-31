@@ -537,4 +537,38 @@ function getURLByDate($link, $datum)
 	
 	return '<a href="' . $href . '">' . $link . '</a>';
 }
+
+function parseRML($rml)
+{
+	$search = array(	'/\[b\](.*?)\[\/b\]/is',
+				'/\[table(.*?)\](.*?)\[\/table\]/is',
+				'/\[tr(.*?)\](.*?)\[\/tr\]/is',
+				'/\[tr\](.*?)\[\/tr\]/is',
+				'/\[td(.*?)\](.*?)\[\/td\]/is',
+				'/\[td\](.*?)\[\/td\]/is',
+				'/\[img\](.*?)\[\/img\]/is',
+				'/\[url="(.*?)\](.*?)\[\/url\]/is',
+				'/\[red\](.*?)\[\/red\]/is',
+				'/\[blue\](.*?)\[\/blue\]/is',
+				'/' . chr(10) . '/is',
+				'/\[small\](.*?)\[\/small\]/is');
+
+	$replace = array(	'<b>\1</b>',
+				'<table\1>\2</table>',
+				'<tr\1>\2</tr>',
+				'<tr>\1</tr>',
+				'<td\1>\2</td>',
+				'<td>\1</td>',
+				'<img src="\1" alt="">',
+				'<a href="\1">\2</a>',
+				'<span style="color:#FF0000">\1</span>',
+				'<span style="color:#0000FF">\1</span>',
+				'<br>',
+				'\1');
+
+	$data = preg_replace($search, $replace, $rml);
+	$data = preg_replace($search, $replace, $data);
+
+	return $data;
+}
 ?>
