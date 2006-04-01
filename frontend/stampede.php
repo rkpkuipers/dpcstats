@@ -127,7 +127,7 @@ for($i=0;$i<count($mbs);$i++)
 		echo '</td>';
 	}
 	echo '<td align="left" width="305">';
-	echo getCompleteURL($mbs[$i]->getName(), $naam = $mbs[$i]->getName(), $mode = 'detail');
+	echo getURL(array('link' => $mbs[$i]->getName(), 'name' => $mbs[$i]->getName(), 'mode' => 'detail'));
 	echo '</td>';
 
 	echo '<td align="right" width="70" class="altScore">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
@@ -363,7 +363,7 @@ if ( count($mpl) > 0 )
 	{
 		echo trBackground($i);
 		echo '<td align="left" width="70%">';
-		echo getCompleteUrl($mpl[$i]->getName(), $mode = 'detail', $naam = $mpl[$i]->getName());
+		echo getURL(array('link' => $mpl[$i]->getName(), 'mode' => 'detail', 'name' => $mpl[$i]->getName()));
 		echo '</td>';
 		echo '<td align="right" width="30%">' . number_format($mpl[$i]->getCredits(), 0, ',', '.') . '</td>';
 		echo '</tr>';

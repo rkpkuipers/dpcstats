@@ -12,11 +12,11 @@ function getCalender($datum)
 	echo '<table width="100%" cellpadding="1" cellspacing="1">';
 	echo trBackground(0);
 	echo '<td align="center" colspan="7">';
-	echo getURLByDate('&lt;&lt;', date("Y-m-d", strtotime("-1 month", strtotime($datum)))) . ' ';
-	echo getURLByDate('&lt;', date("Y-m-d", strtotime("-1 day", strtotime($datum)))) . ' ';
+	echo getURL(array('link' => '&lt;&lt;', 'date' => date("Y-m-d", strtotime("-1 month", strtotime($datum))))) . ' ';
+	echo getURL(array('link' => '&lt;', 'date' => date("Y-m-d", strtotime("-1 day", strtotime($datum))))) . ' ';
 	echo date("M Y", strtotime($datum)) . '&nbsp;';
-	echo getURLByDate('&gt;', date("Y-m-d", strtotime("+1 day", strtotime($datum)))) . ' ';
-	echo getURLByDate('&gt;&gt;', date("Y-m-d", strtotime("+1 month", strtotime($datum))));
+	echo getURL(array('link' => '&gt;', 'date' => date("Y-m-d", strtotime("+1 day", strtotime($datum))))) . ' ';
+	echo getURL(array('link' => '&gt;&gt;', 'date' => date("Y-m-d", strtotime("+1 month", strtotime($datum))))) . ' ';
 	echo '</td></tr>';
 	echo '<tr bgcolor="#CBCBCB"><td align="center">Z</td><td align="center">M</td><td align="center">D</td><td align="center">W</td><td align="center">D</td><td align="center">V</td><td align="center">Z</td></tr>';
 	$pos = date("w", strtotime(date("Y-m-1", strtotime($datum))));
@@ -107,7 +107,10 @@ function getTop5Table($project, $ml, $headertext, $tabel)
 			
 			echo '<td width="15px">' . ( $i + 1 ) . '.</td>';
 			echo '<td width="30px" align="center">' . $image . '' . $change . '</td>';
-			echo '<td><a title="Contestant Details for ' . $mbs[$i]->getName() . '" href="index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '">' . $mbs[$i]->getShortName() . '</a></td>';
+			echo '<td>';
+			echo getURL(array('link' => $mbs[$i]->getShortName(), 'mode' => 'detail', 'name' => $mbs[$i]->getName(), 
+				'table' => $tabel, 'title' => 'Contestant details for ' . $mbs[$i]->getName()));
+			echo '</td>';
 			echo '</tr>';
 		}
 		
@@ -252,7 +255,7 @@ function getMemberList($prefix, $tabel, $datum = 0,$order = 'naam')
 	{
 #		echo '<tr>';
 		echo trBackground($row++);
-		echo '<td align="center">' . getCompleteURL($line['naam'], $naam = $line['naam']) . '</td>';
+		echo '<td align="center">' . getURL(array('link' => $line['naam'], 'name' => $line['naam'])) . '</td>';
 		echo '</tr>';
 	}
 	echo '</table>';
@@ -479,63 +482,57 @@ function checkTable($tabel)
    	   )die('Onjuiste tabel opgegeven');
 }
 
-function getURL($link)
+function getURL($array)
 {
-	global $project, $tabel, $naam, $datum, $debug, $mode;
-
-	$href = 'index.php?mode=' . $mode . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) .
-		'&amp;datum=' . $datum . '&amp;prefix=' . $project->getPrefix();
-	
-	if ( $debug == 1 )
-		$href .= '&amp;debug=1';
-	
-	return '<a href="' . $href . '">' . $link . '</a>';
-}
-
-function getCompleteURL($link, $naam = '', $mode = '', $tabel = '', $prefix = '', $team = '')
-{
-	if ( $naam == '' )
+	if ( ! isset($array['name']) )
 		global $naam;
+	else
+		$naam = $array['name'];
+	$naam = rawurlencode($naam);
 	
-	if ( $mode == '' )
+	if ( ! isset($array['mode']) )
 		global $mode;
+	else
+		$mode = $array['mode'];
 	
-	if ( $tabel == '' )
+	if ( ! isset($array['team']) )
+		global $team;
+	else
+		$team = $array['team'];
+	
+	if ( ! isset($array['date']) )
+		global $datum;
+	else
+		$datum = $array['date'];
+	
+	if ( ! isset($array['tabel']) )
 		global $tabel;
+	else
+		$tabel = $array['table'];
 	
-	if ( $prefix == '' )
+	if ( ! isset($array['prefix']) )
 	{
 		global $project;
 		$prefix = $project->getPrefix();
 	}
+	else
+		$prefix = $array['prefix'];
 	
-	if ( $team == '' )
-		global $team;
-	
-	if ( $datum == '' )
-		global $datum;
-	
+	$link = $array['link'];
+	$title = $array['title'];
+
 	$href = 'index.php?mode=' . $mode . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) .
 		'&amp;datum=' . $datum . '&amp;team=' . rawurlencode($team) . '&amp;prefix=' . $prefix;
-
+	
 	if ( $debug == 1 )
 		$href .= '&amp;debug=1';
 	
-	return '<a href="' . $href . '">' . $link . '</a>';
+	return '<a title="' . $title . '" href="' . $href . '">' . $link . '</a>';
 }
 
 function getURLByDate($link, $datum)
 {
-	#return getCompleteURL($link, $datum = $datum);
-	global $project, $tabel, $naam, $debug, $mode;
-
-	$href = 'index.php?mode=' . $mode . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) .
-		'&amp;datum=' . $datum . '&amp;prefix=' . $project->getPrefix();
-	
-	if ( $debug == 1 )
-		$href .= '&amp;debug=1';
-	
-	return '<a href="' . $href . '">' . $link . '</a>';
+	return getURL(array('link' => $link, 'date' => $datum));
 }
 
 function parseRML($rml)
