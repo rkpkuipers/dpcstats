@@ -138,7 +138,7 @@ for($i=0;$i<count($mbs);$i++)
 		echo '<td>';
 		if ( $mbs[$i]->isSubteam() )
 		{
-			echo '<a href="index.php?mode=Subteam&amp;team=' . rawurlencode($mbs[$i]->getName()) . '&amp;datum=' . $datum . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset"><img src="images/members.gif" alt="subteam"></a>';
+			echo '<a title="Subteam Stats for ' . $mbs[$i]->getName() . '" href="index.php?mode=Subteam&amp;team=' . rawurlencode($mbs[$i]->getName()) . '&amp;datum=' . $datum . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset"><img src="images/members.gif" alt="subteam"></a>';
 		}
 		else
 			echo '<img src="images/blank.gif" height=11 width="10" alt="">';
@@ -157,7 +157,7 @@ for($i=0;$i<count($mbs);$i++)
 	if ( $low == $rankPage )
 		echo $mbs[$i]->getCurrRank();
 	else
-		echo '<a href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;dlow=0&amp;datum=' . $datum . '&amp;low=' . $rankPage . '&amp;hl=' . $naam . '#Ranking">' . $mbs[$i]->getCurrRank() . '</a>';
+		echo '<a title="Overall ranking highlighting ' . $mbs[$i]->getName() . '" href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;dlow=0&amp;datum=' . $datum . '&amp;low=' . $rankPage . '&amp;hl=' . $naam . '#Ranking">' . $mbs[$i]->getCurrRank() . '</a>';
 	
 	echo ')</td>';
 	

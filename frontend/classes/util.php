@@ -107,7 +107,7 @@ function getTop5Table($project, $ml, $headertext, $tabel)
 			
 			echo '<td width="15px">' . ( $i + 1 ) . '.</td>';
 			echo '<td width="30px" align="center">' . $image . '' . $change . '</td>';
-			echo '<td><a href="index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '">' . $mbs[$i]->getShortName() . '</a></td>';
+			echo '<td><a title="Contestant Details for ' . $mbs[$i]->getName() . '" href="index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '">' . $mbs[$i]->getShortName() . '</a></td>';
 			echo '</tr>';
 		}
 		
