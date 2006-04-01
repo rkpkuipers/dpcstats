@@ -1,6 +1,5 @@
 <?
 include('../classes.php');
-/*
 
 if ( isset($_REQUEST['nick']) )
 {
@@ -14,14 +13,6 @@ if ( isset($_REQUEST['team']) )
 
 if ( ( $nick != '' ) && ( $team != '' ) )
 {
-	if ( $team == 'No Team' )
-	{
-		$query = 'DELETE FROM
-				stampedeParticipants
-			WHERE
-				name = \'' . $nick . '\'';
-	}
-	else
 	{
 		$query = 'SELECT
 				(cands+daily)AS offset
@@ -52,17 +43,13 @@ if ( ( $nick != '' ) && ( $team != '' ) )
 	}
 	$db->selectQuery($query);
 }
-*/
 ?>
 
 <html>
 <body>
 <center><h2>Stampede V - Inschrijfformulier</h2></center>
 <hr>
-Vanaf middernacht 30 Maart is de inschrijving voor iedereen gesloten. Vanaf 7 April is er een nieuwe mogelijkheid om lid te worden van een stampede team.
-<?
-/*
-Join een team door je nick te selecteren uit de Nickname lijst en het team wat je wilt joinen uit het Stampede team lijstje. Van team veranderen kan door nogmaals je nick te selecteren en dan het nieuwe team in de tweede box. Op dezelfde manier kan de inschrijving ongedaan gemaakt worden door No Team te joinen. <s>De inschrijving sluit om middernacht op 28 maart, het formulier zal dan uitgeschakeld worden.</s> De sluiting van de inschrijvingstermijn is uitgesteld naar 30 maart. 
+Vanaf 2 April tot 27 April is het mogelijk om een willekeurig stampedeteam te joinen. Om de competitie zo leuk mogelijk te houden wordt iedereen aangemoedigd om zich bij een van de lager geklasseerde teams aan te sluiten. Het veranderen van team of jezelf uitschrijven is in principe niet mogelijk, mocht er toch een dringende reden zijn waarom je van team wilt veranderen kan je hierover contact opnemen met Elteor via FDO of IRC. Lid worden van een stampede team kan door je nick te selecteren uit de Nickname lijst en het team wat je wilt joinen uit het Stampede team lijstje. 
 <hr>
 <center>
 <form name="addMember" action="signup.php" method="post">
@@ -81,6 +68,7 @@ $query = '(
 	WHERE
 		mo.dag = \'' . date("Y-m-d") . '\'
 	AND 	mo.naam NOT IN ( SELECT DISTINCT(subteam) FROM rah_subteamOffset WHERE dag = \'' . date("Y-m-d") . '\')
+	AND	mo.naam NOT IN ( SELECT name FROM stampedeParticipants )
 	)
 	UNION
 	(
@@ -90,6 +78,7 @@ $query = '(
 		rah_subteamOffset
 	WHERE
 		dag = \'' . date("Y-m-d") . '\'
+	AND	CONCAT(subteam, \'~\', naam) NOT IN ( SELECT name FROM stampedeParticipants )
 	)
 	ORDER BY
 		naam';
@@ -106,7 +95,6 @@ while ( $line = $db->fetchArray($result) )
 </td>
 <td>
 <select name="team">
-<option>No Team</option>
 <option>Bearhunters</option>
 <option>eXtreme Stampers</option>
 <option>Furious Dutch Cows</option>
@@ -124,7 +112,6 @@ while ( $line = $db->fetchArray($result) )
 </tr>
 </table>
 </form>
-*/?>
 <center>
 <hr>
 <table>
