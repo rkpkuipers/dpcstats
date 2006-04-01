@@ -339,7 +339,7 @@ function change( imageName, newSource )
 	echo '.';
 	while ( $line = $db->fetchArray($result) )
 	{
-		echo ': <a href="index.php?prefix=' . $line['project'] . '&amp;datum=' . $datum . '"><b>' . $line['description'] . '</b></a> :';
+		echo ': <a href="index.php?prefix=' . $line['project'] . '&amp;datum=' . $datum . ($line['project']=='sp5'?'&amp;mode=Stampede':'&amp;mode=Members') . '"><b>' . $line['description'] . '</b></a> :';
 	}
 	echo '.';
 ?>
