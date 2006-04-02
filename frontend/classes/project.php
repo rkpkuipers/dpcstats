@@ -92,29 +92,11 @@ class Project
 			$this->srInterval = 60;
 		}
 
-/*
-		$query = 'SELECT
-				MAX(dag)AS lastPageUpdate
-			FROM
-				changelog';
-
-		$result = $this->db->selectQuery($query);
-
-		if ( $line = $this->db->fetchArray($result) )
-			$this->lastPageUpdate = $line['lastPageUpdate'];
-		else
-			$this->lastPageUpdate = 'Unknown';
-			*/
-
 		$data = exec('time svn info file:///home/rkuipers/svrepos/frontend/ | grep -e Revision -e "Last Changed Date" | tr "\n" " "');
 
 		$info = preg_split("/\:|\ /", $data);
-#		print_r($info2);
 		$this->version = $info[2];
 		$this->lastPageUpdate = $info[7];
-
-		
-	#	$this->version = '2.1.5';
 	}
 
 	function getCurrentDate()
