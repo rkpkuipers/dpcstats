@@ -138,7 +138,10 @@ for($i=0;$i<count($mbs);$i++)
 		echo '<td>';
 		if ( $mbs[$i]->isSubteam() )
 		{
-			echo '<a title="Subteam Stats for ' . $mbs[$i]->getName() . '" href="index.php?mode=Subteam&amp;team=' . rawurlencode($mbs[$i]->getName()) . '&amp;datum=' . $datum . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset"><img src="images/members.gif" alt="subteam"></a>';
+			echo getURL(array('link' => '<img src="images/members.gif" alt="subteam">',
+					'mode' => 'Subteam', 'team' => $mbs[$i]->getName(),
+					'date' => $datum, 'prefix' => $project->getPrefix(),
+					'title' => 'Subteam stats for ' . $mbs[$i]->getName()));
 		}
 		else
 			echo '<img src="images/blank.gif" height=11 width="10" alt="">';
@@ -146,7 +149,7 @@ for($i=0;$i<count($mbs);$i++)
 		echo '</td>';
 	}
 	echo '<td align="left" width="305">';
-	echo getURL(array('link' => $mbs[$i]->getName(), 'name' => $mbs[$i]->getName(), 'mode' => 'detail'));
+	echo getURL(array('link' => $mbs[$i]->getName(), 'name' => $mbs[$i]->getName(), 'mode' => 'detail', 'title' => 'Details for ' . $mbs[$i]->getName()));
 	echo '</td>';
 
 	echo '<td align="right" width="70" class="altScore">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
@@ -284,14 +287,23 @@ for($i=0;$i<count($mbs);$i++)
 	echo '<td align="right" width="75">(' . number_format($mbs[$i]->getCredits() / ( $ts->getTotalOutput() / 100 ), 2, ',', '.') . ' %)</td>';
 	if ( $ml->getSubteamCount() > 0 )
 	{
+		echo '<td>';
 		if ( $mbs[$i]->isSubteam() )
-			echo '<td><a href="index.php?mode=Subteam&amp;team=' . rawurlencode($mbs[$i]->getName()) . '&amp;datum=' . $datum . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset"><img src="images/members.gif" alt="subteam"></a></td>';
+		{
+			echo getURL(array('link' => '<img src="images/members.gif" alt="subteam">',
+				'mode' => 'Subteam', 'team' => $mbs[$i]->getName(), 'date' => $datum,
+				'prefix' => $project->getPrefix(), 'table' => 'subteamOffset',
+				'title' => 'Subteam stats for ' . $mbs[$i]->getName()));
+		}
 		else
-			echo '<td><img src="images/blank.gif" height="11" width="10" alt="blank"></td>';
+			echo '<img src="images/blank.gif" height="11" width="10" alt="blank">';
+		echo '</td>';
 	}
 
 	echo '<td align="left" width="300">';
-	echo '<a href="index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '&amp;team=' . rawurlencode($team) . '">' . $mbs[$i]->getName() . '</a></td>';
+	echo getURL(array('link' => $mbs[$i]->getName(), 'prefix' => $project->getPrefix(), 
+			'table' => $tabel, 'date' => $datum, 'name' => $mbs[$i]->getName(), 'team' => $team,
+			'mode' => 'detail', 'title' => 'Details for ' . $mbs[$i]->getName()));
 	echo '<td align="right" width="65" class="altScore">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
 	echo '<td align="right" width="35">(' . $mbs[$i]->getFlushRank() . ')</td>';
 	echo '<td><input class="TextField" type="checkbox" name="teams[]" value="' . $mbs[$i]->getName() . '"></td>';
@@ -323,7 +335,8 @@ if ( count($mpl) > 0 )
 	{
 		echo trBackground($i);
 		echo '<td align="left" width="70%">';
-		echo getURL(array('link' => $mpl[$i]->getName(), 'mode' => 'detail', 'name' => $mpl[$i]->getName()));
+		echo getURL(array('link' => $mpl[$i]->getName(), 'mode' => 'detail', 
+			'name' => $mpl[$i]->getName(), 'title' => 'Details for ' . $mpl[$i]->getName()));
 		echo '</td>';
 		echo '<td align="right" width="30%">' . number_format($mpl[$i]->getCredits(), 0, ',', '.') . '</td>';
 		echo '</tr>';
@@ -374,8 +387,11 @@ if ( count($joins) > 0 )
         for($i=0;$i<count($joins);$i++)
         {
                 echo trBackground($i+1);
-                echo '<td align="left" width="70%"><a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . 
-'&amp;naam=' . rawurlencode($joins[$i]['name']) . '&amp;team=' . rawurlencode($team) . '">' . $joins[$i]['name'] . '</a></td>';
+		echo '<td align="left" width="70%">';
+		echo getURL(array('link' => $joins[$i]['name'], 'date' => $datum, 'team' => $team, 
+			'table' => $tabel, 'prefix' => $project->getPrefix(), 'mode' => 'detail',
+			'name' => $joins[$i]['name'], 'title' => 'Details for ' . $joins[$i]['name']));
+		echo '</td>';
                 echo '<td align="right" width="30%">' . number_format($joins[$i]['credits'], 0, ',', '.') . '</td>';
                 echo '</tr>';
         }

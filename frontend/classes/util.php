@@ -28,7 +28,11 @@ function getCalender($datum)
 		if ( date("Y-m-" . str_pad($i, 2, 0, STR_PAD_LEFT), strtotime("-1 month", strtotime($datum))) > date("Y-m-d") )
 			echo '<td style="background-color:#CBCBCB" bgcolor="#CBCBCB" align="center">' . $i . '</td>';
 		else
-			echo '<td style="background-color:' . trBackgroundColor($i) . '" bgcolor="' . trBackgroundColor($i) . '" align="center">' . getURLByDate($i, date("Y-m-" . str_pad($i, 2, 0, STR_PAD_LEFT), strtotime("-1 month", strtotime($datum)))) . '</td>';
+		{
+			echo '<td style="background-color:' . trBackgroundColor($i) . '" bgcolor="' . trBackgroundColor($i) . '" align="center">';
+			echo getURL(array('link' => $i, 'date' => date("Y-m-" . str_pad($i, 2, 0, STR_PAD_LEFT), strtotime("-1 month", strtotime($datum)))));
+			echo '</td>';
+		}
 	}
 
 	for($i=1;$i<=date("t", strtotime($datum));$i++)
@@ -49,7 +53,7 @@ function getCalender($datum)
 			echo $i;
 		else
 		{
-			echo getURLByDate($i, $datum = date("Y-m-" . str_pad($i, 2, 0, STR_PAD_LEFT), strtotime($datum)));
+			echo getURL(array('link' => $i, 'date' => date("Y-m-" . str_pad($i, 2, 0, STR_PAD_LEFT), strtotime($datum))));
 		}
 		echo '</td>';
 		$pos++;
@@ -58,10 +62,14 @@ function getCalender($datum)
 	if ( $pos%7 != 0 )
 		for($i=($pos%7);$i<7;$i++)
 		{
+			echo '<td bgcolor="#CBCBCB" align="center">';
 			if ( ( date("Y-m-" . str_pad((($i-($pos%7))+1), 2, 0, STR_PAD_LEFT), strtotime("+1 month", strtotime($datum))) ) > date("Y-m-d") )
-				echo '<td bgcolor="#CBCBCB" align="center">' . ($i-($pos%7)+1) . '</td>';
+				echo ($i-($pos%7)+1);
 			else
-				echo '<td bgcolor="#CBCBCB" align="center">' . getURLByDate(($i-($pos%7))+1, date("Y-m-" . str_pad((($i-($pos%7))+1), 2, 0, STR_PAD_LEFT), strtotime("+1 month", strtotime($datum)))) . '</td>';
+			{
+				echo getURL(array('link' => ($i-($pos%7)+1), 'date' => date("Y-m-" . str_pad((($i-($pos%7))+1), 2, 0, STR_PAD_LEFT), strtotime("+1 month", strtotime($datum)))));
+			}
+			echo '</td>';
 		}
 	echo '</table>';
 	echo '</td></tr></table>';
@@ -488,7 +496,6 @@ function getURL($array)
 		global $naam;
 	else
 		$naam = $array['name'];
-	$naam = rawurlencode($naam);
 	
 	if ( ! isset($array['mode']) )
 		global $mode;
@@ -505,7 +512,7 @@ function getURL($array)
 	else
 		$datum = $array['date'];
 	
-	if ( ! isset($array['tabel']) )
+	if ( ! isset($array['table']) )
 		global $tabel;
 	else
 		$tabel = $array['table'];
@@ -528,11 +535,6 @@ function getURL($array)
 		$href .= '&amp;debug=1';
 	
 	return '<a title="' . $title . '" href="' . $href . '">' . $link . '</a>';
-}
-
-function getURLByDate($link, $datum)
-{
-	return getURL(array('link' => $link, 'date' => $datum));
 }
 
 function parseRML($rml)
