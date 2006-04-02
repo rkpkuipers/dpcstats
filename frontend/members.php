@@ -139,7 +139,7 @@ for($i=0;$i<count($mbs);$i++)
 		if ( $mbs[$i]->isSubteam() )
 		{
 			echo getURL(array('link' => '<img src="images/members.gif" alt="subteam">',
-					'mode' => 'Subteam', 'team' => $mbs[$i]->getName(),
+					'mode' => 'Subteam', 'team' => $mbs[$i]->getName(), 'table' => 'subteamOffset',
 					'date' => $datum, 'prefix' => $project->getPrefix(),
 					'title' => 'Subteam stats for ' . $mbs[$i]->getName()));
 		}
