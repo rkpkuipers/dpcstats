@@ -1,0 +1,1896 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>   
+
+    <title>Stats/Teams - Points Generated - GRID.ORG &#153;</title>
+    
+    <!-- <meta name="refresh" http-equiv="refresh" content="3600" /> -->
+    <!-- <meta name="pragma" http-equiv="pragma" content="no-cache" /> -->
+    
+<!-- <meta name="refresh" http-equiv="refresh" content="3600" /> -->
+<!-- <meta name="pragma" http-equiv="pragma" content="no-cache" /> -->
+<meta name="expires" http-equiv="expires" content="0" />
+<meta name="cache-control" http-equiv="cache-control" content="no-cache, must-revalidate" />
+<meta name="content-type" http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta name="keywords" content="grid, grid computing, distributed computing, high performance computing, bioinformatics" />
+<meta name="description" content="Grid.org is a single destination site for large-scale research projects powered by the United Devices Grid MP Global. With the participation of over 2 million devices worldwide, grid.org projects like Cancer Research, Anthrax Research, and the new Smallpox Research Project have achieved record levels of processing speed and success." />
+<meta name="author" content="grid.org" />
+<meta name="web design" content="Monkee-Boy Web Design, Aaron Bramwell" />
+<meta name="construction" content="Monkee-Boy Web Design, Aaron Bramwell" />
+<meta name="copyright" content="2003, grid.org. All Rights Reserved." />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true for "http://www.ud.com" r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true for "http://www.ud.com" r (n 0 s 0 v 0 l 0))' />
+<meta name="www-server" content="CWPWWW03" />
+
+<script type="text/javascript" src="/js/browser_window_functions.js"></script>
+<script type="text/javascript" src="/js/image_rollovers.js"></script>
+<script type="text/javascript" src="/js/open_popup_window.js"></script>
+<script type="text/javascript" src="/js/banners.js"></script>
+<link rel="stylesheet" type="text/css" href="/inc/default.css" />
+
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="1" leftmargin="1" rightmargin="1" bottommargin="1" marginheight="1" marginwidth="1" alink="#993333"><table cellpadding="0" cellspacing="0" border="0" width="750">
+<tr>
+	<td rowspan="2" width="141"><a href="/"><img src="/img/logo_grid.gif" width="141" height="88" alt="grid.org" border="0" /></a></td>
+	<td background="/img/nav/topnav_bg.gif" height="1" align="right" valign="middle" nowrap="true"><img src="/img/+___.gif" width="1" height="66" alt="grid.org" border="0" /><br />
+</td>
+</tr>
+<tr>
+	<td background="/img/nav/nav_bg.gif" height="22" width="609"><img src="/img/+___.gif" width="1" height="22" border="0" /><a href="/about/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('about','','/img/nav/nav_about_on.gif',1)"><img src="/img/nav/nav_about.gif" name="about" width="71" height="22" alt="about us" border="0" /></a><a href="/projects/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('projects','','/img/nav/nav_projects_on.gif',1)"><img src="/img/nav/nav_projects.gif" name="projects" idth="68" height="22" alt="projects" border="0" /></a><a href="/stats/"><img src="/img/nav/nav_stats_on.gif" name="stats" width="48" height="22" alt="stats" border="0" /></a><a href="/services/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('members','','/img/nav/nav_members_on.gif',1)"><img src="/img/nav/nav_members.gif" name="members" width="121" height="22" alt="member services" border="0" /></a><a href="http://forum.grid.org/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('forms','','/img/nav/nav_forums_on.gif',1)"><img src="/img/nav/nav_forums.gif" name="forms" width="62" height="22" alt="forums" border="0" /></a><a href="/help/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('help','','/img/nav/nav_help_on.gif',1)"><img src="/img/nav/nav_help.gif" name="help" width="46" height="22" alt="help" border="0" /></a></td>
+</tr>
+</table>
+
+<!--- END HEADER CODE --->
+
+<table cellpadding="0" cellspacing="0" border="0" width="750">
+<tr>
+	<td width="141" valign="top" bgcolor="#336699"><a href="/"><img src="/img/logo_grid_bot.gif" width="141" height="16" alt="grid.org" border="0" /></a><br /><!--- LEFT NAV START --->
+<p>
+<table width="141" cellpadding="0" border="0" cellspacing="0">
+<tr>
+	<td colspan="2"><a href="/stats/"><img src="/img/left/stats.gif" width="142" height="19" alt="stats" border="0" /></a><br /><img src="/img/+___.gif" width="1" height="3" alt="" border="0" /></td>
+</tr>
+</table>
+<table width="141" cellpadding="0" border="0" cellspacing="0">
+<tr>
+	<td>&nbsp;</td>
+	<td valign="top"><a href="/stats/" class="navitem">Grid MP Global</a></td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td valign="top"><a href="/stats/projects/" class="navitem">Projects</a></td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td valign="top"><a href="/stats/geos/" class="navitem">Geographies</a></td>
+</tr>
+<tr>
+	<td nowrap="true" valign="middle"><img src="/img/pointer.gif" width="13" height="10" alt="You are here!" border="0" /></td>
+	<td valign="top"><a href="/stats/teams/" class="navitem">Teams</a></td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td valign="top"><a href="/stats/members/" class="navitem">Members</a></td>
+</tr>
+</table>
+</p> 
+
+
+
+<td width="609" valign="top">
+<!--- START LOGIN/LOGOUT --->
+<table width="608" height="25" cellpadding="3" cellspacing="0" border="0">
+<tr>
+	
+	<td><img src="/img/+___.gif" width="447" height="1" alt="" border="0" /></td>
+	<td nowrap="true"><a href="/services/">Login?</a></td>
+     
+	
+	</tr>
+	</table>	
+
+<!--- START CONTENT --->
+<table width="609" cellpadding="20" cellspacing="0" border="0">
+<tr>
+	<td><img src="/stats/img/bnr_teams.gif" width="500" height="25" alt="Team Stats" border="0" /><br /><img src="/img/+___.gif" width="1" height="4" alt="" border="0" /><br /><br />	
+    
+    <p>
+	<p>
+<table width="570" cellpadding="0" cellspacing="0" border="0">
+<tr>
+	<td bgcolor="#CCCCCC" width="1" rowspan="3"><img src="/img/+CCC.gif" width="1" height="10" /></td>
+	<td bgcolor="#CCCCCC" height="1"><img src="/img/+CCC.gif" width="10" height="1" /></td>
+	<td bgcolor="#CCCCCC" width="1" rowspan="3"><img src="/img/+CCC.gif" width="1" height="10" /></td>
+</tr>
+<tr>
+	<td bgcolor="#F5F5F5" align="center" width="100%" valign="top">
+
+    <table cellpadding="3" cellspacing="1" border="0" width="570">
+	<tr><td colspan="4" class="hdrstats">Team Statistics</td></tr>
+	<tr>
+		<td bgcolor="#E5E5E5"><span class="subhead">Members</span></td>
+		<td bgcolor="#FFFFFF" onmouseover="javascript:style.background='#F5F5F5'" onmouseout="javascript:style.background='#FFFFFF'" width="25%"><a href="members.htm"><img src="/img/bullet_action.gif" width="4" height="7" border="0" /> All-Time</a></td>
+		<td bgcolor="#FFFFFF" onmouseover="javascript:style.background='#F5F5F5'" onmouseout="javascript:style.background='#FFFFFF'" width="25%"><a href="members_current.htm"><img src="/img/bullet_action.gif" width="4" height="7" border="0" /> Current</a></td>
+	</tr> 
+	
+	<tr>
+		<td bgcolor="#E5E5E5"><span class="subhead">Total CPU Time</span></td>
+		<td bgcolor="#FFFFFF" onmouseover="javascript:style.background='#F5F5F5'" onmouseout="javascript:style.background='#FFFFFF'" width="25%"><a href="cpu_time.htm"><img src="/img/bullet_action.gif" width="4" height="7" border="0" /> All-Time</a></td>
+		<td bgcolor="#FFFFFF" onmouseover="javascript:style.background='#F5F5F5'" onmouseout="javascript:style.background='#FFFFFF'" width="25%"><a href="cpu_time_yesterday.htm"><img src="/img/bullet_action.gif" width="4" height="7" border="0" /> Yesterday</a></td>
+	</tr>
+    
+	<tr>
+		<td bgcolor="#E5E5E5"><span class="subhead"><a href="javascript:openWindow('/services/_pw_points_def.htm', 450, 460, true)">Points</a> Generated</span></td>
+		<td bgcolor="#FFFFFF" onmouseover="javascript:style.background='#F5F5F5'" onmouseout="javascript:style.background='#FFFFFF'" width="25%"><a href="points.htm"><img src="/img/bullet_action.gif" width="4" height="7" border="0" /> All-Time</a></td>
+		<td bgcolor="#FFFFFF" onmouseover="javascript:style.background='#F5F5F5'" onmouseout="javascript:style.background='#FFFFFF'" width="25%"><a href="points_yesterday.htm"><img src="/img/bullet_action.gif" width="4" height="7" border="0" /> Yesterday</a></td>
+	</tr>   
+
+	<tr>
+		<td bgcolor="#E5E5E5"><span class="subhead">Results Returned</span></td>
+		<td bgcolor="#FFFFFF" onmouseover="javascript:style.background='#F5F5F5'" onmouseout="javascript:style.background='#FFFFFF'" width="25%"><a href="results.htm"><img src="/img/bullet_action.gif" width="4" height="7" border="0" /> All-Time</a></td>
+		<td bgcolor="#FFFFFF" onmouseover="javascript:style.background='#F5F5F5'" onmouseout="javascript:style.background='#FFFFFF'" width="25%"><a href="results_yesterday.htm"><img src="/img/bullet_action.gif" width="4" height="7" border="0" /> Yesterday</a></td>
+	</tr>    
+	
+	<tr>
+		<td bgcolor="#E5E5E5"><span class="subhead">Average <a href="javascript:openWindow('/services/_pw_points_def.htm', 450, 460, true)">Points</a> Per Hour of CPU Time</span></td>
+		<td bgcolor="#FFFFFF" onmouseover="javascript:style.background='#F5F5F5'" onmouseout="javascript:style.background='#FFFFFF'" width="25%"><a href="points_per_cpu_time.htm"><img src="/img/bullet_action.gif" width="4" height="7" border="0" /> All-Time</a></td>
+		<td bgcolor="#FFFFFF" width="25%">&nbsp;</td>
+	</tr>
+	
+    <tr>
+        <td bgcolor="#E5E5E5"><span class="subhead">Miscellaneous</span></td>
+        <td colspan="2" bgcolor="#FFFFFF"><a href="compare.htm"><img src="/img/bullet_action.gif" width="4" height="7" border="0" /> Multiple UD Team Comparison</a></td>
+    </tr>
+    
+	</table>
+		</td>
+</tr>
+<tr>
+	<td bgcolor="#CCCCCC" height="1"><img src="/img/+CCC.gif" width="10" height="1" /></td>
+</tr>
+</table>
+</p>
+	</p><p>
+<table width="570" cellpadding="0" cellspacing="0" border="0">
+<tr>
+	<td bgcolor="#CCCCCC" width="1" rowspan="3"><img src="/img/+CCC.gif" width="1" height="10" /></td>
+	<td bgcolor="#CCCCCC" height="1"><img src="/img/+CCC.gif" width="10" height="1" /></td>
+	<td bgcolor="#CCCCCC" width="1" rowspan="3"><img src="/img/+CCC.gif" width="1" height="10" /></td>
+</tr>
+<tr>
+	<td bgcolor="#F5F5F5" align="center" width="100%" valign="top">
+
+        <table cellpadding="3" cellspacing="1" border="0" width="570">
+        <tr>
+			<td class="hdrstats" colspan="2">Top 5000 Teams Ranked By <a href="javascript:openWindow('/services/_pw_points_def.htm', 450, 460, true)" class="hdrstats">Points</a> Generated</td>
+    	</tr>
+		<tr>
+			<td width="80%" valign="top"><b>Statistics Last Updated:</b><br />
+	        04/01/2006 23:59:59 (<a href="javascript:openWindow('/services/_pw_UTC.htm', 520, 460, true)">UTC</a>)<br />
+	        [ <i>7 hour(s) ago</i> ]</td>
+			<td nowrap="true" align="right">
+
+    <table cellpadding="0" cellspacing="0" border="0">
+    
+    <form class="form">
+    <tr>
+        <td align="right" nowrap="true">
+        
+            <script type="text/javascript">
+            <!--
+                if (typeof(rs_page_first) != "object") {
+                    //preload_image("rs_page_first", "/img/logo_grid.gif");
+					rs_page_first = new Image();
+					rs_page_first.src = '/img/rs_page_first.gif';
+					rs_page_first_mo = new Image();
+					rs_page_first_mo.src = '/img/rs_page_first_mo.gif';
+					rs_page_first_md = new Image();
+					rs_page_first_md.src = '/img/rs_page_first_md.gif';
+					rs_page_previous = new Image();
+					rs_page_previous.src = '/img/rs_page_previous.gif';
+					rs_page_previous_mo = new Image();
+					rs_page_previous_mo.src = '/img/rs_page_previous_mo.gif';
+					rs_page_previous_md = new Image();
+					rs_page_previous_md.src = '/img/rs_page_previous_md.gif';
+					rs_page_next = new Image();
+					rs_page_next.src = '/img/rs_page_next.gif';
+					rs_page_next_mo = new Image();
+					rs_page_next_mo.src = '/img/rs_page_next_mo.gif';
+					rs_page_next_md = new Image();
+					rs_page_next_md.src = '/img/rs_page_next_md.gif';
+					rs_page_last = new Image();
+					rs_page_last.src = '/img/rs_page_last.gif';
+					rs_page_last_mo = new Image();
+					rs_page_last_mo.src = '/img/rs_page_last_mo.gif';
+					rs_page_last_md = new Image();
+					rs_page_last_md.src = '/img/rs_page_last_md.gif';
+                }
+            // -->
+            </script>
+            <table cellpadding="0" cellspacing="1" border="0" width="124" height="19">
+            <tr>
+                <td width="25%" bgcolor="#E5E5E5"><a href="points.htm?rsps=250&rscp=1"><img onmouseover="this.src=rs_page_first_mo.src" onmousedown="this.src=rs_page_first_md.src" onmouseout="this.src=rs_page_first.src" src="/img/rs_page_first.gif" width="31" height="19" border="0" alt="First Page" /></a></td>
+                <td width="25%" bgcolor="#CCCCCC"><a href="points.htm?rsps=250&rscp=12"><img onmouseover="this.src=rs_page_previous_mo.src" onmousedown="this.src=rs_page_previous_md.src" onmouseout="this.src=rs_page_previous.src" src="/img/rs_page_previous.gif" width="31" height="19" border="0" alt="Previous Page" /></a></td>
+                <td width="25%" bgcolor="#CCCCCC"><a href="points.htm?rsps=250&rscp=14"><img onmouseover="this.src=rs_page_next_mo.src" onmousedown="this.src=rs_page_next_md.src" onmouseout="this.src=rs_page_next.src" src="/img/rs_page_next.gif" width="31" height="19" border="0" alt="Next Page" /></a></td>
+                <td width="25%" bgcolor="#E5E5E5"><a href="points.htm?rsps=250&rscp=20"><img onmouseover="this.src=rs_page_last_mo.src" onmousedown="this.src=rs_page_last_md.src" onmouseout="this.src=rs_page_last.src" src="/img/rs_page_last.gif" width="31" height="19" border="0" alt="Last Page" /></a></td>
+            </tr>
+            </table>
+            <img src="/img/+___.gif" width="1" height="5" /><br />
+        
+            Page 
+            <select onchange="location.href='points.htm?rsps=250&rscp=' + this.options[this.selectedIndex].value" style="font-weight:bold">
+            <option value="1" >&nbsp;&nbsp;1</option><option value="2" >&nbsp;&nbsp;2</option><option value="3" >&nbsp;&nbsp;3</option><option value="4" >&nbsp;&nbsp;4</option><option value="5" >&nbsp;&nbsp;5</option><option value="6" >&nbsp;&nbsp;6</option><option value="7" >&nbsp;&nbsp;7</option><option value="8" >&nbsp;&nbsp;8</option><option value="9" >&nbsp;&nbsp;9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option><option value="13" selected="true">13</option><option value="14" >14</option><option value="15" >15</option><option value="16" >16</option><option value="17" >17</option><option value="18" >18</option><option value="19" >19</option><option value="20" >20</option>
+            </select>
+            of <b>[20]</b><br /> 
+        
+        Records <b>3001 - 3250</b>, <b>5000</b> Total<br />
+        
+                <img src="/img/+___.gif" width="1" height="5" /><br />
+                <select onchange="location.href='points.htm?rsps=' + this.options[this.selectedIndex].value" style="font-weight:bold">
+                
+                <option value="10" >&nbsp;&nbsp;10</option>
+                
+                <option value="25" >&nbsp;&nbsp;25</option>
+                
+                <option value="50" >&nbsp;&nbsp;50</option>
+                
+                <option value="100" >100</option>
+                
+                <option value="250" selected="true">250</option>
+                
+                </select> <i>records per page</i><br />
+            
+        </td>
+    </tr>
+    </form>
+    </table>
+  
+</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				
+            <table cellpadding="0" cellspacing="1" border="0" style="padding:1pt;padding-left:4pt;padding-right:4pt" width="100%">
+            <tr bgcolor="#CCCCCC" style="padding:1pt;padding-left:4pt;padding-right:4pt">
+                <td valign="bottom"><span class="subhead">Rank</span></td>
+                <td valign="bottom" width="100%"><span class="subhead">Member Name</span></td>
+                <td align="right" valign="bottom" nowrap="true"><span class="subhead"><a href="javascript:openWindow('/services/_pw_points_def.htm', 450, 460, true)" class="subhead">Points</a> Generated</span></td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3001</td>
+                <td><b><a href="/services/teams/team.htm?id=27226527-C269-4325-9A16-88FF8A894A74">RAGE&nbsp;RAGE&nbsp;5622&nbsp;OLD&nbsp;SKOOL&nbsp;COIN-OPS</a></b></td>
+                <td align="right">1,392,871</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3002</td>
+                <td><b><a href="/services/teams/team.htm?id=F1F70E1A-95F9-4BB1-9B7D-A64CBB08EFC2">DDK&nbsp;Studios&nbsp;</a></b></td>
+                <td align="right">1,392,101</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3003</td>
+                <td><b><a href="/services/teams/team.htm?id=D144B2FD-0FB1-4CCF-9D9D-A18DECEFF347">University&nbsp;of&nbsp;Saskatchewan</a></b></td>
+                <td align="right">1,392,060</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3004</td>
+                <td><b><a href="/services/teams/team.htm?id=4062F57A-022E-4489-B1AF-E0B956626E01">Tecnotron&nbsp;</a></b></td>
+                <td align="right">1,391,504</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3005</td>
+                <td><b><a href="/services/teams/team.htm?id=785A086C-E9DB-4819-90C5-0358ABD99B5D">Private-Rx&nbsp;</a></b></td>
+                <td align="right">1,391,387</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3006</td>
+                <td><b><a href="/services/teams/team.htm?id=A947BCA5-4291-46F9-9355-1E46D70BE2E5">Repropoint&nbsp;</a></b></td>
+                <td align="right">1,391,360</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3007</td>
+                <td><b><a href="/services/teams/team.htm?id=0E4E4DE6-48C0-485F-8855-FE2407ADF736">Consulting&nbsp;Overseas&nbsp;LTD&nbsp;</a></b></td>
+                <td align="right">1,391,304</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3008</td>
+                <td><b><a href="/services/teams/team.htm?id=45492BD1-1B61-4A95-A8BD-23B3CD499E14">BP&nbsp;</a></b></td>
+                <td align="right">1,390,793</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3009</td>
+                <td><b><a href="/services/teams/team.htm?id=C90E505F-3272-4CF4-B001-17B51E7F8F38">Alpha&nbsp;Geeks&nbsp;</a></b></td>
+                <td align="right">1,390,587</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3010</td>
+                <td><b><a href="/services/teams/team.htm?id=3669B6D3-0451-4E7B-8441-C13B01D02ECC">Dow&nbsp;Process&nbsp;Analytical&nbsp;Research&nbsp;&&nbsp;Development</a></b></td>
+                <td align="right">1,390,498</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3011</td>
+                <td><b><a href="/services/teams/team.htm?id=20F25952-711D-402F-AAB7-C1118E3047FB">Breast&nbsp;Cancer&nbsp;Action&nbsp;&nbsp;Nova&nbsp;Scotia</a></b></td>
+                <td align="right">1,390,466</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3012</td>
+                <td><b><a href="/services/teams/team.htm?id=69F342F0-7160-4D9D-B1B0-4A1007B65170">mhuffenberger&nbsp;</a></b></td>
+                <td align="right">1,390,292</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3013</td>
+                <td><b><a href="/services/teams/team.htm?id=45BBD10E-78BF-4FBB-A89C-6AC003C3A810">The&nbsp;Cancer&nbsp;Dogs&nbsp;</a></b></td>
+                <td align="right">1,390,138</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3014</td>
+                <td><b><a href="/services/teams/team.htm?id=4A7C9369-33F7-441B-B464-CB95A6FC52EE">A&nbsp;Brisbane&nbsp;Team&nbsp;</a></b></td>
+                <td align="right">1,388,323</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3015</td>
+                <td><b><a href="/services/teams/team.htm?id=601F0E7F-2B8F-47DA-9539-3C451C8FC8EE">Pentia&nbsp;</a></b></td>
+                <td align="right">1,386,548</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3016</td>
+                <td><b><a href="/services/teams/team.htm?id=0FB3EBDA-DF7B-4FF1-AD64-660915564B5C">TEAM&nbsp;SASKATCHEWAN&nbsp;</a></b></td>
+                <td align="right">1,386,189</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3017</td>
+                <td><b><a href="/services/teams/team.htm?id=F7A9D7B0-48C0-4D58-B6AD-4AFE769CBBCB">Frontier&nbsp;Communities</a></b></td>
+                <td align="right">1,385,336</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3018</td>
+                <td><b><a href="/services/teams/team.htm?id=DC8EF8D2-708D-4762-A64D-F273895BA875">Zhoip&nbsp;</a></b></td>
+                <td align="right">1,384,971</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3019</td>
+                <td><b><a href="/services/teams/team.htm?id=8D68E3F2-1DCC-4B04-BD28-D96FAE1DDBC6">Meijlink&nbsp;Bros.&nbsp;</a></b></td>
+                <td align="right">1,384,288</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3020</td>
+                <td><b><a href="/services/teams/team.htm?id=38949107-BA8B-4121-AA2B-48819AA82F60">Optima&nbsp;Data&nbsp;A/S&nbsp;&&nbsp;Friends</a></b></td>
+                <td align="right">1,383,999</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3021</td>
+                <td><b><a href="/services/teams/team.htm?id=651BD8F7-54B4-4416-BF63-F2B6F56C9937">tracy's&nbsp;kick&nbsp;butt&nbsp;team&nbsp;</a></b></td>
+                <td align="right">1,383,853</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3022</td>
+                <td><b><a href="/services/teams/team.htm?id=109312FF-C6DF-40AD-811E-460C786B884C">Marlene&nbsp;A&nbsp;Bauer&nbsp;Mem.Team&nbsp;</a></b></td>
+                <td align="right">1,383,694</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3023</td>
+                <td><b><a href="/services/teams/team.htm?id=2C6B5EEF-253F-4080-BE8E-794D70A78AA6">TheZCResource&nbsp;</a></b></td>
+                <td align="right">1,383,160</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3024</td>
+                <td><b><a href="/services/teams/team.htm?id=8DB89255-97B9-4803-9D77-FAAB8089CF5C">HIAS&nbsp;ICT&nbsp;Team&nbsp;</a></b></td>
+                <td align="right">1,382,797</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3025</td>
+                <td><b><a href="/services/teams/team.htm?id=681DDFCF-327C-4C3D-8C0B-1EABD8627516">Schaub&nbsp;Family&nbsp;</a></b></td>
+                <td align="right">1,382,762</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3026</td>
+                <td><b><a href="/services/teams/team.htm?id=755BA924-5CFA-4612-ABE7-2535D381C23F">AGD&nbsp;</a></b></td>
+                <td align="right">1,382,701</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3027</td>
+                <td><b><a href="/services/teams/team.htm?id=F629CAB2-3361-49EE-9625-A15F2C3600E1">Tecsidel&nbsp;</a></b></td>
+                <td align="right">1,382,229</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3028</td>
+                <td><b><a href="/services/teams/team.htm?id=C5E22014-82B2-4316-837C-E0C5ED935615">Supernature&nbsp;</a></b></td>
+                <td align="right">1,381,817</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3029</td>
+                <td><b><a href="/services/teams/team.htm?id=1A41D842-AF57-49AB-97B6-8073C05D2E88">Pancreatic&nbsp;Cancer:&nbsp;Enough&nbsp;is&nbsp;Enough!</a></b></td>
+                <td align="right">1,381,287</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3030</td>
+                <td><b><a href="/services/teams/team.htm?id=BF73958B-6DA5-4A03-8C9B-35F7C41C24F2">Publigroupe&nbsp;</a></b></td>
+                <td align="right">1,380,396</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3031</td>
+                <td><b><a href="/services/teams/team.htm?id=175C3E81-3042-480B-9532-478484428E3D">R&nbsp;&&nbsp;B&nbsp;Wagner&nbsp;</a></b></td>
+                <td align="right">1,379,924</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3032</td>
+                <td><b><a href="/services/teams/team.htm?id=12CADB93-4AA8-4E1F-BD3C-FD9D3BF675CE">CV&nbsp;Norton&nbsp;</a></b></td>
+                <td align="right">1,379,411</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3033</td>
+                <td><b><a href="/services/teams/team.htm?id=D4DBF051-DD99-4A37-80D2-DB2FE3A35F4A">Joplin&nbsp;Public&nbsp;Library&nbsp;</a></b></td>
+                <td align="right">1,378,165</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3034</td>
+                <td><b><a href="/services/teams/team.htm?id=DAEFFDBD-BFFE-4BEB-AB99-E26872CEEB95">Norbert-Graf-Home-Team&nbsp;</a></b></td>
+                <td align="right">1,378,160</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3035</td>
+                <td><b><a href="/services/teams/team.htm?id=3CBCCCCC-4C90-4711-B913-DEDEB2F5C799">The&nbsp;Pontiacs&nbsp;</a></b></td>
+                <td align="right">1,377,881</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3036</td>
+                <td><b><a href="/services/teams/team.htm?id=38B5AACE-FACF-485A-B6DC-BA2A21CC2558">Sydney_NTX&nbsp;</a></b></td>
+                <td align="right">1,377,168</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3037</td>
+                <td><b><a href="/services/teams/team.htm?id=A0A29C20-5FD9-4E04-AD9E-439B498F3B26">Breeders&nbsp;Assistant&nbsp;Supporters&nbsp;Team</a></b></td>
+                <td align="right">1,376,562</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3038</td>
+                <td><b><a href="/services/teams/team.htm?id=74B63DF3-8EAE-49F6-B7AD-751528B1A83D">-&nbsp;Cisco&nbsp;against&nbsp;Cancer&nbsp;-&nbsp;</a></b></td>
+                <td align="right">1,376,263</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3039</td>
+                <td><b><a href="/services/teams/team.htm?id=7948C9D5-0603-4D6F-9197-7B79B6BEED10">WICHiP&nbsp;</a></b></td>
+                <td align="right">1,375,947</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3040</td>
+                <td><b><a href="/services/teams/team.htm?id=533FFAC9-5463-4DF3-AFCA-348AFF288D3D">FEUP&nbsp;Portugal</a></b></td>
+                <td align="right">1,375,830</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3041</td>
+                <td><b><a href="/services/teams/team.htm?id=D5C9098A-363B-422E-8C5B-67568C20B3E4">cowshed&nbsp;team</a></b></td>
+                <td align="right">1,373,316</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3042</td>
+                <td><b><a href="/services/teams/team.htm?id=831B83A5-8608-464E-8B62-A1CDFC31FC30">HeftyDude&nbsp;</a></b></td>
+                <td align="right">1,372,861</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3043</td>
+                <td><b><a href="/services/teams/team.htm?id=1C5B676B-6A2B-4FC4-A31B-1EFAF983BAA6">SiloNet&nbsp;</a></b></td>
+                <td align="right">1,372,484</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3044</td>
+                <td><b><a href="/services/teams/team.htm?id=E81AB9B9-8749-45F9-A0BF-A8B6E4F31B1C">Berbee&nbsp;</a></b></td>
+                <td align="right">1,370,843</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3045</td>
+                <td><b><a href="/services/teams/team.htm?id=10943856-7A14-4A6D-A32D-5191D0F7C7D8">WUGRAFIX&nbsp;GER&nbsp;</a></b></td>
+                <td align="right">1,370,392</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3046</td>
+                <td><b><a href="/services/teams/team.htm?id=161A267D-EEA3-478E-90AD-2BE40258FE36">Fairfax&nbsp;Kids&nbsp;</a></b></td>
+                <td align="right">1,369,902</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3047</td>
+                <td><b><a href="/services/teams/team.htm?id=15DFEA52-600B-4DC5-BD49-225C82818034">W2K_CPP&nbsp;</a></b></td>
+                <td align="right">1,369,898</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3048</td>
+                <td><b><a href="/services/teams/team.htm?id=85DC3949-0C23-4552-8634-406B0A5192E7">Curtocircuito&nbsp;</a></b></td>
+                <td align="right">1,369,761</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3049</td>
+                <td><b><a href="/services/teams/team.htm?id=272AA9F9-C6F8-4AC6-9E19-4B05B5C1A639">SCEE&nbsp;Cambridge&nbsp;</a></b></td>
+                <td align="right">1,369,449</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3050</td>
+                <td><b><a href="/services/teams/team.htm?id=44E5CA2F-B340-4D03-B182-82AF7975EE2A">GO&nbsp;Concepts&nbsp;</a></b></td>
+                <td align="right">1,369,296</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3051</td>
+                <td><b><a href="/services/teams/team.htm?id=A57FC7FD-BD8A-4923-825E-9B012E2717B5">www.hj-computers.de&nbsp;</a></b></td>
+                <td align="right">1,369,205</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3052</td>
+                <td><b><a href="/services/teams/team.htm?id=F6FC83A8-D348-4B2F-8C3F-27A096014253">Vaucluse&nbsp;Smilies&nbsp;Team&nbsp;</a></b></td>
+                <td align="right">1,368,641</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3053</td>
+                <td><b><a href="/services/teams/team.htm?id=8676D527-E6FF-4727-9BB8-E90D6FDA6D78">Yunus&nbsp;</a></b></td>
+                <td align="right">1,368,592</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3054</td>
+                <td><b><a href="/services/teams/team.htm?id=FFEE8FD8-9E23-496F-B42B-CE42CA6898E7">CVCLUB&nbsp;</a></b></td>
+                <td align="right">1,368,533</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3055</td>
+                <td><b><a href="/services/teams/team.htm?id=2173A603-7EBD-4D55-8542-333BA6146D58">Canarias&nbsp;</a></b></td>
+                <td align="right">1,368,467</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3056</td>
+                <td><b><a href="/services/teams/team.htm?id=0DE42C75-74C8-48D4-B7DA-4FF6411CE916">Preston&nbsp;Lancs</a></b></td>
+                <td align="right">1,368,440</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3057</td>
+                <td><b><a href="/services/teams/team.htm?id=2B81F55E-268F-4DAA-9F27-1EE85664CFCA">PAK9&nbsp;Research&nbsp;Labs-&nbsp;Medical&nbsp;Division</a></b></td>
+                <td align="right">1,368,286</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3058</td>
+                <td><b><a href="/services/teams/team.htm?id=534ECB8E-62FE-4625-8A2A-7508F3286B31">Ivan&nbsp;</a></b></td>
+                <td align="right">1,367,417</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3059</td>
+                <td><b><a href="/services/teams/team.htm?id=F7B1DC0F-3E68-4C94-933C-1120EDC6B29B">bopie&nbsp;</a></b></td>
+                <td align="right">1,366,912</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3060</td>
+                <td><b><a href="/services/teams/team.htm?id=0EA1B425-7402-435C-B53F-D1734ECA0018">Magnet1&nbsp;</a></b></td>
+                <td align="right">1,364,364</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3061</td>
+                <td><b><a href="/services/teams/team.htm?id=A27858B5-B5AD-4165-A1BB-0C6AE9B572E5">MCRGO&nbsp;</a></b></td>
+                <td align="right">1,364,132</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3062</td>
+                <td><b><a href="/services/teams/team.htm?id=9E476FD2-D7DB-4008-AAE9-D5D8FF6CF736">West&nbsp;Michigan&nbsp;Computer&nbsp;Geeks</a></b></td>
+                <td align="right">1,363,993</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3063</td>
+                <td><b><a href="/services/teams/team.htm?id=0D31D26E-4AC4-4FB1-B63C-F84B0A2D9F9D">Law&nbsp;Enforcement&nbsp;Officers&nbsp;of&nbsp;America</a></b></td>
+                <td align="right">1,363,903</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3064</td>
+                <td><b><a href="/services/teams/team.htm?id=1FA756B7-104E-4FFD-9154-D4830D2F4DA3">Symantec&nbsp;</a></b></td>
+                <td align="right">1,363,901</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3065</td>
+                <td><b><a href="/services/teams/team.htm?id=EA4690FE-E387-48D8-B5AC-EBEC3F3E9389">ALL&nbsp;JAPAN&nbsp;</a></b></td>
+                <td align="right">1,363,647</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3066</td>
+                <td><b><a href="/services/teams/team.htm?id=54A79DFA-9D0C-403C-8294-7C6117E750F6">Clifford&nbsp;Kavanaugh</a></b></td>
+                <td align="right">1,362,456</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3067</td>
+                <td><b><a href="/services/teams/team.htm?id=AC738A94-67BE-44B9-81E1-EE70C00957EC">Cubs&nbsp;Fans&nbsp;Unite&nbsp;to&nbsp;Fight&nbsp;Cancer</a></b></td>
+                <td align="right">1,362,212</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3068</td>
+                <td><b><a href="/services/teams/team.htm?id=2F60C98D-21AF-4CA1-8EEC-BE8B09B67D20">The&nbsp;Unofficial&nbsp;Group</a></b></td>
+                <td align="right">1,361,444</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3069</td>
+                <td><b><a href="/services/teams/team.htm?id=5BE6BA94-7CA2-4BA3-9687-E8E6E729B44D">The&nbsp;Dutch&nbsp;Super&nbsp;Team&nbsp;</a></b></td>
+                <td align="right">1,360,926</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3070</td>
+                <td><b><a href="/services/teams/team.htm?id=9DCDDC18-2CB3-4C8F-861E-00EDB1BB7AB5">Purdue&nbsp;Boilermakers&nbsp;</a></b></td>
+                <td align="right">1,360,812</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3071</td>
+                <td><b><a href="/services/teams/team.htm?id=6F51C3F2-A23C-4309-9F4C-07CA36435945">aber.ac.uk&nbsp;</a></b></td>
+                <td align="right">1,360,652</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3072</td>
+                <td><b><a href="/services/teams/team.htm?id=E062AAFA-1977-472B-819D-746D8934FAE8">Emory&nbsp;University&nbsp;United&nbsp;Devices</a></b></td>
+                <td align="right">1,358,951</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3073</td>
+                <td><b><a href="/services/teams/team.htm?id=EF638AAD-3D56-4621-A459-E3277381AF76">ww.499pc.com&nbsp;</a></b></td>
+                <td align="right">1,358,735</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3074</td>
+                <td><b><a href="/services/teams/team.htm?id=368B75CE-73B4-48A8-98E9-658DCD7350EC">cAnswerThink&nbsp;</a></b></td>
+                <td align="right">1,358,232</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3075</td>
+                <td><b><a href="/services/teams/team.htm?id=94454428-B468-46EB-9B0E-618516EAAC80">Deustche&nbsp;Bank&nbsp;AG,&nbsp;Global&nbsp;Markets</a></b></td>
+                <td align="right">1,357,711</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3076</td>
+                <td><b><a href="/services/teams/team.htm?id=AAE00A77-83FC-4013-B406-B731467B0058">Uludag&nbsp;University-Turkey&nbsp;</a></b></td>
+                <td align="right">1,357,399</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3077</td>
+                <td><b><a href="/services/teams/team.htm?id=D3D15F79-90D9-45F9-9CCE-1A7770938A5C">CoolCat&nbsp;Express&nbsp;</a></b></td>
+                <td align="right">1,357,144</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3078</td>
+                <td><b><a href="/services/teams/team.htm?id=8143AA71-59CA-4F04-9EEF-4126B25ED066">NT-Design&nbsp;</a></b></td>
+                <td align="right">1,356,529</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3079</td>
+                <td><b><a href="/services/teams/team.htm?id=F61BB0B6-CE11-40D1-A93D-8D739F323BE8">Muslims&nbsp;Against&nbsp;Cancer&nbsp;</a></b></td>
+                <td align="right">1,355,566</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3080</td>
+                <td><b><a href="/services/teams/team.htm?id=CCC4D76C-008F-4201-9943-5DE42F94418C">Dallas&nbsp;Baptist&nbsp;University</a></b></td>
+                <td align="right">1,355,552</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3081</td>
+                <td><b><a href="/services/teams/team.htm?id=506B4CCC-1C22-4F25-8C7E-C5FBBC971112">For&nbsp;My&nbsp;Dad&nbsp;</a></b></td>
+                <td align="right">1,355,377</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3082</td>
+                <td><b><a href="/services/teams/team.htm?id=1B344F04-CE97-4F40-BBDC-586BB2B90612">Spyder&nbsp;Industries&nbsp;</a></b></td>
+                <td align="right">1,355,122</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3083</td>
+                <td><b><a href="/services/teams/team.htm?id=D7D5D7C8-5302-4ED7-8031-4FEEB9BCB8E7">Seattle&nbsp;Pacific&nbsp;Univ.&nbsp;Crankin&nbsp;4&nbsp;Halfy</a></b></td>
+                <td align="right">1,354,985</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3084</td>
+                <td><b><a href="/services/teams/team.htm?id=D3340CE1-707E-4E1D-AFE6-FD046378E46D">YARCK&nbsp;</a></b></td>
+                <td align="right">1,354,753</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3085</td>
+                <td><b><a href="/services/teams/team.htm?id=670A5139-BB09-4B08-A6B1-D2AC930BAE43">CMG&nbsp;</a></b></td>
+                <td align="right">1,354,563</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3086</td>
+                <td><b><a href="/services/teams/team.htm?id=DA095E15-FA2A-489E-BEB7-0309B0FFFF59">Pitstop&nbsp;Team&nbsp;</a></b></td>
+                <td align="right">1,354,369</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3087</td>
+                <td><b><a href="/services/teams/team.htm?id=D113DFB3-782B-4683-AB56-7AEAA627FD95">DNAP&nbsp;</a></b></td>
+                <td align="right">1,353,198</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3088</td>
+                <td><b><a href="/services/teams/team.htm?id=AF2BB36A-D977-495E-9F22-570A9F573F15">Paulsonator.com&nbsp;</a></b></td>
+                <td align="right">1,352,562</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3089</td>
+                <td><b><a href="/services/teams/team.htm?id=72B956D5-7200-426E-93B9-3BEE0482E5F9">A&nbsp;Team&nbsp;in&nbsp;North&nbsp;Carolina&nbsp;</a></b></td>
+                <td align="right">1,352,495</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3090</td>
+                <td><b><a href="/services/teams/team.htm?id=1A2136FE-16CB-4A85-816C-A71EB388ACBF">A&nbsp;Angel&nbsp;For&nbsp;The&nbsp;Families&nbsp;</a></b></td>
+                <td align="right">1,352,215</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3091</td>
+                <td><b><a href="/services/teams/team.htm?id=EA39FC90-1A05-4781-9088-F2A572A33143">Team&nbsp;Austria&nbsp;</a></b></td>
+                <td align="right">1,348,961</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3092</td>
+                <td><b><a href="/services/teams/team.htm?id=AAD97C24-DB9E-4B1F-8119-8C29A65B6DE8">Cherry&nbsp;Healthteam&nbsp;</a></b></td>
+                <td align="right">1,348,851</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3093</td>
+                <td><b><a href="/services/teams/team.htm?id=84EAA904-A368-4D3C-91C7-875F7048C899">Maine-iacs&nbsp;</a></b></td>
+                <td align="right">1,347,717</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3094</td>
+                <td><b><a href="/services/teams/team.htm?id=3FA52EA9-9D2B-40A9-8B5F-BD0923C270DC">Team&nbsp;akari-chan.net&nbsp;</a></b></td>
+                <td align="right">1,347,348</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3095</td>
+                <td><b><a href="/services/teams/team.htm?id=5587F860-3859-4859-A11E-AC12DF2C208B">FH&nbsp;Hagenberg</a></b></td>
+                <td align="right">1,347,223</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3096</td>
+                <td><b><a href="/services/teams/team.htm?id=F7F9F410-B12C-4C48-A77A-75349F5A2B83">Bascom&nbsp;</a></b></td>
+                <td align="right">1,346,642</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3097</td>
+                <td><b><a href="/services/teams/team.htm?id=1D28B1BF-1E3E-4FC6-8705-9EC009E96D31">Lovrin&nbsp;</a></b></td>
+                <td align="right">1,346,019</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3098</td>
+                <td><b><a href="/services/teams/team.htm?id=501FADB2-42BE-4C1E-B597-B6A3FEC4AE94">Sapphire&nbsp;Blade&nbsp;</a></b></td>
+                <td align="right">1,345,333</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3099</td>
+                <td><b><a href="/services/teams/team.htm?id=391899A8-2977-4D0E-BB76-FB78D05CF76A">Loburg&nbsp;</a></b></td>
+                <td align="right">1,344,930</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3100</td>
+                <td><b><a href="/services/teams/team.htm?id=2CB67783-0F00-495B-A033-05C0598FA369">TCG&nbsp;Member&nbsp;</a></b></td>
+                <td align="right">1,344,336</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3101</td>
+                <td><b><a href="/services/teams/team.htm?id=882FE838-B093-4BAF-94DF-DE632B7566FA">GADASDUCHAS&nbsp;</a></b></td>
+                <td align="right">1,344,070</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3102</td>
+                <td><b><a href="/services/teams/team.htm?id=BCDC63B6-481A-42A7-AFB7-123BACB06621">SwZone.it&nbsp;Team&nbsp;</a></b></td>
+                <td align="right">1,344,005</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3103</td>
+                <td><b><a href="/services/teams/team.htm?id=936BF2A3-84AD-4B76-87D5-3562D15AB3F2">-=(RealitySlap.com)=-&nbsp;</a></b></td>
+                <td align="right">1,343,810</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3104</td>
+                <td><b><a href="/services/teams/team.htm?id=E6906DB9-801E-4E94-B159-456C8D6D2C15">Home&nbsp;Depot&nbsp;</a></b></td>
+                <td align="right">1,343,619</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3105</td>
+                <td><b><a href="/services/teams/team.htm?id=AB797589-0924-48F8-857C-629E511B32BA">XSIL&nbsp;Dublin&nbsp;</a></b></td>
+                <td align="right">1,343,358</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3106</td>
+                <td><b><a href="/services/teams/team.htm?id=4E6EA4AC-4049-4CA2-A9C5-8C2E0AC18435">TMBC&nbsp;</a></b></td>
+                <td align="right">1,342,960</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3107</td>
+                <td><b><a href="/services/teams/team.htm?id=1370DA7B-C6C9-4B62-BB7F-EEB11FE43AD6">Glassy&nbsp;Cell&nbsp;Carcinoma&nbsp;Jessica&nbsp;Karim</a></b></td>
+                <td align="right">1,342,748</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3108</td>
+                <td><b><a href="/services/teams/team.htm?id=EF7F1C55-F020-428E-B17F-6C18098A7531">safneva.ru&nbsp;</a></b></td>
+                <td align="right">1,342,109</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3109</td>
+                <td><b><a href="/services/teams/team.htm?id=9AF6E18D-C80E-43B9-9A07-B30CB7337EBE">North&nbsp;Central&nbsp;College&nbsp;</a></b></td>
+                <td align="right">1,342,037</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3110</td>
+                <td><b><a href="/services/teams/team.htm?id=BF16481F-121D-4F1B-AAC0-58EDBAC2261E">GeForce&nbsp;FAQ&nbsp;</a></b></td>
+                <td align="right">1,341,966</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3111</td>
+                <td><b><a href="/services/teams/team.htm?id=58AA7BB8-14EE-4630-B2B0-B4CB15A8585D">Sigma&nbsp;Nu&nbsp;Delta&nbsp;Alpha&nbsp;Chapter</a></b></td>
+                <td align="right">1,341,341</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3112</td>
+                <td><b><a href="/services/teams/team.htm?id=8801EEC7-03FC-4961-84FB-170AF194425E">STARFLEETGUILD&nbsp;</a></b></td>
+                <td align="right">1,341,296</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3113</td>
+                <td><b><a href="/services/teams/team.htm?id=DF85192F-2346-4D09-83BD-C646B2B457C8">Upward&nbsp;Alternatives&nbsp;</a></b></td>
+                <td align="right">1,341,095</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3114</td>
+                <td><b><a href="/services/teams/team.htm?id=191209C1-444A-49ED-B6D2-3E22C42E5592">taiwan&nbsp;topworld</a></b></td>
+                <td align="right">1,340,901</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3115</td>
+                <td><b><a href="/services/teams/team.htm?id=33B6943B-404C-4B2F-8B21-5E8CFE8C980F">Skynet.nl&nbsp;</a></b></td>
+                <td align="right">1,340,032</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3116</td>
+                <td><b><a href="/services/teams/team.htm?id=9C844A96-4F13-4526-BAC4-92248E0B9F27">MemphisLan&nbsp;</a></b></td>
+                <td align="right">1,339,395</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3117</td>
+                <td><b><a href="/services/teams/team.htm?id=CD961B97-BBD3-4D9F-83B8-98240F5CF1FE">zer0gravity&nbsp;</a></b></td>
+                <td align="right">1,339,360</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3118</td>
+                <td><b><a href="/services/teams/team.htm?id=85FA7F69-1CC9-49C0-92BF-AD2B5CF4E2AA">FRIENDS&nbsp;</a></b></td>
+                <td align="right">1,339,117</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3119</td>
+                <td><b><a href="/services/teams/team.htm?id=CF728396-DDAA-4B0A-84E6-221154760180">mtb-uk&nbsp;</a></b></td>
+                <td align="right">1,338,737</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3120</td>
+                <td><b><a href="/services/teams/team.htm?id=06FC3B46-E10A-4CB9-9E60-9694D8E2AB6C">Trackin'&nbsp;for&nbsp;the&nbsp;Pond!&nbsp;</a></b></td>
+                <td align="right">1,338,348</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3121</td>
+                <td><b><a href="/services/teams/team.htm?id=F9AF037D-E019-49A3-AB38-BC5255A8CF97">Rechenzentrum&nbsp;UNI-GReifswald</a></b></td>
+                <td align="right">1,338,072</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3122</td>
+                <td><b><a href="/services/teams/team.htm?id=29BA4B9B-DF24-4EE5-883D-6468EF2E8CC0">4N&nbsp;</a></b></td>
+                <td align="right">1,337,589</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3123</td>
+                <td><b><a href="/services/teams/team.htm?id=3CCD0C4D-2961-48F1-ADEA-D25AE79B3FED">Zentropy&nbsp;</a></b></td>
+                <td align="right">1,336,780</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3124</td>
+                <td><b><a href="/services/teams/team.htm?id=D7DD7332-2B95-405F-A4F0-B77E4CF00F0B">Lester&nbsp;Research&nbsp;&&nbsp;Development</a></b></td>
+                <td align="right">1,336,779</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3125</td>
+                <td><b><a href="/services/teams/team.htm?id=D2A6E41F-4274-481D-BD10-72DB6199D00B">Michigan&nbsp;State&nbsp;ECE&nbsp;Dept&nbsp;</a></b></td>
+                <td align="right">1,336,241</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3126</td>
+                <td><b><a href="/services/teams/team.htm?id=F049C3AE-528A-43A4-969A-7FAAA5D9340B">Tennessee&nbsp;</a></b></td>
+                <td align="right">1,335,099</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3127</td>
+                <td><b><a href="/services/teams/team.htm?id=431464AA-D15B-47EE-BE2C-FEEA1531DED7">L'Arc~en~Ciel&nbsp;House&nbsp;</a></b></td>
+                <td align="right">1,334,783</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3128</td>
+                <td><b><a href="/services/teams/team.htm?id=3B4BFFEB-0052-4A2B-A30C-077235A3C8E0">Fugazi&nbsp;Clan&nbsp;</a></b></td>
+                <td align="right">1,334,337</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3129</td>
+                <td><b><a href="/services/teams/team.htm?id=3CE07A3E-B232-46DF-A9FE-D06F938CFB90">AristoCrack&nbsp;&nbsp;</a></b></td>
+                <td align="right">1,332,802</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3130</td>
+                <td><b><a href="/services/teams/team.htm?id=D4238A89-80A8-4B4F-A254-F70011247A54">Auker&nbsp;Rhodes&nbsp;</a></b></td>
+                <td align="right">1,332,482</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3131</td>
+                <td><b><a href="/services/teams/team.htm?id=16946D3A-F6DF-4B05-9BCC-8FB17DFDE06E">Tiree&nbsp;At&nbsp;Home&nbsp;</a></b></td>
+                <td align="right">1,332,308</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3132</td>
+                <td><b><a href="/services/teams/team.htm?id=0C0A7348-B22D-46B6-9E2E-6A6DEFEE71B2">iAnywhere&nbsp;Solutions&nbsp;</a></b></td>
+                <td align="right">1,330,046</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3133</td>
+                <td><b><a href="/services/teams/team.htm?id=0642C269-84F1-48CB-863D-943FE0694E9E">IP-Freely.Org&nbsp;</a></b></td>
+                <td align="right">1,330,029</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3134</td>
+                <td><b><a href="/services/teams/team.htm?id=EE629AE1-A6CF-45E9-94C8-71F06B3B76D9">TGOTA&nbsp;</a></b></td>
+                <td align="right">1,329,859</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3135</td>
+                <td><b><a href="/services/teams/team.htm?id=26756612-AD72-4E86-BCD5-07F09B39E305">Matrix&nbsp;World&nbsp;Search&nbsp;Team&nbsp;</a></b></td>
+                <td align="right">1,329,790</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3136</td>
+                <td><b><a href="/services/teams/team.htm?id=BCC7DB42-4ADE-4206-9EF3-E82CB3A1819E">Intuit&nbsp;</a></b></td>
+                <td align="right">1,328,365</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3137</td>
+                <td><b><a href="/services/teams/team.htm?id=2E2953D0-F99F-4B0C-96F4-8093C033F692">Team&nbsp;Rhys&nbsp;</a></b></td>
+                <td align="right">1,328,050</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3138</td>
+                <td><b><a href="/services/teams/team.htm?id=0FBACC14-FEBC-4333-8B4E-B50EBD6C2F39">Clark&nbsp;Community&nbsp;College&nbsp;</a></b></td>
+                <td align="right">1,328,014</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3139</td>
+                <td><b><a href="/services/teams/team.htm?id=67414D91-BB75-430F-97DC-9A18FE70C6F3">FTJ&nbsp;NerdsAnonymous</a></b></td>
+                <td align="right">1,327,813</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3140</td>
+                <td><b><a href="/services/teams/team.htm?id=7CA46296-2DCA-403F-98C5-01EC793D6276">Groundhog&nbsp;</a></b></td>
+                <td align="right">1,327,653</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3141</td>
+                <td><b><a href="/services/teams/team.htm?id=809BE964-DAB7-4AA0-BDC2-D6AB92E0F1D7">FCU&nbsp;TTEM&nbsp;</a></b></td>
+                <td align="right">1,327,407</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3142</td>
+                <td><b><a href="/services/teams/team.htm?id=32EB843F-19B4-4FE6-BED8-42F8398BCA64">ELIGEOS&nbsp;</a></b></td>
+                <td align="right">1,325,978</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3143</td>
+                <td><b><a href="/services/teams/team.htm?id=53949867-89BD-487F-824C-7FA7D5053B55">Organics&nbsp;of&nbsp;OZ&nbsp;</a></b></td>
+                <td align="right">1,325,834</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3144</td>
+                <td><b><a href="/services/teams/team.htm?id=BD06A3E4-46C8-43A0-8E57-50A8AB447E4F">Lost&nbsp;In&nbsp;@lanta&nbsp;</a></b></td>
+                <td align="right">1,324,968</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3145</td>
+                <td><b><a href="/services/teams/team.htm?id=DEA9B8D2-734F-4F4C-98B2-9924EFAF4524">Team&nbsp;L.E.&nbsp;</a></b></td>
+                <td align="right">1,324,762</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3146</td>
+                <td><b><a href="/services/teams/team.htm?id=C555397F-5B06-4723-87A1-7DE226EDADF6">Deep&nbsp;Divers&nbsp;</a></b></td>
+                <td align="right">1,324,182</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3147</td>
+                <td><b><a href="/services/teams/team.htm?id=45F29EA5-9003-4BA9-AE1C-70560E1CD168">Nuke&nbsp;Boyzz&nbsp;</a></b></td>
+                <td align="right">1,323,177</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3148</td>
+                <td><b><a href="/services/teams/team.htm?id=A9DD27E5-BA93-4E5E-ACB2-76A68837D0A7">AlexManics&nbsp;</a></b></td>
+                <td align="right">1,323,004</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3149</td>
+                <td><b><a href="/services/teams/team.htm?id=06779058-036D-4D96-8746-1289827437BB">Royal&nbsp;Guardians&nbsp;of&nbsp;the&nbsp;Ying-Fa</a></b></td>
+                <td align="right">1,322,936</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3150</td>
+                <td><b><a href="/services/teams/team.htm?id=0AB7EDA6-F5E7-4988-A5E9-36A096B7DC90">Bellaire&nbsp;Christian&nbsp;Academy</a></b></td>
+                <td align="right">1,322,865</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3151</td>
+                <td><b><a href="/services/teams/team.htm?id=05D2C3B8-4DF0-40D3-A0E3-DC514F25B610">Team&nbsp;Panther&nbsp;XL&nbsp;</a></b></td>
+                <td align="right">1,322,736</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3152</td>
+                <td><b><a href="/services/teams/team.htm?id=59ACB395-3D7C-421D-AD5F-A877A2D6F07F">Team&nbsp;ISHIGE&nbsp;</a></b></td>
+                <td align="right">1,322,067</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3153</td>
+                <td><b><a href="/services/teams/team.htm?id=D050A47B-DAF9-4C1D-B8FE-74FC5F1DB71C">Chalmers&nbsp;Studenthem&nbsp;</a></b></td>
+                <td align="right">1,321,008</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3154</td>
+                <td><b><a href="/services/teams/team.htm?id=85671304-8A0B-4234-BF62-10AB2A92BD9C">MEEG&nbsp;</a></b></td>
+                <td align="right">1,320,579</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3155</td>
+                <td><b><a href="/services/teams/team.htm?id=81E448CE-1238-451E-9F3A-8ED18D7822CB">UD@Louisiana&nbsp;</a></b></td>
+                <td align="right">1,320,469</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3156</td>
+                <td><b><a href="/services/teams/team.htm?id=ECFBA0B0-F46E-47DB-A032-43A0FFFBF860">Tarquinne&nbsp;</a></b></td>
+                <td align="right">1,320,327</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3157</td>
+                <td><b><a href="/services/teams/team.htm?id=DD81DA79-B79C-4BFC-A7DB-D8E2931E5348">Team&nbsp;Leder&nbsp;</a></b></td>
+                <td align="right">1,319,934</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3158</td>
+                <td><b><a href="/services/teams/team.htm?id=568A62B7-6F7E-4FDB-9DB6-121F2031242E">Gateway&nbsp;Users&nbsp;Int'l&nbsp;GUI&nbsp;</a></b></td>
+                <td align="right">1,319,915</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3159</td>
+                <td><b><a href="/services/teams/team.htm?id=DE0541CF-E862-458F-9077-E755BBD6F802">1FamilyNet.net&nbsp;</a></b></td>
+                <td align="right">1,319,626</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3160</td>
+                <td><b><a href="/services/teams/team.htm?id=4E0DBF73-408C-4986-9451-4623AE818BBE">TRS_SYS&nbsp;TRS</a></b></td>
+                <td align="right">1,319,178</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3161</td>
+                <td><b><a href="/services/teams/team.htm?id=7EF95C0D-24DB-4A69-83D0-4683628C2544">Network&nbsp;Management&nbsp;Services</a></b></td>
+                <td align="right">1,318,814</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3162</td>
+                <td><b><a href="/services/teams/team.htm?id=D3E7CCD8-438E-4BA3-8DCF-EDBE1C3FEEFA">Wake&nbsp;Forest&nbsp;University&nbsp;</a></b></td>
+                <td align="right">1,318,308</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3163</td>
+                <td><b><a href="/services/teams/team.htm?id=181BFF9E-035A-4C32-83C6-A6CDED83D67D">Fight&nbsp;Esophageal&nbsp;Cancer!&nbsp;</a></b></td>
+                <td align="right">1,318,108</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3164</td>
+                <td><b><a href="/services/teams/team.htm?id=FC29366C-817E-4435-ACB5-1C5F6776E47D">The&nbsp;Wyverns&nbsp;</a></b></td>
+                <td align="right">1,318,107</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3165</td>
+                <td><b><a href="/services/teams/team.htm?id=DBF57097-6039-451A-9829-18970BA671A5">Churchbass&nbsp;</a></b></td>
+                <td align="right">1,318,092</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3166</td>
+                <td><b><a href="/services/teams/team.htm?id=0684A5C6-E8FD-4645-9FC5-B4781123E84B">Nick77_Liza639367&nbsp;</a></b></td>
+                <td align="right">1,317,830</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3167</td>
+                <td><b><a href="/services/teams/team.htm?id=8CB6E231-CBD6-42C1-B435-55FC0CC62769">Gridlocked&nbsp;</a></b></td>
+                <td align="right">1,317,447</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3168</td>
+                <td><b><a href="/services/teams/team.htm?id=223814B2-8432-4B78-8B1D-B7A0B431294E">Blyph&nbsp;</a></b></td>
+                <td align="right">1,317,115</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3169</td>
+                <td><b><a href="/services/teams/team.htm?id=0226CEBF-9E4B-4594-921F-7BB64083E02C">Team&nbsp;ADESA&nbsp;</a></b></td>
+                <td align="right">1,316,132</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3170</td>
+                <td><b><a href="/services/teams/team.htm?id=29553EF1-00C0-44CD-A65D-1CD44A7407CA">The&nbsp;Final&nbsp;Countdown&nbsp;</a></b></td>
+                <td align="right">1,313,415</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3171</td>
+                <td><b><a href="/services/teams/team.htm?id=39D88D60-ABC3-4337-9810-950FB19671FA">Zepx&nbsp;International&nbsp;</a></b></td>
+                <td align="right">1,313,294</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3172</td>
+                <td><b><a href="/services/teams/team.htm?id=FAA998F6-C2BD-45DA-9EE6-3FDFBA732995">Accenture&nbsp;</a></b></td>
+                <td align="right">1,312,852</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3173</td>
+                <td><b><a href="/services/teams/team.htm?id=79A042F6-5263-4FE1-94C8-F76229D7B2B9">Church&nbsp;Of&nbsp;Christ&nbsp;</a></b></td>
+                <td align="right">1,312,793</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3174</td>
+                <td><b><a href="/services/teams/team.htm?id=19D09FA6-7334-4B3D-BF00-443E4BC36466">R&nbsp;Fox&nbsp;consulting&nbsp;</a></b></td>
+                <td align="right">1,312,474</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3175</td>
+                <td><b><a href="/services/teams/team.htm?id=E290C869-9FE7-4E4B-9B54-F274957B9FA5">T13&nbsp;</a></b></td>
+                <td align="right">1,312,390</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3176</td>
+                <td><b><a href="/services/teams/team.htm?id=D48A0886-0309-4915-9A14-D26B43740768">IEA&nbsp;Software&nbsp;</a></b></td>
+                <td align="right">1,312,254</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3177</td>
+                <td><b><a href="/services/teams/team.htm?id=D905C9AE-1919-4BF3-B496-D89B2FE241A8">Gustavus&nbsp;Adolphus&nbsp;College</a></b></td>
+                <td align="right">1,311,958</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3178</td>
+                <td><b><a href="/services/teams/team.htm?id=6381EAED-E15B-4AD3-8BEB-505924527BCD">Big&nbsp;Bad&nbsp;Pj's&nbsp;Cancer&nbsp;Fightin&nbsp;Machine(s)</a></b></td>
+                <td align="right">1,311,500</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3179</td>
+                <td><b><a href="/services/teams/team.htm?id=AAE09D70-CDC8-4827-9792-DE2824837DE7">Beaucon&nbsp;</a></b></td>
+                <td align="right">1,311,338</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3180</td>
+                <td><b><a href="/services/teams/team.htm?id=CE37FEF1-E627-450B-A548-6BFD21A48502">SUPER&nbsp;MONKEY&nbsp;</a></b></td>
+                <td align="right">1,311,158</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3181</td>
+                <td><b><a href="/services/teams/team.htm?id=D61C0AAA-23B9-47A0-ABF1-3FB3449AC90B">Design&nbsp;Matters&nbsp;</a></b></td>
+                <td align="right">1,310,411</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3182</td>
+                <td><b><a href="/services/teams/team.htm?id=60FEBF4E-C9E9-4D21-B5A2-800454285563">Gibraltar&nbsp;</a></b></td>
+                <td align="right">1,310,122</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3183</td>
+                <td><b><a href="/services/teams/team.htm?id=B786B899-99F9-483F-8821-D29324DE672C">Coast-2-Coast&nbsp;</a></b></td>
+                <td align="right">1,310,110</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3184</td>
+                <td><b><a href="/services/teams/team.htm?id=7E1BBCE7-352B-4EBE-98F9-FB1BA1A5E7FF">Sony&nbsp;Liverpool&nbsp;</a></b></td>
+                <td align="right">1,310,106</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3185</td>
+                <td><b><a href="/services/teams/team.htm?id=FA96F73C-6825-4681-BC2D-124072C76698">TPC&nbsp;</a></b></td>
+                <td align="right">1,309,843</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3186</td>
+                <td><b><a href="/services/teams/team.htm?id=EF629C9E-46B9-49B6-8317-17D70E212F22">mawawa&nbsp;</a></b></td>
+                <td align="right">1,308,574</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3187</td>
+                <td><b><a href="/services/teams/team.htm?id=2739F1EF-C9ED-4DF2-9BA0-E34CE81567A2">Montanans&nbsp;Unite!&nbsp;</a></b></td>
+                <td align="right">1,308,520</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3188</td>
+                <td><b><a href="/services/teams/team.htm?id=457FDC6F-BB82-44A8-B76C-255FE14BEF56">HardOCP&nbsp;</a></b></td>
+                <td align="right">1,308,159</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3189</td>
+                <td><b><a href="/services/teams/team.htm?id=0673188B-DC55-4C90-A7F1-B28D37E84BD2">DFF&nbsp;-&nbsp;Dutch&nbsp;FXPing&nbsp;Force&nbsp;</a></b></td>
+                <td align="right">1,307,889</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3190</td>
+                <td><b><a href="/services/teams/team.htm?id=0FF9D000-7BC5-4F60-BF6E-8820079CE75B">People&nbsp;Who&nbsp;Care&nbsp;</a></b></td>
+                <td align="right">1,307,146</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3191</td>
+                <td><b><a href="/services/teams/team.htm?id=BA3DF715-D1BC-4A05-AE08-2544791DDDD0">Greek&nbsp;RolePlayingGamers&nbsp;Fight&nbsp;Cancer&nbsp;(GRPG-FC)</a></b></td>
+                <td align="right">1,306,976</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3192</td>
+                <td><b><a href="/services/teams/team.htm?id=372441CA-6955-4FDF-9F14-BD3181CED1DD">Team&nbsp;x-game</a></b></td>
+                <td align="right">1,306,585</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3193</td>
+                <td><b><a href="/services/teams/team.htm?id=EE9F7246-D370-4910-BA35-E559378DC617">IBB&nbsp;</a></b></td>
+                <td align="right">1,306,119</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3194</td>
+                <td><b><a href="/services/teams/team.htm?id=DCCEF3D9-397A-4C2B-96EA-B9532802ADE7">yeeyong&nbsp;</a></b></td>
+                <td align="right">1,306,090</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3195</td>
+                <td><b><a href="/services/teams/team.htm?id=8299C827-9C00-4645-9988-1D81072017C6">EML/DP/SAL&nbsp;</a></b></td>
+                <td align="right">1,306,007</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3196</td>
+                <td><b><a href="/services/teams/team.htm?id=7D73D52D-41A1-431D-8496-1197742C8B5D">Verge&nbsp;Enterprises&nbsp;</a></b></td>
+                <td align="right">1,305,977</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3197</td>
+                <td><b><a href="/services/teams/team.htm?id=E30595B7-3E93-4B8E-9A6B-A5141AB5A7F4">American&nbsp;Tuna&nbsp;Shake&nbsp;Consortium</a></b></td>
+                <td align="right">1,305,866</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3198</td>
+                <td><b><a href="/services/teams/team.htm?id=E3C76966-9F26-4206-BF34-57D500472D6D">University&nbsp;of&nbsp;Kuopio&nbsp;AIV</a></b></td>
+                <td align="right">1,305,122</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3199</td>
+                <td><b><a href="/services/teams/team.htm?id=727C9242-D963-4FAA-A7C9-433226F4BC97">Team&nbsp;TIM&nbsp;</a></b></td>
+                <td align="right">1,304,075</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3200</td>
+                <td><b><a href="/services/teams/team.htm?id=E56AF041-44BA-47DD-8285-E18C8260E346">Studley&nbsp;</a></b></td>
+                <td align="right">1,302,886</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3201</td>
+                <td><b><a href="/services/teams/team.htm?id=F0EA5FB2-DC97-4D9F-943F-6B4C80D35A49">Green&nbsp;Bay&nbsp;Packer&nbsp;Fans&nbsp;United&nbsp;to&nbsp;Find&nbsp;a&nbsp;Cure</a></b></td>
+                <td align="right">1,302,675</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3202</td>
+                <td><b><a href="/services/teams/team.htm?id=FCADBF6B-3481-4067-A801-75606F18F738">Blue&nbsp;Martinis&nbsp;</a></b></td>
+                <td align="right">1,302,604</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3203</td>
+                <td><b><a href="/services/teams/team.htm?id=F61DC3CF-67BA-4519-A92B-EFB0B69AF8F8">Universita'&nbsp;degli&nbsp;Studi&nbsp;di&nbsp;Salerno</a></b></td>
+                <td align="right">1,302,368</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3204</td>
+                <td><b><a href="/services/teams/team.htm?id=22C56BFD-FE04-44A0-B477-38AC080972B0">YAMATO&nbsp;MUSASISIMOUSA</a></b></td>
+                <td align="right">1,302,217</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3205</td>
+                <td><b><a href="/services/teams/team.htm?id=A92D3050-C935-4F13-9BAD-729BAAFA8643">Aridium&nbsp;</a></b></td>
+                <td align="right">1,302,061</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3206</td>
+                <td><b><a href="/services/teams/team.htm?id=AF93CEE2-1C2F-49ED-A73B-CDD4FFB9D663">The&nbsp;Eagle's&nbsp;Nest&nbsp;</a></b></td>
+                <td align="right">1,301,500</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3207</td>
+                <td><b><a href="/services/teams/team.htm?id=C3312630-DB8C-4631-AF57-6AC7D8A0D3E1">HoC&nbsp;</a></b></td>
+                <td align="right">1,301,462</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3208</td>
+                <td><b><a href="/services/teams/team.htm?id=405B49AD-0B20-48B8-B279-58C41AECEDBF">RulonStuart&nbsp;</a></b></td>
+                <td align="right">1,301,403</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3209</td>
+                <td><b><a href="/services/teams/team.htm?id=86D3DF68-9E4F-4CB4-AC7A-1B774E7BFE45">Brandeis&nbsp;University&nbsp;</a></b></td>
+                <td align="right">1,301,312</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3210</td>
+                <td><b><a href="/services/teams/team.htm?id=5EFF536B-43C9-4BB8-B788-296FC748E288">juxtapose&nbsp;inc&nbsp;</a></b></td>
+                <td align="right">1,300,910</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3211</td>
+                <td><b><a href="/services/teams/team.htm?id=7C152EDD-5286-4BFC-ACB7-BC9F704100A9">ProActive&nbsp;</a></b></td>
+                <td align="right">1,300,638</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3212</td>
+                <td><b><a href="/services/teams/team.htm?id=1C2CAE10-8DDF-4E4D-A9A3-B11A2412A340">MG37221&nbsp;</a></b></td>
+                <td align="right">1,300,455</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3213</td>
+                <td><b><a href="/services/teams/team.htm?id=CF57C7BE-2B50-4E01-8B5C-DA0F851AD30B">Team&nbsp;Honda&nbsp;</a></b></td>
+                <td align="right">1,300,386</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3214</td>
+                <td><b><a href="/services/teams/team.htm?id=7AA5AB93-23E4-42A3-9159-0F3F5DB46ECD">KISS&nbsp;ARMY&nbsp;ONLINE&nbsp;</a></b></td>
+                <td align="right">1,299,677</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3215</td>
+                <td><b><a href="/services/teams/team.htm?id=2362CA52-BE58-43E0-A3EB-07ED68CE225F">TU&nbsp;Braunschweig&nbsp;Germany&nbsp;</a></b></td>
+                <td align="right">1,299,570</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3216</td>
+                <td><b><a href="/services/teams/team.htm?id=4EE6E7B3-B678-42CC-A16A-26475264026A">KY_Rogues&nbsp;</a></b></td>
+                <td align="right">1,299,086</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3217</td>
+                <td><b><a href="/services/teams/team.htm?id=B212C25F-88D4-48EC-A22E-4EBB5EBEAE18">CPF&nbsp;Distributed&nbsp;Computing</a></b></td>
+                <td align="right">1,298,893</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3218</td>
+                <td><b><a href="/services/teams/team.htm?id=1D1F5EE1-2399-4218-8F83-947791E6B697">Team&nbsp;Pinkeltjes&nbsp;</a></b></td>
+                <td align="right">1,298,883</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3219</td>
+                <td><b><a href="/services/teams/team.htm?id=5ABAA6FE-89FA-48EB-AA52-DB63A025896C">james&nbsp;panayoton</a></b></td>
+                <td align="right">1,298,101</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3220</td>
+                <td><b><a href="/services/teams/team.htm?id=8EDB5ED0-10AA-482D-8207-59F8BE5201E0">Mitchell&nbsp;College</a></b></td>
+                <td align="right">1,297,713</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3221</td>
+                <td><b><a href="/services/teams/team.htm?id=15264234-398F-4666-8199-372E723B799A">West&nbsp;Meadows&nbsp;</a></b></td>
+                <td align="right">1,297,394</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3222</td>
+                <td><b><a href="/services/teams/team.htm?id=EF2292F8-6CA8-4F2A-AB8C-B4BC8AC66038">Cuesta&nbsp;College</a></b></td>
+                <td align="right">1,297,128</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3223</td>
+                <td><b><a href="/services/teams/team.htm?id=03C6889C-F618-4B0C-9812-C8B05B792568">Integra&nbsp;</a></b></td>
+                <td align="right">1,296,874</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3224</td>
+                <td><b><a href="/services/teams/team.htm?id=E61C577D-6DE7-4FE1-8FA9-D569004ED95D">Gopher,&nbsp;Everett?&nbsp;</a></b></td>
+                <td align="right">1,296,631</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3225</td>
+                <td><b><a href="/services/teams/team.htm?id=260CB44D-E133-4D89-B9FC-BE052A1A902A">Team&nbsp;Indy&nbsp;</a></b></td>
+                <td align="right">1,296,507</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3226</td>
+                <td><b><a href="/services/teams/team.htm?id=E28DE169-403A-4C65-9A28-9AC14E47E97B">ESReality&nbsp;</a></b></td>
+                <td align="right">1,295,819</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3227</td>
+                <td><b><a href="/services/teams/team.htm?id=36520A6A-69D5-4713-BFA2-A5CF480A2825">NOVOSOFT&nbsp;</a></b></td>
+                <td align="right">1,295,810</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3228</td>
+                <td><b><a href="/services/teams/team.htm?id=D52EEFEA-0579-49F3-8EEC-085E16C5BBB7">Drew&nbsp;University</a></b></td>
+                <td align="right">1,294,413</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3229</td>
+                <td><b><a href="/services/teams/team.htm?id=702120D8-58BE-414B-A157-7BAF1E4BAD42">Team&nbsp;Ontario&nbsp;Oregon&nbsp;</a></b></td>
+                <td align="right">1,294,011</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3230</td>
+                <td><b><a href="/services/teams/team.htm?id=E7E6428A-0BEF-4847-8225-456C1032AA33">University&nbsp;of&nbsp;Missouri&nbsp;Columbia</a></b></td>
+                <td align="right">1,293,397</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3231</td>
+                <td><b><a href="/services/teams/team.htm?id=BA3C8A2D-C81E-4CC7-89CB-05370E4D3ACA">Blues&nbsp;against&nbsp;cancer&nbsp;</a></b></td>
+                <td align="right">1,293,060</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3232</td>
+                <td><b><a href="/services/teams/team.htm?id=C2D2B4AA-32AF-4A1D-BCD3-98C51054AAD7">Inklaar&nbsp;Family&nbsp;</a></b></td>
+                <td align="right">1,293,034</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3233</td>
+                <td><b><a href="/services/teams/team.htm?id=49BB6497-9605-4D98-BAD1-2084128FF05D">Ag&nbsp;Leader&nbsp;</a></b></td>
+                <td align="right">1,292,962</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3234</td>
+                <td><b><a href="/services/teams/team.htm?id=E654FCD7-5132-4240-913B-38A7CB1639E2">Book&nbsp;Data&nbsp;Limited&nbsp;</a></b></td>
+                <td align="right">1,292,313</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3235</td>
+                <td><b><a href="/services/teams/team.htm?id=99E8BF9C-4B46-4AC6-9C5D-BC1159A76D09">northeastWIbadgers&nbsp;</a></b></td>
+                <td align="right">1,292,164</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3236</td>
+                <td><b><a href="/services/teams/team.htm?id=46133E89-EE99-4E18-84D4-F4504182A338">FireFighters&nbsp;WorldWide</a></b></td>
+                <td align="right">1,291,690</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3237</td>
+                <td><b><a href="/services/teams/team.htm?id=DF39C0A6-CA1A-4AAD-A7BB-3B1592660A11">CHTTL&nbsp;</a></b></td>
+                <td align="right">1,291,412</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3238</td>
+                <td><b><a href="/services/teams/team.htm?id=96D0C080-4F4A-44C8-8D1B-E26717F77234">Basset&nbsp;Hound&nbsp;Lovers&nbsp;</a></b></td>
+                <td align="right">1,290,603</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3239</td>
+                <td><b><a href="/services/teams/team.htm?id=BE39DCD5-ADB9-43B8-BD2B-BC79F5FE1845">Burpham&nbsp;School&nbsp;</a></b></td>
+                <td align="right">1,288,509</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3240</td>
+                <td><b><a href="/services/teams/team.htm?id=BB0085A3-1A25-4A82-BA39-6687BBD5B101">Media&nbsp;100&nbsp;Inc.&nbsp;</a></b></td>
+                <td align="right">1,288,293</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3241</td>
+                <td><b><a href="/services/teams/team.htm?id=E4A7EB1F-A52B-4731-B2BA-3AADA357ADA3">Team&nbsp;Azzurro&nbsp;Italia&nbsp;</a></b></td>
+                <td align="right">1,287,970</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3242</td>
+                <td><b><a href="/services/teams/team.htm?id=B32EDA19-9D14-4978-8243-DD77D26C436B">L.T.R.U.K.&nbsp;</a></b></td>
+                <td align="right">1,287,413</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3243</td>
+                <td><b><a href="/services/teams/team.htm?id=43BD07C9-E6F5-42F8-9961-1196BD80A9AD">Texas&nbsp;Bass&nbsp;Fisherman&nbsp;</a></b></td>
+                <td align="right">1,286,968</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3244</td>
+                <td><b><a href="/services/teams/team.htm?id=0A0D9067-6B9B-4A25-9823-6D7665A71213">Finnish&nbsp;Heritage&nbsp;Group&nbsp;</a></b></td>
+                <td align="right">1,286,610</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3245</td>
+                <td><b><a href="/services/teams/team.htm?id=990333B0-20E4-4BC7-8F48-2F458181C195">TEAM&nbsp;COMICCHATS&nbsp;</a></b></td>
+                <td align="right">1,286,464</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3246</td>
+                <td><b><a href="/services/teams/team.htm?id=386D3862-53D7-42EE-A960-23BEE7CF02C0">Oracle&nbsp;RMDC&nbsp;</a></b></td>
+                <td align="right">1,286,157</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3247</td>
+                <td><b><a href="/services/teams/team.htm?id=3D896E13-6692-4306-B8C5-59BD46DE05D6">CanCan&nbsp;Boys&nbsp;</a></b></td>
+                <td align="right">1,286,089</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3248</td>
+                <td><b><a href="/services/teams/team.htm?id=63563D9F-912B-4BFA-9011-FA61D89A360A">TeamTosa&nbsp;</a></b></td>
+                <td align="right">1,285,904</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3249</td>
+                <td><b><a href="/services/teams/team.htm?id=36FA0A0F-6580-4EF9-8B2A-252E60AB799F">TEAM&nbsp;dohyoo&nbsp;for342&nbsp;</a></b></td>
+                <td align="right">1,285,809</td>
+            </tr>
+                    
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td align="right">3250</td>
+                <td><b><a href="/services/teams/team.htm?id=A0C7081E-6B70-4AAD-9579-E667631F3EBA">Catholics&nbsp;for&nbsp;a&nbsp;Cure&nbsp;</a></b></td>
+                <td align="right">1,285,637</td>
+            </tr>
+            
+            </table>
+            <img src="/img/+___.gif" width="1" height="10" /><br />        
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+                <td align="right" valign="top">
+                
+
+    <table cellpadding="0" cellspacing="0" border="0">
+    
+    <form class="form">
+    <tr>
+        <td align="right" nowrap="true">
+        
+            <script type="text/javascript">
+            <!--
+                if (typeof(rs_page_first) != "object") {
+                    //preload_image("rs_page_first", "/img/logo_grid.gif");
+					rs_page_first = new Image();
+					rs_page_first.src = '/img/rs_page_first.gif';
+					rs_page_first_mo = new Image();
+					rs_page_first_mo.src = '/img/rs_page_first_mo.gif';
+					rs_page_first_md = new Image();
+					rs_page_first_md.src = '/img/rs_page_first_md.gif';
+					rs_page_previous = new Image();
+					rs_page_previous.src = '/img/rs_page_previous.gif';
+					rs_page_previous_mo = new Image();
+					rs_page_previous_mo.src = '/img/rs_page_previous_mo.gif';
+					rs_page_previous_md = new Image();
+					rs_page_previous_md.src = '/img/rs_page_previous_md.gif';
+					rs_page_next = new Image();
+					rs_page_next.src = '/img/rs_page_next.gif';
+					rs_page_next_mo = new Image();
+					rs_page_next_mo.src = '/img/rs_page_next_mo.gif';
+					rs_page_next_md = new Image();
+					rs_page_next_md.src = '/img/rs_page_next_md.gif';
+					rs_page_last = new Image();
+					rs_page_last.src = '/img/rs_page_last.gif';
+					rs_page_last_mo = new Image();
+					rs_page_last_mo.src = '/img/rs_page_last_mo.gif';
+					rs_page_last_md = new Image();
+					rs_page_last_md.src = '/img/rs_page_last_md.gif';
+                }
+            // -->
+            </script>
+            <table cellpadding="0" cellspacing="1" border="0" width="124" height="19">
+            <tr>
+                <td width="25%" bgcolor="#E5E5E5"><a href="points.htm?rsps=250&rscp=1"><img onmouseover="this.src=rs_page_first_mo.src" onmousedown="this.src=rs_page_first_md.src" onmouseout="this.src=rs_page_first.src" src="/img/rs_page_first.gif" width="31" height="19" border="0" alt="First Page" /></a></td>
+                <td width="25%" bgcolor="#CCCCCC"><a href="points.htm?rsps=250&rscp=12"><img onmouseover="this.src=rs_page_previous_mo.src" onmousedown="this.src=rs_page_previous_md.src" onmouseout="this.src=rs_page_previous.src" src="/img/rs_page_previous.gif" width="31" height="19" border="0" alt="Previous Page" /></a></td>
+                <td width="25%" bgcolor="#CCCCCC"><a href="points.htm?rsps=250&rscp=14"><img onmouseover="this.src=rs_page_next_mo.src" onmousedown="this.src=rs_page_next_md.src" onmouseout="this.src=rs_page_next.src" src="/img/rs_page_next.gif" width="31" height="19" border="0" alt="Next Page" /></a></td>
+                <td width="25%" bgcolor="#E5E5E5"><a href="points.htm?rsps=250&rscp=20"><img onmouseover="this.src=rs_page_last_mo.src" onmousedown="this.src=rs_page_last_md.src" onmouseout="this.src=rs_page_last.src" src="/img/rs_page_last.gif" width="31" height="19" border="0" alt="Last Page" /></a></td>
+            </tr>
+            </table>
+            <img src="/img/+___.gif" width="1" height="5" /><br />
+        
+            Page 
+            <select onchange="location.href='points.htm?rsps=250&rscp=' + this.options[this.selectedIndex].value" style="font-weight:bold">
+            <option value="1" >&nbsp;&nbsp;1</option><option value="2" >&nbsp;&nbsp;2</option><option value="3" >&nbsp;&nbsp;3</option><option value="4" >&nbsp;&nbsp;4</option><option value="5" >&nbsp;&nbsp;5</option><option value="6" >&nbsp;&nbsp;6</option><option value="7" >&nbsp;&nbsp;7</option><option value="8" >&nbsp;&nbsp;8</option><option value="9" >&nbsp;&nbsp;9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option><option value="13" selected="true">13</option><option value="14" >14</option><option value="15" >15</option><option value="16" >16</option><option value="17" >17</option><option value="18" >18</option><option value="19" >19</option><option value="20" >20</option>
+            </select>
+            of <b>[20]</b><br /> 
+        
+        Records <b>3001 - 3250</b>, <b>5000</b> Total<br />
+        
+                <img src="/img/+___.gif" width="1" height="5" /><br />
+                <select onchange="location.href='points.htm?rsps=' + this.options[this.selectedIndex].value" style="font-weight:bold">
+                
+                <option value="10" >&nbsp;&nbsp;10</option>
+                
+                <option value="25" >&nbsp;&nbsp;25</option>
+                
+                <option value="50" >&nbsp;&nbsp;50</option>
+                
+                <option value="100" >100</option>
+                
+                <option value="250" selected="true">250</option>
+                
+                </select> <i>records per page</i><br />
+            
+        </td>
+    </tr>
+    </form>
+    </table>
+  
+
+                </td>
+            </tr>
+            </table>
+            
+            </td>
+        </tr>
+		</table>
+			</td>
+</tr>
+<tr>
+	<td bgcolor="#CCCCCC" height="1"><img src="/img/+CCC.gif" width="10" height="1" /></td>
+</tr>
+</table>
+</p>
+    
+ 	</td>
+</tr>
+</table>
+
+	</td>
+</tr>
+</table>
+
+</td>
+<!--- END CONTENT --->
+</tr>
+</table>
+
+<!--- START FOOTER CODE --->
+<table cellpadding="0" cellspacing="0" border="0" width="750">
+<tr>
+	<td bgcolor="#003366" width="650">
+	<table cellpadding="0" cellspacing="1" border="0" width="750">
+	<tr>
+	    <td valign="middle" bgcolor="#003366" width="499">&nbsp;&nbsp;<span class="navitem">Copyright &copy; 2004 Grid.org. All rights reserved.</span></td>
+		<td bgcolor="#003366" width="1"><img src="/img/+036.gif" width="1" height="18" alt="" border="0" /></td>
+		<td valign="middle" width="150"><a href="/about/gs/privacy.htm" class="navitem" >Privacy &amp; Security</a></td>
+		<td valign="middle" align="center" width="100" bgcolor="#FFFFFF"><a href="#top" class="aon">return to top</a></td>
+	</tr>
+	</table>
+	
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html>
+
+
+

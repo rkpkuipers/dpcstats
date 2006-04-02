@@ -1,0 +1,2480 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>   
+
+    <title>Members : Team Members - GRID.ORG &#153;</title>
+    
+    <!-- <meta name="refresh" http-equiv="refresh" content="3600" /> -->
+    <meta name="pragma" http-equiv="pragma" content="no-cache" />
+    
+<!-- <meta name="refresh" http-equiv="refresh" content="3600" /> -->
+<!-- <meta name="pragma" http-equiv="pragma" content="no-cache" /> -->
+<meta name="expires" http-equiv="expires" content="0" />
+<meta name="cache-control" http-equiv="cache-control" content="no-cache, must-revalidate" />
+<meta name="content-type" http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta name="keywords" content="grid, grid computing, distributed computing, high performance computing, bioinformatics" />
+<meta name="description" content="Grid.org is a single destination site for large-scale research projects powered by the United Devices Grid MP Global. With the participation of over 2 million devices worldwide, grid.org projects like Cancer Research, Anthrax Research, and the new Smallpox Research Project have achieved record levels of processing speed and success." />
+<meta name="author" content="grid.org" />
+<meta name="web design" content="Monkee-Boy Web Design, Aaron Bramwell" />
+<meta name="construction" content="Monkee-Boy Web Design, Aaron Bramwell" />
+<meta name="copyright" content="2003, grid.org. All Rights Reserved." />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true for "http://www.ud.com" r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true for "http://www.ud.com" r (n 0 s 0 v 0 l 0))' />
+<meta name="www-server" content="CWPWWW03" />
+
+<script type="text/javascript" src="/js/browser_window_functions.js"></script>
+<script type="text/javascript" src="/js/image_rollovers.js"></script>
+<script type="text/javascript" src="/js/open_popup_window.js"></script>
+<script type="text/javascript" src="/js/banners.js"></script>
+<link rel="stylesheet" type="text/css" href="/inc/default.css" />
+
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="1" leftmargin="1" rightmargin="1" bottommargin="1" marginheight="1" marginwidth="1" alink="#993333"><table cellpadding="0" cellspacing="0" border="0" width="750">
+<tr>
+	<td rowspan="2" width="141"><a href="/"><img src="/img/logo_grid.gif" width="141" height="88" alt="grid.org" border="0" /></a></td>
+	<td background="/img/nav/topnav_bg.gif" height="1" align="right" valign="middle" nowrap="true"><img src="/img/+___.gif" width="1" height="66" alt="grid.org" border="0" /><br />
+</td>
+</tr>
+<tr>
+	<td background="/img/nav/nav_bg.gif" height="22" width="609"><img src="/img/+___.gif" width="1" height="22" border="0" /><a href="/about/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('about','','/img/nav/nav_about_on.gif',1)"><img src="/img/nav/nav_about.gif" name="about" width="71" height="22" alt="about us" border="0" /></a><a href="/projects/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('projects','','/img/nav/nav_projects_on.gif',1)"><img src="/img/nav/nav_projects.gif" name="projects" idth="68" height="22" alt="projects" border="0" /></a><a href="/stats/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('stats','','/img/nav/nav_stats_on.gif',1)"><img src="/img/nav/nav_stats.gif" name="stats" width="48" height="22" alt="stats" border="0" /></a><a href="/services/"><img src="/img/nav/nav_members_on.gif" name="members" width="121" height="22" alt="member services" border="0" /></a><a href="http://forum.grid.org/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('forms','','/img/nav/nav_forums_on.gif',1)"><img src="/img/nav/nav_forums.gif" name="forms" width="62" height="22" alt="forums" border="0" /></a><a href="/help/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('help','','/img/nav/nav_help_on.gif',1)"><img src="/img/nav/nav_help.gif" name="help" width="46" height="22" alt="help" border="0" /></a></td>
+</tr>
+</table>
+
+<!--- END HEADER CODE --->
+
+<table cellpadding="0" cellspacing="0" border="0" width="750">
+<tr>
+	<td width="141" valign="top" bgcolor="#336699"><a href="/"><img src="/img/logo_grid_bot.gif" width="141" height="16" alt="grid.org" border="0" /></a><br /><!--- LEFT NAV START --->
+<p>
+<table width="141" cellpadding="0" border="0" cellspacing="0">
+<tr>
+	<td colspan="2"><a href="/services/"><img src="/img/left/memberservices.gif" width="142" height="19" alt="member services" border="0" /></a><br /><img src="/img/+___.gif" width="1" height="3" alt="" border="0" /></td>
+</tr>
+</table>
+<table width="141" cellpadding="0" border="0" cellspacing="0">
+<tr>
+	<td>&nbsp;</td>
+	<td valign="top"><a href="/services/home.htm" class="navitem">My home page</a></td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td valign="top"><a href="/services/profile.htm" class="navitem">My member profile</a></td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td valign="top"><a href="/services/login/" class="navitem">My login manager</a></td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td valign="top"><a href="/services/devices/" class="navitem">My device manager</a></td>
+</tr>
+<tr>
+	<td nowrap="true" valign="middle"><img src="/img/pointer.gif" width="13" height="10" alt="You are here!" border="0" /></td>
+	<td valign="top"><a href="/services/teams/" class="navitem">Teams</a></td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td valign="top"><a href="http://forum.grid.org/phpBB/viewforum.php?f=1" class="navitem">Member news</a></td>
+</tr>
+</table>
+</p> 
+<p>
+<table width="141" cellpadding="0" border="0" cellspacing="0">
+<tr>
+	<td bgcolor="#FFFFFF" align="center"><a href="/download/" class="blue"><img src="/img/+___.gif" width="1" height="5" border="0" /><br /><img src="/img/join-gridnow-logo-sm2.gif" alt="Join Grid.org Now!" border="0" /><br /><img src="/img/+___.gif" width="1" height="5" border="0" /><br />Volunteer your CPU to power global research<br /><img src="/img/+___.gif" width="1" height="10" border="0" /></a></td>
+</tr>
+<tr><td align="center" bgcolor="#FFFFFF"><img src="/img/+CCC.gif" width="50" height="1" border="0" /></td></tr>
+<tr>
+	<td bgcolor="#FFFFFF" align="center"><img src="/img/+___.gif" width="1" height="10" border="0" /><br /><a href="https://www.ud.com/" class="blue" target="_blank"><img src="/img/logo_ud2.gif" width="125" height="34" alt="Visit United Devices" border="0"><br />Powered by the United Devices Grid MP platform<br /><img src="/img/+___.gif" width="1" height="10" border="0" /></a></td>
+</tr>
+</table>
+</p>
+
+	
+	
+<td width="609" valign="top">
+<!--- START LOGIN/LOGOUT --->
+<table width="608" height="25" cellpadding="3" cellspacing="0" border="0">
+<tr>
+	
+	<td><img src="/img/+___.gif" width="447" height="1" alt="" border="0" /></td>
+	<td nowrap="true"><a href="/services/">Login?</a></td>
+     
+	
+	</tr>
+	</table>	
+
+<!--- START CONTENT --->
+<table width="609" cellpadding="20" cellspacing="0" border="0">
+<tr>
+	<td><img src="/services/img/bnr_teams.gif" width="500" height="25" alt="Teams" border="0" /><br /><img src="/img/+___.gif" width="1" height="4" alt="" border="0" /><br /><a href="/services/teams/team.htm">My team</a> &nbsp;|&nbsp; <a href="/services/teams/" class="aon">Find a team</a></a> &nbsp;|&nbsp; <a href="/services/teams/create_team.htm">Create a new team</a><br /><br />
+    
+    <p>
+<table width="570" cellpadding="0" cellspacing="0" border="0">
+<tr>
+	<td bgcolor="#CCCCCC" width="1" rowspan="3"><img src="/img/+CCC.gif" width="1" height="10" /></td>
+	<td bgcolor="#CCCCCC" height="1"><img src="/img/+CCC.gif" width="10" height="1" /></td>
+	<td bgcolor="#CCCCCC" width="1" rowspan="3"><img src="/img/+CCC.gif" width="1" height="10" /></td>
+</tr>
+<tr>
+	<td bgcolor="#F5F5F5" align="center" width="100%" valign="top">
+
+	<table cellspacing="1" cellpadding="3" border="0" width="100%">
+	<tr><td colspan="5" class="hdrserv">Team Member Details and Statistics: <span style="color: #FFFFFF;" class="subhead">Dutch Power Cows against cancer</span> </td></tr> 
+            
+        
+    
+        
+        <tr>        
+            <td bgcolor="#F5F5F5" colspan="5">
+ 
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+                <td align="left" valign="top">
+                <b>Statistics Last Updated:</b><br />
+                02/23/2006 23:59:59 (<a href="javascript:openWindow('/services/_pw_UTC.htm', 520, 460, true)">UTC</a>)<br />
+                [ <i>16 hour(s) ago</i> ]<br />
+                </td>
+                <td align="right" valign="top">
+                
+
+    <table cellpadding="0" cellspacing="0" border="0">
+    
+    <form class="form">
+    <tr>
+        <td align="right" nowrap="true">
+        
+            <script type="text/javascript">
+            <!--
+                if (typeof(rs_page_first) != "object") {
+                    //preload_image("rs_page_first", "/img/logo_grid.gif");
+					rs_page_first = new Image();
+					rs_page_first.src = '/img/rs_page_first.gif';
+					rs_page_first_mo = new Image();
+					rs_page_first_mo.src = '/img/rs_page_first_mo.gif';
+					rs_page_first_md = new Image();
+					rs_page_first_md.src = '/img/rs_page_first_md.gif';
+					rs_page_previous = new Image();
+					rs_page_previous.src = '/img/rs_page_previous.gif';
+					rs_page_previous_mo = new Image();
+					rs_page_previous_mo.src = '/img/rs_page_previous_mo.gif';
+					rs_page_previous_md = new Image();
+					rs_page_previous_md.src = '/img/rs_page_previous_md.gif';
+					rs_page_next = new Image();
+					rs_page_next.src = '/img/rs_page_next.gif';
+					rs_page_next_mo = new Image();
+					rs_page_next_mo.src = '/img/rs_page_next_mo.gif';
+					rs_page_next_md = new Image();
+					rs_page_next_md.src = '/img/rs_page_next_md.gif';
+					rs_page_last = new Image();
+					rs_page_last.src = '/img/rs_page_last.gif';
+					rs_page_last_mo = new Image();
+					rs_page_last_mo.src = '/img/rs_page_last_mo.gif';
+					rs_page_last_md = new Image();
+					rs_page_last_md.src = '/img/rs_page_last_md.gif';
+                }
+            // -->
+            </script>
+            <table cellpadding="0" cellspacing="1" border="0" width="124" height="19">
+            <tr>
+                <td width="25%" bgcolor="#E5E5E5"><a href="team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=POINTS&rsps=250&rscp=1"><img onmouseover="this.src=rs_page_first_mo.src" onmousedown="this.src=rs_page_first_md.src" onmouseout="this.src=rs_page_first.src" src="/img/rs_page_first.gif" width="31" height="19" border="0" alt="First Page" /></a></td>
+                <td width="25%" bgcolor="#CCCCCC"><a href="team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=POINTS&rsps=250&rscp=6"><img onmouseover="this.src=rs_page_previous_mo.src" onmousedown="this.src=rs_page_previous_md.src" onmouseout="this.src=rs_page_previous.src" src="/img/rs_page_previous.gif" width="31" height="19" border="0" alt="Previous Page" /></a></td>
+                <td width="25%" bgcolor="#CCCCCC"><a href="team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=POINTS&rsps=250&rscp=8"><img onmouseover="this.src=rs_page_next_mo.src" onmousedown="this.src=rs_page_next_md.src" onmouseout="this.src=rs_page_next.src" src="/img/rs_page_next.gif" width="31" height="19" border="0" alt="Next Page" /></a></td>
+                <td width="25%" bgcolor="#E5E5E5"><a href="team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=POINTS&rsps=250&rscp=15"><img onmouseover="this.src=rs_page_last_mo.src" onmousedown="this.src=rs_page_last_md.src" onmouseout="this.src=rs_page_last.src" src="/img/rs_page_last.gif" width="31" height="19" border="0" alt="Last Page" /></a></td>
+            </tr>
+            </table>
+            <img src="/img/+___.gif" width="1" height="5" /><br />
+        
+            Page 
+            <select onchange="location.href='team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=POINTS&rsps=250&rscp=' + this.options[this.selectedIndex].value" style="font-weight:bold">
+            <option value="1" >&nbsp;&nbsp;1</option><option value="2" >&nbsp;&nbsp;2</option><option value="3" >&nbsp;&nbsp;3</option><option value="4" >&nbsp;&nbsp;4</option><option value="5" >&nbsp;&nbsp;5</option><option value="6" >&nbsp;&nbsp;6</option><option value="7" selected="true">&nbsp;&nbsp;7</option><option value="8" >&nbsp;&nbsp;8</option><option value="9" >&nbsp;&nbsp;9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option><option value="13" >13</option><option value="14" >14</option><option value="15" >15</option>
+            </select>
+            of <b>[15]</b><br /> 
+        
+        Records <b>1501 - 1750</b>, <b>3679</b> Total<br />
+        
+                <img src="/img/+___.gif" width="1" height="5" /><br />
+                <select onchange="location.href='team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=POINTS&rsps=' + this.options[this.selectedIndex].value" style="font-weight:bold">
+                
+                <option value="10" >&nbsp;&nbsp;10</option>
+                
+                <option value="25" >&nbsp;&nbsp;25</option>
+                
+                <option value="50" >&nbsp;&nbsp;50</option>
+                
+                <option value="100" >100</option>
+                
+                <option value="250" selected="true">250</option>
+                
+                </select> <i>records per page</i><br />
+            
+        </td>
+    </tr>
+    </form>
+    </table>
+  
+
+                </td>
+            </tr>
+            </table>
+			
+			</td>
+            </tr>
+            
+            <script type="text/javascript">
+            <!--
+                if (typeof(rs_ord) != "object") {
+                    //preload_image("rs_ord", "/img/rs_ord.gif");
+                    //preload_image("rs_ord_mo", "/img/rs_ord_mo.gif");
+                    //preload_image("rs_ord_md", "/img/rs_ord_md.gif");
+					rs_ord = new Image();
+				    rs_ord.src = '/img/rs_ord.gif';
+				    rs_ord_mo = new Image();
+				    rs_ord_mo.src = '/img/rs_ord_mo.gif';
+				    rs_ord_md = new Image();
+				    rs_ord_md.src = '/img/rs_ord_md.gif';
+                }
+            // -->
+            </script>
+            
+ 
+            <tr bgcolor="#CCCCCC">
+                
+                <td  align="left">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        
+                        
+                        <td align="left">
+                        <b >Member Name</b>
+                        </td>
+                        
+                        
+                        <td><img src="/img/+___.gif" width="5" height="1" /></td>
+                        <td align="right">
+                        
+                        <a href="team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=NAME"><img onmouseover="this.src=rs_ord_mo.src" onmousedown="this.src=rs_ord_md.src" onmouseout="this.src=rs_ord.src" src="/img/rs_ord.gif" src="/img/rs_ord.gif" width="31" height="19" border="0" alt="Sort Records" /></a>
+                        
+                        </td>
+                        
+                    </tr>
+                    </table>
+                </td>
+                
+                <td  align="right">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        
+                        <td align="left">
+                        
+                        <a href="team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=STATUS"><img onmouseover="this.src=rs_ord_mo.src" onmousedown="this.src=rs_ord_md.src" onmouseout="this.src=rs_ord.src" src="/img/rs_ord.gif" width="31" height="19" border="0" alt="Sort Records" /></a>
+                        
+                        </td>
+                        <td><img src="/img/+___.gif" width="5" height="1" /></td>
+                        
+                        
+                        <td align="right">
+                        <b >Status<br />Joined [Retired]</b>
+                        </td>
+                        
+                        
+                    </tr>
+                    </table>
+                </td>
+                
+                <td  align="right">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        
+                        <td align="left">
+                        
+                        <a href="team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=CPU_TIME"><img onmouseover="this.src=rs_ord_mo.src" onmousedown="this.src=rs_ord_md.src" onmouseout="this.src=rs_ord.src" src="/img/rs_ord.gif" width="31" height="19" border="0" alt="Sort Records" /></a>
+                        
+                        </td>
+                        <td><img src="/img/+___.gif" width="5" height="1" /></td>
+                        
+                        
+                        <td align="right">
+                        <b >Total CPU Time<br />(y:d:h:m:s)</b>
+                        </td>
+                        
+                        
+                    </tr>
+                    </table>
+                </td>                
+                
+                <td style="background:#003366" align="right">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        
+                        <td align="left">
+                        
+                        </td>
+                        <td><img src="/img/+___.gif" width="5" height="1" /></td>
+                        
+                        
+                        <td align="right">
+                        <b style="color:#FFFFFF"><a href="javascript:openWindow('/services/_pw_points_def.htm', 450, 460, true)" style="color:#FFFFFF">Points</a><br />Generated</b><br /></b>
+                        </td>
+                        
+                        
+                    </tr>
+                    </table>
+                </td>
+                
+                <td  align="right">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        
+                        <td align="left">
+                        
+                        <a href="team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=RESULTS"><img onmouseover="this.src=rs_ord_mo.src" onmousedown="this.src=rs_ord_md.src" onmouseout="this.src=rs_ord.src" src="/img/rs_ord.gif" width="31" height="19" border="0" alt="Sort Records" /></a>
+                        
+                        </td>
+                        <td><img src="/img/+___.gif" width="5" height="1" /></td>
+                        
+                        
+                        <td align="right">
+                        <b >Results<br />Returned</b>
+                        </td>
+                        
+                        
+                    </tr>
+                    </table>
+                </td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=zenith1982"><b>zenith1982</b></a></td>
+                <td align="right" nowrap="true">03/13/2002</td>
+                <td align="right">0:042:03:26:11</td>
+                <td align="right">12,128</td>
+                <td align="right">215</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=M%5FP%5FG"><b>M_P_G</b></a></td>
+                <td align="right" nowrap="true">03/04/2005</td>
+                <td align="right">0:015:21:56:01</td>
+                <td align="right">12,118</td>
+                <td align="right">35</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Patrick+Mensink"><b>Patrick Mensink</b></a></td>
+                <td align="right" nowrap="true">11/01/2004</td>
+                <td align="right">0:017:12:11:13</td>
+                <td align="right">12,078</td>
+                <td align="right">49</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=martijnbeuker"><b>martijnbeuker</b></a></td>
+                <td align="right" nowrap="true">06/08/2004</td>
+                <td align="right">0:045:03:33:08</td>
+                <td align="right">12,076</td>
+                <td align="right">39</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Meneer+Aart"><b>Meneer Aart</b></a></td>
+                <td align="right" nowrap="true">11/20/2004</td>
+                <td align="right">0:022:07:09:35</td>
+                <td align="right">12,069</td>
+                <td align="right">45</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Hein%28dpc%29"><b>Hein(dpc)</b></a></td>
+                <td align="right" nowrap="true">04/15/2005</td>
+                <td align="right">0:020:21:25:16</td>
+                <td align="right">12,036</td>
+                <td align="right">27</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=matthijs1111"><b>matthijs1111</b></a></td>
+                <td align="right" nowrap="true">04/16/2001</td>
+                <td align="right">0:070:17:59:32</td>
+                <td align="right">12,028</td>
+                <td align="right">68</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Ximon2k4"><b>Ximon2k4</b></a></td>
+                <td align="right" nowrap="true">12/09/2004</td>
+                <td align="right">0:023:00:03:51</td>
+                <td align="right">12,016</td>
+                <td align="right">51</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%2A%2A%2AHammer%2A%2A%2A"><b>***Hammer***</b></a></td>
+                <td align="right" nowrap="true">12/09/2004</td>
+                <td align="right">0:015:09:20:38</td>
+                <td align="right">11,934</td>
+                <td align="right">71</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=El+Psycho"><b>El Psycho</b></a></td>
+                <td align="right" nowrap="true">06/22/2003</td>
+                <td align="right">0:024:04:59:52</td>
+                <td align="right">11,926</td>
+                <td align="right">40</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=budhha68"><b>budhha68</b></a></td>
+                <td align="right" nowrap="true">02/19/2003</td>
+                <td align="right">0:041:05:34:53</td>
+                <td align="right">11,864</td>
+                <td align="right">48</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=artofIllusion"><b>artofIllusion</b></a></td>
+                <td align="right" nowrap="true">01/16/2002</td>
+                <td align="right">0:038:14:08:03</td>
+                <td align="right">11,857</td>
+                <td align="right">89</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=style"><b>style</b></a></td>
+                <td align="right" nowrap="true">04/08/2001</td>
+                <td align="right">0:077:21:06:00</td>
+                <td align="right">11,854</td>
+                <td align="right">161</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=weslee699"><b>weslee699</b></a></td>
+                <td align="right" nowrap="true">12/19/2004</td>
+                <td align="right">0:028:15:07:36</td>
+                <td align="right">11,850</td>
+                <td align="right">49</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=fatman"><b>fatman</b></a></td>
+                <td align="right" nowrap="true">04/08/2001</td>
+                <td align="right">0:053:06:37:51</td>
+                <td align="right">11,849</td>
+                <td align="right">276</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Deepwell"><b>Deepwell</b></a></td>
+                <td align="right" nowrap="true">10/23/2004</td>
+                <td align="right">0:025:07:07:06</td>
+                <td align="right">11,820</td>
+                <td align="right">48</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=UDYellow"><b>UDYellow</b></a></td>
+                <td align="right" nowrap="true">12/16/2004</td>
+                <td align="right">0:015:09:33:26</td>
+                <td align="right">11,792</td>
+                <td align="right">47</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=YaHaY"><b>YaHaY</b></a></td>
+                <td align="right" nowrap="true">11/03/2003</td>
+                <td align="right">0:023:02:16:41</td>
+                <td align="right">11,760</td>
+                <td align="right">108</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Zyphrax"><b>Zyphrax</b></a></td>
+                <td align="right" nowrap="true">12/19/2004</td>
+                <td align="right">0:015:13:27:53</td>
+                <td align="right">11,757</td>
+                <td align="right">49</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=T%2DWolf"><b>T-Wolf</b></a></td>
+                <td align="right" nowrap="true">04/04/2001</td>
+                <td align="right">0:051:03:39:08</td>
+                <td align="right">11,724</td>
+                <td align="right">139</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Kristof+Van+Tendeloo"><b>Kristof Van Tendeloo</b></a></td>
+                <td align="right" nowrap="true">07/26/2003</td>
+                <td align="right">0:027:13:57:19</td>
+                <td align="right">11,721</td>
+                <td align="right">28</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Skimmer"><b>Skimmer</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:023:17:51:57</td>
+                <td align="right">11,700</td>
+                <td align="right">29</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=FH1979"><b>FH1979</b></a></td>
+                <td align="right" nowrap="true">06/06/2003</td>
+                <td align="right">0:038:21:05:40</td>
+                <td align="right">11,686</td>
+                <td align="right">24</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Raymond%5Fden%5FOuden"><b>Raymond_den_Ouden</b></a></td>
+                <td align="right" nowrap="true">06/23/2003</td>
+                <td align="right">0:032:15:12:32</td>
+                <td align="right">11,659</td>
+                <td align="right">44</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Ton+van+de+Pol"><b>Ton van de Pol</b></a></td>
+                <td align="right" nowrap="true">01/26/2005</td>
+                <td align="right">0:019:00:54:23</td>
+                <td align="right">11,614</td>
+                <td align="right">39</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=stefanv"><b>stefanv</b></a></td>
+                <td align="right" nowrap="true">04/04/2001</td>
+                <td align="right">0:067:07:47:54</td>
+                <td align="right">11,601</td>
+                <td align="right">154</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=DijkK"><b>DijkK</b></a></td>
+                <td align="right" nowrap="true">01/23/2002</td>
+                <td align="right">0:030:05:59:24</td>
+                <td align="right">11,537</td>
+                <td align="right">78</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Michael+Bos"><b>Michael Bos</b></a></td>
+                <td align="right" nowrap="true">10/01/2004</td>
+                <td align="right">0:015:07:40:46</td>
+                <td align="right">11,537</td>
+                <td align="right">74</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=vfokke"><b>vfokke</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:019:17:30:05</td>
+                <td align="right">11,476</td>
+                <td align="right">33</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=stencaat"><b>stencaat</b></a></td>
+                <td align="right" nowrap="true">04/04/2001</td>
+                <td align="right">0:089:05:03:54</td>
+                <td align="right">11,438</td>
+                <td align="right">114</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Lia+Hendrikx"><b>Lia Hendrikx</b></a></td>
+                <td align="right" nowrap="true">06/23/2001</td>
+                <td align="right">0:029:14:21:28</td>
+                <td align="right">11,413</td>
+                <td align="right">268</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=vohaul"><b>vohaul</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:025:09:50:45</td>
+                <td align="right">11,406</td>
+                <td align="right">35</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=hfwichers"><b>hfwichers</b></a></td>
+                <td align="right" nowrap="true">12/13/2004</td>
+                <td align="right">0:021:10:29:43</td>
+                <td align="right">11,403</td>
+                <td align="right">61</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Acidfreak"><b>Acidfreak</b></a></td>
+                <td align="right" nowrap="true">02/05/2002</td>
+                <td align="right">0:044:14:47:09</td>
+                <td align="right">11,377</td>
+                <td align="right">42</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=citoyen"><b>citoyen</b></a></td>
+                <td align="right" nowrap="true">12/09/2004</td>
+                <td align="right">0:014:07:50:52</td>
+                <td align="right">11,363</td>
+                <td align="right">53</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Cycloon"><b>Cycloon</b></a></td>
+                <td align="right" nowrap="true">06/14/2004</td>
+                <td align="right">0:037:14:18:43</td>
+                <td align="right">11,291</td>
+                <td align="right">33</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Dennis%21"><b>Dennis!</b></a></td>
+                <td align="right" nowrap="true">04/09/2002</td>
+                <td align="right">0:049:12:31:43</td>
+                <td align="right">11,284</td>
+                <td align="right">33</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=leuk%5Fhe"><b>leuk_he</b></a></td>
+                <td align="right" nowrap="true">04/05/2001</td>
+                <td align="right">0:079:06:50:45</td>
+                <td align="right">11,282</td>
+                <td align="right">204</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=bamb"><b>bamb</b></a></td>
+                <td align="right" nowrap="true">04/07/2001</td>
+                <td align="right">0:047:04:33:00</td>
+                <td align="right">11,233</td>
+                <td align="right">79</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=pe1ool"><b>pe1ool</b></a></td>
+                <td align="right" nowrap="true">09/10/2005</td>
+                <td align="right">0:018:22:47:59</td>
+                <td align="right">11,230</td>
+                <td align="right">31</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=doemarwa"><b>doemarwa</b></a></td>
+                <td align="right" nowrap="true">01/23/2002</td>
+                <td align="right">0:030:11:17:13</td>
+                <td align="right">11,211</td>
+                <td align="right">133</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=pmsmiers"><b>pmsmiers</b></a></td>
+                <td align="right" nowrap="true">10/04/2001</td>
+                <td align="right">0:024:15:33:56</td>
+                <td align="right">11,186</td>
+                <td align="right">175</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5BDPC%5DDutch+Power+Jedi+s"><b>[DPC]Dutch Power Jedi s</b></a></td>
+                <td align="right" nowrap="true">04/05/2001</td>
+                <td align="right">0:055:09:27:11</td>
+                <td align="right">11,182</td>
+                <td align="right">99</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Danny+Pijl"><b>Danny Pijl</b></a></td>
+                <td align="right" nowrap="true">02/02/2002</td>
+                <td align="right">0:042:02:57:15</td>
+                <td align="right">11,100</td>
+                <td align="right">91</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=B%2E+Blaauboer"><b>B. Blaauboer</b></a></td>
+                <td align="right" nowrap="true">07/16/2004</td>
+                <td align="right">0:026:07:36:38</td>
+                <td align="right">11,098</td>
+                <td align="right">107</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=tdis"><b>tdis</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:023:14:58:06</td>
+                <td align="right">11,061</td>
+                <td align="right">37</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Roy+Veurink"><b>Roy Veurink</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:017:08:47:52</td>
+                <td align="right">11,040</td>
+                <td align="right">45</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=hopakee"><b>hopakee</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:022:07:37:36</td>
+                <td align="right">11,017</td>
+                <td align="right">49</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Enrico91199"><b>Enrico91199</b></a></td>
+                <td align="right" nowrap="true">04/04/2001</td>
+                <td align="right">0:041:18:36:41</td>
+                <td align="right">11,011</td>
+                <td align="right">112</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=mvdvelden"><b>mvdvelden</b></a></td>
+                <td align="right" nowrap="true">10/23/2002</td>
+                <td align="right">0:066:23:34:54</td>
+                <td align="right">11,002</td>
+                <td align="right">56</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=eprimus"><b>eprimus</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:017:19:47:46</td>
+                <td align="right">10,991</td>
+                <td align="right">46</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Kapenga"><b>Kapenga</b></a></td>
+                <td align="right" nowrap="true">04/05/2001</td>
+                <td align="right">0:025:18:55:38</td>
+                <td align="right">10,968</td>
+                <td align="right">44</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Remosz"><b>Remosz</b></a></td>
+                <td align="right" nowrap="true">05/25/2002</td>
+                <td align="right">0:042:22:56:09</td>
+                <td align="right">10,958</td>
+                <td align="right">78</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=TeamKiLL"><b>TeamKiLL</b></a></td>
+                <td align="right" nowrap="true">05/01/2005</td>
+                <td align="right">0:048:18:36:34</td>
+                <td align="right">10,945</td>
+                <td align="right">427</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=ronaldlokers"><b>ronaldlokers</b></a></td>
+                <td align="right" nowrap="true">11/28/2005</td>
+                <td align="right">0:015:06:35:37</td>
+                <td align="right">10,920</td>
+                <td align="right">31</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Monroeld"><b>Monroeld</b></a></td>
+                <td align="right" nowrap="true">12/03/2002</td>
+                <td align="right">0:033:19:05:46</td>
+                <td align="right">10,918</td>
+                <td align="right">46</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Arjan+Smit"><b>Arjan Smit</b></a></td>
+                <td align="right" nowrap="true">05/22/2003</td>
+                <td align="right">0:023:08:34:18</td>
+                <td align="right">10,916</td>
+                <td align="right">79</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=MoodSwing"><b>MoodSwing</b></a></td>
+                <td align="right" nowrap="true">07/22/2001</td>
+                <td align="right">0:024:19:50:57</td>
+                <td align="right">10,902</td>
+                <td align="right">126</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Gitano"><b>Gitano</b></a></td>
+                <td align="right" nowrap="true">12/23/2001</td>
+                <td align="right">0:039:02:07:13</td>
+                <td align="right">10,892</td>
+                <td align="right">191</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=OldButNotSoWise"><b>OldButNotSoWise</b></a></td>
+                <td align="right" nowrap="true">12/09/2004</td>
+                <td align="right">0:013:20:06:37</td>
+                <td align="right">10,861</td>
+                <td align="right">36</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=ebus"><b>ebus</b></a></td>
+                <td align="right" nowrap="true">05/15/2004</td>
+                <td align="right">0:019:08:46:21</td>
+                <td align="right">10,858</td>
+                <td align="right">90</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Pirku1"><b>Pirku1</b></a></td>
+                <td align="right" nowrap="true">10/19/2001 [01/15/2002]</td>
+                <td align="right">0:061:11:38:40</td>
+                <td align="right">10,831</td>
+                <td align="right">159</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=m%2Edriessen1"><b>m.driessen1</b></a></td>
+                <td align="right" nowrap="true">04/18/2001</td>
+                <td align="right">0:054:08:41:24</td>
+                <td align="right">10,813</td>
+                <td align="right">128</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=zombiesonline"><b>zombiesonline</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:022:08:03:02</td>
+                <td align="right">10,800</td>
+                <td align="right">53</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=ScullyFish"><b>ScullyFish</b></a></td>
+                <td align="right" nowrap="true">12/09/2004</td>
+                <td align="right">0:045:01:15:48</td>
+                <td align="right">10,793</td>
+                <td align="right">55</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Pilletje"><b>Pilletje</b></a></td>
+                <td align="right" nowrap="true">07/18/2004</td>
+                <td align="right">0:020:13:18:38</td>
+                <td align="right">10,746</td>
+                <td align="right">111</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=roadrunner2"><b>roadrunner2</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:020:19:06:10</td>
+                <td align="right">10,722</td>
+                <td align="right">45</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=erades"><b>erades</b></a></td>
+                <td align="right" nowrap="true">12/21/2004</td>
+                <td align="right">0:022:12:35:26</td>
+                <td align="right">10,719</td>
+                <td align="right">23</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Henny+Plat"><b>Henny Plat</b></a></td>
+                <td align="right" nowrap="true">12/10/2001</td>
+                <td align="right">0:099:18:54:03</td>
+                <td align="right">10,701</td>
+                <td align="right">106</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Wieringen"><b>Wieringen</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:014:09:08:49</td>
+                <td align="right">10,695</td>
+                <td align="right">43</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=JME%2D59"><b>JME-59</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:027:03:35:18</td>
+                <td align="right">10,642</td>
+                <td align="right">44</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=coolcut"><b>coolcut</b></a></td>
+                <td align="right" nowrap="true">12/09/2004</td>
+                <td align="right">0:016:04:08:45</td>
+                <td align="right">10,626</td>
+                <td align="right">26</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=fpphilips"><b>fpphilips</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:018:05:29:11</td>
+                <td align="right">10,611</td>
+                <td align="right">75</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=reneasaf"><b>reneasaf</b></a></td>
+                <td align="right" nowrap="true">04/04/2001</td>
+                <td align="right">0:057:13:16:45</td>
+                <td align="right">10,585</td>
+                <td align="right">164</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=toineoverbeek"><b>toineoverbeek</b></a></td>
+                <td align="right" nowrap="true">06/07/2003</td>
+                <td align="right">0:019:22:35:41</td>
+                <td align="right">10,534</td>
+                <td align="right">31</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=SuperTrooper"><b>SuperTrooper</b></a></td>
+                <td align="right" nowrap="true">06/12/2003</td>
+                <td align="right">0:020:01:35:33</td>
+                <td align="right">10,530</td>
+                <td align="right">34</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Il%5FCattivo"><b>Il_Cattivo</b></a></td>
+                <td align="right" nowrap="true">01/17/2005</td>
+                <td align="right">0:030:04:56:55</td>
+                <td align="right">10,529</td>
+                <td align="right">29</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5BBc%5D%2D%3DSl0wF0x%3D%2D"><b>[Bc]-=Sl0wF0x=-</b></a></td>
+                <td align="right" nowrap="true">09/27/2002</td>
+                <td align="right">0:025:09:23:06</td>
+                <td align="right">10,509</td>
+                <td align="right">78</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Issie"><b>Issie</b></a></td>
+                <td align="right" nowrap="true">05/07/2004</td>
+                <td align="right">0:017:15:04:55</td>
+                <td align="right">10,504</td>
+                <td align="right">56</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=BartS"><b>BartS</b></a></td>
+                <td align="right" nowrap="true">11/01/2004</td>
+                <td align="right">0:017:04:24:37</td>
+                <td align="right">10,497</td>
+                <td align="right">38</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=W0uter"><b>W0uter</b></a></td>
+                <td align="right" nowrap="true">06/08/2004</td>
+                <td align="right">0:015:11:15:38</td>
+                <td align="right">10,488</td>
+                <td align="right">61</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=W%2EWigman"><b>W.Wigman</b></a></td>
+                <td align="right" nowrap="true">11/12/2002</td>
+                <td align="right">0:013:06:36:59</td>
+                <td align="right">10,442</td>
+                <td align="right">45</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=J%2EM%2E+Vrolijk"><b>J.M. Vrolijk</b></a></td>
+                <td align="right" nowrap="true">04/14/2001</td>
+                <td align="right">0:042:01:22:11</td>
+                <td align="right">10,428</td>
+                <td align="right">47</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5Bdpc%5Deyebite"><b>[dpc]eyebite</b></a></td>
+                <td align="right" nowrap="true">10/24/2002</td>
+                <td align="right">0:031:06:00:21</td>
+                <td align="right">10,420</td>
+                <td align="right">46</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Jeremias+Otten"><b>Jeremias Otten</b></a></td>
+                <td align="right" nowrap="true">07/31/2004</td>
+                <td align="right">0:019:18:39:07</td>
+                <td align="right">10,420</td>
+                <td align="right">83</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=DPW+van+der+Wijk"><b>DPW van der Wijk</b></a></td>
+                <td align="right" nowrap="true">06/27/2003</td>
+                <td align="right">0:018:05:35:03</td>
+                <td align="right">10,418</td>
+                <td align="right">45</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=brein"><b>brein</b></a></td>
+                <td align="right" nowrap="true">10/03/2001</td>
+                <td align="right">0:032:13:49:50</td>
+                <td align="right">10,411</td>
+                <td align="right">71</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=SKZ"><b>SKZ</b></a></td>
+                <td align="right" nowrap="true">07/22/2005</td>
+                <td align="right">0:018:22:35:39</td>
+                <td align="right">10,397</td>
+                <td align="right">30</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Ordos20"><b>Ordos20</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:013:12:36:18</td>
+                <td align="right">10,364</td>
+                <td align="right">44</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Ithaca"><b>Ithaca</b></a></td>
+                <td align="right" nowrap="true">09/22/2004</td>
+                <td align="right">0:014:10:54:56</td>
+                <td align="right">10,364</td>
+                <td align="right">87</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Skones"><b>Skones</b></a></td>
+                <td align="right" nowrap="true">04/12/2002</td>
+                <td align="right">0:025:03:38:52</td>
+                <td align="right">10,354</td>
+                <td align="right">89</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Mikkel%2D79"><b>Mikkel-79</b></a></td>
+                <td align="right" nowrap="true">01/06/2005</td>
+                <td align="right">0:046:20:18:29</td>
+                <td align="right">10,273</td>
+                <td align="right">25</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5BDPC%5D+Hayo"><b>[DPC] Hayo</b></a></td>
+                <td align="right" nowrap="true">01/20/2002</td>
+                <td align="right">0:024:21:50:21</td>
+                <td align="right">10,269</td>
+                <td align="right">81</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=jurr3"><b>jurr3</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:017:22:13:11</td>
+                <td align="right">10,259</td>
+                <td align="right">23</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=The1%26Only"><b>The1&Only</b></a></td>
+                <td align="right" nowrap="true">04/07/2001</td>
+                <td align="right">0:032:03:40:03</td>
+                <td align="right">10,247</td>
+                <td align="right">33</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Rick+Meijer"><b>Rick Meijer</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:018:07:12:32</td>
+                <td align="right">10,221</td>
+                <td align="right">48</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Phoenix+%2D%3DDPC%3D%2D"><b>Phoenix -=DPC=-</b></a></td>
+                <td align="right" nowrap="true">10/04/2001</td>
+                <td align="right">0:034:23:38:32</td>
+                <td align="right">10,194</td>
+                <td align="right">94</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=DnB%5FFlavour"><b>DnB_Flavour</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:016:15:54:44</td>
+                <td align="right">10,177</td>
+                <td align="right">113</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Hasseltje"><b>Hasseltje</b></a></td>
+                <td align="right" nowrap="true">11/01/2003</td>
+                <td align="right">0:014:06:10:32</td>
+                <td align="right">10,165</td>
+                <td align="right">73</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Killahmonk"><b>Killahmonk</b></a></td>
+                <td align="right" nowrap="true">12/25/2003</td>
+                <td align="right">0:019:09:50:20</td>
+                <td align="right">10,118</td>
+                <td align="right">78</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Kiana+Niobe"><b>Kiana Niobe</b></a></td>
+                <td align="right" nowrap="true">01/17/2004</td>
+                <td align="right">0:028:20:00:32</td>
+                <td align="right">10,112</td>
+                <td align="right">56</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=mkessels"><b>mkessels</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:022:04:05:00</td>
+                <td align="right">10,103</td>
+                <td align="right">38</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=knutselsmurf"><b>knutselsmurf</b></a></td>
+                <td align="right" nowrap="true">04/04/2001</td>
+                <td align="right">0:047:09:59:55</td>
+                <td align="right">10,085</td>
+                <td align="right">96</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=R%40g%21ngG0a%2D%7C%2D"><b>R@g!ngG0a-|-</b></a></td>
+                <td align="right" nowrap="true">11/04/2001</td>
+                <td align="right">0:021:13:04:33</td>
+                <td align="right">10,072</td>
+                <td align="right">213</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=stoney%5Ftoney"><b>stoney_toney</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:013:02:29:53</td>
+                <td align="right">10,032</td>
+                <td align="right">21</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=KasperHettinga"><b>KasperHettinga</b></a></td>
+                <td align="right" nowrap="true">11/21/2002</td>
+                <td align="right">0:021:14:50:20</td>
+                <td align="right">10,026</td>
+                <td align="right">39</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=dpc%2Dbc"><b>dpc-bc</b></a></td>
+                <td align="right" nowrap="true">04/26/2001</td>
+                <td align="right">0:039:09:39:02</td>
+                <td align="right">10,016</td>
+                <td align="right">38</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=advangelder"><b>advangelder</b></a></td>
+                <td align="right" nowrap="true">12/09/2004</td>
+                <td align="right">0:037:04:54:00</td>
+                <td align="right">9,967</td>
+                <td align="right">40</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=exstractor"><b>exstractor</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:015:11:15:24</td>
+                <td align="right">9,953</td>
+                <td align="right">53</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Moehoe"><b>Moehoe</b></a></td>
+                <td align="right" nowrap="true">04/02/2004</td>
+                <td align="right">0:013:07:53:44</td>
+                <td align="right">9,951</td>
+                <td align="right">36</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5BDPC%5D+da%5FoOz"><b>[DPC] da_oOz</b></a></td>
+                <td align="right" nowrap="true">02/14/2002</td>
+                <td align="right">0:051:03:27:32</td>
+                <td align="right">9,930</td>
+                <td align="right">58</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5BDPC%5D+QU%7CCCC"><b>[DPC] QU|CCC</b></a></td>
+                <td align="right" nowrap="true">04/03/2001</td>
+                <td align="right">0:056:04:44:51</td>
+                <td align="right">9,921</td>
+                <td align="right">84</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Cavalli"><b>Cavalli</b></a></td>
+                <td align="right" nowrap="true">11/17/2005</td>
+                <td align="right">0:017:01:55:47</td>
+                <td align="right">9,900</td>
+                <td align="right">33</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=MetalfanBlackness"><b>MetalfanBlackness</b></a></td>
+                <td align="right" nowrap="true">11/09/2002</td>
+                <td align="right">0:039:16:08:57</td>
+                <td align="right">9,848</td>
+                <td align="right">35</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=nosource"><b>nosource</b></a></td>
+                <td align="right" nowrap="true">04/05/2001</td>
+                <td align="right">0:056:16:54:35</td>
+                <td align="right">9,838</td>
+                <td align="right">94</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=EnterZ"><b>EnterZ</b></a></td>
+                <td align="right" nowrap="true">09/03/2004</td>
+                <td align="right">0:015:17:28:48</td>
+                <td align="right">9,830</td>
+                <td align="right">34</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Hans+Stadman"><b>Hans Stadman</b></a></td>
+                <td align="right" nowrap="true">06/16/2003</td>
+                <td align="right">0:030:23:57:03</td>
+                <td align="right">9,810</td>
+                <td align="right">29</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=motorfret"><b>motorfret</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:028:09:28:12</td>
+                <td align="right">9,800</td>
+                <td align="right">41</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=stijnster"><b>stijnster</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:017:12:49:44</td>
+                <td align="right">9,781</td>
+                <td align="right">56</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=pipodekloon"><b>pipodekloon</b></a></td>
+                <td align="right" nowrap="true">03/12/2005</td>
+                <td align="right">0:012:19:59:32</td>
+                <td align="right">9,780</td>
+                <td align="right">13</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=CoVa"><b>CoVa</b></a></td>
+                <td align="right" nowrap="true">11/11/2002</td>
+                <td align="right">0:018:00:37:25</td>
+                <td align="right">9,778</td>
+                <td align="right">22</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Lord+C%E9"><b>Lord Cé</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:017:03:23:06</td>
+                <td align="right">9,768</td>
+                <td align="right">53</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=ESonic"><b>ESonic</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:031:17:58:57</td>
+                <td align="right">9,759</td>
+                <td align="right">90</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=ptu"><b>ptu</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:017:17:59:58</td>
+                <td align="right">9,759</td>
+                <td align="right">33</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5BDPC%5D+Agressive"><b>[DPC] Agressive</b></a></td>
+                <td align="right" nowrap="true">04/04/2001</td>
+                <td align="right">0:066:15:57:53</td>
+                <td align="right">9,745</td>
+                <td align="right">76</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=AxFaA"><b>AxFaA</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:017:19:21:07</td>
+                <td align="right">9,733</td>
+                <td align="right">61</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=DWattel"><b>DWattel</b></a></td>
+                <td align="right" nowrap="true">12/31/2001</td>
+                <td align="right">0:035:12:14:23</td>
+                <td align="right">9,722</td>
+                <td align="right">114</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Dakoina"><b>Dakoina</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:026:17:31:29</td>
+                <td align="right">9,687</td>
+                <td align="right">23</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5BDPC%5D+Edwin84"><b>[DPC] Edwin84</b></a></td>
+                <td align="right" nowrap="true">05/07/2002</td>
+                <td align="right">0:021:05:15:33</td>
+                <td align="right">9,685</td>
+                <td align="right">57</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Tom+Callant"><b>Tom Callant</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:012:15:29:56</td>
+                <td align="right">9,612</td>
+                <td align="right">30</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Jaap+Goddijn"><b>Jaap Goddijn</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:014:17:25:45</td>
+                <td align="right">9,572</td>
+                <td align="right">33</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=ARCAP4"><b>ARCAP4</b></a></td>
+                <td align="right" nowrap="true">04/28/2001</td>
+                <td align="right">0:045:23:15:28</td>
+                <td align="right">9,564</td>
+                <td align="right">105</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=scorpiopraxis"><b>scorpiopraxis</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:014:23:28:07</td>
+                <td align="right">9,513</td>
+                <td align="right">82</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5BDPC%5DGert%2DJan"><b>[DPC]Gert-Jan</b></a></td>
+                <td align="right" nowrap="true">06/08/2004</td>
+                <td align="right">0:014:01:41:15</td>
+                <td align="right">9,508</td>
+                <td align="right">34</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Ronald1983"><b>Ronald1983</b></a></td>
+                <td align="right" nowrap="true">09/28/2002</td>
+                <td align="right">0:026:08:59:16</td>
+                <td align="right">9,487</td>
+                <td align="right">70</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5BDPC%5D+Crush"><b>[DPC] Crush</b></a></td>
+                <td align="right" nowrap="true">08/18/2001</td>
+                <td align="right">0:030:20:48:28</td>
+                <td align="right">9,485</td>
+                <td align="right">160</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=AntonC"><b>AntonC</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:019:22:08:21</td>
+                <td align="right">9,478</td>
+                <td align="right">44</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=NRG256"><b>NRG256</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:017:23:51:04</td>
+                <td align="right">9,474</td>
+                <td align="right">50</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Siferon"><b>Siferon</b></a></td>
+                <td align="right" nowrap="true">04/16/2005 [07/13/2005]</td>
+                <td align="right">0:012:08:12:04</td>
+                <td align="right">9,441</td>
+                <td align="right">21</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=rschoena"><b>rschoena</b></a></td>
+                <td align="right" nowrap="true">11/23/2001</td>
+                <td align="right">0:039:20:30:30</td>
+                <td align="right">9,376</td>
+                <td align="right">123</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=dabubski"><b>dabubski</b></a></td>
+                <td align="right" nowrap="true">05/23/2003</td>
+                <td align="right">0:020:10:39:54</td>
+                <td align="right">9,363</td>
+                <td align="right">45</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Sproeikip"><b>Sproeikip</b></a></td>
+                <td align="right" nowrap="true">12/10/2004</td>
+                <td align="right">0:026:13:41:36</td>
+                <td align="right">9,359</td>
+                <td align="right">44</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Marvin+van+Dongen"><b>Marvin van Dongen</b></a></td>
+                <td align="right" nowrap="true">10/17/2004</td>
+                <td align="right">0:016:06:16:51</td>
+                <td align="right">9,352</td>
+                <td align="right">66</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=daPeut"><b>daPeut</b></a></td>
+                <td align="right" nowrap="true">06/08/2003</td>
+                <td align="right">0:037:00:50:44</td>
+                <td align="right">9,342</td>
+                <td align="right">28</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=JanJaapT"><b>JanJaapT</b></a></td>
+                <td align="right" nowrap="true">10/31/2004</td>
+                <td align="right">0:016:17:12:10</td>
+                <td align="right">9,332</td>
+                <td align="right">49</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5Bdpc%5DWarlock"><b>[dpc]Warlock</b></a></td>
+                <td align="right" nowrap="true">07/15/2001</td>
+                <td align="right">0:036:01:48:36</td>
+                <td align="right">9,294</td>
+                <td align="right">152</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Geek%5FB"><b>Geek_B</b></a></td>
+                <td align="right" nowrap="true">04/28/2001</td>
+                <td align="right">0:054:20:41:43</td>
+                <td align="right">9,228</td>
+                <td align="right">101</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Thunderhawk2"><b>Thunderhawk2</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:030:05:02:11</td>
+                <td align="right">9,218</td>
+                <td align="right">59</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=phalanx99"><b>phalanx99</b></a></td>
+                <td align="right" nowrap="true">11/04/2001</td>
+                <td align="right">0:038:16:34:57</td>
+                <td align="right">9,211</td>
+                <td align="right">134</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=CrazySatan"><b>CrazySatan</b></a></td>
+                <td align="right" nowrap="true">09/27/2002</td>
+                <td align="right">0:015:06:42:52</td>
+                <td align="right">9,209</td>
+                <td align="right">56</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=arjanscholl"><b>arjanscholl</b></a></td>
+                <td align="right" nowrap="true">10/03/2001</td>
+                <td align="right">0:025:17:33:52</td>
+                <td align="right">9,190</td>
+                <td align="right">122</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=roymack"><b>roymack</b></a></td>
+                <td align="right" nowrap="true">04/12/2001</td>
+                <td align="right">0:053:01:30:17</td>
+                <td align="right">9,163</td>
+                <td align="right">92</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=ROBiNBOS"><b>ROBiNBOS</b></a></td>
+                <td align="right" nowrap="true">06/15/2003</td>
+                <td align="right">0:021:23:24:21</td>
+                <td align="right">9,155</td>
+                <td align="right">71</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=septoria2"><b>septoria2</b></a></td>
+                <td align="right" nowrap="true">09/08/2005</td>
+                <td align="right">0:022:11:18:24</td>
+                <td align="right">9,145</td>
+                <td align="right">19</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Paralise"><b>Paralise</b></a></td>
+                <td align="right" nowrap="true">11/26/2004</td>
+                <td align="right">0:014:22:28:01</td>
+                <td align="right">9,140</td>
+                <td align="right">38</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Pjotrk"><b>Pjotrk</b></a></td>
+                <td align="right" nowrap="true">12/19/2004</td>
+                <td align="right">0:010:22:38:53</td>
+                <td align="right">9,126</td>
+                <td align="right">34</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Redevelopment"><b>Redevelopment</b></a></td>
+                <td align="right" nowrap="true">10/30/2004 [11/21/2004]</td>
+                <td align="right">0:017:07:46:28</td>
+                <td align="right">9,076</td>
+                <td align="right">41</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=serenitynow"><b>serenitynow</b></a></td>
+                <td align="right" nowrap="true">06/07/2003</td>
+                <td align="right">0:018:02:45:49</td>
+                <td align="right">9,073</td>
+                <td align="right">31</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=templar07"><b>templar07</b></a></td>
+                <td align="right" nowrap="true">06/16/2004</td>
+                <td align="right">0:016:08:09:14</td>
+                <td align="right">9,057</td>
+                <td align="right">120</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Jazzies"><b>Jazzies</b></a></td>
+                <td align="right" nowrap="true">12/09/2004</td>
+                <td align="right">0:035:23:07:08</td>
+                <td align="right">9,057</td>
+                <td align="right">9</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=zoeloelip"><b>zoeloelip</b></a></td>
+                <td align="right" nowrap="true">06/07/2003</td>
+                <td align="right">0:025:19:12:53</td>
+                <td align="right">9,046</td>
+                <td align="right">24</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=BramK"><b>BramK</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:018:17:50:53</td>
+                <td align="right">9,042</td>
+                <td align="right">57</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=daLuke"><b>daLuke</b></a></td>
+                <td align="right" nowrap="true">06/22/2003 [08/23/2003]</td>
+                <td align="right">0:024:03:04:37</td>
+                <td align="right">9,022</td>
+                <td align="right">23</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Jurrian"><b>Jurrian</b></a></td>
+                <td align="right" nowrap="true">08/31/2005</td>
+                <td align="right">0:013:19:46:10</td>
+                <td align="right">9,022</td>
+                <td align="right">27</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=lucasvanos"><b>lucasvanos</b></a></td>
+                <td align="right" nowrap="true">12/09/2004</td>
+                <td align="right">0:019:06:56:17</td>
+                <td align="right">8,948</td>
+                <td align="right">25</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=JohnnyBoy%40DOC"><b>JohnnyBoy@DOC</b></a></td>
+                <td align="right" nowrap="true">05/25/2002</td>
+                <td align="right">0:017:17:49:22</td>
+                <td align="right">8,878</td>
+                <td align="right">72</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Kl0J0"><b>Kl0J0</b></a></td>
+                <td align="right" nowrap="true">12/08/2004 [06/17/2005]</td>
+                <td align="right">0:015:05:51:38</td>
+                <td align="right">8,873</td>
+                <td align="right">53</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=rodemannetje"><b>rodemannetje</b></a></td>
+                <td align="right" nowrap="true">06/07/2003</td>
+                <td align="right">0:014:20:48:42</td>
+                <td align="right">8,869</td>
+                <td align="right">34</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=superannet"><b>superannet</b></a></td>
+                <td align="right" nowrap="true">01/03/2002</td>
+                <td align="right">0:042:02:37:50</td>
+                <td align="right">8,849</td>
+                <td align="right">78</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5BDPC%5D+Morpheus"><b>[DPC] Morpheus</b></a></td>
+                <td align="right" nowrap="true">04/03/2001</td>
+                <td align="right">0:044:19:52:16</td>
+                <td align="right">8,832</td>
+                <td align="right">70</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=ppotter10"><b>ppotter10</b></a></td>
+                <td align="right" nowrap="true">07/28/2004</td>
+                <td align="right">0:014:07:24:01</td>
+                <td align="right">8,815</td>
+                <td align="right">53</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=RikTW"><b>RikTW</b></a></td>
+                <td align="right" nowrap="true">09/24/2005</td>
+                <td align="right">0:010:18:14:47</td>
+                <td align="right">8,771</td>
+                <td align="right">21</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=PJKs"><b>PJKs</b></a></td>
+                <td align="right" nowrap="true">06/07/2003</td>
+                <td align="right">0:025:00:16:50</td>
+                <td align="right">8,757</td>
+                <td align="right">21</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Bjornos"><b>Bjornos</b></a></td>
+                <td align="right" nowrap="true">12/19/2004</td>
+                <td align="right">0:017:23:35:17</td>
+                <td align="right">8,736</td>
+                <td align="right">28</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=KabouterPlop"><b>KabouterPlop</b></a></td>
+                <td align="right" nowrap="true">04/05/2001</td>
+                <td align="right">0:029:03:24:45</td>
+                <td align="right">8,704</td>
+                <td align="right">58</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=R%2E+ter+Welle"><b>R. ter Welle</b></a></td>
+                <td align="right" nowrap="true">12/09/2004</td>
+                <td align="right">0:016:19:29:38</td>
+                <td align="right">8,699</td>
+                <td align="right">66</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=kingbred"><b>kingbred</b></a></td>
+                <td align="right" nowrap="true">04/06/2001</td>
+                <td align="right">0:055:18:36:32</td>
+                <td align="right">8,696</td>
+                <td align="right">157</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=spasekace"><b>spasekace</b></a></td>
+                <td align="right" nowrap="true">04/07/2004</td>
+                <td align="right">0:012:05:21:34</td>
+                <td align="right">8,675</td>
+                <td align="right">17</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Yogi1234567890"><b>Yogi1234567890</b></a></td>
+                <td align="right" nowrap="true">12/22/2004</td>
+                <td align="right">0:013:17:36:46</td>
+                <td align="right">8,668</td>
+                <td align="right">17</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Team+Frikandel+Speciaal"><b>Team Frikandel Speciaal</b></a></td>
+                <td align="right" nowrap="true">06/20/2001</td>
+                <td align="right">0:039:12:53:42</td>
+                <td align="right">8,666</td>
+                <td align="right">88</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=mberns"><b>mberns</b></a></td>
+                <td align="right" nowrap="true">12/17/2004</td>
+                <td align="right">0:012:06:56:23</td>
+                <td align="right">8,660</td>
+                <td align="right">29</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=trinity452028"><b>trinity452028</b></a></td>
+                <td align="right" nowrap="true">06/16/2001</td>
+                <td align="right">0:053:22:41:45</td>
+                <td align="right">8,656</td>
+                <td align="right">188</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Gandalf01"><b>Gandalf01</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:035:19:20:26</td>
+                <td align="right">8,652</td>
+                <td align="right">21</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=subsonick"><b>subsonick</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:024:19:07:11</td>
+                <td align="right">8,626</td>
+                <td align="right">54</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Bart%5F834830"><b>Bart_834830</b></a></td>
+                <td align="right" nowrap="true">05/25/2002</td>
+                <td align="right">0:018:08:25:36</td>
+                <td align="right">8,554</td>
+                <td align="right">60</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%3CIMCF%3EMAVERICK"><b><IMCF>MAVERICK</b></a></td>
+                <td align="right" nowrap="true">05/02/2002 [09/02/2002]</td>
+                <td align="right">0:027:00:17:52</td>
+                <td align="right">8,551</td>
+                <td align="right">64</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Jeroen+Wildenbeest"><b>Jeroen Wildenbeest</b></a></td>
+                <td align="right" nowrap="true">05/07/2001</td>
+                <td align="right">0:029:13:21:12</td>
+                <td align="right">8,520</td>
+                <td align="right">127</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=jackzon2k1"><b>jackzon2k1</b></a></td>
+                <td align="right" nowrap="true">03/26/2003</td>
+                <td align="right">0:021:00:07:49</td>
+                <td align="right">8,519</td>
+                <td align="right">53</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Willem1"><b>Willem1</b></a></td>
+                <td align="right" nowrap="true">04/05/2001</td>
+                <td align="right">0:047:18:47:40</td>
+                <td align="right">8,510</td>
+                <td align="right">99</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5BDPC%5D+Lord+Darth+Vader"><b>[DPC] Lord Darth Vader</b></a></td>
+                <td align="right" nowrap="true">10/03/2001</td>
+                <td align="right">0:019:02:43:45</td>
+                <td align="right">8,507</td>
+                <td align="right">123</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Last%2DBoyscout"><b>Last-Boyscout</b></a></td>
+                <td align="right" nowrap="true">11/06/2002</td>
+                <td align="right">0:024:00:27:15</td>
+                <td align="right">8,505</td>
+                <td align="right">51</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=lebeus"><b>lebeus</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:020:21:52:03</td>
+                <td align="right">8,503</td>
+                <td align="right">26</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Pipikortkous"><b>Pipikortkous</b></a></td>
+                <td align="right" nowrap="true">01/02/2002</td>
+                <td align="right">0:027:14:19:00</td>
+                <td align="right">8,435</td>
+                <td align="right">62</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Batje4"><b>Batje4</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:022:15:03:06</td>
+                <td align="right">8,401</td>
+                <td align="right">12</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Don+Facundo"><b>Don Facundo</b></a></td>
+                <td align="right" nowrap="true">02/03/2003</td>
+                <td align="right">0:015:11:23:51</td>
+                <td align="right">8,384</td>
+                <td align="right">15</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=cola4ever"><b>cola4ever</b></a></td>
+                <td align="right" nowrap="true">05/06/2004</td>
+                <td align="right">0:019:09:06:08</td>
+                <td align="right">8,323</td>
+                <td align="right">43</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Dr%5FIT"><b>Dr_IT</b></a></td>
+                <td align="right" nowrap="true">12/10/2004</td>
+                <td align="right">0:023:17:25:57</td>
+                <td align="right">8,319</td>
+                <td align="right">26</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Lava5523"><b>Lava5523</b></a></td>
+                <td align="right" nowrap="true">05/02/2003</td>
+                <td align="right">0:013:18:21:18</td>
+                <td align="right">8,305</td>
+                <td align="right">45</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Peter+Verbeek"><b>Peter Verbeek</b></a></td>
+                <td align="right" nowrap="true">05/03/2001</td>
+                <td align="right">0:034:21:06:40</td>
+                <td align="right">8,296</td>
+                <td align="right">54</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=tomzengerink"><b>tomzengerink</b></a></td>
+                <td align="right" nowrap="true">03/12/2002</td>
+                <td align="right">0:029:12:10:45</td>
+                <td align="right">8,293</td>
+                <td align="right">44</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Sweeper007"><b>Sweeper007</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:010:14:16:19</td>
+                <td align="right">8,286</td>
+                <td align="right">25</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Erwinrom"><b>Erwinrom</b></a></td>
+                <td align="right" nowrap="true">12/10/2004</td>
+                <td align="right">0:015:18:39:48</td>
+                <td align="right">8,277</td>
+                <td align="right">36</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=hetdraakje"><b>hetdraakje</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:033:04:56:16</td>
+                <td align="right">8,265</td>
+                <td align="right">66</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=SaveNet+ICT+Detachering"><b>SaveNet ICT Detachering</b></a></td>
+                <td align="right" nowrap="true">06/12/2001</td>
+                <td align="right">0:089:11:17:26</td>
+                <td align="right">8,257</td>
+                <td align="right">131</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=bobguns"><b>bobguns</b></a></td>
+                <td align="right" nowrap="true">03/20/2002</td>
+                <td align="right">0:017:15:06:50</td>
+                <td align="right">8,255</td>
+                <td align="right">119</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=hiehle+%2D+FORZA+FC+ZWOLLE"><b>hiehle - FORZA FC ZWOLLE</b></a></td>
+                <td align="right" nowrap="true">06/07/2003</td>
+                <td align="right">0:022:02:12:37</td>
+                <td align="right">8,250</td>
+                <td align="right">86</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Zenquibo"><b>Zenquibo</b></a></td>
+                <td align="right" nowrap="true">09/16/2002</td>
+                <td align="right">0:026:14:25:40</td>
+                <td align="right">8,249</td>
+                <td align="right">34</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=SuperKevinDPC"><b>SuperKevinDPC</b></a></td>
+                <td align="right" nowrap="true">06/07/2004</td>
+                <td align="right">0:016:15:37:17</td>
+                <td align="right">8,244</td>
+                <td align="right">99</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=breinonline"><b>breinonline</b></a></td>
+                <td align="right" nowrap="true">05/07/2004</td>
+                <td align="right">0:023:00:18:40</td>
+                <td align="right">8,240</td>
+                <td align="right">57</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=mex"><b>mex</b></a></td>
+                <td align="right" nowrap="true">08/01/2001</td>
+                <td align="right">0:036:18:48:29</td>
+                <td align="right">8,234</td>
+                <td align="right">205</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Teigetje"><b>Teigetje</b></a></td>
+                <td align="right" nowrap="true">01/03/2004</td>
+                <td align="right">0:013:18:34:05</td>
+                <td align="right">8,221</td>
+                <td align="right">43</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Hawkje"><b>Hawkje</b></a></td>
+                <td align="right" nowrap="true">04/09/2003</td>
+                <td align="right">0:027:07:03:39</td>
+                <td align="right">8,216</td>
+                <td align="right">33</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Flippo4"><b>Flippo4</b></a></td>
+                <td align="right" nowrap="true">04/12/2001</td>
+                <td align="right">0:062:23:19:02</td>
+                <td align="right">8,197</td>
+                <td align="right">103</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=manjh"><b>manjh</b></a></td>
+                <td align="right" nowrap="true">04/10/2001 [05/06/2001]</td>
+                <td align="right">0:057:10:39:43</td>
+                <td align="right">8,184</td>
+                <td align="right">93</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=rijken"><b>rijken</b></a></td>
+                <td align="right" nowrap="true">07/20/2002</td>
+                <td align="right">0:039:23:34:11</td>
+                <td align="right">8,180</td>
+                <td align="right">69</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Dribibu%2Enl"><b>Dribibu.nl</b></a></td>
+                <td align="right" nowrap="true">04/15/2001</td>
+                <td align="right">0:014:06:03:03</td>
+                <td align="right">8,172</td>
+                <td align="right">17</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Razzel3rd"><b>Razzel3rd</b></a></td>
+                <td align="right" nowrap="true">02/13/2002</td>
+                <td align="right">0:029:06:36:01</td>
+                <td align="right">8,162</td>
+                <td align="right">55</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=mvgorkom"><b>mvgorkom</b></a></td>
+                <td align="right" nowrap="true">09/15/2001</td>
+                <td align="right">0:026:09:43:55</td>
+                <td align="right">8,145</td>
+                <td align="right">134</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=squeez"><b>squeez</b></a></td>
+                <td align="right" nowrap="true">01/22/2005</td>
+                <td align="right">0:013:14:15:10</td>
+                <td align="right">8,142</td>
+                <td align="right">39</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=defined"><b>defined</b></a></td>
+                <td align="right" nowrap="true">02/22/2002</td>
+                <td align="right">0:012:09:36:01</td>
+                <td align="right">8,140</td>
+                <td align="right">40</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=cefasd"><b>cefasd</b></a></td>
+                <td align="right" nowrap="true">04/22/2005</td>
+                <td align="right">0:009:23:23:42</td>
+                <td align="right">8,134</td>
+                <td align="right">27</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%7BSPQR%7DCaesar"><b>{SPQR}Caesar</b></a></td>
+                <td align="right" nowrap="true">01/19/2002</td>
+                <td align="right">0:020:08:52:05</td>
+                <td align="right">8,130</td>
+                <td align="right">43</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Hei%2DYu"><b>Hei-Yu</b></a></td>
+                <td align="right" nowrap="true">06/09/2003</td>
+                <td align="right">0:016:11:46:24</td>
+                <td align="right">8,126</td>
+                <td align="right">38</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Robsy"><b>Robsy</b></a></td>
+                <td align="right" nowrap="true">06/07/2003</td>
+                <td align="right">0:016:14:50:24</td>
+                <td align="right">8,121</td>
+                <td align="right">36</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=xr2"><b>xr2</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:009:20:01:16</td>
+                <td align="right">8,118</td>
+                <td align="right">42</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=wunzel"><b>wunzel</b></a></td>
+                <td align="right" nowrap="true">09/27/2002</td>
+                <td align="right">0:021:06:33:15</td>
+                <td align="right">8,100</td>
+                <td align="right">43</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=CaptainHook1974"><b>CaptainHook1974</b></a></td>
+                <td align="right" nowrap="true">06/07/2003</td>
+                <td align="right">0:013:22:21:57</td>
+                <td align="right">8,084</td>
+                <td align="right">38</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=zonnetje%40zonnet"><b>zonnetje@zonnet</b></a></td>
+                <td align="right" nowrap="true">12/04/2001</td>
+                <td align="right">0:018:01:06:25</td>
+                <td align="right">8,074</td>
+                <td align="right">120</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Dirty%5FIdea"><b>Dirty_Idea</b></a></td>
+                <td align="right" nowrap="true">04/08/2001</td>
+                <td align="right">0:019:16:35:49</td>
+                <td align="right">8,060</td>
+                <td align="right">99</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=PeterAlexander"><b>PeterAlexander</b></a></td>
+                <td align="right" nowrap="true">08/23/2004</td>
+                <td align="right">0:015:11:39:10</td>
+                <td align="right">8,060</td>
+                <td align="right">91</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=slettenteam"><b>slettenteam</b></a></td>
+                <td align="right" nowrap="true">08/22/2004</td>
+                <td align="right">0:011:19:26:50</td>
+                <td align="right">8,036</td>
+                <td align="right">71</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=tspawn"><b>tspawn</b></a></td>
+                <td align="right" nowrap="true">04/11/2001</td>
+                <td align="right">0:041:16:53:24</td>
+                <td align="right">8,029</td>
+                <td align="right">64</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=IFWaanders"><b>IFWaanders</b></a></td>
+                <td align="right" nowrap="true">02/19/2005</td>
+                <td align="right">0:010:19:30:50</td>
+                <td align="right">8,015</td>
+                <td align="right">25</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=GertjanBanga"><b>GertjanBanga</b></a></td>
+                <td align="right" nowrap="true">04/20/2001</td>
+                <td align="right">0:075:03:26:27</td>
+                <td align="right">8,000</td>
+                <td align="right">40</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Ferdinand"><b>Ferdinand</b></a></td>
+                <td align="right" nowrap="true">05/13/2004</td>
+                <td align="right">0:009:06:58:33</td>
+                <td align="right">7,986</td>
+                <td align="right">59</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=cyberbootje"><b>cyberbootje</b></a></td>
+                <td align="right" nowrap="true">08/17/2005</td>
+                <td align="right">0:014:19:26:21</td>
+                <td align="right">7,978</td>
+                <td align="right">25</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=puffkenny"><b>puffkenny</b></a></td>
+                <td align="right" nowrap="true">06/07/2003</td>
+                <td align="right">0:015:01:50:32</td>
+                <td align="right">7,971</td>
+                <td align="right">27</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=letatcest"><b>letatcest</b></a></td>
+                <td align="right" nowrap="true">09/29/2002</td>
+                <td align="right">0:020:11:03:39</td>
+                <td align="right">7,963</td>
+                <td align="right">30</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Nijmegen+Eendracht+Cowbinatie"><b>Nijmegen Eendracht Cowbinatie</b></a></td>
+                <td align="right" nowrap="true">04/04/2001</td>
+                <td align="right">0:044:15:09:16</td>
+                <td align="right">7,940</td>
+                <td align="right">103</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5BDPC%5D+Weareborg"><b>[DPC] Weareborg</b></a></td>
+                <td align="right" nowrap="true">04/07/2001</td>
+                <td align="right">0:015:06:39:04</td>
+                <td align="right">7,930</td>
+                <td align="right">30</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Hielke+Hoeve"><b>Hielke Hoeve</b></a></td>
+                <td align="right" nowrap="true">02/05/2002</td>
+                <td align="right">0:022:04:40:03</td>
+                <td align="right">7,902</td>
+                <td align="right">49</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=epoortvliet"><b>epoortvliet</b></a></td>
+                <td align="right" nowrap="true">04/27/2001</td>
+                <td align="right">0:051:03:17:59</td>
+                <td align="right">7,900</td>
+                <td align="right">159</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5BDPC%5D+gbm"><b>[DPC] gbm</b></a></td>
+                <td align="right" nowrap="true">04/03/2001</td>
+                <td align="right">0:034:17:43:30</td>
+                <td align="right">7,864</td>
+                <td align="right">136</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Stefan81265"><b>Stefan81265</b></a></td>
+                <td align="right" nowrap="true">04/04/2001</td>
+                <td align="right">0:042:21:35:12</td>
+                <td align="right">7,857</td>
+                <td align="right">36</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=olivierheida"><b>olivierheida</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:013:18:16:54</td>
+                <td align="right">7,851</td>
+                <td align="right">32</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Ectholian"><b>Ectholian</b></a></td>
+                <td align="right" nowrap="true">09/20/2005</td>
+                <td align="right">0:012:02:26:37</td>
+                <td align="right">7,846</td>
+                <td align="right">34</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=Kadaffi"><b>Kadaffi</b></a></td>
+                <td align="right" nowrap="true">01/27/2004</td>
+                <td align="right">0:015:10:36:34</td>
+                <td align="right">7,829</td>
+                <td align="right">47</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=ekimus%5F834816"><b>ekimus_834816</b></a></td>
+                <td align="right" nowrap="true">12/26/2002</td>
+                <td align="right">0:026:22:38:45</td>
+                <td align="right">7,790</td>
+                <td align="right">20</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=%5BDPC%5D+Lakini"><b>[DPC] Lakini</b></a></td>
+                <td align="right" nowrap="true">04/03/2001</td>
+                <td align="right">0:037:19:12:35</td>
+                <td align="right">7,774</td>
+                <td align="right">100</td>
+            </tr>
+            
+            <tr bgcolor="#FFFFFF" onmouseover="javascript:style.background='#E5E5E5'" onmouseout="javascript:style.background='#FFFFFF'">
+                <td><a href="/stats/members/compare.htm?un2=sPENKMAN"><b>sPENKMAN</b></a></td>
+                <td align="right" nowrap="true">12/08/2004</td>
+                <td align="right">0:013:15:40:30</td>
+                <td align="right">7,748</td>
+                <td align="right">35</td>
+            </tr>
+            
+           
+            
+            <tr>
+                <td align="right" valign="top" bgcolor="#F5F5F5" colspan="5">
+                
+
+    <table cellpadding="0" cellspacing="0" border="0">
+    
+    <form class="form">
+    <tr>
+        <td align="right" nowrap="true">
+        
+            <script type="text/javascript">
+            <!--
+                if (typeof(rs_page_first) != "object") {
+                    //preload_image("rs_page_first", "/img/logo_grid.gif");
+					rs_page_first = new Image();
+					rs_page_first.src = '/img/rs_page_first.gif';
+					rs_page_first_mo = new Image();
+					rs_page_first_mo.src = '/img/rs_page_first_mo.gif';
+					rs_page_first_md = new Image();
+					rs_page_first_md.src = '/img/rs_page_first_md.gif';
+					rs_page_previous = new Image();
+					rs_page_previous.src = '/img/rs_page_previous.gif';
+					rs_page_previous_mo = new Image();
+					rs_page_previous_mo.src = '/img/rs_page_previous_mo.gif';
+					rs_page_previous_md = new Image();
+					rs_page_previous_md.src = '/img/rs_page_previous_md.gif';
+					rs_page_next = new Image();
+					rs_page_next.src = '/img/rs_page_next.gif';
+					rs_page_next_mo = new Image();
+					rs_page_next_mo.src = '/img/rs_page_next_mo.gif';
+					rs_page_next_md = new Image();
+					rs_page_next_md.src = '/img/rs_page_next_md.gif';
+					rs_page_last = new Image();
+					rs_page_last.src = '/img/rs_page_last.gif';
+					rs_page_last_mo = new Image();
+					rs_page_last_mo.src = '/img/rs_page_last_mo.gif';
+					rs_page_last_md = new Image();
+					rs_page_last_md.src = '/img/rs_page_last_md.gif';
+                }
+            // -->
+            </script>
+            <table cellpadding="0" cellspacing="1" border="0" width="124" height="19">
+            <tr>
+                <td width="25%" bgcolor="#E5E5E5"><a href="team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=POINTS&rsps=250&rscp=1"><img onmouseover="this.src=rs_page_first_mo.src" onmousedown="this.src=rs_page_first_md.src" onmouseout="this.src=rs_page_first.src" src="/img/rs_page_first.gif" width="31" height="19" border="0" alt="First Page" /></a></td>
+                <td width="25%" bgcolor="#CCCCCC"><a href="team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=POINTS&rsps=250&rscp=6"><img onmouseover="this.src=rs_page_previous_mo.src" onmousedown="this.src=rs_page_previous_md.src" onmouseout="this.src=rs_page_previous.src" src="/img/rs_page_previous.gif" width="31" height="19" border="0" alt="Previous Page" /></a></td>
+                <td width="25%" bgcolor="#CCCCCC"><a href="team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=POINTS&rsps=250&rscp=8"><img onmouseover="this.src=rs_page_next_mo.src" onmousedown="this.src=rs_page_next_md.src" onmouseout="this.src=rs_page_next.src" src="/img/rs_page_next.gif" width="31" height="19" border="0" alt="Next Page" /></a></td>
+                <td width="25%" bgcolor="#E5E5E5"><a href="team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=POINTS&rsps=250&rscp=15"><img onmouseover="this.src=rs_page_last_mo.src" onmousedown="this.src=rs_page_last_md.src" onmouseout="this.src=rs_page_last.src" src="/img/rs_page_last.gif" width="31" height="19" border="0" alt="Last Page" /></a></td>
+            </tr>
+            </table>
+            <img src="/img/+___.gif" width="1" height="5" /><br />
+        
+            Page 
+            <select onchange="location.href='team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=POINTS&rsps=250&rscp=' + this.options[this.selectedIndex].value" style="font-weight:bold">
+            <option value="1" >&nbsp;&nbsp;1</option><option value="2" >&nbsp;&nbsp;2</option><option value="3" >&nbsp;&nbsp;3</option><option value="4" >&nbsp;&nbsp;4</option><option value="5" >&nbsp;&nbsp;5</option><option value="6" >&nbsp;&nbsp;6</option><option value="7" selected="true">&nbsp;&nbsp;7</option><option value="8" >&nbsp;&nbsp;8</option><option value="9" >&nbsp;&nbsp;9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option><option value="13" >13</option><option value="14" >14</option><option value="15" >15</option>
+            </select>
+            of <b>[15]</b><br /> 
+        
+        Records <b>1501 - 1750</b>, <b>3679</b> Total<br />
+        
+                <img src="/img/+___.gif" width="1" height="5" /><br />
+                <select onchange="location.href='team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=POINTS&rsps=' + this.options[this.selectedIndex].value" style="font-weight:bold">
+                
+                <option value="10" >&nbsp;&nbsp;10</option>
+                
+                <option value="25" >&nbsp;&nbsp;25</option>
+                
+                <option value="50" >&nbsp;&nbsp;50</option>
+                
+                <option value="100" >100</option>
+                
+                <option value="250" selected="true">250</option>
+                
+                </select> <i>records per page</i><br />
+            
+        </td>
+    </tr>
+    </form>
+    </table>
+  
+
+                </td>
+            </tr>
+
+            
+        </table>
+			</td>
+</tr>
+<tr>
+	<td bgcolor="#CCCCCC" height="1"><img src="/img/+CCC.gif" width="10" height="1" /></td>
+</tr>
+</table>
+</p>
+        
+        </p>
+        
+    
+ 
+	</td>
+</tr>
+</table>
+
+</td>
+<!--- END CONTENT --->
+</tr>
+</table>
+
+<!--- START FOOTER CODE --->
+<table cellpadding="0" cellspacing="0" border="0" width="750">
+<tr>
+	<td bgcolor="#003366" width="650">
+	<table cellpadding="0" cellspacing="1" border="0" width="750">
+	<tr>
+	    <td valign="middle" bgcolor="#003366" width="499">&nbsp;&nbsp;<span class="navitem">Copyright &copy; 2004 Grid.org. All rights reserved.</span></td>
+		<td bgcolor="#003366" width="1"><img src="/img/+036.gif" width="1" height="18" alt="" border="0" /></td>
+		<td valign="middle" width="150"><a href="/about/gs/privacy.htm" class="navitem" >Privacy &amp; Security</a></td>
+		<td valign="middle" align="center" width="100" bgcolor="#FFFFFF"><a href="#top" class="aon">return to top</a></td>
+	</tr>
+	</table>
+	
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html>
+
+
+
