@@ -53,4 +53,6 @@ foreach($team as $name => $score)
 	$d2olteams[] = new Member($name, $score);
 
 addStatsrun($d2olteams, 'dp1_teamOffset');
+
+unlink($temp . 'dp1-teams.txt');
 ?>
