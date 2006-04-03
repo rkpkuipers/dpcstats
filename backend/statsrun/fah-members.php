@@ -167,5 +167,4 @@ foreach ( $subteamMembers as $subTeamName => $member )
 
 addSubTeamStatsRun($fahsubteammembers, 'fah_subteamOffset');
 
-unlink($tempDir . '/fah-members.txt');
 ?>
