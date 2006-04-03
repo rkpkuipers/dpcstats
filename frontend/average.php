@@ -46,7 +46,12 @@ $avgProduction->gather();
 $avgProductionList = $avgProduction->getList();
 
 echo openColorTable(87);
-echo '<tr><td></td><td></td><td><a href="index.php?mode=avgProd&amp;prefix=<? echo $project->getPrefix(); ?>&amp;tabel=<? echo $tabel; ?>&amp;sort=avgDaily">WeekAvg</a></td><td><a href="index.php?mode=avgProd&amp;prefix=<? echo $project->getPrefix(); ?>&amp;tabel=<? echo $tabel; ?>&amp;sort=avgMonthly">MonthAvg</a></td></tr>';
+echo '<tr>';
+echo '<td></td>';
+echo '<td></td>';
+echo '<td><a href="index.php?mode=avgProd&amp;prefix=<? echo $project->getPrefix(); ?>&amp;tabel=<? echo $tabel; ?>&amp;sort=avgDaily">WeekAvg</a></td>';
+echo '<td><a href="index.php?mode=avgProd&amp;prefix=<? echo $project->getPrefix(); ?>&amp;tabel=<? echo $tabel; ?>&amp;sort=avgMonthly">MonthAvg</a></td>';
+echo '</tr>';
 
 for($member=0;$member<count($avgProductionList);$member++)
 {
