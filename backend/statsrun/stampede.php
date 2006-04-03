@@ -32,9 +32,10 @@ while ( $line = $db->fetchArray($result) )
 	if ( ! isset($team[$line['stampedeTeam']]) )
 		$team[$line['stampedeTeam']];
 	
-	$team[$line['stampedeTeam']][$line['name']] = $line['offset'];
+	$team[$line['stampedeTeam']][$line['name']] = ( $line['total'] - $line['offset'] );
 
-	$member[$line['name']] = $line['total'];
+#	$member[$line['name']] = $line['total'];
+#	$stMem[$line['name']] = ( $line['total'] - $line['offset'] );
 }
 
 $teamscore;
@@ -42,11 +43,14 @@ $memberList;
 foreach($team as $teamname => $members)
 {
 	#echo $teamname . ' ' . count($members) . "\n";
-	foreach($members as $membername => $memberoffset)
+	arsort($members, SORT_NUMERIC);
+#	print_r($members);
+	foreach($members as $membername => $memberscore)
 	{
 	#	echo $membername . ' offset ' . $memberoffset . ' total ' . $member[$membername] . ' total - offset ' . ( $member[$membername] - $memberoffset ) . "\n";
-		$teamscore[$teamname] += ($member[$membername]-$memberoffset);
-		$memberList[] = new TeamMember($membername, ($member[$membername] - $memberoffset), $teamname);
+		$teamscore[$teamname] += $memberscore;#($member[$membername]-$memberoffset);
+		$memberList[] = new TeamMember($membername, $memberscore /*($member[$membername] - $memberoffset)*/, $teamname);
+#		echo $membername . ' ' . $stMem[$membername] . ' ' . ($member[$membername]-$memberoffset) . "\n";
 	}
 }
 
@@ -56,6 +60,7 @@ foreach($teamscore as $tName => $tScore)
 
 $datum = getCurrentDate('sp5');
 
+#print_r($memberList);
 addStatsrun($teamList, 'sp5_memberOffset');
 addSubTeamStatsRun($memberList, 'sp5_subteamOffset');
 
