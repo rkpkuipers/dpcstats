@@ -57,6 +57,16 @@ function inArray($value, $array)
 	        return false;
 }
 
+function getSubteamListFromArray($array)
+{
+	$members = array();
+
+	for($i=0;$i<count($array);$i++)
+		$members[$array[$i]->getTeam()][$array[$i]->getName()] = 0;
+	
+	return $members;
+}
+
 function getMemberListFromArray($array)
 {
 	$members = array();
@@ -231,6 +241,54 @@ function addSubteamStatsrun($array, $tabel)
 
 	if ( count($array) == 0 )die('Lege array tijdens statsrun ' . date('Y-m-d:H:i') . ' voor tabel ' . $tabel);
 
+	$query = 'SELECT
+			naam,
+			subteam,
+			( cands + daily )AS score
+		FROM
+			' . $tabel . '
+		WHERE
+			dag = \'' . $datum . '\'';
+	
+	$result = mysql_query($query);
+
+	while ( $line = mysql_fetch_array($result) )
+	{
+		$currentuser[$line['subteam']][$line['naam']] = $line['score'];
+	}
+	$userarray = getSubteamListFromArray($array);
+
+	foreach($currentuser as $team => $members)
+	{
+		foreach($members as $membername => $score)
+		{
+			if ( ! isset($userarray[$team][$membername]) )
+			{
+				mysql_query('INSERT INTO 
+						movement 
+						( 
+							naam, 
+							datum, 
+							direction, 
+							candidates, 
+							tabel 
+						)
+						VALUES
+						(
+							\'' . $membername . '\',
+							\'' . $datum . '\',
+							0,
+							' . ( $currentuser[$team][$membername] ) . ',
+							\'' . $tabel . '\'
+						)');
+				
+				mysql_query('DELETE FROM ' . $tabel . ' WHERE naam = \'' . $membername . '\' 
+					AND subteam = \'' . $team . '\' AND dag = \'' . $datum . '\'');
+			}
+		}
+	}
+	#print_r($array);die();
+
 	$subteamCounter = array();
 	for($i=0;$i<count($array);$i++)
 	{
@@ -266,7 +324,7 @@ function addSubteamStatsrun($array, $tabel)
 			$updateResult = mysql_query($updateQuery);
 			#echo mysql_affected_rows() . "\n";
 		}
-		else if ( $score > 0 )
+		else if ( ( $score > 0 ) || ( substr($tabel, 0, 4) == 'sp5_' ) )
 		{
 			$maxIdQry = 'SELECT max(id) as tops FROM ' . $tabel . ' WHERE dag = \'' . $datum . '\' AND subteam = \'' . $subteam . '\'';
 			$maxIdResult = mysql_query($maxIdQry);
