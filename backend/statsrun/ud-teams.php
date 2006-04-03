@@ -8,30 +8,31 @@ include ('/var/www/tstats/classes/members.php');
 $datum = getCurrentDate('ud');
 
 dailyOffset('teamOffset', 'ud');
+$tempdir = '/home/rkuipers/stats/statsrun/files/';
 
 for($i=1;$i<=20;$i++)
 {
-	unlink('/home/rkuipers/stats/statsrun/ud/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT));
-	system('wget --quiet --tries 5 -O /home/rkuipers/stats/statsrun/ud/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT) . ' "http://www.grid.org/stats/teams/points.htm?rsps=250&rscp=' . $i . '"');
+	unlink($tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT));
+	system('wget --quiet --tries 5 -O ' . $tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT) . ' "http://www.grid.org/stats/teams/points.htm?rsps=250&rscp=' . $i . '"');
 }
 
 for($ctrl=0;$ctrl<5;$ctrl++)
 {
         for($i=1;$i<=15;$i++)
 	{
-		if ( file_exists('/home/rkuipers/stats/statsrun/ud/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT) ) )
+		if ( file_exists($tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT) ) )
 		{
-			if ( filesize('/home/rkuipers/stats/statsrun/ud/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT)) < 70000 )
-				system('wget --quiet --tries 5 -O /home/rkuipers/stats/statsrun/ud/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT) . ' "http://www.grid.org/stats/teams/points.htm?rsps=250&rscp=' . $i . '"');
+			if ( filesize($tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT)) < 70000 )
+				system('wget --quiet --tries 5 -O ' . $tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT) . ' "http://www.grid.org/stats/teams/points.htm?rsps=250&rscp=' . $i . '"');
 		}
 		else
 		{
-			system('wget --quiet --tries 5 -O /home/rkuipers/stats/statsrun/ud/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT) . ' "http://www.grid.org/stats/teams/points.htm?rsps=250&rscp=' . $i . '"');
+			system('wget --quiet --tries 5 -O ' . $tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT) . ' "http://www.grid.org/stats/teams/points.htm?rsps=250&rscp=' . $i . '"');
 		}
 	}
 }
 
-system('cat /home/rkuipers/stats/statsrun/ud/udt-* | grep -e \<td\ align=\"right\"\> -e \/services\/teams\/team\.htm | grep -v -e nowrap -e generated > /home/rkuipers/stats/statsrun/ud/teams');
+system('cat ' . $tempdir . '/udt-* | grep -e \<td\ align=\"right\"\> -e \/services\/teams\/team\.htm | grep -v -e nowrap -e generated > ' . $tempdir . '/ud-teams');
 
 function getMembersFromPage($file)
 {
@@ -55,7 +56,7 @@ function getMembersFromPage($file)
 	return $teams;
 }
 
-$teams = getMembersFromPage('/home/rkuipers/stats/statsrun/ud/teams');
+$teams = getMembersFromPage($tempdir . '/ud-teams');
 
 arsort($teams, SORT_NUMERIC);
 
@@ -68,4 +69,10 @@ foreach($teams as $team => $score)
 
 #echo count($teamList);
 addStatsrun($teamList, 'ud_teamOffset');
+
+for($i=1;$i<=20;$i++)
+{
+	unlink($tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT));
+}
+unlink($tempdir . '/ud-teams');
 ?>
