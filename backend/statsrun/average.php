@@ -38,9 +38,9 @@ function calculateAverage($tabel)
 
 $datum = getCurrentDate('tsc');
 
-calculateAverage('tsc_memberOffset');
-calculateAverage('tsc_subteamOffset');
-calculateAverage('tsc_teamOffset');
+calculateAverage('tp2_memberOffset');
+#calculateAverage('tp2_subteamOffset');
+calculateAverage('tp2_teamOffset');
 
 $datum = getCurrentDate('d2ol');
 
