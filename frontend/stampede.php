@@ -330,7 +330,7 @@ for($i=0;$i<count($mbs);$i++)
 		echo '<td align="right" width="65px" class="score">' . number_format($stMembers[$j]->getCredits(), 0, ',', '.') . '</td>';
 		echo '<td><a href="index.php?mode=detail&amp;naam=' . rawurlencode($stMembers[$j]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset&amp;datum=' . $datum . '&amp;team=' . rawurlencode($mbs[$i]->getName()) . '">' . $stMembers[$j]->getName() . '</a></td>';
 		echo '<td align="right" width="65px" class="altScore">' . number_format($stMembers[$j]->getFlush(), 0, ',', '.') . '</td>';
-		echo '<td width="30px" align="right">(' . $stMembers[$j]->getCurrRank() . ')</td>';
+		echo '<td width="30px" align="right">(' . $stMembers[$j]->getFlushRank() . ')</td>';
 		echo '</tr>';
 		echo '</table>';
 	 }
