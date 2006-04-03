@@ -33,9 +33,6 @@ while ( $line = $db->fetchArray($result) )
 		$team[$line['stampedeTeam']];
 	
 	$team[$line['stampedeTeam']][$line['name']] = ( $line['total'] - $line['offset'] );
-
-#	$member[$line['name']] = $line['total'];
-#	$stMem[$line['name']] = ( $line['total'] - $line['offset'] );
 }
 
 $teamscore;
@@ -60,7 +57,6 @@ foreach($teamscore as $tName => $tScore)
 
 $datum = getCurrentDate('sp5');
 
-#print_r($memberList);
 addStatsrun($teamList, 'sp5_memberOffset');
 addSubTeamStatsRun($memberList, 'sp5_subteamOffset');
 
