@@ -41,8 +41,8 @@ if ( trim($searchString) == '' )
 	echo 'Empty searchstring';
 else
 {
-	searchTabel('memberOffset', 'tsc', $searchString, 'TSC Members');
-	searchTabel('teamOffset', 'tsc', $searchString, 'TSC Teams');
+	searchTabel('memberOffset', 'tp2', $searchString, 'TSC Members');
+	searchTabel('teamOffset', 'tp2', $searchString, 'TSC Teams');
 	searchTabel('memberOffset', 'd2ol', $searchString, 'D2OL Members');
 	searchTabel('teamOffset', 'd2ol', $searchString, 'D2OL Teams');
 	searchTabel('memberOffset', 'sob', $searchString, 'SoB Members');

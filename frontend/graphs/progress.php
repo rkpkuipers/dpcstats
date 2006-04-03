@@ -21,7 +21,8 @@ else
 $variables = array(	'tabel' => $tabel,
 			'prefix' => $project->getPrefix(),
 			'timespan' => $timespan,
-			'teams' => $teams);
+			'teams' => $teams,
+			'team' => $team);
 echo '<img src="/graphs/progressGraph.php?' . http_build_query($variables) . '">';
 ?>
 <br><br>

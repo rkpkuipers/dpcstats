@@ -14,6 +14,9 @@ if ( isset($_REQUEST['teams']) )
 else
 	die("No teams/members were specified");
 
+if ( isset($_REQUEST['team']) )
+	$team = $_REQUEST['team'];
+
 if ( isset($HTTP_POST_VARS['timespan']) )
 	$timespan = $HTTP_POST_VARS['timespan'];
 else
@@ -24,9 +27,20 @@ if ( isset($_POST['prefix']) )
 
 function createLine($naam, $no, $tabel)
 {
-        global $lines, $dagen, $timespan, $project, $db;
+        global $lines, $dagen, $timespan, $project, $db, $team;
 
-        $query = 'SELECT dag, daily FROM ' . $project->getPrefix() . '_' . $tabel . ' WHERE naam = \'' . $naam . '\' ORDER BY dag DESC LIMIT ' . $timespan;
+        $query = 'SELECT 
+			dag, 
+			daily 
+		FROM 
+			' . $project->getPrefix() . '_' . $tabel . ' 
+		WHERE 
+			naam = \'' . $naam . '\' ' .
+		( $tabel=='subteamOffset'?'AND subteam = \'' . $team . '\'':'') . '
+		ORDER BY 
+			dag DESC 
+		LIMIT 	' . $timespan;
+
         $result = $db->selectQuery($query);
         $pos = 0;
         $lines[$no] = array();

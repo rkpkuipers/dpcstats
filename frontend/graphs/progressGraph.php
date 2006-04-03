@@ -24,6 +24,9 @@ if ( isset($_POST['timespan']) )
 else
 	$timespan = 14;
 
+if ( isset($_REQUEST['team']) )
+	$team = $_REQUEST['team'];
+
 if ( isset ($_POST['prefix'] ) )
 	$prefix = $_POST['prefix'];
 elseif ( isset ($_GET['prefix']) )
@@ -34,7 +37,7 @@ $sDate = date("Y-m-d", strtotime("-" . $timespan . " days"));
 
 function createLine($naam, $no, $tabel)
 {
-	global $lines, $dagen, $timespan, $prefix, $db;
+	global $lines, $dagen, $timespan, $prefix, $db, $team;
 
 	$query = 'SELECT 
 			dag, 
@@ -42,7 +45,8 @@ function createLine($naam, $no, $tabel)
 		FROM 
 			' . $prefix . '_' . $tabel . ' 
 		WHERE 
-			naam = \'' . $naam . '\' 
+			naam = \'' . $naam . '\' ' .
+		( $tabel=='subteamOffset'?'AND subteam=\'' . $team . '\'':'') . '
 		ORDER BY 
 			dag DESC 
 		LIMIT 	' . $timespan;

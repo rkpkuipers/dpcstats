@@ -29,7 +29,8 @@ $allowed = array(	'mode' => 'Members',		# Which page to load
 			'frame' => '',			# Let's find out
 			'hl' => '',			# Which team to highlight, used for custom position lists
 			'dlow' => 0,			# Offset for the flush list (start at $dlow instead of 1)
-			'low' => 0);			# Offset for the overall list
+			'low' => 0,			# Offset for the overall list
+			'team' => 'Dutch Power Cows');
 
 foreach($allowed as $name => $default)
 {
@@ -92,11 +93,6 @@ else
 	else
 		$sort = 'avgDaily';
 }
-
-if ( isset ( $_GET['team']) )
-	$team = $_GET['team'];
-else
-	$team = 'Dutch Power Cows';
 
 if ( isset($_REQUEST['prefix']) )
 	$project = new Project($db, $_REQUEST['prefix'], $tabel);
@@ -431,8 +427,9 @@ function change( imageName, newSource )
 	echo getMenuHeader('Old Projects', 'opActive');
 	if ( $opActive == 'on' )
 	{
-		echo getMenuEntry('Find a Drug', $baseUrl . '/index.php?mode=Members&amp;tabel=memberOffset&amp;naam=&amp;datum=2006-01-26' . 
-				'&amp;prefix=fad', $link++);
+		echo getMenuEntry('Find a Drug', $baseUrl . '/index.php?mode=Members&amp;tabel=memberOffset&amp;naam=' . 
+				'&amp;datum=2006-01-26&amp;prefix=fad', $link++);
+		echo getMenuEntry('TSC Phase 1', $baseUrl . '/index.php?prefix=tp1&datum=2006-04-03&mode=Members', $link++);
 	}
 	echo '</table>';
 

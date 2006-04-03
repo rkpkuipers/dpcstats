@@ -83,6 +83,7 @@ if ( $ts->getDailyFlushers() > $listsize )
 <p>
 <input type="hidden" name="tabel" value="<? echo $tabel ?>">
 <input type="hidden" name="prefix" value="<? echo $project->getPrefix() ?>">
+<input type="hidden" name="team" value="<? echo $team; ?>">
 </p>
 <?
 #echo '<td align="right">
@@ -241,6 +242,7 @@ if ( $ts->getTotalMembers() > $listsize )
 <input type="hidden" name="tabel" value="<? echo $tabel?>">
 <input type="hidden" name="prefix" value="<? echo $project->getPrefix() ?>">
 <input type="hidden" name="mode" value="Graph">
+<input type="hidden" name="team" value="<? echo $team; ?>">
 </td>
 <td align="right"><INPUT TYPE="image" SRC="images/graph.jpg" value="Graph"></td>
 </tr>
