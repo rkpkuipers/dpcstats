@@ -12,7 +12,9 @@ $tempdir = '/home/rkuipers/stats/statsrun/files/';
 
 for($i=1;$i<=20;$i++)
 {
-	unlink($tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT));
+	if ( is_file($tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT)) )
+		unlink($tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT));
+
 	system('wget --quiet --tries 5 -O ' . $tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT) . ' "http://www.grid.org/stats/teams/points.htm?rsps=250&rscp=' . $i . '"');
 }
 
