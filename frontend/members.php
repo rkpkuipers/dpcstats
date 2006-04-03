@@ -43,6 +43,11 @@ if ( $ts->getDailyFlushers() > $listsize )
 	echo '<input type="hidden" name="low" value="' . $low . '">';
 	echo '<input type="hidden" name="prefix" value="' . $project->getPrefix() . '">';
 	echo '<input type="hidden" name="datum" value="' . $datum . '">';
+	if ( $mode == 'Subteam' )
+	{
+		echo '<input type="hidden" name="mode" value="Subteam">';
+		echo '<input type="hidden" name="team" value="' . $team . '">';
+	}
 	echo '<select name="dlow" class="TextField">';
 	
 	for($i=0;($i*$listsize)<$ts->getDailyFlushers();$i++)
@@ -199,7 +204,9 @@ if ( $ts->getTotalMembers() > $listsize )
 	echo '<input type="hidden" name="prefix" value="' . $project->getPrefix() . '">';
 	echo '<input type="hidden" name="dlow" value="' . $dlow . '">';
 	echo '<input type="hidden" name="datum" value="' . $datum . '">';
-	echo '<input type="hidden" name="team" value="' . rawurlencode($team) . '">';
+	echo '<input type="hidden" name="team" value="' . $team . '">';
+	if ( $mode == 'Subteam' )
+		echo '<input type="hidden" name="mode" value="Subteam">';
 	echo '<select name="low" class="TextField">';
 
         for($i=0;($i*$listsize)<$ts->getTotalMembers();$i++)
