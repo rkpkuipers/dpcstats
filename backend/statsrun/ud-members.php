@@ -13,7 +13,9 @@ dailyOffset('memberOffset', 'ud');
 
 for($i=1;$i<=15;$i++)
 {
-	unlink($tempDir . '/udm-' . str_pad($i, 2, 0, STR_PAD_LEFT));
+	if ( is_file($tempDir . '/udm-' . str_pad($i, 2, 0, STR_PAD_LEFT)) )
+		unlink($tempDir . '/udm-' . str_pad($i, 2, 0, STR_PAD_LEFT));
+
 	system('wget --quiet --tries 5 -O ' . $tempDir . '/udm-' . str_pad($i, 2, 0, STR_PAD_LEFT) . ' "http://www.grid.org/services/teams/team_members.htm?id=F715D0C5-C270-4F6F-86D8-11A9D85EF01E&ord=POINTS&rsps=250&rscp=' . $i . '"');
 }
 
@@ -76,4 +78,10 @@ foreach($teams as $team => $score)
 
 #echo count($teamList);
 addStatsrun($teamList, 'ud_memberOffset');
+
+for($i=1;$i<=15;$i++)
+{
+        unlink($tempDir . '/udm-' . str_pad($i, 2, 0, STR_PAD_LEFT));
+}
+unlink($tempDir . '/ud-members');
 ?>
