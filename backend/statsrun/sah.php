@@ -12,12 +12,17 @@ dailyOffset('teamOffset', 'sah');
 dailyOffset('subteamOffset', 'sah');
 dailyOffset('individualOffset', 'sah');
 
-$url = 'http://setiathome.berkeley.edu/stats/team.gz';
-system('wget -q '. $url . ' -O /home/rkuipers/stats/statsrun/files/sah.team.gz');
-$action = 'gunzip /home/rkuipers/stats/statsrun/files/sah.team.gz';
-system($action);
+$tempdir = '/home/rkuipers/stats/statsrun/files/';
 
-$xmldata = simplexml_load_file('/home/rkuipers/stats/statsrun/files/sah.team');
+$url = 'http://setiathome.berkeley.edu/stats/team.gz';
+system('wget -q '. $url . ' -O ' . $tempdir . '/sah.team.gz');
+$action = 'gunzip ' . $tempdir . '/sah.team.gz';
+system($action);
+$action = 'cat ' . $tempdir . '/sah.team | grep -v -e create_time -e description -e country -e expavg_credit -e expavg_time -e type -e nusers -e founder_name -e url -e name_html -e userid -e \<id\> > ' . $tempdir . '/sah.team.2';
+system($action);
+unlink($tempdir . '/sah.team');
+
+$xmldata = simplexml_load_file('/home/rkuipers/stats/statsrun/files/sah.team.2');
 $team = array();
 foreach($xmldata->team as $xmlteam)
 {
@@ -27,26 +32,31 @@ foreach($xmldata->team as $xmlteam)
 
 	$team[$name] = $score;
 }
-unlink('/home/rkuipers/stats/statsrun/files/sah.team');
+#unlink('/home/rkuipers/stats/statsrun/files/sah.team');
 arsort($team, SORT_NUMERIC);
 
 foreach($team as $name => $score)
 	$teamlist[] = new Member($name, $score);
 
 addStatsrun($teamlist, 'sah_teamOffset');
+unlink($tempdir . '/sah.team.2');
 
 $url = 'http://setiathome.berkeley.edu/stats/user.gz';
 
-system('wget -q -O /home/rkuipers/stats/statsrun/files/sah.user.gz ' . $url);
+system('wget -q -O ' . $tempdir . '/sah.user.gz ' . $url);
 
-$action = 'gunzip /home/rkuipers/stats/statsrun/files/sah.user.gz';
-
+$action = 'gunzip ' . $tempdir . '/sah.user.gz';
 system($action);
 
-unset($xmldata);
-$xmldata = simplexml_load_file('/home/rkuipers/stats/statsrun/files/sah.user');
+$action = 'cat ' . $tempdir . '/sah.user | grep -v -e country -e \<id\> -e expavg_time -e expavg_credit -e cpid -e create_time > ' . $tempdir . '/sah.user.2';
+system($action);
 
-unlink('/home/rkuipers/stats/statsrun/files/sah.user');
+unlink($tempdir . '/sah.user');
+
+unset($xmldata);
+$xmldata = simplexml_load_file('/home/rkuipers/stats/statsrun/files/sah.user.2');
+
+unlink('/home/rkuipers/stats/statsrun/files/sah.user.2');
 
 $member = array();
 $subteamlist = array();
