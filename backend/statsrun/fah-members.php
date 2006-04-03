@@ -44,7 +44,7 @@ unlink($tempDir . '/fah-members.html');
 $raw = implode('', file($tempDir . '/fah-members.txt'));
 $data = preg_replace(array('@<a[^>]*?>@si', '@</a>@si', '@<td[^>]*?>@si', '@</td>@si', '@<TD[^>]*?>@si', '@</TD>@si'), '||', $raw);
 
-#unlink($tempDir . '/fah-members.txt');
+unlink($tempDir . '/fah-members.txt');
 
 $info = explode('||', $data);
 
@@ -57,13 +57,9 @@ for($i=2;$i<count($info);$i+=8)
 	#echo 'user: ' . trim($info[$i]) . ' score: ' . trim($info[$i+4]) . "\n";
 
 	$user = trim($info[$i]);
-	#$user = str_replace('[DPC]_Team_Coldfusion0', '[DPC]_Team_ColdFusion0', $user);
-	#$user = str_replace('Sandstar', 'SandStar', $user);
 	$score = trim($info[$i+4]);
 
 	if ( $score == 0 ) break;
-	
-	#echo $info[2] . ' ' . $info[3] . "\n";
 	
 	$team = getSubteam($user);
 	if ( $team != '' )
@@ -107,34 +103,15 @@ for($i=2;$i<count($info);$i+=8)
 	}
 	else
 	{
-		/*
 		$set = 0;
-		foreach($subteams as $stName => $stScore)
+		foreach($members as $mName => $mScore)
 		{
-			if ( strtoupper($stName) == strtoupper($user) )
+			if ( strtoupper($mName) == strtoupper($user) )
 			{
-				if ( isset($subteams[$stName]) )
-					$subteams[$stName] += $score;
-				else
-					$subteams[$stName] = $score;
-
+				$members[$mName] += $score;
 				$set++;
 			}
 		}
-
-		$set2 = 1;
-		if ( $set != 0 )
-		{/*/
-			$set = 0;
-			foreach($members as $mName => $mScore)
-			{
-				if ( strtoupper($mName) == strtoupper($user) )
-				{
-					$members[$mName] += $score;
-					$set++;
-				}
-			}
-	#	}
 		
 		if ( $set == 0 )
 			$members[$user] = $score;
