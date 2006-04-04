@@ -39,19 +39,16 @@ $teamscore;
 $memberList;
 foreach($team as $teamname => $members)
 {
-	#echo $teamname . ' ' . count($members) . "\n";
 	arsort($members, SORT_NUMERIC);
-#	print_r($members);
 	foreach($members as $membername => $memberscore)
 	{
-	#	echo $membername . ' offset ' . $memberoffset . ' total ' . $member[$membername] . ' total - offset ' . ( $member[$membername] - $memberoffset ) . "\n";
 		$teamscore[$teamname] += $memberscore;#($member[$membername]-$memberoffset);
 		$memberList[] = new TeamMember($membername, $memberscore /*($member[$membername] - $memberoffset)*/, $teamname);
-#		echo $membername . ' ' . $stMem[$membername] . ' ' . ($member[$membername]-$memberoffset) . "\n";
 	}
 }
 
 $teamList;
+arsort($teamscore);
 foreach($teamscore as $tName => $tScore)
 	$teamList[] = new Member($tName, $tScore);
 
