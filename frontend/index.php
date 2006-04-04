@@ -397,6 +397,7 @@ function change( imageName, newSource )
 	{
 		echo getMenuEntry('Bug Tracker', $baseUrl . '/mantis/view_all_bug_page.php', $link++);
 		echo getMenuEntry('GOT - /5', 'http://gathering.tweakers.net/forum/list_topics/5', $link++);
+		echo getMenuEntry('Source Code (Beta)', $baseUrl . '/?mode=stats', $link++);
 		echo getMenuEntry('Toggle Calendar', 'index.php?prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . 
 				'&amp;datum=' . $datum. '&amp;mode=' . $mode  . '&amp;naam=' . rawurlencode($naam) . 
 				'&amp;cActive=' . ($cActive=='on'?'off':'on') . '&amp;setCActive=&amp;team=' . rawurlencode($team), $link++);
