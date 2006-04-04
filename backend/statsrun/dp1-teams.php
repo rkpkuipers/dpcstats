@@ -29,24 +29,6 @@ $team = array();
 for($i=5;$i<count($info);$i+=6)
 	$team[$info[$i]] = trim($info[$i+2]);
 
-$set = 0;
-
-$html = implode('', file ('http://app.d2ol.com/stats/topTeamsAll.jsp?t=Alltime')) or die("Error retrieving information");
-$teams = explode('|', $html);
-
-$d2olteams = array();
-
-for($i=6;$i<count($teams);$i+=5)
-{
-	if ( isset($team[$teams[$i]]) )
-	{
-#		$d2olteams[] = new Member($teams[$i], ($team[$teams[$i]]+$teams[$i+1]));
-		$team[$teams[$i]] += $teams[$i+1];
-		$set++;
-	}
-
-	if ( $set == 100 ) break;
-}
 arsort($team);
 
 foreach($team as $name => $score)

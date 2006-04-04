@@ -287,7 +287,6 @@ function addSubteamStatsrun($array, $tabel)
 			}
 		}
 	}
-	#print_r($array);die();
 
 	$subteamCounter = array();
 	for($i=0;$i<count($array);$i++)
