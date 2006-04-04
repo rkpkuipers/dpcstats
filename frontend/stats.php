@@ -170,6 +170,6 @@ cronjobs.</P>
 <br>
 <a href="http://rkuipers.mine.nu/statsbackup/mysql.struct.sql.bz2">Database dump zonder data</a><br>
 <a href="http://rkuipers.mine.nu/statsbackup/mysql.<? echo date("Y-m-d"); ?>.sql.bz2">Database dump met data</a><br>
-<a href="http://rkuipers.mine.nu/viewcvs/tstats.tar.gz?view=tar">Frontend</a><br>
-<a href="http://rkuipers.mine.nu/statsbackup/statsdir.tar">Backend</a><br>
+<a href="http://rkuipers.mine.nu/viewcvs/Frontend/root.tar.gz?view=tar">Frontend</a><br>
+<a href="http://rkuipers.mine.nu/viewcvs/Backend/root.tar.gz?view=tar">Backend</a><br>
 <a href="crontab">Cronjobs</a>
