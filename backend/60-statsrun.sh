@@ -1,7 +1,5 @@
 #!/bin/bash
 
-/home/rkuipers/stats/statsrun/stampede.php
-
 /home/rkuipers/stats/statsrun/sob.php
 
 /home/rkuipers/stats/statsrun/rah.php
@@ -14,5 +12,7 @@
 /home/rkuipers/stats/statsrun/ufl.php
 
 /home/rkuipers/stats/statsrun/individual.php
+
+/home/rkuipers/stats/statsrun/stampede.php
 
 /home/rkuipers/stats/statsrun/average.php
