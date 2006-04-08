@@ -2,12 +2,12 @@
 
 class Message
 {
-	var $poster;
-	var $bericht;
-	var $tijd;
-	var $email;
+	private $poster;
+	private $bericht;
+	private $tijd;
+	private $email;
 
-	function Message($poster, $bericht, $tijd, $email)
+	function __construct($poster, $bericht, $tijd, $email)
 	{
 		$this->poster = $poster;
 		$this->bericht = $bericht;
@@ -38,10 +38,10 @@ class Message
 
 class ShoutBox
 {
-	var $messages;
-	var $db;
+	private $messages;
+	private $db;
 
-	function ShoutBox($db)
+	function __construct($db)
 	{
 		$messages = array();
 
@@ -111,10 +111,10 @@ class ShoutBox
 
 		while ( $line = $this->db->fetchArray($result) )
                 {
-			$this->messages[] = new Message($line['naam'], 
-									      $this->parseSmiley($line['bericht']), 
-									      $line['geplaatst'], 
-									      $line['email']);
+			$this->messages[] = new Message(	$line['naam'], 
+								$this->parseSmiley($line['bericht']), 
+								$line['geplaatst'], 
+								$line['email']);
 		}
 	}
 
