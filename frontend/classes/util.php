@@ -162,7 +162,9 @@ function getShoutboxTable($db, $project, $tabel, $team)
 		$mess = explode(' ', $messages[$i]->getBericht());
 		for($j=0;$j<count($mess);$j++)
 		{
-			if ( ( strlen($mess[$j]) > 15 ) && 
+			if ( substr($mess[$j], 0, 4) == 'http' )
+				echo '<a href="' . $mess[$j] . '">link</a>';
+			else if ( ( strlen($mess[$j]) > 15 ) && 
 			     ( ! is_numeric(strpos($mess[$j], 'tadah.mine.nu')) ) &&
 			     ( ! is_numeric(strpos($mess[$j], 'images')) ) &&
 			     ( ! is_numeric(strpos($mess[$j], 'href')) ) 
