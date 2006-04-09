@@ -19,17 +19,19 @@ class FlushMember extends Member
 
 class FlushList
 {
-	var $tabel;
-	var $flushList;
-	var $MFList;
+	private $tabel;
+	private $flushList;
+	private $MFList;
 	
-	var $db;
+	private $db;
 	
-	function FlushList($tabel, $db)
+	function __construct($tabel, $db, $team = '')
 	{
 		$this->tabel = $tabel;
 		
 		$this->db = $db;
+
+		$this->team = $team;
 	}
 	
 	function createFlushList()
@@ -62,7 +64,8 @@ class FlushList
 			FROM
 				' . $this->tabel . '
 			WHERE
-				daily > 0
+				daily > 0 ' .
+			( $this->team != ''?'AND subteam=\'' . $this->team . '\'':'') . ' 
 			ORDER BY
 				daily DESC
 			LIMIT
@@ -71,7 +74,7 @@ class FlushList
 		$result = $this->db->selectQuery($query);
 
 		$names = array();
-		while ( ( $line = $this->db->fetchArray($result) ) && ( count($names) < 30 ) )
+		while ( ( $line = $this->db->fetchArray($result) ) && ( count($this->MFList) < 30 ) )
 		{
 			if ( ! isset($names[$line['naam']]) )
 			{

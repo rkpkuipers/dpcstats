@@ -17,11 +17,12 @@ class Project
 	private $teamDaily;
 	private $srInterval;
 	private $wdoPrefix;
+	private $team;
 
 	private $db;
 	private $datum;
 
-	function Project($db, $prefix, $tabel, $datum = 0)
+	function Project($db, $prefix, $tabel, $datum = 0, $team = '')
 	{
 		$this->db  = $db ;
 
@@ -36,9 +37,11 @@ class Project
 		
 		if ( is_numeric(strpos($tabel, 'Daily')) )
 			$this->tabel = substr($tabel, 0, strpos($tabel, 'Daily') );
-
+			
 		$this->teamRank = -1;
 		$this->teamDaily = -1;
+
+		$this->teamName = $team;
 
 		$this->getInfo();
 	}
@@ -71,7 +74,8 @@ class Project
 			$this->website = $line['2'];
 			$this->forum = $line['3'];
 			$this->lastUpdate = $line['4'];
-			$this->teamName = $line['teamName'];
+			if ( ! isset($this->teamName) )
+				$this->teamName = $line['teamName'];
 			$this->dpchTitle = $line['dpchTitle'];
 			$this->srInterval = $line['statsrunInterval'];
 			
@@ -110,6 +114,50 @@ class Project
 		default:
 			return date("Y-m-d");
         	}
+	}
+
+	function getSubteamRank()
+	{
+		if ( $this->teamRank == -1 )
+		{
+			$query = 'SELECT
+					currRank
+				FROM
+					' . $this->prefix . '_memberOffsetDaily
+				WHERE
+					dag = \'' . date("Y-m-d", strtotime($this->datum)) . '\'
+				AND	naam = \'' . $this->teamName . '\'
+				LIMIT 1';
+			
+			$result = $this->db->selectQuery($query);
+
+			if ( $line = $this->db->fetchArray($result) )
+				$this->teamRank = $line['currRank'];
+		}
+
+		return $this->teamRank;
+	}
+
+	function getSubteamDaily()
+	{
+		if ( $this->teamDaily == -1 )
+		{
+			$query = 'SELECT
+					dailypos
+				FROM
+					' . $this->prefix . '_memberOffsetDaily
+				WHERE
+					dag = \'' . date("Y-m-d", strtotime($this->datum)) . '\'
+				AND	naam = \'' . $this->teamName . '\'
+				LIMIT 1';
+
+			$result = $this->db->selectQuery($query);
+
+			if ( $line = $this->db->fetchArray($result) )
+				$this->teamDaily = $line['dailypos'];
+		}
+
+		return $this->teamDaily;
 	}
 
 	function getTeamRank()
