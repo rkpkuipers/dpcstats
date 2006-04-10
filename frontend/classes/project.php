@@ -74,7 +74,7 @@ class Project
 			$this->website = $line['2'];
 			$this->forum = $line['3'];
 			$this->lastUpdate = $line['4'];
-			if ( ! isset($this->teamName) )
+			if ( $this->teamName == '' )
 				$this->teamName = $line['teamName'];
 			$this->dpchTitle = $line['dpchTitle'];
 			$this->srInterval = $line['statsrunInterval'];
