@@ -47,7 +47,7 @@ $ts = new STTableStatistics($project->getPrefix() . '_subteamOffset' . $tableSuf
 $ts->gather();
 
 $rmlpage .= '[b]DPC ' . $project->getDpchTitle() . ' hitparade voor ' . $team . ' van ' . strftime('%e %B %Y', strtotime(($project->getPrefix()=='ud'?getPrevDate($datum):$datum))) . '[/b]' . "\n";
-$rmlpage .= '[table bgcolor="transparent"]';
+$rmlpage .= '[table]';
 $rmlpage .= '[tr][td colspan="6"][img=450,1]http://gathering.tweakers.net/global/templates/got/images/layout/pixel.gif[/img][/td][/tr]';
 $rmlpage .= '[tr][td colspan="6"][b]Daily Top 30[/b][/td][/tr]';
 $rmlpage .= '[tr][td colspan="6"]Flushers: ' . $ts->getDailyFlushers() . ' / ' . number_format($ts->getTotalMembers(), 0, ',', '.') . ' (' . number_format($ts->getDailyFlushers() / ( $ts->getTotalMembers() / 100 ), 1, ',', '.') . ' %)[br][/td][/tr]';
@@ -90,10 +90,10 @@ for($i=0;$i<count($mbs);$i++)
 	$rmlpage .= '[/tr]';
 }
 
-$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberOffset' . $tableSuffix . '"]More...[/url][/td][/tr]' . "\n\n";
+$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=subteamOffset' . $tableSuffix . '&amp;team=' . rawurlencode($team) . '"]More...[/url][/td][/tr]' . "\n\n";
 $rmlpage .= '[/table]' . "\n";
 
-$rmlpage .= '[table bgcolor="transparent"]';
+$rmlpage .= '[table]';
 $rmlpage .= '[tr][td colspan="6"][img=450,1]http://gathering.tweakers.net/global/templates/got/images/layout/pixel.gif[/img][/td][/tr]';
 $rmlpage .= '[tr][td colspan="6"][b]Overall Top 30[/b][/td][/tr]';
 $rmlpage .= '[tr]';
@@ -130,9 +130,9 @@ for($i=0;$i<count($mbs);$i++)
 	$rmlpage .= '[/tr]';
 }
 
-$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberOffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
+$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=subteamOffset' . $tableSuffix . '&amp;team=' . rawurlencode($team) . '"]More...[/url][/td][/tr]';
 $rmlpage .= '[/table]' . "\n";
-$rmlpage .= '[table bgcolor="transparent"]';
+$rmlpage .= '[table]';
 $rmlpage .= '[tr][td colspan="6"][img=450,1]http://gathering.tweakers.net/global/templates/got/images/layout/pixel.gif[/img][/td][/tr]';
 $rmlpage .= '[tr][td colspan="6"][b]Teams Daily Top 15[/b][/td][/tr]';
 $rmlpage .= '[tr]';
@@ -189,10 +189,10 @@ for($i=0;$i<count($mbs);$i++)
         $rmlpage .= '[td align="right"](' . $mbs[$i]->getCurrRank() . ')[/td]';
         $rmlpage .= '[/tr]';
 }
-$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamOffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
+$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberOffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
 $rmlpage .= '[/table]' . "\n";
 
-$rmlpage .= '[table bgcolor="transparent"]';
+$rmlpage .= '[table]';
 $rmlpage .= '[tr][td colspan="6"][img=450,1]http://gathering.tweakers.net/global/templates/got/images/layout/pixel.gif[/img][/td][/tr]';
 $rmlpage .= '[tr][td colspan="6"][b]Teams Overall Top 15[/b][/td][/tr]';
 $rmlpage .= '[tr]';
@@ -244,7 +244,7 @@ for($i=0;$i<count($mbs);$i++)
         $rmlpage .= '   [/tr]';
 }
 
-$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamOffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
+$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberOffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
 $rmlpage .= '  [/table]' . "\n";
 
 $fmc = new FlushList($project->getPrefix() . '_subteamOffset', $db, $team);
@@ -252,7 +252,7 @@ $fmc = new FlushList($project->getPrefix() . '_subteamOffset', $db, $team);
 $fmc->createMFList();
 $fl = $fmc->getMFList();
 
-$rmlpage .= '[table width="350px" bgcolor="transparent"]';
+$rmlpage .= '[table width="350px"]';
 $rmlpage .= '[tr][td colspan="6"][img=400,1]http://gathering.tweakers.net/global/templates/got/images/layout/pixel.gif[/img][/td][/tr]';
 $rmlpage .= '[tr][td colspan="4"][b]Megaflush Top 5[/b][/td][/tr]';
 $rmlpage .= '[tr]';
@@ -279,7 +279,7 @@ $mpl = $mp->getMijlpalen();
 if ( count($mpl) > 0 )
 {
 	$rmlpage .= '  [b]Mijlpalen[/b]';
-	$rmlpage .= '  [table width="300px" bgcolor="transparent"]';
+	$rmlpage .= '  [table width="300px"]';
 	for($i=0;$i<count($mpl);$i++)
 	{
 		$rmlpage .= '   [tr]';
@@ -322,7 +322,7 @@ if ( $mi->getFlush() > 0 )
         if ( count($tl) > 0 )
         {
                 $rmlpage .= '[b]When do they get you[/b]';
-                $rmlpage .= '[table width="300" bgcolor="transparent"]';
+                $rmlpage .= '[table width="300"]';
                 $rmlpage .= '[tr]';
 		$rmlpage .= '[td][b]Team[/b][/td]';
 		$rmlpage .= '[td align="right"][b]Average[/b][/td]';
@@ -344,7 +344,7 @@ if ( $mi->getFlush() > 0 )
         if ( count($ol) > 0 )
         {
                 $rmlpage .= '[b]When do you get them[/b]';
-                $rmlpage .= '[table width="300px" bgcolor="transparent"]';
+                $rmlpage .= '[table width="300px"]';
                 $rmlpage .= '[tr]';
 		$rmlpage .= '[td][b]Team[/b][/td]';
 		$rmlpage .= '[td align="right"][b]Average[/b][/td]';
@@ -365,7 +365,7 @@ if ( $mi->getFlush() > 0 )
 if ( count($joins) > 0 )
 {
 	$rmlpage .= '  [b]Nieuwe Leden[/b]';
-        $rmlpage .= '[table bgcolor="transparent" width="300"]';
+        $rmlpage .= '[table width="300"]';
         for($i=0;$i<count($joins);$i++)
         {
                 $rmlpage .= '[tr]';
@@ -379,7 +379,7 @@ if ( count($joins) > 0 )
 if ( count($leaves) > 0 )
 {
 	$rmlpage .= '  [b]Leaves[/b]'; 
-        $rmlpage .= '[table bgcolor="transparent" width="300"]';
+        $rmlpage .= '[table width="300"]';
         for($i=0;$i<count($leaves);$i++)
         {
                 $rmlpage .= '[tr]';
