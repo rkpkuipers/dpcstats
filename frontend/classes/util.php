@@ -564,8 +564,8 @@ function parseRML($rml)
 				'<img src="\1" alt="">',
 				'<img width="\1" height="\2" src="\3" alt="">',
 				'<a href="\1">\2</a>',
-				'<span style="color:#FF0000">\1</span>',
-				'<span style="color:#0000FF">\1</span>',
+				'<font color="#FF0000">\1</span>',
+				'<font color="#0000FF">\1</span>',
 				'<br>',
 				'\1');
 
