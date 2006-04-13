@@ -79,18 +79,18 @@ function getMemberListFromArray($array)
 
 function addStatsRun($array, $tabel)
 {
-        global $datum;
+        global $datum, $db;
 
 	if ( count($array) == 0 )die('Lege array tijdens statsrun ' . date('Y-m-d:H:i') . ' voor tabel ' . $tabel);
 
         # Check for retirements
         $query = 'SELECT naam, (cands+daily) as totaal, cands, currRank FROM ' . $tabel . ' WHERE dag = \'' . $datum . '\'';
-        $result = mysql_query($query);
+        $result = $db->selectQuery($query);
 
 	$currentUsers = array();
 	$currentScore = array();
 	$currentRanks = array();
-        while ( $line = mysql_fetch_array($result) )
+        while ( $line = $db->fetchArray($result) )
         {
 		$currentUsers[] = $line['naam'];
 		$currentScore[$line['naam']] = $line['cands'];
@@ -107,7 +107,7 @@ function addStatsRun($array, $tabel)
 			$naam = str_replace('\\', '\\\\', $missing[$i]);
 			$naam = str_replace('/', '\/', $naam);
 			$naam = str_replace('\'', '\\\'', $naam);
-			$insQuery = 'INSERT INTO
+			$insQuery = 'REPLACE INTO
 					movement
 				( naam, datum, direction, candidates, tabel )
 				SELECT
@@ -122,13 +122,13 @@ function addStatsRun($array, $tabel)
 					naam = \'' . $naam . '\'
 				AND	dag = \'' . $datum . '\'';
 
-			mysql_query($insQuery) or die(mysql_error() . "\n" . $insQuery);
+			$db->insertQuery($insQuery);
 		
                         $remQuery = 'DELETE FROM ' . $tabel . ' WHERE naam = \'' . $naam . '\' AND dag = \'' . $datum . '\'';
 			#echo $remQuery . "\n";
-                        mysql_query($remQuery) or die(mysql_error() . "\n" . $remQuery);
+                        $db->deleteQuery($remQuery);
 
-			$remQuery = 'INSERT INTO 
+			$remQuery = 'REPLACE INTO 
 					movement 
 				VALUES 
 				( 
@@ -139,7 +139,7 @@ function addStatsRun($array, $tabel)
 					\'' . $tabel . '\'
 				)';
 			#echo $remQuery . "\n";
-//			mysql_query($remQuery);a
+//			$db->insertQuery($remQuery);a
                 }
         }
 
@@ -156,9 +156,9 @@ function addStatsRun($array, $tabel)
 		{
                 	$query = 'SELECT cands FROM ' . $tabel . ' WHERE naam = \'' . $naam . '\' AND dag = \'' . $datum . '\';';
 			#echo $query;
-        	        $result = mysql_query($query) or die("Error fetching offset\n" . $query);
+        	        $result = $db->selectQuery($query);# or die("Error fetching offset\n" . $query);
 
-                	if ( $line = mysql_fetch_array($result) )
+                	if ( $line = $db->fetchArray($result) )
 	#		if ( in_array($array[$i]->getNaam(), $currentUsers) )
         	        {
                 	        $updateQuery = 'UPDATE
@@ -168,15 +168,14 @@ function addStatsRun($array, $tabel)
         	                                WHERE   naam = \'' . $naam . '\'
                 	                        AND     dag = \'' . $datum . '\'';
 	                        #echo $updateQuery . ";" . ' ';
-				$updateResult = mysql_query($updateQuery);
-				#echo mysql_affected_rows() . "\n";
+				$updateResult = $db->updateQuery($updateQuery);
                 	}
 	                else if ( ( $score > 0 ) || ( substr($tabel, 0, 4) == 'rah_' ) )
   #			else if ( $currentScore[$array[$i]->getNaam()] > 0 )
                 	{
                         	$maxIdQry = 'SELECT max(id) as tops FROM ' . $tabel . ' WHERE dag = \'' . $datum . '\'';
-	                        $maxIdResult = mysql_query($maxIdQry);
-        	                if ( $maxIdLine = mysql_fetch_array($maxIdResult) )
+	                        $maxIdResult = $db->selectQuery($maxIdQry);
+        	                if ( $maxIdLine = $db->fetchArray($maxIdResult) )
                 	                $nwId = $maxIdLine['tops'] + 1;
                         	else
 	                                $nwId = 0;
@@ -187,21 +186,21 @@ function addStatsRun($array, $tabel)
                                         	VALUES
                                                 	(\'' . $naam . '\',\'' . $datum . '\', ' . $score . ', 0, ' . $nwId . ')';
 	                        #echo $insQuery . "\n";
-        	                mysql_query($insQuery);
+        	                $db->insertQuery($insQuery);
 	
-				$insQuery = 'INSERT INTO movement VALUES ( \'' . $naam . '\', \'' . $datum . '\', 1, ' . $score . ',\'' . $tabel . '\')';
+				$insQuery = 'REPLACE INTO movement VALUES ( \'' . $naam . '\', \'' . $datum . '\', 1, ' . $score . ',\'' . $tabel . '\')';
 				#echo $query;
-				mysql_query($insQuery);
+				$db->insertQuery($insQuery);
 	                }
 		}
 		#echo $i . "\n";
         }
 
         $query = 'SELECT naam, daily FROM ' . $tabel . ' WHERE dag=\'' . $datum . '\' ORDER BY daily DESC';
-        $result = mysql_query($query);
+        $result = $db->selectQuery($query);
 
         $pos = 1;
-        while( $line = mysql_fetch_array($result, MYSQL_ASSOC) )
+        while( $line = $db->fetchArray($result, MYSQL_ASSOC) )
         {
                 $naam = str_replace('\'', '\\\'', $line['naam']);
                 $updateQuery = 'UPDATE
@@ -211,7 +210,7 @@ function addStatsRun($array, $tabel)
                                 AND     dag = \'' . $datum . '\'';
 
                 #echo $updateQuery;
-                mysql_query($updateQuery);
+                $db->updateQuery($updateQuery);
                 $pos++;
         }
 
@@ -230,14 +229,14 @@ function addStatsRun($array, $tabel)
 				\'' . $info[1] . '\',
 				\'' . date("Y-m-d:H:i:s") . '\'
 			)';
-	mysql_query($query);
+	$db->insertQuery($query);
 
 	fillDailyTable($tabel);
 }
 
 function addSubteamStatsrun($array, $tabel)
 {
-        global $datum;
+        global $datum, $db;
 
 	if ( count($array) == 0 )die('Lege array tijdens statsrun ' . date('Y-m-d:H:i') . ' voor tabel ' . $tabel);
 
@@ -250,9 +249,9 @@ function addSubteamStatsrun($array, $tabel)
 		WHERE
 			dag = \'' . $datum . '\'';
 	
-	$result = mysql_query($query);
+	$result = $db->selectQuery($query);
 
-	while ( $line = mysql_fetch_array($result) )
+	while ( $line = $db->fetchArray($result) )
 	{
 		$currentuser[$line['subteam']][$line['naam']] = $line['score'];
 	}
@@ -264,7 +263,7 @@ function addSubteamStatsrun($array, $tabel)
 		{
 			if ( ! isset($userarray[$team][$membername]) )
 			{
-				mysql_query('INSERT INTO 
+				$db->insertQuery('REPLACE INTO 
 						movement 
 						( 
 							naam, 
@@ -282,7 +281,7 @@ function addSubteamStatsrun($array, $tabel)
 							\'' . $tabel . '\'
 						)');
 				
-				mysql_query('DELETE FROM ' . $tabel . ' WHERE naam = \'' . $membername . '\' 
+				$db->deleteQuery('DELETE FROM ' . $tabel . ' WHERE naam = \'' . $membername . '\' 
 					AND subteam = \'' . $team . '\' AND dag = \'' . $datum . '\'');
 			}
 		}
@@ -306,9 +305,9 @@ function addSubteamStatsrun($array, $tabel)
 			AND	subteam = \'' . $subteam . '\'';
 			#echo $query;
 
-		$result = mysql_query($query) or die("Error fetching offset\n" . $query);
+		$result = $db->selectQuery($query) or die("Error fetching offset\n" . $query);
 
-		if ( $line = mysql_fetch_array($result) )
+		if ( $line = $db->fetchArray($result) )
 		{
 			$updateQuery = 'UPDATE
 							' . $tabel . '
@@ -320,14 +319,13 @@ function addSubteamStatsrun($array, $tabel)
 						AND	dag = \'' . $datum . '\'
 						AND	subteam = \'' . $subteam . '\'';
 #			echo $updateQuery . ";" . ' ';
-			$updateResult = mysql_query($updateQuery);
-			#echo mysql_affected_rows() . "\n";
+			$updateResult = $db->updateQuery($updateQuery);
 		}
 		else if ( ( $score > 0 ) || ( substr($tabel, 0, 4) == 'sp5_' ) )
 		{
 			$maxIdQry = 'SELECT max(id) as tops FROM ' . $tabel . ' WHERE dag = \'' . $datum . '\' AND subteam = \'' . $subteam . '\'';
-			$maxIdResult = mysql_query($maxIdQry);
-			if ( $maxIdLine = mysql_fetch_array($maxIdResult) )
+			$maxIdResult = $db->selectQuery($maxIdQry);
+			if ( $maxIdLine = $db->fetchArray($maxIdResult) )
 				$nwId = $maxIdLine['tops'] + 1;
 			else
 				$nwId = 0;
@@ -338,22 +336,22 @@ function addSubteamStatsrun($array, $tabel)
 					VALUES
 						(\'' . $naam . '\', \'' . $subteam . '\', \'' . $datum . '\', ' . $score . ', 0, ' . $nwId . ')';
 			#echo $insQuery . "\n";
-			mysql_query($insQuery);
+			$db->insertQuery($insQuery);
 
-			$insQuery = 'INSERT INTO movement VALUES ( \'' . $naam . '\', \'' . $datum . '\', 1, ' . $score . ',\'' . $tabel . '\')';
+			$insQuery = 'REPLACE INTO movement VALUES ( \'' . $naam . '\', \'' . $datum . '\', 1, ' . $score . ',\'' . $tabel . '\')';
 			#echo $query;
-			//mysql_query($insQuery);
+			//$db->insertQuery($insQuery);
 		}
 		#echo $i . "\n";
 	}
 
 	$query = 'SELECT naam, daily, subteam FROM ' . $tabel . ' WHERE dag=\'' . $datum . '\' ORDER BY subteam, daily DESC';
 	#echo $query;
-	$result = mysql_query($query);
+	$result = $db->selectQuery($query);
 
 	$currSubteam = '';
 	$pos = 1;
-	while( $line = mysql_fetch_array($result, MYSQL_ASSOC) )
+	while( $line = $db->fetchArray($result, MYSQL_ASSOC) )
 	{
 		if ( $currSubteam != $line['subteam'] )
 		{
@@ -370,7 +368,7 @@ function addSubteamStatsrun($array, $tabel)
 				AND     dag = \'' . $datum . '\'';
 
 		#echo $updateQuery;
-		mysql_query($updateQuery);
+		$db->updateQuery($updateQuery);
 		$pos++;
 	}
 
@@ -389,7 +387,7 @@ function addSubteamStatsrun($array, $tabel)
 				\'' . $info[1] . '\',
 				\'' . date("Y-m-d:H:i:s") . '\'
 			)';
-	mysql_query($query);
+	$db->insertQuery($query);
 
 	fillDailyTable($tabel);
 }
@@ -411,10 +409,10 @@ function fillDailyTable($tabel)
         mysql_query($query);
 
         $query = 'DELETE FROM ' . $tabel . 'Daily';
-        mysql_query($query);
+        $db->deleteQuery($query);
 
         $query = 'INSERT INTO ' . $tabel . 'Daily SELECT * from ' . $tabel . ' WHERE dag >= \'' . getTwoDaysPrev() . '\'';
-        mysql_query($query);
+        $db->insertQuery($query);
 }
 
 function checkTeamMember($tabel, $team, $member)
@@ -432,7 +430,7 @@ function checkTeamMember($tabel, $team, $member)
 	
 	$result = $db->selectQuery($query);
 
-	if ( $line = mysql_fetch_array($result) )
+	if ( $line = $db->fetchArray($result) )
 		return true;
 	else
 		return false;
@@ -543,9 +541,9 @@ function dailyOffset($tabel, $project)
 			' . $project . '_' . $tabel . ' 
 		WHERE 
 			dag = \'' . $datum . '\'';
-	$result = mysql_query($query);
+	$result = $db->selectQuery($query);
 
-	if ( $line = mysql_fetch_row($result) )
+	if ( $line = $db->fetchArray($result) )
 	{
 		if ( $line[0] <= 0 )
 			setDailyOffset($project, $tabel, $datum);

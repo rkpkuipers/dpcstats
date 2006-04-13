@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-include ('/home/rkuipers/stats/database.php');
+include ('/var/www/tstats/classes/database.php');
 include ('/home/rkuipers/stats/include.php');
 include ('/var/www/tstats/classes/members.php');
 

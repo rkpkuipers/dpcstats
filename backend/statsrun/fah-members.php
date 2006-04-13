@@ -9,6 +9,8 @@ include ('/var/www/tstats/classes/members.php');
 
 function getSubteam($name)
 {
+	global $db;
+	
 	$team = '';
 	
 	$name = str_replace('\'', '\\\'', $name);
@@ -20,9 +22,9 @@ function getSubteam($name)
 		WHERE
 			member = \'' . $name . '\'';
 
-	$result = mysql_query($query) or die('');
+	$result = $db->selectQuery($query) or die('');
 
-	if ( $line = mysql_fetch_array($result) )
+	if ( $line = $db->fetchArray($result) )
 	{
 		$team = $line['name'];
 	}
