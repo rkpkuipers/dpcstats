@@ -1,12 +1,13 @@
 #!/usr/bin/php
 <?php
 
-include ('/home/rkuipers/stats/database.php');
+include ('/var/www/tstats/classes/database.php');
 include ('/home/rkuipers/stats/include.php');
 include ('/var/www/tstats/classes/members.php');
 
 function getSubteam($name)
 {
+	global $db;
         $team = '';
 
         $query = 'SELECT
@@ -15,9 +16,9 @@ function getSubteam($name)
                         sob_subteam
                 WHERE
                         member = \'' . $name . '\'';
-        $result = mysql_query($query);
+        $result = $db->selectQuery($query);
 
-        if ( $line = mysql_fetch_array($result) )
+        if ( $line = $db->fetchArray($result) )
         {
                 $team = $line['name'];
         }

@@ -1,14 +1,14 @@
 #!/usr/bin/php
 <?
 
-include ('/home/rkuipers/stats/database.php');
+include ('/var/www/tstats/classes//database.php');
 include ('/home/rkuipers/stats/include.php');
 
 function calculateAverage($tabel)
 {
 	global $datum, $db;
 
-	mysql_query('DELETE FROM averageproduction WHERE tabel = \'' . $tabel . '\'');
+	$db->deleteQuery('DELETE FROM averageproduction WHERE tabel = \'' . $tabel . '\'');
 	
 #	echo date("U") . "\t" . $tabel . "\n";
 	$query = 'INSERT INTO
