@@ -162,7 +162,7 @@ function change( imageName, newSource )
 // ]]>
 </script>
  <link rel="stylesheet" href="page.css" type="text/css">
- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
  <meta http-equiv="Pragma" content="no-cache">
  <link rel="shortcut icon" href="favicon.ico">
 </head>
