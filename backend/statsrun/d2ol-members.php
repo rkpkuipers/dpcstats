@@ -9,7 +9,7 @@ include ('/var/www/tstats/classes/members.php');
 
 $datum = getCurrentDate('d2ol');
 
-dailyOffset('memberOffset', 'd2ol');
+dailyOffset('memberoffset', 'd2ol');
 
 $html = implode('', file ('http://app.d2ol.com/stats/topMembersAll.jsp?t=Alltime')) or die("Error retrieving information");
 #$teams = explode("|\n", $html);
@@ -24,5 +24,5 @@ for($i=10;$i<count($teams);$i+=6)
 		$d2olmembers[count($d2olmembers)] = new Member($teams[$i], $teams[$i+1]);
 }
 
-addStatsrun($d2olmembers, 'd2ol_memberOffset');
+addStatsrun($d2olmembers, 'd2ol_memberoffset');
 ?>

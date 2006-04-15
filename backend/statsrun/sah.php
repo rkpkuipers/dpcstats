@@ -7,10 +7,10 @@ include ('/var/www/tstats/classes/members.php');
 
 $datum = getCurrentDate('tsc');
 
-dailyOffset('memberOffset', 'sah');
-dailyOffset('teamOffset', 'sah');
-dailyOffset('subteamOffset', 'sah');
-dailyOffset('individualOffset', 'sah');
+dailyOffset('memberoffset', 'sah');
+dailyOffset('teamoffset', 'sah');
+dailyOffset('subteamoffset', 'sah');
+dailyOffset('individualoffset', 'sah');
 
 $tempdir = '/home/rkuipers/stats/statsrun/files/';
 
@@ -38,7 +38,7 @@ arsort($team, SORT_NUMERIC);
 foreach($team as $name => $score)
 	$teamlist[] = new Member($name, $score);
 
-addStatsrun($teamlist, 'sah_teamOffset');
+addStatsrun($teamlist, 'sah_teamoffset');
 unlink($tempdir . '/sah.team.2');
 
 $url = 'http://setiathome.berkeley.edu/stats/user.gz';
@@ -101,7 +101,7 @@ arsort($member, SORT_NUMERIC);
 foreach($member as $name => $score)
 	$memberlist[] = new Member($name, $score);
 
-addStatsrun($memberlist, 'sah_memberOffset');
+addStatsrun($memberlist, 'sah_memberoffset');
 
 foreach ( $subteamMembers as $subTeamName => $member )
 {
@@ -112,5 +112,5 @@ foreach ( $subteamMembers as $subTeamName => $member )
 	}
 }
 
-addSubTeamStatsRun($subteammembers, 'sah_subteamOffset');
+addSubTeamStatsRun($subteammembers, 'sah_subteamoffset');
 ?>

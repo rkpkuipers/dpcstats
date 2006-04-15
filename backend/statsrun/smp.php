@@ -7,10 +7,10 @@ include ('/var/www/tstats/classes/members.php');
 
 $datum = getCurrentDate('tsc');
 
-dailyOffset('teamOffset', 'smp');
-dailyOffset('memberOffset', 'smp');
-dailyOffset('subteamOffset', 'smp');
-dailyOffset('individualOffset', 'smp');
+dailyOffset('teamoffset', 'smp');
+dailyOffset('memberoffset', 'smp');
+dailyOffset('subteamoffset', 'smp');
+dailyOffset('individualoffset', 'smp');
 
 $url = 'http://boinc.bio.wzw.tum.de/boincsimap/stats/team_id.gz';
 $basedir = '/home/rkuipers/stats/statsrun/files/';
@@ -40,7 +40,7 @@ arsort($team, SORT_NUMERIC);
 foreach($team as $name => $score)
 	$teamlist[] = new Member($name, $score);
 
-addStatsrun($teamlist, 'smp_teamOffset');
+addStatsrun($teamlist, 'smp_teamoffset');
 
 $url = 'http://boinc.bio.wzw.tum.de/boincsimap/stats/user_id.gz';
 
@@ -118,7 +118,7 @@ arsort($member, SORT_NUMERIC);
 foreach($member as $name => $score)
 	$memberlist[] = new Member($name, $score);
 
-addStatsrun($memberlist, 'smp_memberOffset');
+addStatsrun($memberlist, 'smp_memberoffset');
 
 foreach ( $subteamMembers as $subTeamName => $member )
 {
@@ -130,5 +130,5 @@ foreach ( $subteamMembers as $subTeamName => $member )
 }
 
 if ( count($subteammembers) > 0 )
-	addSubTeamStatsRun($subteammembers, 'smp_subteamOffset');
+	addSubTeamStatsRun($subteammembers, 'smp_subteamoffset');
 ?>

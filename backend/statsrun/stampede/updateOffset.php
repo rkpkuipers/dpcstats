@@ -7,7 +7,7 @@ $query = 'SELECT
 		REPLACE(naam, \' - \', \'~\')AS name,
 		(daily+cands)AS offset 
 	FROM 
-		rah_individualOffset
+		rah_individualoffset
 	WHERE
 		naam IN
 		(

@@ -38,70 +38,70 @@ function calculateAverage($tabel)
 
 $datum = getCurrentDate('tsc');
 
-calculateAverage('tsc_memberOffset');
-calculateAverage('tsc_teamOffset');
+calculateAverage('tsc_memberoffset');
+calculateAverage('tsc_teamoffset');
 
 $datum = getCurrentDate('d2ol');
 
-calculateAverage('d2ol_memberOffset');
-calculateAverage('d2ol_teamOffset');
+calculateAverage('d2ol_memberoffset');
+calculateAverage('d2ol_teamoffset');
 
 /*
 $datum = getCurrentDate('fad');
 
-calculateAverage('fad_memberOffset');
-calculateAverage('fad_teamOffset');
-calculateAverage('fad_subteamOffset');
+calculateAverage('fad_memberoffset');
+calculateAverage('fad_teamoffset');
+calculateAverage('fad_subteamoffset');
 */
 
 $datum = getCurrentDate('sob');
 
-calculateAverage('sob_memberOffset');
-calculateAverage('sob_teamOffset');
-calculateAverage('sob_subteamOffset');
-calculateAverage('sob_individualOffset');
+calculateAverage('sob_memberoffset');
+calculateAverage('sob_teamoffset');
+calculateAverage('sob_subteamoffset');
+calculateAverage('sob_individualoffset');
 
 $datum = getCurrentDate('rah');
 
-calculateAverage('rah_memberOffset');
-calculateAverage('rah_teamOffset');
-calculateAverage('rah_subteamOffset');
-calculateAverage('rah_individualOffset');
+calculateAverage('rah_memberoffset');
+calculateAverage('rah_teamoffset');
+calculateAverage('rah_subteamoffset');
+calculateAverage('rah_individualoffset');
 
 $datum = getCurrentDate('ud');
 
-calculateAverage('ud_teamOffset');
-calculateAverage('ud_memberOffset');
+calculateAverage('ud_teamoffset');
+calculateAverage('ud_memberoffset');
 
 $datum = getCurrentDate('sah');
 
-calculateAverage('sah_teamOffset');
-calculateAverage('sah_memberOffset');
-calculateAverage('sah_subteamOffset');
+calculateAverage('sah_teamoffset');
+calculateAverage('sah_memberoffset');
+calculateAverage('sah_subteamoffset');
 
 $datum = getCurrentDate('ufl');
 
-calculateAverage('ufl_teamOffset');
-calculateAverage('ufl_memberOffset');
-calculateAverage('ufl_subteamOffset');
-calculateAverage('ufl_individualOffset');
+calculateAverage('ufl_teamoffset');
+calculateAverage('ufl_memberoffset');
+calculateAverage('ufl_subteamoffset');
+calculateAverage('ufl_individualoffset');
 
 $datum = getCurrentDate('fah');
 
-calculateAverage('fah_teamOffset');
-calculateAverage('fah_memberOffset');
-calculateAverage('fah_subteamOffset');
-calculateAverage('fah_individualOffset');
+calculateAverage('fah_teamoffset');
+calculateAverage('fah_memberoffset');
+calculateAverage('fah_subteamoffset');
+calculateAverage('fah_individualoffset');
 
 $datum = getCurrentDate('smp');
 
-calculateAverage('smp_teamOffset');
-calculateAverage('smp_memberOffset');
-calculateAverage('smp_subteamOffset');
-calculateAverage('smp_individualOffset');
+calculateAverage('smp_teamoffset');
+calculateAverage('smp_memberoffset');
+calculateAverage('smp_subteamoffset');
+calculateAverage('smp_individualoffset');
 
 $datum = getCurrentDate('sp5');
 
-calculateAverage('sp5_memberOffset');
-calculateAverage('sp5_subteamOffset');
-calculateAverage('sp5_individualOffset');
+calculateAverage('sp5_memberoffset');
+calculateAverage('sp5_subteamoffset');
+calculateAverage('sp5_individualoffset');

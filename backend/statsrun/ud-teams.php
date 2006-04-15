@@ -7,7 +7,7 @@ include ('/var/www/tstats/classes/members.php');
 
 $datum = getCurrentDate('ud');
 
-dailyOffset('teamOffset', 'ud');
+dailyOffset('teamoffset', 'ud');
 $tempdir = '/home/rkuipers/stats/statsrun/files/';
 
 for($i=1;$i<=20;$i++)
@@ -70,7 +70,7 @@ foreach($teams as $team => $score)
 }
 
 #echo count($teamList);
-addStatsrun($teamList, 'ud_teamOffset');
+addStatsrun($teamList, 'ud_teamoffset');
 
 for($i=1;$i<=20;$i++)
 {

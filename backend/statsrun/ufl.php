@@ -7,10 +7,10 @@ include ('/var/www/tstats/classes/members.php');
 
 $datum = getCurrentDate('tsc');
 
-dailyOffset('teamOffset', 'ufl');
-dailyOffset('memberOffset', 'ufl');
-dailyOffset('subteamOffset', 'ufl');
-dailyOffset('individualOffset', 'ufl');
+dailyOffset('teamoffset', 'ufl');
+dailyOffset('memberoffset', 'ufl');
+dailyOffset('subteamoffset', 'ufl');
+dailyOffset('individualoffset', 'ufl');
 
 $url = 'http://www.ufluids.net/stats/team.xml.gz';
 
@@ -39,7 +39,7 @@ arsort($team, SORT_NUMERIC);
 foreach($team as $name => $score)
 	$teamlist[] = new Member($name, $score);
 
-addStatsrun($teamlist, 'ufl_teamOffset');
+addStatsrun($teamlist, 'ufl_teamoffset');
 
 $url = 'http://www.ufluids.net/stats/user.xml.gz';
 
@@ -94,7 +94,7 @@ arsort($member, SORT_NUMERIC);
 foreach($member as $name => $score)
 	$memberlist[] = new Member($name, $score);
 
-addStatsrun($memberlist, 'ufl_memberOffset');
+addStatsrun($memberlist, 'ufl_memberoffset');
 
 foreach ( $subteamMembers as $subTeamName => $member )
 {
@@ -105,5 +105,5 @@ foreach ( $subteamMembers as $subTeamName => $member )
 	}
 }
 
-addSubTeamStatsRun($subteammembers, 'ufl_subteamOffset');
+addSubTeamStatsRun($subteammembers, 'ufl_subteamoffset');
 ?>

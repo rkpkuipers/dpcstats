@@ -9,7 +9,7 @@ include ('/var/www/tstats/classes/members.php');
 
 $datum = getCurrentDate('tsc');
 
-dailyOffset('teamOffset', 'tsc');
+dailyOffset('teamoffset', 'tsc');
 
 $html = implode('', file ('http://d2ol.childhooddiseases.org/stats/topTeamsAll.jsp?t=Alltime')) or die("Error retrieving information");
 $teams = explode('|', $html);
@@ -52,5 +52,5 @@ foreach($tscteams as $tName => $tScore)
 	$teamList[] = new Member($tName, $tScore);
 }
 
-addStatsrun($teamList, 'tsc_teamOffset');
+addStatsrun($teamList, 'tsc_teamoffset');
 ?>

@@ -11,8 +11,8 @@ header('Content-type: text/plain');
 
 $datum = getCurrentDate('tsc');
 
-dailyOffset('memberOffset', 'tsc');
-dailyOffset('subteamOffset', 'tsc');
+dailyOffset('memberoffset', 'tsc');
+dailyOffset('subteamoffset', 'tsc');
 
 $html = implode('', file ('http://d2ol.childhooddiseases.org/stats/topMembersAll.jsp?t=Alltime')) or die("Error retrieving information");
 #$teams = explode("|\n", $html);
@@ -27,5 +27,5 @@ for($i=10;$i<count($teams);$i+=6)
 		$tscmembers[count($tscmembers)] = new Member($teams[$i], $teams[$i+1]);
 }
 
-addStatsrun($tscmembers, 'tsc_memberOffset');
+addStatsrun($tscmembers, 'tsc_memberoffset');
 ?>

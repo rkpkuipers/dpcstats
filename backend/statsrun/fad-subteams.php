@@ -45,6 +45,6 @@ for($i=10;$i<count($teams);$i+=6)
 		$tscmembers[count($tscmembers)] = new Member($teams[$i], $teams[$i+1]);
 }
 
-addStatsrun($tscmembers, 'tsc_memberOffset');
+addStatsrun($tscmembers, 'tsc_memberoffset');
 */
 ?>

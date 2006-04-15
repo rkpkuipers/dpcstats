@@ -13,7 +13,7 @@ function getCurrentDate($prefix)
         switch($prefix)
         {
 	case 'fah':
-		return date("Y-m-d", strtotime("+65 minutes"));
+		return date("Y-m-d", strtotime("+30 minutes"));
 		break;
 	default:
 		return date("Y-m-d");
@@ -84,7 +84,7 @@ function addStatsRun($array, $tabel)
 	if ( count($array) == 0 )die('Lege array tijdens statsrun ' . date('Y-m-d:H:i') . ' voor tabel ' . $tabel);
 
         # Check for retirements
-        $query = 'SELECT naam, (cands+daily) as totaal, cands, currRank FROM ' . $tabel . ' WHERE dag = \'' . $datum . '\'';
+        $query = 'SELECT naam, (cands+daily) as totaal, cands, currrank FROM ' . $tabel . ' WHERE dag = \'' . $datum . '\'';
         $result = $db->selectQuery($query);
 
 	$currentUsers = array();
@@ -94,7 +94,7 @@ function addStatsRun($array, $tabel)
         {
 		$currentUsers[] = $line['naam'];
 		$currentScore[$line['naam']] = $line['cands'];
-		$currentRanks[$line['naam']] = $line['currRank'];
+		$currentRanks[$line['naam']] = $line['currrank'];
 	}
 
 	$missing = array_diff($currentUsers, getMemberListFromArray($array));
@@ -164,7 +164,7 @@ function addStatsRun($array, $tabel)
                 	        $updateQuery = 'UPDATE
                         	                        ' . $tabel . '
                                 	        SET     daily = ' . ($score - $line['cands'] ) . ',
-							currRank = ' . ( $i + 1 ) . '
+							currrank = ' . ( $i + 1 ) . '
         	                                WHERE   naam = \'' . $naam . '\'
                 	                        AND     dag = \'' . $datum . '\'';
 	                        #echo $updateQuery . ";" . ' ';
@@ -313,7 +313,7 @@ function addSubteamStatsrun($array, $tabel)
 							' . $tabel . '
 						SET     
 							daily = ' . ($score - $line['cands'] ) . ',
-							currRank = ' . ( $subteamCounter[$subteam] ) . '
+							currrank = ' . ( $subteamCounter[$subteam] ) . '
 						WHERE   
 							naam = \'' . $naam . '\'
 						AND	dag = \'' . $datum . '\'
@@ -394,7 +394,8 @@ function addSubteamStatsrun($array, $tabel)
 
 function fillDailyTable($tabel)
 {
-        $query = 'CREATE TABLE IF NOT EXISTS ' . $tabel . 'Daily
+	global $db;
+        $query = 'CREATE TABLE IF NOT EXISTS ' . $tabel . 'daily
         (
                 naam varchar(100),
                 cands int(10),
@@ -403,15 +404,15 @@ function fillDailyTable($tabel)
                 daily int(6),
                 dailypos int(3),
 		subteam varchar(100),
-                currRank int(4),
+                currrank int(4),
                 PRIMARY KEY  (`naam`,`dag`))
                 ENGINE = MEMORY';
         mysql_query($query);
 
-        $query = 'DELETE FROM ' . $tabel . 'Daily';
+        $query = 'DELETE FROM ' . $tabel . 'daily';
         $db->deleteQuery($query);
 
-        $query = 'INSERT INTO ' . $tabel . 'Daily SELECT * from ' . $tabel . ' WHERE dag >= \'' . getTwoDaysPrev() . '\'';
+        $query = 'INSERT INTO ' . $tabel . 'daily SELECT * from ' . $tabel . ' WHERE dag >= \'' . getTwoDaysPrev() . '\'';
         $db->insertQuery($query);
 }
 
@@ -465,7 +466,7 @@ function individualStatsrun($project)
 				naam,
 				( cands + daily ) as total
 			FROM 
-				' . $project . '_memberOffset 
+				' . $project . '_memberoffset 
 			WHERE 
 				dag = \'' . $datum . '\' 
 			AND 	naam NOT IN 
@@ -473,7 +474,7 @@ function individualStatsrun($project)
 					SELECT 
 						DISTINCT(subteam) 
 					FROM 
-						' . $project . '_subteamOffset 
+						' . $project . '_subteamoffset 
 					WHERE 
 						dag = \'' . $datum . '\'
 					)
@@ -484,7 +485,7 @@ function individualStatsrun($project)
 				CONCAT( subteam, \' - \', naam ) as naam,
 				( cands + daily ) as total
 			FROM
-				' . $project . '_subteamOffset 
+				' . $project . '_subteamoffset 
 			WHERE 
 				dag = \'' . $datum . '\'
 		) 
@@ -499,14 +500,14 @@ function individualStatsrun($project)
 		$members[] = new Member($line['naam'], $line['total']);
 	}
 
-	addStatsrun($members, $project . '_individualOffset');
+	addStatsrun($members, $project . '_individualoffset');
 }
 
 function setDailyOffset($prefix, $tabel, $datum)
 {
 	global $db;
 	
-	if ( $tabel == 'subteamOffset' )
+	if ( $tabel == 'subteamoffset' )
 		$selectFields = ' subteam, ';
 	else
 		$selectFields;
@@ -516,7 +517,7 @@ function setDailyOffset($prefix, $tabel, $datum)
 				SELECT 
 					naam, 
 					(cands+daily),
-					CASE WHEN currRank=0 THEN id ELSE currRank END,
+					CASE WHEN currrank=0 THEN id ELSE currrank END,
 					\'' . $datum . '\', 
 					0, 
 					dailypos, 
@@ -533,6 +534,7 @@ function setDailyOffset($prefix, $tabel, $datum)
 
 function dailyOffset($tabel, $project)
 {
+	global $db;
 	$datum = getCurrentDate($project);
 
 	$query = 'SELECT 

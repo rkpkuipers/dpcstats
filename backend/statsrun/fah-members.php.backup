@@ -160,7 +160,7 @@ arsort($members, SORT_NUMERIC);
 foreach($members as $name => $score)
 	$fahmembers[] = new Member($name, $score);
 
-addStatsrun($fahmembers, 'fah_memberOffset');
+addStatsrun($fahmembers, 'fah_memberoffset');
 
 $fahsubteammembers = array();
 foreach ( $subteamMembers as $subTeamName => $member )
@@ -170,5 +170,5 @@ foreach ( $subteamMembers as $subTeamName => $member )
 			$fahsubteammembers[] = new TeamMember($memberName, $memberScore, $subTeamName);
 	}
 
-addSubTeamStatsRun($fahsubteammembers, 'fah_subteamOffset');
+addSubTeamStatsRun($fahsubteammembers, 'fah_subteamoffset');
 ?>

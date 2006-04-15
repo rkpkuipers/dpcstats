@@ -34,9 +34,9 @@ function getSubteam($name)
 
 $datum = getCurrentDate('tsc');
 
-dailyOffset('memberOffset', 'fah');
-dailyOffset('subteamOffset', 'fah');
-dailyOffset('individualOffset', 'fah');
+dailyOffset('memberoffset', 'fah');
+dailyOffset('subteamoffset', 'fah');
+dailyOffset('individualoffset', 'fah');
 
 $tempDir = '/home/rkuipers/stats/statsrun/files/';
 system('wget "http://fah-web.stanford.edu/cgi-bin/main.py?qtype=teampage&teamnum=92" -q -O ' . $tempDir . '/fah-members.html');
@@ -157,7 +157,7 @@ arsort($members, SORT_NUMERIC);
 foreach($members as $name => $score)
 	$fahmembers[] = new Member($name, $score);
 
-addStatsrun($fahmembers, 'fah_memberOffset');
+addStatsrun($fahmembers, 'fah_memberoffset');
 
 $fahsubteammembers = array();
 foreach ( $subteamMembers as $subTeamName => $member )
@@ -167,6 +167,6 @@ foreach ( $subteamMembers as $subTeamName => $member )
 			$fahsubteammembers[] = new TeamMember($memberName, $memberScore, $subTeamName);
 	}
 
-addSubTeamStatsRun($fahsubteammembers, 'fah_subteamOffset');
+addSubTeamStatsRun($fahsubteammembers, 'fah_subteamoffset');
 
 ?>

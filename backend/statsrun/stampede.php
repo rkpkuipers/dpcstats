@@ -5,9 +5,9 @@ include('/home/rkuipers/stats/database.php');
 include('/home/rkuipers/stats/include.php');
 include('/var/www/tstats/classes/members.php');
 
-dailyOffset('memberOffset', 'sp5');
-dailyOffset('subteamOffset', 'sp5');
-dailyOffset('individualOffset', 'sp5');
+dailyOffset('memberoffset', 'sp5');
+dailyOffset('subteamoffset', 'sp5');
+dailyOffset('individualoffset', 'sp5');
 
 $query = 'SELECT
 		p.name,
@@ -16,7 +16,7 @@ $query = 'SELECT
 		(o.cands+o.daily)AS total
 	FROM
 		stampedeParticipants p,
-		rah_individualOffset o
+		rah_individualoffset o
 	WHERE
 		o.dag = \'' . date("Y-m-d") . '\'
 	AND	p.name = REPLACE(o.naam, \' - \', \'~\')
@@ -54,8 +54,8 @@ foreach($teamscore as $tName => $tScore)
 
 $datum = getCurrentDate('sp5');
 
-addStatsrun($teamList, 'sp5_memberOffset');
-addSubTeamStatsRun($memberList, 'sp5_subteamOffset');
+addStatsrun($teamList, 'sp5_memberoffset');
+addSubTeamStatsRun($memberList, 'sp5_subteamoffset');
 
 $db->disconnect();
 ?>

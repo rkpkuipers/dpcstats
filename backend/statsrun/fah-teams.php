@@ -9,7 +9,7 @@ include ('/var/www/tstats/classes/members.php');
 
 $datum = getCurrentDate('tsc');
 
-dailyOffset('teamOffset', 'fah');
+dailyOffset('teamoffset', 'fah');
 
 $html = implode('', file ('http://vspx27.stanford.edu/daily_team_summary.txt')) or die("Error retrieving information");
 $data = explode("\t", $html);
@@ -24,8 +24,10 @@ for($i=10;$i<count($data);$i+=3)
 	$score = $data[$i+1];
 
 	if ( $score > 0 )
+	{
 		$teams[] = new Member($name, $score);
+	}
 }
 
-addStatsRun($teams, 'fah_teamOffset');
+addStatsRun($teams, 'fah_teamoffset');
 ?>

@@ -30,10 +30,10 @@ function getSubteam($name)
 
 $datum = getCurrentDate('sob');
 
-dailyOffset('memberOffset', 'sob');
-dailyOffset('teamOffset', 'sob');
-dailyOffset('subteamOffset', 'sob');
-dailyOffset('individualOffset', 'sob');
+dailyOffset('memberoffset', 'sob');
+dailyOffset('teamoffset', 'sob');
+dailyOffset('subteamoffset', 'sob');
+dailyOffset('individualoffset', 'sob');
 
 $html = implode('', file ('http://www.seventeenorbust.com/stats/textStats.mhtml')) or die("Error retrieving information");
 $lines = explode("\n", $html);
@@ -104,8 +104,8 @@ foreach($members as $member => $score)
 
 #die();
 
-addStatsrun($memberList, 'sob_memberOffset');
-addStatsrun($teamList, 'sob_teamOffset');
+addStatsrun($memberList, 'sob_memberoffset');
+addStatsrun($teamList, 'sob_teamoffset');
 
 foreach ( $subTeamArray as $subTeamName => $member )
 {
@@ -117,5 +117,5 @@ foreach ( $subTeamArray as $subTeamName => $member )
 }
 
 
-addSubTeamStatsRun($subteammembers, 'sob_subteamOffset');
+addSubTeamStatsRun($subteammembers, 'sob_subteamoffset');
 ?>

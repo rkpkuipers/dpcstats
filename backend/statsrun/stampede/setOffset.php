@@ -4,18 +4,18 @@
 include('/var/www/tstats/classes.php');
 
 $db->updateQuery('UPDATE stampedeParticipants SET offset = 0');
-$db->deleteQuery('DELETE FROM sp5_memberOffset WHERE dag < \'' . getPrevDate() . '\'');
-$db->deleteQuery('DELETE FROM sp5_subteamOffset WHERE dag < \'' . getPrevDate() . '\'');
-$db->deleteQuery('DELETE FROM sp5_memberOffset WHERE dag = \'' . date("Y-m-d") . '\'');
-$db->deleteQuery('DELETE FROM sp5_subteamOffset WHERE dag = \'' . date("Y-m-d") . '\'');
-$db->updateQuery('UPDATE sp5_memberOffset SET daily=0, cands=0');
-$db->updateQuery('UPDATE sp5_subteamOffset SET daily=0, cands=0');
+$db->deleteQuery('DELETE FROM sp5_memberoffset WHERE dag < \'' . getPrevDate() . '\'');
+$db->deleteQuery('DELETE FROM sp5_subteamoffset WHERE dag < \'' . getPrevDate() . '\'');
+$db->deleteQuery('DELETE FROM sp5_memberoffset WHERE dag = \'' . date("Y-m-d") . '\'');
+$db->deleteQuery('DELETE FROM sp5_subteamoffset WHERE dag = \'' . date("Y-m-d") . '\'');
+$db->updateQuery('UPDATE sp5_memberoffset SET daily=0, cands=0');
+$db->updateQuery('UPDATE sp5_subteamoffset SET daily=0, cands=0');
 
 $query = 'SELECT 
 		REPLACE(naam, \' - \', \'~\')AS name,
 		(cands)AS offset 
 	FROM 
-		rah_individualOffset
+		rah_individualoffset
 	WHERE
 		naam IN
 		(

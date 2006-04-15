@@ -9,7 +9,7 @@ include ('/var/www/tstats/classes/members.php');
 
 $datum = getCurrentDate('d2ol');
 
-dailyOffset('teamOffset', 'dp1');
+dailyOffset('teamoffset', 'dp1');
 
 $temp = '/home/rkuipers/stats/statsrun/files/';
 
@@ -34,7 +34,7 @@ arsort($team);
 foreach($team as $name => $score)
 	$d2olteams[] = new Member($name, $score);
 
-addStatsrun($d2olteams, 'dp1_teamOffset');
+addStatsrun($d2olteams, 'dp1_teamoffset');
 
 unlink($temp . 'dp1-teams.txt');
 ?>

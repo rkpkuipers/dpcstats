@@ -7,10 +7,10 @@ include ('/var/www/tstats/classes/members.php');
 
 $datum = getCurrentDate('tsc');
 
-dailyOffset('memberOffset', 'rah');
-dailyOffset('teamOffset', 'rah');
-dailyOffset('subteamOffset', 'rah');
-dailyOffset('individualOffset', 'rah');
+dailyOffset('memberoffset', 'rah');
+dailyOffset('teamoffset', 'rah');
+dailyOffset('subteamoffset', 'rah');
+dailyOffset('individualoffset', 'rah');
 
 $url = 'http://boinc.bakerlab.org/rosetta/stats/team.gz';
 
@@ -39,7 +39,7 @@ arsort($team, SORT_NUMERIC);
 foreach($team as $name => $score)
 	$teamlist[] = new Member($name, $score);
 
-addStatsrun($teamlist, 'rah_teamOffset');
+addStatsrun($teamlist, 'rah_teamoffset');
 
 $url = 'http://boinc.bakerlab.org/rosetta/stats/user.gz';
 
@@ -128,7 +128,7 @@ arsort($member, SORT_NUMERIC);
 foreach($member as $name => $score)
 	$memberlist[] = new Member($name, $score);
 
-addStatsrun($memberlist, 'rah_memberOffset');
+addStatsrun($memberlist, 'rah_memberoffset');
 
 foreach ( $subteamMembers as $subTeamName => $member )
 {
@@ -139,5 +139,5 @@ foreach ( $subteamMembers as $subTeamName => $member )
 	}
 }
 
-addSubTeamStatsRun($subteammembers, 'rah_subteamOffset');
+addSubTeamStatsRun($subteammembers, 'rah_subteamoffset');
 ?>

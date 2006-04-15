@@ -9,7 +9,7 @@ include ('/var/www/tstats/classes/members.php');
 
 $datum = getCurrentDate('d2ol');
 
-dailyOffset('teamOffset', 'd2ol');
+dailyOffset('teamoffset', 'd2ol');
 
 $html = implode('', file ('http://app.d2ol.com/stats/topTeamsAll.jsp?t=Alltime')) or die("Error retrieving information");
 $teams = explode('|', $html);
@@ -41,5 +41,5 @@ $d2olteams[count($d2olteams)] = new Member('Unassigned', $score);
 
 #echo count($d2olteams);
 
-addStatsrun($d2olteams, 'd2ol_teamOffset');
+addStatsrun($d2olteams, 'd2ol_teamoffset');
 ?>

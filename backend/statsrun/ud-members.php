@@ -9,7 +9,7 @@ $tempDir = '/home/rkuipers/stats/statsrun/files/';
 
 $datum = getCurrentDate('ud');
 
-dailyOffset('memberOffset', 'ud');
+dailyOffset('memberoffset', 'ud');
 
 for($i=1;$i<=15;$i++)
 {
@@ -77,7 +77,7 @@ foreach($teams as $team => $score)
 }
 
 #echo count($teamList);
-addStatsrun($teamList, 'ud_memberOffset');
+addStatsrun($teamList, 'ud_memberoffset');
 
 for($i=1;$i<=15;$i++)
 {

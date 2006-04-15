@@ -27,5 +27,5 @@ for($i=226;$i<count($teams);$i+=29)
 	#echo $i . ' ' . $teams[$i] . ' ' . $teams[$i+8] . "\n";
 }
 
-addStatsrun($fadteams, 'fad_teamOffset');
+addStatsrun($fadteams, 'fad_teamoffset');
 ?>

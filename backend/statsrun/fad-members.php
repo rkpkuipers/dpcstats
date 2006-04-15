@@ -89,7 +89,7 @@ foreach($members as $name => $score)
 	$fadmembers[] = new Member(html_entity_decode($name), $score);
 }
 
-addStatsrun($fadmembers, 'fad_memberOffset');
+addStatsrun($fadmembers, 'fad_memberoffset');
 
 
 foreach ( $subTeamArray as $subTeamName => $member )
@@ -101,5 +101,5 @@ foreach ( $subTeamArray as $subTeamName => $member )
 	}
 }
 
-addSubTeamStatsRun($fadsubteammembers, 'fad_subteamOffset');
+addSubTeamStatsRun($fadsubteammembers, 'fad_subteamoffset');
 ?>
