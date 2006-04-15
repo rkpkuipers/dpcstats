@@ -17,7 +17,7 @@ if ( ( $nick != '' ) && ( $team != '' ) )
 		$query = 'SELECT
 				(cands+daily)AS offset
 			FROM
-				rah_individualOffset
+				rah_individualoffset
 			WHERE
 				dag = \'' . date("Y-m-d") . '\'
 			AND	naam = \'' . str_replace('~', ' - ', $nick) . '\'';
@@ -28,7 +28,7 @@ if ( ( $nick != '' ) && ( $team != '' ) )
 			$offset = 0;
 			
 		$query = 'REPLACE INTO 
-				stampedeParticipants
+				stampedeparticipants
 			(
 				name,
 				stampedeTeam,
@@ -64,21 +64,21 @@ $query = '(
 	SELECT
 		mo.naam
 	FROM
-		rah_memberOffset mo
+		rah_memberoffset mo
 	WHERE
 		mo.dag = \'' . date("Y-m-d") . '\'
-	AND 	mo.naam NOT IN ( SELECT DISTINCT(subteam) FROM rah_subteamOffset WHERE dag = \'' . date("Y-m-d") . '\')
-	AND	mo.naam NOT IN ( SELECT name FROM stampedeParticipants )
+	AND 	mo.naam NOT IN ( SELECT DISTINCT(subteam) FROM rah_subteamoffset WHERE dag = \'' . date("Y-m-d") . '\')
+	AND	mo.naam NOT IN ( SELECT name FROM stampedeparticipants )
 	)
 	UNION
 	(
 	SELECT
 		CONCAT(subteam, \'~\', naam) AS naam
 	FROM
-		rah_subteamOffset
+		rah_subteamoffset
 	WHERE
 		dag = \'' . date("Y-m-d") . '\'
-	AND	CONCAT(subteam, \'~\', naam) NOT IN ( SELECT name FROM stampedeParticipants )
+	AND	CONCAT(subteam, \'~\', naam) NOT IN ( SELECT name FROM stampedeparticipants )
 	)
 	ORDER BY
 		naam';
@@ -122,7 +122,7 @@ $query = 'SELECT
 		count(name)AS teamCount,
 		stampedeTeam
 	FROM
-		stampedeParticipants
+		stampedeparticipants
 	GROUP BY
 		stampedeTeam';
 
@@ -136,7 +136,7 @@ $query = 'SELECT
 		name,
 		stampedeTeam
 	FROM
-		stampedeParticipants
+		stampedeparticipants
 	ORDER BY
 		stampedeTeam,
 		name';

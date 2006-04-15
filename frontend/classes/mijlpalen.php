@@ -57,10 +57,10 @@ class MijlPalen
 
 	function verzamelPalen()
 	{
-		if ( $this->tabel == 'sah_teamOffset' )
+		if ( $this->tabel == 'sah_teamoffset' )
 			return 0;
 
-		if ( is_numeric(strpos($this->tabel, 'subteamOffset')) )
+		if ( is_numeric(strpos($this->tabel, 'subteamoffset')) )
 			$where = ' AND o.subteam = \'' . $this->subteam . '\' ';
 		else
 			$where;
@@ -83,9 +83,9 @@ class MijlPalen
 		while ($line = $this->dbase->fetchArray($result, MYSQL_ASSOC)) 
 		{
                 	$tmpNaam = '';
-                	if ( ( $this->tabel == 'nodeOffset' ) && ( strlen($line['description']) > 0 ) )
+                	if ( ( $this->tabel == 'nodeoffset' ) && ( strlen($line['description']) > 0 ) )
                         	$tmpNaam = $line['description'] . ' (' . number_format($line['naam'], 0, ',', '.') . ')';
-	                elseif ( $this->tabel == 'nodeOffset' )
+	                elseif ( $this->tabel == 'nodeoffset' )
         	                $tmpNaam = number_format($line['naam'], 0, ',', '.');
                 	else
                         	$tmpNaam = $line['naam'];

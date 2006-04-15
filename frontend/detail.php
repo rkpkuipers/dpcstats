@@ -30,7 +30,7 @@ if ( $mi->getCredits() == 0 )
                 echo '<input type="hidden" name="mode" value="Subteam">';
                 echo '<input type="hidden" name="prefix" value="' . $project->getPrefix() . '">';
                 echo '<input type="hidden" name="team" value="' . $naam . '">';
-                echo '<input type="hidden" name="tabel" value="subteamOffsetDaily">';
+                echo '<input type="hidden" name="tabel" value="subteamoffsetdaily">';
                 echo '<input type="submit" class="TextField" value="Members">';
                 echo '</form>';
                 echo '<br>';
@@ -57,7 +57,7 @@ echo '<tr><td align="left">Average Daily Pos</td><td align=right>' . number_form
 echo '<tr><td align="left">Increase</td>';
 echo '<td align=right>' . number_format($mi->getIncrease(), 2, ',', '.') . ' %</td></tr>';
 echo '</table><hr><table border="0" width="100%">';
-if ( ( ( $project->getPrefix() == 'tsc' ) || ( $project->getPrefix() == 'd2ol' ) ) && ( $tabel != 'nodeOffset' ) )
+if ( ( ( $project->getPrefix() == 'tsc' ) || ( $project->getPrefix() == 'd2ol' ) ) && ( $tabel != 'nodeoffset' ) )
 {
 	echo '<tr><td align="left">Nodes</td><td align=right>' . number_format($mi->getNodes(), 0, ',', '.') . '</td></tr>';
 	echo '<tr><td align="left">Average node output overall</td><td align=right>' . number_format($mi->getANOOverall(), 2, ',', '.') . '</td></tr>';

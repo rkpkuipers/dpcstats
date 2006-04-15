@@ -11,7 +11,7 @@ else
  <td width="25%" align="center">
   <form action="index.php">
   <input type="hidden" name="mode" value="monthlyStats">
-  <input type="hidden" name="tabel" value="memberOffset">
+  <input type="hidden" name="tabel" value="memberoffset">
   <input type="Submit" value="DPC Members" class="TextField">
   <input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
   </form>
@@ -19,7 +19,7 @@ else
  <td width="25%" align="center">
    <form action="index.php">
    <input type="hidden" name="mode" value="monthlyStats">
-   <input type="hidden" name="tabel" value="teamOffset">
+   <input type="hidden" name="tabel" value="teamoffset">
    <input type="Submit" value="Teams" class="TextField">
    <input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
    </form>

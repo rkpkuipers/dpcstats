@@ -1,6 +1,6 @@
 <?
 
-$project = new Project($db, 'sp5', 'memberOffsetDaily');
+$project = new Project($db, 'sp5', 'memberoffsetdaily');
 
 $subteamCount = 10;
 
@@ -120,7 +120,7 @@ for($i=0;$i<count($mbs);$i++)
 		echo '<td>';
 		if ( $mbs[$i]->isSubteam() )
 		{
-			echo '<a href="index.php?mode=Subteam&amp;team=' . rawurlencode($mbs[$i]->getName()) . '&amp;datum=' . $datum . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset"><img src="images/members.gif" alt="subteam"></a>';
+			echo '<a href="index.php?mode=Subteam&amp;team=' . rawurlencode($mbs[$i]->getName()) . '&amp;datum=' . $datum . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamoffset"><img src="images/members.gif" alt="subteam"></a>';
 		}
 		else
 			echo '<img src="images/blank.gif" height=11 width="10" alt="">';
@@ -147,7 +147,7 @@ for($i=0;$i<count($mbs);$i++)
         echo '</tr>';
 	$pos++;
 
-	$subteam[$mbs[$i]->getName()] = new MemberList(	$project->getPrefix() . '_subteamOffset', 
+	$subteam[$mbs[$i]->getName()] = new MemberList(	$project->getPrefix() . '_subteamoffset', 
 							$datum, 
 							0, 
 							$listsize, 
@@ -168,7 +168,7 @@ for($i=0;$i<count($mbs);$i++)
 		echo '<td width="30px" align="right">' . ( $j + 1 ) . '.</td>';
 		echo '<td width="30px" align="center">' . getChangeImage( $stMembers[$j]->getYesterday() - ( $j + 1 ) , $ts) . '</td>';
 		echo '<td align="right" width="65px" class="score">' . number_format($stMembers[$j]->getFlush(), 0, ',', '.') . '</td>';
-		echo '<td><a href="index.php?mode=detail&amp;naam=' . rawurlencode($stMembers[$j]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset&amp;datum=' . $datum . '&amp;team=' . rawurlencode($mbs[$i]->getName()) . '">' . $stMembers[$j]->getName() . '</a></td>';
+		echo '<td><a href="index.php?mode=detail&amp;naam=' . rawurlencode($stMembers[$j]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamoffset&amp;datum=' . $datum . '&amp;team=' . rawurlencode($mbs[$i]->getName()) . '">' . $stMembers[$j]->getName() . '</a></td>';
 		echo '<td align="right" width="65px" class="altScore">' . number_format($stMembers[$j]->getCredits(), 0, ',', '.') . '</td>';
 		echo '<td width="30px" align="right">(' . $stMembers[$j]->getCurrRank() . ')</td>';
 		echo '</tr>';
@@ -295,7 +295,7 @@ for($i=0;$i<count($mbs);$i++)
 	if ( $ml->getSubteamCount() > 0 )
 	{
 		if ( $mbs[$i]->isSubteam() )
-			echo '<td><a href="index.php?mode=Subteam&amp;team=' . rawurlencode($mbs[$i]->getName()) . '&amp;datum=' . $datum . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset"><img src="images/members.gif" alt="subteam"></a></td>';
+			echo '<td><a href="index.php?mode=Subteam&amp;team=' . rawurlencode($mbs[$i]->getName()) . '&amp;datum=' . $datum . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamoffset"><img src="images/members.gif" alt="subteam"></a></td>';
 		else
 			echo '<td><img src="images/blank.gif" height="11" width="10" alt="blank"></td>';
 	}
@@ -307,7 +307,7 @@ for($i=0;$i<count($mbs);$i++)
 #	echo '<td><input class="TextField" type="checkbox" name="teams[]" value="' . $mbs[$i]->getName() . '"></td>';
         echo '</tr>';
 
-	if ( ! isset($subteam[$mbs[$i]->getName()]) ) $subteam[$mbs[$i]->getName()] = new MemberList( 	$project->getPrefix() . '_subteamOffset',
+	if ( ! isset($subteam[$mbs[$i]->getName()]) ) $subteam[$mbs[$i]->getName()] = new MemberList( 	$project->getPrefix() . '_subteamoffset',
 													$datum,
 								                                        0,
 													$listsize,
@@ -328,7 +328,7 @@ for($i=0;$i<count($mbs);$i++)
 		echo '<td width="30px" align="right">' . ( $j + 1 ) . '.</td>';
 		echo '<td width="30px" align="center">' . getChangeImage( $stMembers[$j]->getRank() - ( $j + 1 ) , $ts) . '</td>';
 		echo '<td align="right" width="65px" class="score">' . number_format($stMembers[$j]->getCredits(), 0, ',', '.') . '</td>';
-		echo '<td><a href="index.php?mode=detail&amp;naam=' . rawurlencode($stMembers[$j]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset&amp;datum=' . $datum . '&amp;team=' . rawurlencode($mbs[$i]->getName()) . '">' . $stMembers[$j]->getName() . '</a></td>';
+		echo '<td><a href="index.php?mode=detail&amp;naam=' . rawurlencode($stMembers[$j]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamoffset&amp;datum=' . $datum . '&amp;team=' . rawurlencode($mbs[$i]->getName()) . '">' . $stMembers[$j]->getName() . '</a></td>';
 		echo '<td align="right" width="65px" class="altScore">' . number_format($stMembers[$j]->getFlush(), 0, ',', '.') . '</td>';
 		echo '<td width="30px" align="right">(' . $stMembers[$j]->getFlushRank() . ')</td>';
 		echo '</tr>';

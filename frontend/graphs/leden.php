@@ -4,9 +4,9 @@ include ($jpgraphdir . "/jpgraph.php");
 include ($jpgraphdir . "/jpgraph_bar.php"); 
 
 if ( isset ( $_GET['prefix'] ) )
-	$project = new Project($db, $_GET['prefix'], 'memberOffset');
+	$project = new Project($db, $_GET['prefix'], 'memberoffset');
 else
-	$project = new Project($db, 'tsc', 'memberOffset');
+	$project = new Project($db, 'tsc', 'memberoffset');
 
 $dagen = array();
 
@@ -19,7 +19,7 @@ function createLine($tabel)
 	$query = 'SELECT 
 			distinct(dag) 
 		FROM 
-			' . $project->getPrefix() . '_memberOffset 
+			' . $project->getPrefix() . '_memberoffset 
 		WHERE 
 			dag>\'' . date("Y-m-d", strtotime("-1 month" )) . '\' 
 		ORDER BY 
@@ -37,7 +37,7 @@ function createLine($tabel)
 				movement 
 			WHERE 
 				direction=1 
-			AND 	tabel=\'' . $project->getPrefix() . '_memberOffset\' 
+			AND 	tabel=\'' . $project->getPrefix() . '_memberoffset\' 
 			AND 	datum = \'' . $line['dag'] . '\'';
 #		echo $cntQuery;
 		$cntResult = $db->selectQuery($cntQuery);
@@ -54,7 +54,7 @@ function createLine($tabel)
 $graph = new Graph(500,350,"auto");
 $graph->SetScale("textlin");
 {
-        createLine($project->getPrefix() . '_memberOffset');
+        createLine($project->getPrefix() . '_memberoffset');
 	$barplot = new BarPlot($lines);
 	$barplot->SetColor($kleur[0]);
 	#$lineplot->SetWeight("2");

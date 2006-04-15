@@ -43,7 +43,7 @@ $page .= 'div.dpch div.links a { text-decoration: underline; }';
 $page .= '</style>';
 
 
-$ts = new TableStatisticsYearly($project . '_memberOffset', $datum, $db);
+$ts = new TableStatisticsYearly($project . '_memberoffset', $datum, $db);
 $ts->gather();
 
 $page .= '<div style="font-weight: bold">DPC ' . strtoupper($project) . ' jaar-hitparade van ' . strftime('%Y', strtotime($datum)) . '</div>';
@@ -58,7 +58,7 @@ $page .= '<th>member</th>';
 $page .= '<th class="ri">total</th>';
 $page .= '</tr>';
 
-$ml = new MemberList($project . '_memberOffset', $datum, 0, 30, $db);
+$ml = new MemberList($project . '_memberoffset', $datum, 0, 30, $db);
 
 $ml->generateYearlyFlushList($yearStart, $yearEnd);
 $mbs = $ml->getMembers();
@@ -81,13 +81,13 @@ for($i=0;$i<count($mbs);$i++)
 */
 
 	$page .= '<td class="da">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
-	$page .= '<td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;mode=detail&amp;tabel=memberOffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
+	$page .= '<td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;mode=detail&amp;tabel=memberoffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
 	$page .= '<td class="ov">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
 	$page .= '<td class="ri">(' . $mbs[$i]->getRank() . ')</td>';
 	$page .= '</tr>';
 }
 
-#$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=memberOffset">More...</a></td></tr>';
+#$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=memberoffset">More...</a></td></tr>';
 $page .= '</table>';
 
 $page .= '<p>Members Overall Top 30</p>';
@@ -119,13 +119,13 @@ for($i=0;$i<count($mbs);$i++)
 		$page .= '<td class="le">(<img src="http://www.tweakers.net/g/dpc/down.gif" alt="-" title="down" />' . ( $change - ( $change * 2 )) . ')</td>';
 	
 	$page .= '<td class="ov">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
-	$page .= '<td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;mode=detail&amp;tabel=memberOffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
+	$page .= '<td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;mode=detail&amp;tabel=memberoffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
 	$page .= '<td class="da">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
 	$page .= '<td class="ri">'./*(' . $mbs[$i]->getFlushRank() . ')*/'</td>';
 	$page .= '</tr>';
 }
 
-#$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=memberOffset">More...</a></td></tr>';
+#$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=memberoffset">More...</a></td></tr>';
 $page .= '</table>';
 $page .= '<p>Teams Top 15</p>';
 $page .= '<table>';
@@ -136,7 +136,7 @@ $page .= '<th>team</th>';
 $page .= '<th colspan="2">total</th>';
 $page .= '</tr>';
 
-$ml = new MemberList($project . '_teamOffset', $datum, 0, 15, $db);
+$ml = new MemberList($project . '_teamoffset', $datum, 0, 15, $db);
 
 $ml->generateYearlyFlushList($yearStart, $yearEnd);
 $mbs = $ml->getMembers();
@@ -159,13 +159,13 @@ for($i=0;$i<count($mbs);$i++)
 */
 
         $page .= '<td class="da">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
-        $page .= '<td><a href="' . $baseUrl . '?prefix=' . $project . '&amp;mode=detail&amp;tabel=teamOffset&amp;datum=' . $datum . 
+        $page .= '<td><a href="' . $baseUrl . '?prefix=' . $project . '&amp;mode=detail&amp;tabel=teamoffset&amp;datum=' . $datum . 
 '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
         $page .= '<td class="ov">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
         $page .= '<td class="ri">(' . $mbs[$i]->getRank() . ')</td>';
         $page .= '</tr>';
 }
-#$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=teamOffset">More...</a></td></tr>';
+#$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=teamoffset">More...</a></td></tr>';
 $page .= '</table>';
 
 $page .= '<p>Teams Overall Top 15</p>';
@@ -198,16 +198,16 @@ for($i=0;$i<count($mbs);$i++)
                 $page .= '    <td class="le">(<img src="http://www.tweakers.net/g/dpc/down.gif" alt="-" title="down" />' . ( $change - ( $change * 2 )) . ')</td>';
 
         $page .= '    <td class="ov">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
-        $page .= '    <td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;mode=detail&amp;tabel=teamOffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
+        $page .= '    <td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;mode=detail&amp;tabel=teamoffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '">' . $mbs[$i]->getName() . '</a></td>';
         $page .= '    <td class="da">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
         $page .= '    <td class="ri">(' . $mbs[$i]->getFlushRank() . ')</td>';
         $page .= '   </tr>';
 }
 
-#$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=memberOffset">More...</a></td></tr>';
+#$page .= '<tr><td></td><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;datum=' . $datum . '&amp;tabel=memberoffset">More...</a></td></tr>';
 $page .= '  </table>';
 
-$fmc = new FlushList($project . '_memberOffset', $db);
+$fmc = new FlushList($project . '_memberoffset', $db);
 
 $fmc->createMFList();
 $fl = $fmc->getMFList();
@@ -226,7 +226,7 @@ for($i=0;$i<5;$i++)
 $page .= '<tr><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;mode=Flush">More...</a></td></tr>';
 $page .= '</table>';
 
-$mi = new MemberInfo($db, 'Dutch Power Cows', $project . '_teamOffset', $datum, $project, 'teamOffset');
+$mi = new MemberInfo($db, 'Dutch Power Cows', $project . '_teamoffset', $datum, $project, 'teamoffset');
 
 if ( $mi->getFlush() > 0 )
 {
@@ -236,7 +236,7 @@ if ( $mi->getFlush() > 0 )
 			averageproduction 
 		WHERE 
 			naam = \'Dutch Power Cows\' 
-		AND 	tabel = \'' . $project . '_teamOffset\'';
+		AND 	tabel = \'' . $project . '_teamoffset\'';
 		
 	$result = $db->selectQuery($query);
 	
@@ -252,7 +252,7 @@ if ( $mi->getFlush() > 0 )
 	$charArray = array('avgMonthly');
 	$headArray = array('monthly');
 
-        $t = new TOThreats($project . '_teamOffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly');
+        $t = new TOThreats($project . '_teamoffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly');
 	$tl = $t->getThreatList();;
 
         if ( count($tl) > 0 )
@@ -271,7 +271,7 @@ if ( $mi->getFlush() > 0 )
                 $page .= '</table>';
         }
 
-        $o = new Opertunities($project . '_teamOffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly');
+        $o = new Opertunities($project . '_teamoffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly');
         $ol = $o->getOpertunityList();;
         if ( count($ol) > 0 )
         {
@@ -291,7 +291,7 @@ if ( $mi->getFlush() > 0 )
 }
 
 
-$prj = new Project($db, $project, 'memberOffset', $datum);
+$prj = new Project($db, $project, 'memberoffset', $datum);
 
 $page .= '<p>' . strtoupper($project) . ' Links</p>';
 $page .= '<a href="' . $prj->getWebsite() . '">' . strtoupper($project) . ' webpage</a><br />';

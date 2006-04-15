@@ -12,7 +12,7 @@ else
 }
 
 if ( $datum > date("Y-m-d", strtotime("-3 day")) )
-	$tableSuffix = 'Daily';
+	$tableSuffix = 'daily';
 else
 	$tableSuffix = '';
 
@@ -24,13 +24,13 @@ else
 <body bgcolor="#DADADA">
 <?php
 
-$project = new Project($db, $prefix, 'memberOffset', $datum);
+$project = new Project($db, $prefix, 'memberoffset', $datum);
 $listLength = 5;
 
 # Set locale to provide dutch names for days, months and such
 setLocale(LC_ALL, 'nl_NL');
 
-$ts = new TableStatistics($project->getPrefix() . '_memberOffset' . $tableSuffix, $datum, $db);
+$ts = new TableStatistics($project->getPrefix() . '_memberoffset' . $tableSuffix, $datum, $db);
 $ts->gather();
 
 $rmlpage .= '[b]DPC ' . $project->getDpchTitle() . ' hitparade van ' . strftime('%e %B %Y', strtotime(($project->getPrefix()=='ud'?getPrevDate($datum):$datum))) . '[/b]' . "\n";
@@ -44,7 +44,7 @@ $rmlpage .= '[td align="right"][b]total[/b][/td]';
 $rmlpage .= '[td][/td]';
 $rmlpage .= '[/tr]';
 
-$ml = new MemberList($project->getPrefix() . '_memberOffset' . $tableSuffix, $datum, 0, 30, $db);
+$ml = new MemberList($project->getPrefix() . '_memberoffset' . $tableSuffix, $datum, 0, 30, $db);
 
 $ml->generateFlushList();
 $mbs = $ml->getMembers();
@@ -69,13 +69,13 @@ for($i=0;$i<count($mbs);$i++)
 		$rmlpage .= '[td valign=middle]([img]http://www.tweakers.net/g/dpc/down.gif[/img]' . ( $change - ( $change * 2 )) . ')[/td]';
 		
 	$rmlpage .= '[td align="right"][red]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/red][/td]';
-	$rmlpage .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+	$rmlpage .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberoffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
 	$rmlpage .= '[td align="right"][blue]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/blue][/td]';
 	$rmlpage .= '[td align="right"](' . $mbs[$i]->getCurrRank() . ')[/td]';
 	$rmlpage .= '[/tr]';
 	
 	if ( ! isset($teammembers[$mbs[$i]->getName()]) )
-		$subteam[$mbs[$i]->getName()] = new MemberList(	$project->getPrefix() . '_subteamOffset', 
+		$subteam[$mbs[$i]->getName()] = new MemberList(	$project->getPrefix() . '_subteamoffset', 
 						$datum, 
 						0, 
 						$listsize, 
@@ -98,7 +98,7 @@ for($i=0;$i<count($mbs);$i++)
 		$rmlpage .= '[td align="right"]' . ( $j + 1 ) . '.[/td]';
 		$rmlpage .= '[td align="center"]' . getRMLDPCHChangeImage( $stMembers[$j]->getYesterday() - ( $j + 1 ) , $ts) . '[/td]';
 		$rmlpage .= '[td align="right" width="12%"][red]' . number_format($stMembers[$j]->getFlush(), 0, ',', '.') . '[/red][/td]';
-		$rmlpage .= '[td][url="' . $baseUrl . '/index.php?mode=detail&amp;naam=' . rawurlencode($stMembers[$j]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset&amp;datum=' . $datum . '&amp;team=' . rawurlencode($mbs[$i]->getName()) . '"]' . $stMembers[$j]->getName() . '[/url][/td]';
+		$rmlpage .= '[td][url="' . $baseUrl . '/index.php?mode=detail&amp;naam=' . rawurlencode($stMembers[$j]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamoffset&amp;datum=' . $datum . '&amp;team=' . rawurlencode($mbs[$i]->getName()) . '"]' . $stMembers[$j]->getName() . '[/url][/td]';
 		$rmlpage .= '[td align="right"][blue]' . number_format($stMembers[$j]->getCredits(), 0, ',', '.') . '[/blue][/td]';
 		$rmlpage .= '[td align="right"](' . $stMembers[$j]->getCurrRank() . ')[/td]';
 		$rmlpage .= '[/tr]';
@@ -108,7 +108,7 @@ for($i=0;$i<count($mbs);$i++)
 	$rmlpage .= '[/td][/tr]';
 }
 
-$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;mode=Stampede&amp;tabel=memberOffset' . $tableSuffix . '"]More...[/url][/td][/tr]' . "\n\n";
+$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;mode=Stampede&amp;tabel=memberoffset' . $tableSuffix . '"]More...[/url][/td][/tr]' . "\n\n";
 $rmlpage .= '[/table]' . "\n";
 
 $rmlpage .= '[table bgcolor="transparent" width="450px"]';
@@ -141,12 +141,12 @@ for($i=0;$i<count($mbs);$i++)
 		$rmlpage .= '[td]([img]http://www.tweakers.net/g/dpc/down.gif[/img]' . ( $change - ( $change * 2 )) . ')[/td]';
 	
 	$rmlpage .= '[td align="right"][red]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/red][/td]';
-	$rmlpage .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+	$rmlpage .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberoffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
 	$rmlpage .= '[td align="right"][blue]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/blue][/td]';
 	$rmlpage .= '[td align="right"](' . $mbs[$i]->getFlushRank() . ')[/td]';
 	$rmlpage .= '[/tr]';
 	
-	if ( ! isset($subteam[$mbs[$i]->getName()]) ) $subteam[$mbs[$i]->getName()] = new MemberList( 	$project->getPrefix() . '_subteamOffset',
+	if ( ! isset($subteam[$mbs[$i]->getName()]) ) $subteam[$mbs[$i]->getName()] = new MemberList( 	$project->getPrefix() . '_subteamoffset',
 													$datum,
 								                                        0,
 													$listsize,
@@ -167,7 +167,7 @@ for($i=0;$i<count($mbs);$i++)
 		$rmlpage .= '[td align="right"]' . ( $j + 1 ) . '.[/td]';
 		$rmlpage .= '[td]' . getRMLDPCHChangeImage( $stMembers[$j]->getYesterday() - ( $j + 1 ) , $ts) . '[/td]';
 		$rmlpage .= '[td align="right"][red]' . number_format($stMembers[$j]->getCredits(), 0, ',', '.') . '[/red][/td]';
-		$rmlpage .= '[td][url="' . $baseUrl . '/index.php?mode=detail&amp;naam=' . rawurlencode($stMembers[$j]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamOffset&amp;datum=' . $datum . '&amp;team=' . rawurlencode($mbs[$i]->getName()) . '"]' . $stMembers[$j]->getName() . '[/url][/td]';
+		$rmlpage .= '[td][url="' . $baseUrl . '/index.php?mode=detail&amp;naam=' . rawurlencode($stMembers[$j]->getName()) . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=subteamoffset&amp;datum=' . $datum . '&amp;team=' . rawurlencode($mbs[$i]->getName()) . '"]' . $stMembers[$j]->getName() . '[/url][/td]';
 		$rmlpage .= '[td align="right"][blue]' . number_format($stMembers[$j]->getFlush(), 0, ',', '.') . '[/blue][/td]';
 		$rmlpage .= '[td align="right"](' . $stMembers[$j]->getCurrRank() . ')[/td]';
 		$rmlpage .= '[/tr]';
@@ -178,7 +178,7 @@ for($i=0;$i<count($mbs);$i++)
 	$rmlpage .= '[/tr]';
 }
 
-$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;mode=Stampede&amp;tabel=memberOffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
+$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;mode=Stampede&amp;tabel=memberoffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
 $rmlpage .= '[/table]' . "\n";
 
 $rmlpage .= '[table bgcolor="transparent" width="450px"]';
@@ -191,7 +191,7 @@ $rmlpage .= '[td align="right"][b]total[/b][/td]';
 $rmlpage .= '[td][/td]';
 $rmlpage .= '[/tr]';
 
-$ml = new MemberList('rah_teamOffset' . $tableSuffix, $datum, 0, 5, $db);
+$ml = new MemberList('rah_teamoffset' . $tableSuffix, $datum, 0, 5, $db);
 $ml->generateFlushList();
 $mbs = $ml->getMembers();
 
@@ -202,7 +202,7 @@ if ( $project->getTeamDaily() > 15 )
 	else
 		$tmpMember = array();
 
-	$ml = new MemberList($project->getPrefix() . '_teamOffset' . $tableSuffix, $datum, ( $project->getTeamDaily() - 8 ), 15, $db);
+	$ml = new MemberList($project->getPrefix() . '_teamoffset' . $tableSuffix, $datum, ( $project->getTeamDaily() - 8 ), 15, $db);
 	$ml->generateFlushList();
 
 	$mbs = array_merge($tmpMember, $ml->getMembers());
@@ -232,13 +232,13 @@ for($i=0;$i<count($mbs);$i++)
                 $rmlpage .= '[td]([img]http://www.tweakers.net/g/dpc/down.gif[/img]' . ( $change - ( $change * 2 )) . ')[/td]';
 
         $rmlpage .= '[td align="right"][red]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/red][/td]';
-        $rmlpage .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+        $rmlpage .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamoffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
         $rmlpage .= '[td align="right"][blue]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/blue][/td]';
         $rmlpage .= '[td align="right"](' . $mbs[$i]->getCurrRank() . ')[/td]';
         $rmlpage .= '[/tr]';
 }
 
-#$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamOffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
+#$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamoffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
 $rmlpage .= '[/table]' . "\n";
 
 $rmlpage .= '[table bgcolor="transparent" width="450px"]';
@@ -251,7 +251,7 @@ $rmlpage .= '[td align="right"][b]daily[/b][/td]';
 $rmlpage .= '[td][/td]';
 $rmlpage .= '[/tr]';
 
-$ml = new MemberList('rah_teamOffset' . $tableSuffix, $datum, 0, 5, $db);
+$ml = new MemberList('rah_teamoffset' . $tableSuffix, $datum, 0, 5, $db);
 $ml->generateRankList();
 $mbs = $ml->getMembers();
 
@@ -259,7 +259,7 @@ if ( $project->getTeamRank() > 15 )
 {
 	$tmpMember = array($mbs[0]);
 	
-	$ml = new MemberList($project->getPrefix() . '_teamOffset' . $tableSuffix, $datum, ( $project->getTeamRank() - 8 ), 15, $db);
+	$ml = new MemberList($project->getPrefix() . '_teamoffset' . $tableSuffix, $datum, ( $project->getTeamRank() - 8 ), 15, $db);
 	$ml->generateRankList();
 
 	$mbs = array_merge($tmpMember, $ml->getMembers());
@@ -286,17 +286,17 @@ for($i=0;$i<count($mbs);$i++)
                 $rmlpage .= '    [td]([img]http://www.tweakers.net/g/dpc/down.gif[/img]' . ( $change - ( $change * 2 )) . ')[/td]';
 
         $rmlpage .= '    [td align="right"][red]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/red][/td]';
-        $rmlpage .= '    [td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+        $rmlpage .= '    [td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamoffset' . $tableSuffix . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
         $rmlpage .= '    [td align="right"][blue]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/blue][/td]';
         $rmlpage .= '    [td align="right"](' . $mbs[$i]->getFlushRank() . ')[/td]';
         $rmlpage .= '   [/tr]';
 }
 
-#$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamOffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
+#$rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamoffset' . $tableSuffix . '"]More...[/url][/td][/tr]';
 $rmlpage .= '  [/table]' . "\n";
 
 # Code wordt voor de HTML uitvoer al aangeroepen
-$fmc = new FlushList('sp5_memberOffset', $db);
+$fmc = new FlushList('sp5_memberoffset', $db);
 
 $fmc->createMFList();
 $fl = $fmc->getMFList();
@@ -313,14 +313,14 @@ for($i=0;$i<5;$i++)
 {
 	$rmlpage .= '[tr]';
 	$rmlpage .= '[td align="right"]' . ( $i + 1 ) . '.[/td]';
-	$rmlpage .= '[td][url="' . $baseUrl . '/index.php?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberOffset&amp;naam=' . rawurlencode($fl[$i]->getName()) . '"]' . $fl[$i]->getName() . '[/url][/td]';
+	$rmlpage .= '[td][url="' . $baseUrl . '/index.php?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberoffset&amp;naam=' . rawurlencode($fl[$i]->getName()) . '"]' . $fl[$i]->getName() . '[/url][/td]';
 	$rmlpage .= '[td align="right"]' . number_format($fl[$i]->getCredits(), 0, ',', '.') . '[/td]';
 	$rmlpage .= '[td align="right" width="65"]' . date("d-m-Y", strtotime($fl[$i]->getDate())) . '[/td]';
 	$rmlpage .= '[/tr]';
 }
 $rmlpage .= '[/table]' . "\n";
 
-$mp = new MijlPalen($project->getPrefix() . '_memberOffset', $datum, $project->getPrefix(), $db);
+$mp = new MijlPalen($project->getPrefix() . '_memberoffset', $datum, $project->getPrefix(), $db);
 $mpl = $mp->getMijlpalen();
 
 if ( count($mpl) > 0 )
@@ -330,14 +330,14 @@ if ( count($mpl) > 0 )
 	for($i=0;$i<count($mpl);$i++)
 	{
 		$rmlpage .= '   [tr]';
-		$rmlpage .= '    [td][url="' . $baseUrl . '/?mode=detail&amp;tabel=memberOffset' . $tableSuffix . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . rawurlencode($mpl[$i]->getName()) . '&amp;datum=' . $datum . '"]' . $mpl[$i]->getName() . '[/url][/td]';
+		$rmlpage .= '    [td][url="' . $baseUrl . '/?mode=detail&amp;tabel=memberoffset' . $tableSuffix . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . rawurlencode($mpl[$i]->getName()) . '&amp;datum=' . $datum . '"]' . $mpl[$i]->getName() . '[/url][/td]';
 		$rmlpage .= '    [td align="right"]' . number_format($mpl[$i]->getCredits(), 0, ',', '.') . '[/td]';
 		$rmlpage .= '   [/tr]';
 	}
 	$rmlpage .= '  [/table]' . "\n";
 }
 
-$mi = new MemberInfo($db, $project->getTeamName(), 'rah_teamOffset', $datum, 'rah', 'teamOffset' . $tableSuffix, $project->getTeamName());
+$mi = new MemberInfo($db, $project->getTeamName(), 'rah_teamoffset', $datum, 'rah', 'teamoffset' . $tableSuffix, $project->getTeamName());
 
 if ( $mi->getFlush() > 0 )
 {
@@ -347,7 +347,7 @@ if ( $mi->getFlush() > 0 )
 			averageproduction 
 		WHERE 
 			naam = \'' . $project->getTeamName() . '\' 
-		AND 	tabel = \'rah_teamOffset\'';
+		AND 	tabel = \'rah_teamoffset\'';
 		
 	$result = $db->selectQuery($query);
 	
@@ -363,7 +363,7 @@ if ( $mi->getFlush() > 0 )
 	$charArray = array('avgMonthly');
 	$headArray = array('monthly');
 
-        $t = new TOThreats($db, 'rah_teamOffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly', $project->getTeamName());
+        $t = new TOThreats($db, 'rah_teamoffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly', $project->getTeamName());
 	$tl = $t->getThreatList();;
 
         if ( count($tl) > 0 )
@@ -378,7 +378,7 @@ if ( $mi->getFlush() > 0 )
                 for($i=0;$i<count($tl);$i++)
                 {
                         $rmlpage .= '[tr]';
-                        $rmlpage .= '[td width="190" align="left"][url="' . $baseUrl . '/index.php?mode=detail&amp;tabel=teamOffset' . $tableSuffix . '&amp;naam=' . rawurlencode($tl[$i]['name']) . '&amp;prefix=rah&amp;datum=' . $datum . '"]' . $tl[$i]['name'] . '[/url][/td]';
+                        $rmlpage .= '[td width="190" align="left"][url="' . $baseUrl . '/index.php?mode=detail&amp;tabel=teamoffset' . $tableSuffix . '&amp;naam=' . rawurlencode($tl[$i]['name']) . '&amp;prefix=rah&amp;datum=' . $datum . '"]' . $tl[$i]['name'] . '[/url][/td]';
                         $rmlpage .= '[td width="50" align="right"]' . number_format($tl[$i]['average'], 0, ',', '.') . '[/td]';
                         $rmlpage .= '[td align="right" width="50"]' . number_format($tl[$i]['days'], 0, ',', '.') . '[/td]';
                         $rmlpage .= '[/tr]';
@@ -386,7 +386,7 @@ if ( $mi->getFlush() > 0 )
                 $rmlpage .= '[/table]' . "\n";
         }
 
-        $o = new Opertunities($db, 'rah_teamOffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly', $project->getTeamName());
+        $o = new Opertunities($db, 'rah_teamoffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly', $project->getTeamName());
         $ol = $o->getOpertunityList();;
         if ( count($ol) > 0 )
         {
@@ -400,7 +400,7 @@ if ( $mi->getFlush() > 0 )
                 for($i=0;$i<count($ol);$i++)
                 {
                         $rmlpage .= '[tr]';
-                        $rmlpage .= '[td width="190" align="left"][url="' . $baseUrl . '/index.php?mode=detail&amp;prefix=rah&amp;tabel=teamOffset' . $tableSuffix . '&amp;naam=' . rawurlencode($ol[$i]['name']) . '&amp;datum=' . $datum . '"]' . $ol[$i]['name'] . '[/url][/td]';
+                        $rmlpage .= '[td width="190" align="left"][url="' . $baseUrl . '/index.php?mode=detail&amp;prefix=rah&amp;tabel=teamoffset' . $tableSuffix . '&amp;naam=' . rawurlencode($ol[$i]['name']) . '&amp;datum=' . $datum . '"]' . $ol[$i]['name'] . '[/url][/td]';
                         $rmlpage .= '[td width="50" align="right"]' . number_format($ol[$i]['average'], 0, ',', '.') . '[/td]';
                         $rmlpage .= '[td align="right" width="50"]' . number_format($ol[$i]['days'], 0, ',', '.') . '[/td]';
                         $rmlpage .= '[/tr]';

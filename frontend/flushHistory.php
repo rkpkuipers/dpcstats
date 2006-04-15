@@ -18,7 +18,7 @@ $query = 'SELECT
 		' . $project->getPrefix() . '_' . $tabel . ' 
 	WHERE 
 		naam = \'' . $naam . '\' ' .
-	($tabel=='subteamOffset'?'AND subteam = \'' . $team . '\'':'') . ' 
+	($tabel=='subteamoffset'?'AND subteam = \'' . $team . '\'':'') . ' 
 	ORDER BY 
 		' . $sort . ' DESC';
 $result = $db->selectQuery($query);

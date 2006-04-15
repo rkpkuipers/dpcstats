@@ -6,7 +6,7 @@ $query = 'SELECT
 		name,
 		stampedeTeam
 	FROM
-		stampedeParticipants
+		stampedeparticipants
 	ORDER BY
 		stampedeTeam,
 		name';

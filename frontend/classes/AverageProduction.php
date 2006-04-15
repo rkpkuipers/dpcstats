@@ -18,7 +18,7 @@ class AverageList
 
 	function gather()
 	{
-		if ( ( is_numeric(strpos($this->tabel, 'subteamOffset')) ) && ( strpos($this->tabel, 'subteamOffset') > 0 ) )
+		if ( ( is_numeric(strpos($this->tabel, 'subteamoffset')) ) && ( strpos($this->tabel, 'subteamoffset') > 0 ) )
 			$field = 'CONCAT(m.subteam, \' - \', m.naam)AS naam, m.subteam';
 		else
 			$field = 'm.naam';

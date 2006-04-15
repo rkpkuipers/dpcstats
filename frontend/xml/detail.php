@@ -6,7 +6,7 @@ include ('../classes.php');
 if ( isset($_REQUEST['tabel']) )
 	$tabel = $_REQUEST['tabel'];
 else
-	$tabel = 'memberOffset';
+	$tabel = 'memberoffset';
 
 # Prefix, indicating the project
 if ( isset($_REQUEST['prefix']) )

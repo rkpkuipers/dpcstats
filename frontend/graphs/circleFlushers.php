@@ -7,7 +7,7 @@ include ($jpgraphdir . "/jpgraph_pie.php");
 if ( isset($_GET['tabel']) )
 	$tabel = $_GET['tabel'];
 else
-	$tabel = 'memberOffset';
+	$tabel = 'memberoffset';
 
 if ( isset($_GET['datum']) )
         $datum = $_GET['datum'];
@@ -17,7 +17,7 @@ else
 if ( isset ( $_GET['prefix'] ) )
         $project = new Project($db, $_GET['prefix'], $tabel);
 else
-        $project = new Project($db, 'sob', 'memberOffset');
+        $project = new Project($db, 'sob', 'memberoffset');
 
 $ts = new TableStatistics($project->getPrefix() . '_' . $tabel, $datum, $db);
 $ts->gather();
@@ -26,7 +26,7 @@ $query = 'SELECT
 		naam,
 		daily
 	FROM
-		sob_memberOffset
+		sob_memberoffset
 	WHERE
 		dag = \'' . $project->getCurrentDate() . '\'
 	ORDER BY

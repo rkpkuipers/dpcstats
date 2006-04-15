@@ -23,13 +23,13 @@ if ( isset($_REQUEST['setCookieActive']) )
 # These can be taken from the global array, if they're not set we use the default
 $allowed = array(	'mode' => 'Members',		# Which page to load
 			'searchString' => '',		# Inputstring used in search
-			'tabel' => 'memberOffsetDaily',	# Tabel to take data from
+			'tabel' => 'memberoffsetdaily',	# Tabel to take data from
 			'datum' => date("Y-m-d"),	# Date to collect data from
 			'naam' => '',			# Name used when collecting detailed member info
 			'frame' => '',			# Let's find out
 			'hl' => '',			# Which team to highlight, used for custom position lists
-			'dlow' => 0,			# Offset for the flush list (start at $dlow instead of 1)
-			'low' => 0,			# Offset for the overall list
+			'dlow' => 0,			# offset for the flush list (start at $dlow instead of 1)
+			'low' => 0,			# offset for the overall list
 			'team' => 'Dutch Power Cows');
 
 foreach($allowed as $name => $default)
@@ -53,24 +53,24 @@ if ( $datum > date("Y-m-d") )
 if ( $datum <= date("Y-m-d", strtotime("-3 day")) )
 # Langer dan 3 dagen geleden, beide variabelen op de standaardtabel zonder suffix
 {
-	if ( is_numeric(strpos($tabel, 'Daily') ) )
+	if ( is_numeric(strpos($tabel, 'daily') ) )
 	{
-		$tabel = substr($tabel, 0, strpos($tabel, 'Daily'));
+		$tabel = substr($tabel, 0, strpos($tabel, 'daily'));
 	}
 	
 	$speedTabel = $tabel;
 }
 else
-# Datum tussen vandaag en 2 dagen geleden, tabel op standaard en speedtabel op Daily
+# Datum tussen vandaag en 2 dagen geleden, tabel op standaard en speedtabel op daily
 {
-	if ( ! is_numeric(strpos($tabel, 'Daily') ) )
+	if ( ! is_numeric(strpos($tabel, 'daily') ) )
 	{
-		$speedTabel = $tabel . 'Daily';
+		$speedTabel = $tabel . 'daily';
 	}
 	else
 	{
 		$speedTabel = $tabel;
-		$tabel = substr($tabel, 0, strpos($tabel, 'Daily'));
+		$tabel = substr($tabel, 0, strpos($tabel, 'daily'));
 	}
 }
 
@@ -97,7 +97,7 @@ else
 if ( isset($_REQUEST['prefix']) )
 	$project = new Project($db, $_REQUEST['prefix'], $tabel);
 else
-	$project = new Project($db, 'tsc', 'memberOffsetDaily');
+	$project = new Project($db, 'tsc', 'memberoffsetdaily');
 
 if ( isset($_GET['debug']) )
 	$debug = $_GET['debug'];
@@ -205,7 +205,7 @@ function change( imageName, newSource )
      <tr>
       <td colspan="1"><img name="index_r4_c1" src="images/index_r4_c1.jpg" width="159" class="cellHeight5" alt=""></td>
       <td colspan="2">
-       <a href="?mode=Members&amp;prefix=<? echo $project->getPrefix() ?>&amp;tabel=memberOffsetDaily&amp;datum=<? echo $datum; ?>" onmouseover="change('index_r4_c2', 'images/DPCm-bleu.jpg')" 
+       <a href="?mode=Members&amp;prefix=<? echo $project->getPrefix() ?>&amp;tabel=memberoffsetdaily&amp;datum=<? echo $datum; ?>" onmouseover="change('index_r4_c2', 'images/DPCm-bleu.jpg')" 
 <? 
 	if ( $mode == 'Members' )
 	{ 
@@ -231,7 +231,7 @@ function change( imageName, newSource )
       </td>
       <td>
 <?
-  	echo '<a href="?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamOffsetDaily&amp;datum=' . 
+  	echo '<a href="?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffsetdaily&amp;datum=' . 
 		$datum . '" onmouseover="change(\'index_r4_c4\', \'images/TSC-Team-blue.jpg\')" ';
 
 	if ( $mode == 'Teams' )
@@ -264,7 +264,7 @@ function change( imageName, newSource )
 <?
 	if ( in_array($project->getPrefix(), array('fah', 'sah', 'smp', 'sob', 'ufl', 'rah')) )
 	{
-		$indUrl = $baseUrl . '/index.php?mode=Individuals&amp;tabel=individualOffset&amp;datum=' . 
+		$indUrl = $baseUrl . '/index.php?mode=Individuals&amp;tabel=individualoffset&amp;datum=' . 
 			$datum . '&amp;prefix=' . $project->getPrefix();
 ?>
       <td align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/spacer.3.jpg); width:100" class="cellHeight5" onclick='window.open("<? echo $indUrl; ?>", "_self")'>
@@ -278,7 +278,7 @@ function change( imageName, newSource )
 		echo '<td style="background-image:url(images/spacer.3.jpg); width:100" class="cellHeight5"></td>';
 ?>
       <td colspan="2"><img name="spacer.4.jpg" src="images/spacer.4.jpg" width="103" class="cellHeight5" alt=""></td>
-      <td><a href="?mode=Graph&amp;tabel=teamOffset&amp;prefix=<? echo $project->getPrefix(); ?>&amp;teams[0]=<? echo rawurlencode($project->getTeamName()); ?>" onmouseover="change('index_r4_c8', 'images/Out-Graph-blue.jpg')" 
+      <td><a href="?mode=Graph&amp;tabel=teamoffset&amp;prefix=<? echo $project->getPrefix(); ?>&amp;teams[0]=<? echo rawurlencode($project->getTeamName()); ?>" onmouseover="change('index_r4_c8', 'images/Out-Graph-blue.jpg')" 
 <? 
 	if ( $mode == 'Graph' )
 	{ 
@@ -417,7 +417,7 @@ function change( imageName, newSource )
 	echo getMenuHeader('Project Links', 'plActive');
 	if ( $plActive == 'on' )
 	{
-		echo getMenuEntry('Average Production', $baseUrl . '/index.php?mode=avgProd&amp;tabel=memberOffset&amp;prefix=' . $project->getPrefix(), $link++);
+		echo getMenuEntry('Average Production', $baseUrl . '/index.php?mode=avgProd&amp;tabel=memberoffset&amp;prefix=' . $project->getPrefix(), $link++);
 		echo getMenuEntry('DPC FAQ', 'http://www.dutchpowercows.org/faqs/' . $project->getWDOPrefix(), $link++);
 		echo getMenuEntry('DPCH', 'http://www.dutchpowercows.org/dpch/' . $project->getWDOPrefix(), $link++);
 		echo trBackground($link++) . $dotPrefix . '<td align="left">Official <a href="' . $project->getForum() . '">Forum</a> & ' . 
@@ -428,7 +428,7 @@ function change( imageName, newSource )
 	echo getMenuHeader('Old Projects', 'opActive');
 	if ( $opActive == 'on' )
 	{
-		echo getMenuEntry('Find a Drug', $baseUrl . '/index.php?mode=Members&amp;tabel=memberOffset&amp;naam=' . 
+		echo getMenuEntry('Find a Drug', $baseUrl . '/index.php?mode=Members&amp;tabel=memberoffset&amp;naam=' . 
 				'&amp;datum=2006-01-26&amp;prefix=fad', $link++);
 		echo getMenuEntry('TSC Phase 1', $baseUrl . '/index.php?prefix=tp1&datum=2006-04-03&mode=Members', $link++);
 	}
@@ -441,13 +441,13 @@ function change( imageName, newSource )
 
 	if ( $dtActive == 'on' )
 	{
-		$ml = new MemberList($project->getPrefix() . '_teamOffsetDaily', $project->getCurrentDate(), 0, 5, $db);
+		$ml = new MemberList($project->getPrefix() . '_teamoffsetdaily', $project->getCurrentDate(), 0, 5, $db);
 		$ml->generateFlushList();
-		getTop5Table($project, $ml, 'Top 5 Teams', 'teamOffsetDaily');
+		getTop5Table($project, $ml, 'Top 5 Teams', 'teamoffsetdaily');
 		
-		$ml = new MemberList($project->getPrefix() . '_memberOffsetDaily', $project->getCurrentDate(), 0, 5, $db);
+		$ml = new MemberList($project->getPrefix() . '_memberoffsetdaily', $project->getCurrentDate(), 0, 5, $db);
 		$ml->generateFlushList();
-		getTop5Table($project, $ml, 'Top 5 Members', 'memberOffsetDaily');
+		getTop5Table($project, $ml, 'Top 5 Members', 'memberoffsetdaily');
 	}
 
 	if ( $sbActive == 'on' )

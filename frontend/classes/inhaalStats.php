@@ -58,7 +58,7 @@ class TOThreats extends TOSuperClass
                         AND     dag = \'' . $this->datum . '\'
                         AND     ap.naam = o.naam
 			AND	ap.tabel = \'' . $this->tabel . '\' ' .
-			((is_numeric(strpos($this->tabel, 'subteamOffset'))&&(strpos($this->tabel, 'subteamOffset')>0))?'AND o.subteam = \'' . $this->team . '\'':'') . '
+			((is_numeric(strpos($this->tabel, 'subteamoffset'))&&(strpos($this->tabel, 'subteamoffset')>0))?'AND o.subteam = \'' . $this->team . '\'':'') . '
                         HAVING  dagen > 0
                         ORDER BY
                                 dagen
@@ -111,7 +111,7 @@ class Opertunities extends TOSuperClass
 			AND	o.cands > ' . $this->memberInfo->getCredits() . '
 			AND	ap.naam = o.naam
 			AND	ap.tabel = \'' . $this->tabel . '\' ' .
-			((is_numeric(strpos($this->tabel, 'subteamOffset'))&&(strpos($this->tabel, 'subteamOffset')>0))?'AND o.subteam = \'' . $this->team . '\'':'') . '
+			((is_numeric(strpos($this->tabel, 'subteamoffset'))&&(strpos($this->tabel, 'subteamoffset')>0))?'AND o.subteam = \'' . $this->team . '\'':'') . '
 			ORDER BY 
 				dagen 
 			LIMIT ' . $this->listsize;

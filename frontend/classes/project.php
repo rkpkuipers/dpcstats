@@ -35,8 +35,8 @@ class Project
 		else
 			$this->datum = $datum;
 		
-		if ( is_numeric(strpos($tabel, 'Daily')) )
-			$this->tabel = substr($tabel, 0, strpos($tabel, 'Daily') );
+		if ( is_numeric(strpos($tabel, 'daily')) )
+			$this->tabel = substr($tabel, 0, strpos($tabel, 'daily') );
 			
 		$this->teamRank = -1;
 		$this->teamDaily = -1;
@@ -121,9 +121,9 @@ class Project
 		if ( $this->teamRank == -1 )
 		{
 			$query = 'SELECT
-					currRank
+					currrank
 				FROM
-					' . $this->prefix . '_memberOffsetDaily
+					' . $this->prefix . '_memberoffsetdaily
 				WHERE
 					dag = \'' . date("Y-m-d", strtotime($this->datum)) . '\'
 				AND	naam = \'' . $this->teamName . '\'
@@ -132,7 +132,7 @@ class Project
 			$result = $this->db->selectQuery($query);
 
 			if ( $line = $this->db->fetchArray($result) )
-				$this->teamRank = $line['currRank'];
+				$this->teamRank = $line['currrank'];
 		}
 
 		return $this->teamRank;
@@ -145,7 +145,7 @@ class Project
 			$query = 'SELECT
 					dailypos
 				FROM
-					' . $this->prefix . '_memberOffsetDaily
+					' . $this->prefix . '_memberoffsetdaily
 				WHERE
 					dag = \'' . date("Y-m-d", strtotime($this->datum)) . '\'
 				AND	naam = \'' . $this->teamName . '\'
@@ -165,9 +165,9 @@ class Project
 		if ( $this->teamRank == -1 )
 		{
 			$query = 'SELECT 
-					currRank
+					currrank
 				FROM 
-					' . $this->prefix . '_teamOffsetDaily 
+					' . $this->prefix . '_teamoffsetdaily 
 				WHERE 
 					dag = \'' . date("Y-m-d", strtotime($this->datum)). '\' 
 				AND	naam = \'' . $this->teamName . '\'
@@ -175,7 +175,7 @@ class Project
 			$result = $this->db->selectQuery($query);
 
 			if ( $line = $this->db->fetchArray($result) )
-				$this->teamRank = $line['currRank'];
+				$this->teamRank = $line['currrank'];
 		}
 
 		return $this->teamRank;
@@ -188,7 +188,7 @@ class Project
 			$query = 'SELECT
 					dailypos
 				FROM
-					' . $this->prefix . '_teamOffsetDaily
+					' . $this->prefix . '_teamoffsetdaily
 				WHERE
 					dag = \'' . date("Y-m-d", strtotime($this->datum)) . '\'
 				AND	naam = \'' . $this->teamName . '\'

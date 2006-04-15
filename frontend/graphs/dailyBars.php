@@ -7,7 +7,7 @@ include ($jpgraphdir . "/jpgraph_bar.php");
 if ( isset($HTTP_POST_VARS['tabel']) )
            $tabel = $HTTP_POST_VARS['tabel'];
 else
-        $tabel = 'memberOffset';
+        $tabel = 'memberoffset';
 
 if ( isset($_REQUEST['teams']) )
 	$teams = $_REQUEST['teams'];
@@ -36,7 +36,7 @@ function createLine($naam, $no, $tabel)
 			' . $project->getPrefix() . '_' . $tabel . ' 
 		WHERE 
 			naam = \'' . $naam . '\' ' .
-		( $tabel=='subteamOffset'?'AND subteam = \'' . $team . '\'':'') . '
+		( $tabel=='subteamoffset'?'AND subteam = \'' . $team . '\'':'') . '
 		ORDER BY 
 			dag DESC 
 		LIMIT 	' . $timespan;

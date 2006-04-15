@@ -7,7 +7,7 @@ include ($jpgraphdir . "/jpgraph_bar.php");
 if ( isset($HTTP_GET_VARS['tabel']) )
            $tabel = $HTTP_POST_VARS['tabel'];
 else
-        $tabel = 'memberOffset';
+        $tabel = 'memberoffset';
 
 if ( isset($HTTP_GET_VARS['teams']) )
 	$teams = $HTTP_POST_VARS['teams'];
@@ -59,7 +59,7 @@ for($i=0;$i<count($teams);$i++)
 	createLine($teams[$i], $i, $tabel);
 	$bar[$i] = new BarPlot($lines[$i]);
 	$bar[$i]->SetFillColor($kleur[$i]);
-	if ( $tabel == 'nodeOffset' )
+	if ( $tabel == 'nodeoffset' )
 		$namen = getNodeNames();
 	else
 		$namen = $teams;

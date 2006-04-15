@@ -7,7 +7,7 @@ include ($jpgraphdir . "/jpgraph_bar.php");
 if ( isset($_GET['tabel']) )
            $tabel = $_GET['tabel'];
 else
-        $tabel = 'memberOffset';
+        $tabel = 'memberoffset';
 
 if ( isset( $_GET['naam'] ) )
 	$naam = $_GET['naam'];
@@ -22,7 +22,7 @@ else
 if ( isset ($_GET['prefix']) )
 	$project = new Project($db, $_GET['prefix'], $tabel);
 else
-	$project = new Project($db, 'tsc', 'memberOffset');
+	$project = new Project($db, 'tsc', 'memberoffset');
 
 function getMonthOutput($tabel, $naam, $maand)
 {

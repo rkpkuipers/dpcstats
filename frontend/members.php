@@ -1,5 +1,5 @@
 <?
-if ( $tabel == 'subteamOffset' )
+if ( $tabel == 'subteamoffset' )
 	$ts = new STTableStatistics($project->getPrefix() . '_' . $tabel, $datum, $db, $team);
 else
 	$ts = new TableStatistics($project->getPrefix() . '_' . $speedTabel, $datum, $db);
@@ -145,7 +145,7 @@ for($i=0;$i<count($mbs);$i++)
 		if ( $mbs[$i]->isSubteam() )
 		{
 			echo getURL(array('link' => '<img src="images/members.gif" alt="subteam">',
-					'mode' => 'Subteam', 'team' => $mbs[$i]->getName(), 'table' => 'subteamOffset',
+					'mode' => 'Subteam', 'team' => $mbs[$i]->getName(), 'table' => 'subteamoffset',
 					'date' => $datum, 'prefix' => $project->getPrefix(),
 					'title' => 'Subteam stats for ' . $mbs[$i]->getName()));
 		}
@@ -301,7 +301,7 @@ for($i=0;$i<count($mbs);$i++)
 		{
 			echo getURL(array('link' => '<img src="images/members.gif" alt="subteam">',
 				'mode' => 'Subteam', 'team' => $mbs[$i]->getName(), 'date' => $datum,
-				'prefix' => $project->getPrefix(), 'table' => 'subteamOffset',
+				'prefix' => $project->getPrefix(), 'table' => 'subteamoffset',
 				'title' => 'Subteam stats for ' . $mbs[$i]->getName()));
 		}
 		else

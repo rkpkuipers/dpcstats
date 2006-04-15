@@ -10,7 +10,7 @@ if ( isset($_POST['tabel']) )
 elseif ( isset($_GET['tabel']) )
 	$tabel = $_GET['tabel'];
 else
-        $tabel = 'memberOffset';
+        $tabel = 'memberoffset';
 
 if ( isset($_POST['teams']) )
 	$teams = $_POST['teams'];
@@ -46,7 +46,7 @@ function createLine($naam, $no, $tabel)
 			' . $prefix . '_' . $tabel . ' 
 		WHERE 
 			naam = \'' . $naam . '\' ' .
-		( $tabel=='subteamOffset'?'AND subteam=\'' . $team . '\'':'') . '
+		( $tabel=='subteamoffset'?'AND subteam=\'' . $team . '\'':'') . '
 		ORDER BY 
 			dag DESC 
 		LIMIT 	' . $timespan;

@@ -4,12 +4,12 @@
 if ( isset($HTTP_GET_VARS['tabel']) )
         $tabel = $HTTP_GET_VARS['tabel'];
 else
-        $tabel = 'memberOffset';
+        $tabel = 'memberoffset';
 
 if ( isset($_GET['prefix']) )
 	$project = new Project($db, $_GET['prefix'], $tabel);
 else
-	$project = new Project($db, 'tsc', 'memberOffset');
+	$project = new Project($db, 'tsc', 'memberoffset');
 
 if ( isset($HTTP_GET_VARS['naam']) )
 	$naam = $HTTP_GET_VARS['naam'];
@@ -42,7 +42,7 @@ function switchArray($data)
         include ($jpgraphdir . "/jpgraph_bar.php");
 	include ($jpgraphdir . "/jpgraph_line.php");
 
-	if ( $tabel == 'subteamOffset' )
+	if ( $tabel == 'subteamoffset' )
 		$where = ' AND subteam = \'' . $team . '\' ';
 	else
 		$where;

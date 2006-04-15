@@ -6,7 +6,7 @@ include ('../classes.php');
 if ( isset($_REQUEST['tabel']) )
 	$tabel = $_REQUEST['tabel'];
 else
-	$tabel = 'memberOffset';
+	$tabel = 'memberoffset';
 
 # Prefix, indicating the project
 if ( isset($_REQUEST['prefix']) )
@@ -16,7 +16,7 @@ else
 
 if ( isset($_REQUEST['team']) )
 	$team = $_REQUEST['team'];
-elseif ( $tabel == 'subteamOffset' )
+elseif ( $tabel == 'subteamoffset' )
 	die('In subteammode moet een team worden meegegeven');
 
 if ( isset($_REQUEST['datum']) )

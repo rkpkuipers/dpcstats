@@ -5,7 +5,7 @@
  <td width="25%" align="center">
   <form action="index.php">
   <input type="hidden" name="mode" value="Flush">
-  <input type="hidden" name="tabel" value="memberOffset">
+  <input type="hidden" name="tabel" value="memberoffset">
   <input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
   <input type="Submit" value="DPC Members" class="TextField">
   </form>
@@ -13,7 +13,7 @@
  <td width="25%" align="center">
    <form action="index.php">
    <input type="hidden" name="mode" value="Flush">
-   <input type="hidden" name="tabel" value="teamOffset">
+   <input type="hidden" name="tabel" value="teamoffset">
    <input type="Submit" value="Teams" class="TextField">
    <input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
    </form>
@@ -27,8 +27,8 @@
 <tr>
 <td align=center valign=top>
 <?
-if ( is_numeric(strpos($tabel, 'Daily') ) )
-	$strippedTabel = substr($tabel, 0, strpos($tabel, 'Daily'));
+if ( is_numeric(strpos($tabel, 'daily') ) )
+	$strippedTabel = substr($tabel, 0, strpos($tabel, 'daily'));
 else
 	$strippedTabel = $tabel;
 	

@@ -7,7 +7,7 @@ $query = 'SELECT
 		stampedeTeam,
 		COUNT(name)AS memberCount
 	FROM
-		stampedeParticipants
+		stampedeparticipants
 	GROUP BY
 		stampedeTeam
 	ORDER BY

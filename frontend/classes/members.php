@@ -174,7 +174,7 @@ class MemberList
 
 	function generateFlushList()
 	{
-		if ( strpos($this->tabel, 'subteamOffset') !== FALSE )
+		if ( strpos($this->tabel, 'subteamoffset') !== FALSE )
 		{
 			$where = ' 	AND of.subteam = \'' . $this->subteam . '\' ';
 			$join  = '	AND y.subteam = \'' . $this->subteam . '\' ';
@@ -185,7 +185,7 @@ class MemberList
                		of.naam,
 	                of.daily,
                		of.id,
-			of.currRank,
+			of.currrank,
 	                (of.cands + of.daily) AS total,
                		of.dailypos,
 			y.dailypos AS ydDailyPos
@@ -219,7 +219,7 @@ class MemberList
 							      $line['daily'],
 							      $line['dailypos'],
 							      $line['ydDailyPos'],
-							      $line['currRank']);
+							      $line['currrank']);
 		}
 
 		$this->setTeams();
@@ -319,12 +319,12 @@ class MemberList
 		# Functie om in de instances van de class aan te geven wat subteams zijn
 		$prefix = substr($this->tabel, 0, strpos($this->tabel, '_'));
 
-		if ( ! is_numeric(strpos($this->tabel, 'subteamOffset')) )
+		if ( ! is_numeric(strpos($this->tabel, 'subteamoffset')) )
 		{
 			$query = 'SELECT
 					DISTINCT(subteam)
 				FROM
-					' . $prefix . '_subteamOffset
+					' . $prefix . '_subteamoffset
 				WHERE
 					dag = \'' . $this->datum . '\'';
 
@@ -353,7 +353,7 @@ class MemberList
 
 	function generateRankList()
 	{
-		if ( strpos($this->tabel,'subteamOffset') !== FALSE )
+		if ( strpos($this->tabel,'subteamoffset') !== FALSE )
 		{
 	        	$where = ' AND of.subteam = \'' . $this->subteam . '\' ';
 			$joinWhere = ' AND y.subteam = \'' . $this->subteam . '\'';
@@ -366,7 +366,7 @@ class MemberList
 		        of.daily,
                 	of.dailypos,
 		        of.id,
-			of.currRank,
+			of.currrank,
 			y.dailypos AS ydDailyPos
 	        FROM
                		' . $this->tabel . ' of
@@ -398,7 +398,7 @@ class MemberList
 							      $line['daily'],
 							      $line['dailypos'],
 							      $line['ydDailyPos'],
-							      $line['currRank']);
+							      $line['currrank']);
 
                 }
 
@@ -564,7 +564,7 @@ class MemberInfo
 		$query = 'SELECT
 				COUNT(*)AS memberCount
 			FROM
-				' . $this->prefix . '_subteamOffset
+				' . $this->prefix . '_subteamoffset
 			WHERE
 				subteam = \'' . $this->naam . '\'';
 
@@ -580,7 +580,7 @@ class MemberInfo
 		else
 			$this->subteam = false;
 
-		if ( is_numeric(strpos($this->tabel, 'subteamOffset')) && ( strpos($this->tabel, 'subteamOffset') > 0 ) )
+		if ( is_numeric(strpos($this->tabel, 'subteamoffset')) && ( strpos($this->tabel, 'subteamoffset') > 0 ) )
 			$where = ' AND subteam = \'' . $this->team . '\' ';
 		else
 			$where;
@@ -604,7 +604,7 @@ class MemberInfo
 		$query = 'SELECT
 			( o.cands + o.daily ) AS credits,
 			o.daily AS flush,
-			o.currRank,
+			o.currrank,
 			o.dailyPos
 		FROM
 			' . $this->prefix . '_' . $this->speedTabel . ' o
@@ -619,7 +619,7 @@ class MemberInfo
 		{
 			$this->candidates = $line['credits'];
 			$this->flush = $line['flush'];
-			$this->rank = $line['currRank'];
+			$this->rank = $line['currrank'];
 			$this->dailyRank = $line['dailyPos'];
 		}
 
@@ -660,7 +660,7 @@ class MemberInfo
 			FROM
 				' . $this->prefix . '_' . $this->speedTabel . ' o
 			WHERE
-				currRank = ' . ( $this->rank - 1 ) . '
+				currrank = ' . ( $this->rank - 1 ) . '
 			AND	dag = \'' . $this->datum . '\'' .
 				$where;
 
@@ -683,7 +683,7 @@ class MemberInfo
 			FROM
 				' . $this->prefix . '_' . $this->speedTabel . ' o
 			WHERE
-				currRank = ' . ( $this->rank + 1 ) . '
+				currrank = ' . ( $this->rank + 1 ) . '
 			AND	dag = \'' . $this->datum . '\'' . 
 				$where;
 
@@ -712,7 +712,7 @@ class MemberInfo
 				' . $this->tabel . '
 			WHERE
 				naam = \'' . $this->naam . '\'' .
-			( $this->speedTabel=='subteamOffset'?'AND subteam = \'' . $this->team . '\'':'') . '
+			( $this->speedTabel=='subteamoffset'?'AND subteam = \'' . $this->team . '\'':'') . '
 			ORDER BY
 				dag DESC ' .
 			( $timeperiod==0?'':'LIMIT ' . $timeperiod);

@@ -4,9 +4,9 @@ include ($jpgraphdir . "/jpgraph.php");
 include ($jpgraphdir . "/jpgraph_line.php"); 
 
 if ( isset ( $_GET['prefix'] ) )
-	$project = new Project($db, $_GET['prefix'], 'memberOffset');
+	$project = new Project($db, $_GET['prefix'], 'memberoffset');
 else
-	$project = new Project($db, 'tsc', 'memberOffset');
+	$project = new Project($db, 'tsc', 'memberoffset');
 
 $dagen = array();
 
@@ -15,7 +15,7 @@ function createLine($tabel)
 {
 	global $lines, $dagen, $project, $db;
 
-	$query = 'SELECT COUNT(naam) AS leden, dag FROM ' . $project->getPrefix() . '_memberOffset where dag>\'' . date("Y-m-d", strtotime("-1 month" )) . '\' group by dag';
+	$query = 'SELECT COUNT(naam) AS leden, dag FROM ' . $project->getPrefix() . '_memberoffset where dag>\'' . date("Y-m-d", strtotime("-1 month" )) . '\' group by dag';
 	$result = $db->selectQuery($query);
 	$pos = 0;
 	$lines = array();
@@ -31,7 +31,7 @@ function createLine($tabel)
 $graph = new Graph(500,350,"auto");
 $graph->SetScale("textlin");
 {
-        createLine($project->getPrefix() . '_memberOffset');
+        createLine($project->getPrefix() . '_memberoffset');
 	$lineplot = new LinePlot($lines);
 	$lineplot->SetColor($kleur[0]);
 	$lineplot->SetWeight("2");

@@ -4,17 +4,17 @@ include ('classes.php');
 
 $members = array();
 
-$query = 'SELECT DISTINCT(naam) FROM d2ol_memberOffset';
+$query = 'SELECT DISTINCT(naam) FROM d2ol_memberoffset';
 $result = $db->selectQuery($query);
 while ( $line = $db->fetchArray($result) )
 	$members[] = $line['naam'];
 
-$query = 'SELECT DISTINCT(naam) FROM tsc_memberOffset';
+$query = 'SELECT DISTINCT(naam) FROM tsc_memberoffset';
 $result = $db->selectQuery($query);
 while ( $line = $db->fetchArray($result) )
 	$members[] = $line['naam'];
 
-$query = 'SELECT DISTINCT(naam) FROM tsc_memberOffsetBackup';
+$query = 'SELECT DISTINCT(naam) FROM tsc_memberoffsetBackup';
 $result = $db->selectQuery($query);
 while ( $line = $db->fetchArray($result) )
         $members[] = $line['naam'];

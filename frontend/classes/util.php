@@ -481,14 +481,14 @@ function trBackgroundColor($row)
 function checkTable($tabel)
 {
 	if (
-            ( $tabel != 'memberOffset' ) &&
-            ( $tabel != 'teamOffset' ) &&
-            ( $tabel != 'subteamOffset' ) &&
-	    ( $tabel != 'memberOffsetDaily' ) &&
-	    ( $tabel != 'subteamOffsetDaily' ) &&
-	    ( $tabel != 'teamOffsetDaily' ) &&
-	    ( $tabel != 'individualOffset' ) &&
-	    ( $tabel != 'individualOffsetDaily') 
+            ( $tabel != 'memberoffset' ) &&
+            ( $tabel != 'teamoffset' ) &&
+            ( $tabel != 'subteamoffset' ) &&
+	    ( $tabel != 'memberoffsetdaily' ) &&
+	    ( $tabel != 'subteamoffsetdaily' ) &&
+	    ( $tabel != 'teamoffsetdaily' ) &&
+	    ( $tabel != 'individualoffset' ) &&
+	    ( $tabel != 'individualoffsetdaily') 
    	   )die('Onjuiste tabel opgegeven');
 }
 
