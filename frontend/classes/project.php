@@ -50,14 +50,14 @@ class Project
 	{
 		$query = 'SELECT 
 				p.description, 
-				p.wuName, 
+				p.wuname, 
 				p.website,
 				p.forum,
 				u.tijd,
-				p.dpchTitle,
-				p.teamName,
-				p.statsrunInterval,
-				p.wdoPrefix
+				p.dpchtitle,
+				p.teamname,
+				p.statsruninterval,
+				p.wdoprefix
 			FROM 
 				project p,
 				updates u
@@ -75,14 +75,14 @@ class Project
 			$this->forum = $line['3'];
 			$this->lastUpdate = $line['4'];
 			if ( $this->teamName == '' )
-				$this->teamName = $line['teamName'];
-			$this->dpchTitle = $line['dpchTitle'];
-			$this->srInterval = $line['statsrunInterval'];
+				$this->teamName = $line['teamname'];
+			$this->dpchTitle = $line['dpchtitle'];
+			$this->srInterval = $line['statsruninterval'];
 			
-			if ( $line['wdoPrefix'] == '' )
+			if ( $line['wdoprefix'] == '' )
 				$this->wdoPrefix = $this->prefix;
 			else
-				$this->wdoPrefix = $line['wdoPrefix'];
+				$this->wdoPrefix = $line['wdoprefix'];
 		}
 		else
 		{
