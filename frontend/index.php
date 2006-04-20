@@ -32,6 +32,9 @@ $allowed = array(	'mode' => 'Members',		# Which page to load
 			'low' => 0,			# offset for the overall list
 			'team' => 'Dutch Power Cows');
 
+# All table names we're changed to lower case, convert any old names to new ones for backward compatibility
+$tabel = strtolower($tabel);
+
 foreach($allowed as $name => $default)
 {
 	if ( isset($_REQUEST[$name]) )
@@ -329,7 +332,7 @@ function change( imageName, newSource )
      <tr>
       <td align="center" colspan="12" style="background-image:url(images/index_r1_c1.jpg);" class="pageCell cellHeight1">
 <?
-	$query = 'SELECT project, description FROM project WHERE active = TRUE ORDER BY project';
+	$query = 'SELECT project, description FROM project WHERE active = 1 ORDER BY project';
 	$result = $db->selectQuery($query);
 
 	echo '.';
