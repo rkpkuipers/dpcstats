@@ -50,7 +50,7 @@ $rmlpage .= '[b]DPC ' . $project->getDpchTitle() . ' hitparade voor ' . $team . 
 $rmlpage .= '[table]';
 $rmlpage .= '[tr][td colspan="6"][img=450,1]http://gathering.tweakers.net/global/templates/got/images/layout/pixel.gif[/img][/td][/tr]';
 $rmlpage .= '[tr][td colspan="6"][b]Daily Top 30[/b][/td][/tr]';
-$rmlpage .= '[tr][td colspan="6"]Flushers: ' . $ts->getDailyFlushers() . ' / ' . number_format($ts->getTotalMembers(), 0, ',', '.') . ' (' . number_format($ts->getDailyFlushers() / ( $ts->getTotalMembers() / 100 ), 1, ',', '.') . ' %)[br][/td][/tr]';
+$rmlpage .= '[tr][td colspan="6"]Flushers: ' . $ts->getDailyFlushers() . ' / ' . number_format($ts->getTotalMembers(), 0, ',', '.') . ' (' . number_format($ts->getDailyFlushers() / ( $ts->getTotalMembers() / 100 ), 1, ',', '.') . ' %)[/td][/tr]';
 $rmlpage .= '[tr]';
 $rmlpage .= '[td colspan="2"][b]pos[/b][/td]';
 $rmlpage .= '[td align="right"][b]daily[/b][/td]';
@@ -252,7 +252,7 @@ $fmc = new FlushList($project->getPrefix() . '_subteamoffset', $db, $team);
 $fmc->createMFList();
 $fl = $fmc->getMFList();
 
-$rmlpage .= '[table width="350px"]';
+$rmlpage .= '[table width="400px"]';
 $rmlpage .= '[tr][td colspan="6"][img=400,1]http://gathering.tweakers.net/global/templates/got/images/layout/pixel.gif[/img][/td][/tr]';
 $rmlpage .= '[tr][td colspan="4"][b]Megaflush Top 5[/b][/td][/tr]';
 $rmlpage .= '[tr]';
@@ -411,9 +411,9 @@ echo '<br /><br />';
 echo '<input type="text" style="width:700px" value="[' . $project->getDpchTitle() . '] hitparade van ' . trim(strftime('%e %B', strtotime(($project->getPrefix()=='ud'?getPrevDate($datum):$datum)))) . '" />';
 echo '<br /><br /><b>HTML</b><br />';
 ?>
-<textarea style="width:700px" rows="12" cols="85">{verhaal}[norml]<?php echo parseRML($rmlpage); ?>[/norml]</textarea>
+<textarea style="width:700px" rows="12" cols="85"><?php echo parseRML($rmlpage); ?></textarea>
 <br /><br /><b>RML</b><br />
-<textarea style="width:700px" rows="12" cols="85">{verhaal}<?php echo "\n" .  str_replace('8)', '[norml]8)[/norml]', htmlentities($rmlpage)); ?></textarea>
+<textarea style="width:700px" rows="12" cols="85"><?php echo "\n" .  str_replace('8)', '[norml]8)[/norml]', htmlentities($rmlpage)); ?></textarea>
 <br><br>
 </body>
 </html>
