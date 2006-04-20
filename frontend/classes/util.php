@@ -549,7 +549,7 @@ function parseRML($rml)
 				'/\[td\](.*?)\[\/td\]/is',
 				'/\[img\](.*?)\[\/img\]/is',
 				'/\[img=(.*?),(.*?)](.*?)\[\/img\]/is',
-				'/\[url="(.*?)\](.*?)\[\/url\]/is',
+				'/\[url="(.*?)"\](.*?)\[\/url\]/is',
 				'/\[red\](.*?)\[\/red\]/is',
 				'/\[blue\](.*?)\[\/blue\]/is',
 				'/' . chr(10) . '/is',
@@ -564,8 +564,8 @@ function parseRML($rml)
 				'<img src="\1" alt="">',
 				'<img width="\1px" height="\2px" src="\3" alt="">',
 				'<a href="\1">\2</a>',
-				'<font color="#FF0000">\1</span>',
-				'<font color="#0000FF">\1</span>',
+				'<font color="#FF0000">\1</font>',
+				'<font color="#0000FF">\1</font>',
 				'<br>',
 				'\1');
 
