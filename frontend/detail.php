@@ -116,12 +116,12 @@ unset($pos);
 $output .= '</table>';
 $output .= '<hr>';
 $output .= '<div align="right"><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '&amp;naam=' . $naam . '">More...</a></div>';
-$query = 'select avgDaily from averageproduction where naam=\'' . $naam . '\'';
+$query = 'select avgdaily from averageproduction where naam=\'' . $naam . '\'';
 $result = $db->selectQuery($query);
 $avgDaily = 0;
 if ( $line = $db->fetchArray($result) )
 {
-        $avgDaily += $line['avgDaily'];
+        $avgDaily += $line['avgdaily'];
 }
 
 echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . rawurlencode($naam) . '&amp;team=' . rawurlencode($team) . '" alt="History">';
@@ -147,8 +147,8 @@ if ( $frame == 'm' )
 #if ( $mi->getFlush() > 0 )
 {
 $query = 'SELECT 
-		avgDaily, 
-		avgMonthly 
+		avgdaily, 
+		avgmonthly 
 	FROM 
 		averageproduction 
 	WHERE 
@@ -157,15 +157,15 @@ $query = 'SELECT
 $result = $db->selectQuery($query);
 if ( $line = $db->fetchArray($result) )
 {
-	if ( $line['avgDaily'] == $line['avgMonthly'] )
-		$lineArray = array($line['avgDaily']);
+	if ( $line['avgdaily'] == $line['avgmonthly'] )
+		$lineArray = array($line['avgdaily']);
 	else
-		$lineArray = array($line['avgDaily'], $line['avgMonthly']);
+		$lineArray = array($line['avgdaily'], $line['avgmonthly']);
 }
 else
 	$lineArray = array(0, 0);
 
-$charArray = array('avgDaily', 'avgMonthly');
+$charArray = array('avgdaily', 'avgmonthly');
 $headArray = array('weekly', 'monthly');
 
 for($j=0;$j<count($lineArray);$j++)

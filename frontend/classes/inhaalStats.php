@@ -59,7 +59,6 @@ class TOThreats extends TOSuperClass
                         AND     ap.naam = o.naam
 			AND	ap.tabel = \'' . $this->tabel . '\' ' .
 			((is_numeric(strpos($this->tabel, 'subteamoffset'))&&(strpos($this->tabel, 'subteamoffset')>0))?'AND o.subteam = \'' . $this->team . '\'':'') . '
-                        HAVING  dagen > 0
                         ORDER BY
                                 dagen
                         LIMIT ' . $this->listsize;

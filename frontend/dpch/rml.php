@@ -312,7 +312,7 @@ $mi = new MemberInfo($db, $project->getTeamName(), $project->getPrefix() . '_tea
 if ( $mi->getFlush() > 0 )
 {
 	$query = 'SELECT 
-			avgMonthly 
+			avgmonthly 
 		FROM 
 			averageproduction 
 		WHERE 
@@ -323,17 +323,17 @@ if ( $mi->getFlush() > 0 )
 	
 	if ( $line = $db->fetchArray($result) )
 	{
-                $lineArray = array($line['avgMonthly']);
+                $lineArray = array($line['avgmonthly']);
 	}
 	else
 	{
         	$lineArray = array(0, 0);
 	}
 
-	$charArray = array('avgMonthly');
+	$charArray = array('avgmonthly');
 	$headArray = array('monthly');
 
-        $t = new TOThreats($db, $project->getPrefix() . '_teamoffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly', $project->getTeamName());
+        $t = new TOThreats($db, $project->getPrefix() . '_teamoffset', $lineArray[0], $mi, $datum, 10, 'avgmonthly', $project->getTeamName());
 	$tl = $t->getThreatList();;
 
         if ( count($tl) > 0 )
@@ -356,7 +356,7 @@ if ( $mi->getFlush() > 0 )
                 $page .= '</table>';
         }
 
-        $o = new Opertunities($db, $project->getPrefix() . '_teamoffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly', $project->getTeamName());
+        $o = new Opertunities($db, $project->getPrefix() . '_teamoffset', $lineArray[0], $mi, $datum, 10, 'avgmonthly', $project->getTeamName());
         $ol = $o->getOpertunityList();;
         if ( count($ol) > 0 )
         {
@@ -696,7 +696,7 @@ $mi = new MemberInfo($db, $project->getTeamName(), $project->getPrefix() . '_tea
 if ( $mi->getFlush() > 0 )
 {
 	$query = 'SELECT 
-			avgMonthly 
+			avgmonthly 
 		FROM 
 			averageproduction 
 		WHERE 
@@ -707,17 +707,17 @@ if ( $mi->getFlush() > 0 )
 	
 	if ( $line = $db->fetchArray($result) )
 	{
-                $lineArray = array($line['avgMonthly']);
+                $lineArray = array($line['avgmonthly']);
 	}
 	else
 	{
         	$lineArray = array(0, 0);
 	}
 
-	$charArray = array('avgMonthly');
+	$charArray = array('avgmonthly');
 	$headArray = array('monthly');
 
-        $t = new TOThreats($db, $project->getPrefix() . '_teamoffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly', $project->getTeamName());
+        $t = new TOThreats($db, $project->getPrefix() . '_teamoffset', $lineArray[0], $mi, $datum, 10, 'avgmonthly', $project->getTeamName());
 	$tl = $t->getThreatList();;
 
         if ( count($tl) > 0 )
@@ -740,7 +740,7 @@ if ( $mi->getFlush() > 0 )
                 $rmlpage .= '[/table]' . "\n";
         }
 
-        $o = new Opertunities($db, $project->getPrefix() . '_teamoffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly', $project->getTeamName());
+        $o = new Opertunities($db, $project->getPrefix() . '_teamoffset', $lineArray[0], $mi, $datum, 10, 'avgmonthly', $project->getTeamName());
         $ol = $o->getOpertunityList();;
         if ( count($ol) > 0 )
         {

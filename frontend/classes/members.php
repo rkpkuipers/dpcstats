@@ -188,7 +188,7 @@ class MemberList
 			of.currrank,
 	                (of.cands + of.daily) AS total,
                		of.dailypos,
-			y.dailypos AS ydDailyPos
+			y.dailypos AS yddailypos
 	        FROM
                		' . $this->tabel . ' of
 		LEFT JOIN
@@ -202,8 +202,9 @@ class MemberList
 	        AND     of.dag = \'' . $this->datum . '\'
 		' . $where . '
 	        ORDER BY
-              		of.dailypos
-	        LIMIT ' . $this->listOffset . ',' . $this->listsize;
+              		of.dailypos ' .
+		( $this->db->getType() == 'mysql'?'LIMIT ' . $this->listOffset . ', ' . $this->listsize
+						:'OFFSET ' . $this->listOffset . ' LIMIT ' . $this->listsize);
 #		echo $query;
 
 		$result = $this->db->selectQuery($query);
@@ -218,7 +219,7 @@ class MemberList
 							      $line['id'],
 							      $line['daily'],
 							      $line['dailypos'],
-							      $line['ydDailyPos'],
+							      $line['yddailypos'],
 							      $line['currrank']);
 		}
 
@@ -367,7 +368,7 @@ class MemberList
                 	of.dailypos,
 		        of.id,
 			of.currrank,
-			y.dailypos AS ydDailyPos
+			y.dailypos AS yddailypos
 	        FROM
                		' . $this->tabel . ' of
 		LEFT JOIN
@@ -380,8 +381,9 @@ class MemberList
                		of.dag = \'' . $this->datum . '\'
 			' . $where . '
 	        ORDER BY
-               		total DESC
-	        LIMIT ' . $this->listOffset . ',' . $this->listsize;
+               		total DESC ' .
+		( $this->db->getType() == 'mysql'?'LIMIT ' . $this->listOffset . ',' . $this->listsize
+						:'OFFSET ' . $this->listOffset . ' LIMIT ' . $this->listsize);
 
 #echo $query;
                 $result = $this->db->selectQuery($query);
@@ -397,7 +399,7 @@ class MemberList
 							      $line['id'],
 							      $line['daily'],
 							      $line['dailypos'],
-							      $line['ydDailyPos'],
+							      $line['yddailypos'],
 							      $line['currrank']);
 
                 }
