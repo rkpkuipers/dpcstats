@@ -32,8 +32,8 @@ class MijlPalen
 		$this->milestones = array();
 
 		$query = 'SELECT
-				lowerBound,
-				upperBound,
+				lowerbound,
+				upperbound,
 				milestone
 			FROM
 				milestones m,
@@ -42,15 +42,15 @@ class MijlPalen
 				m.project = p.milestones
 			AND	p.project = \'' . $this->prefix . '\'
 			ORDER BY
-				m.lowerBound,
-				m.upperBound';
+				m.lowerbound,
+				m.upperbound';
 
 		$result = $this->dbase->selectQuery($query);
 
 		while ( $line = $this->dbase->fetchArray($result) )
 		{
-			$this->milestones[] = array(	'lowerBound' => $line['lowerBound'],
-							'upperBound' => $line['upperBound'],
+			$this->milestones[] = array(	'lowerBound' => $line['lowerbound'],
+							'upperBound' => $line['upperbound'],
 							'milestone'  => $line['milestone']);
 		}
 	}
