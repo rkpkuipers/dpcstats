@@ -461,10 +461,10 @@ class MemberList
                         ( of.cands + of.daily ) AS total,
                         oy.naam,
                         MIN(oy.dag),
-                        of.id AS endId,
-                        oy.id AS startId,
-			of.dailypos AS dailyPos,
-                        oy.cands AS oudTotal,
+                        of.id AS endid,
+                        oy.id AS startid,
+			of.dailypos AS dailypos,
+                        oy.cands AS oudtotal,
                         ( ( of.cands + of.daily ) - oy.cands ) AS flushed
                 FROM
                         ' . $this->tabel . ' oy
@@ -492,10 +492,10 @@ class MemberList
                                                                 $this->datum,
                                                                 $line['naam'],
                                                                 $line['total'],
-                                                                $line['startId'],
+                                                                $line['startid'],
                                                                 $line['flushed'],
-                                                                $line['dailyPos'], 
-								$line['startId']);
+                                                                $line['dailypos'], 
+								$line['startid']);
                 }
 
         }
@@ -512,27 +512,27 @@ class MemberList
 
 class MemberInfo
 {
-	var $db;
-	var $tabel;
-	var $naam;
-	var $description;
-	var $datum;
-	var $prefix;
+	private $db;
+	private $tabel;
+	private $naam;
+	private $description;
+	private $datum;
+	private $prefix;
 
-	var $avgDailyPos;
-	var $candidates;
-	var $flush;
-	var $nodes;
-	var $rank;
-	var $dailyRank;
-	var $lFlushSize;
-	var $lFlushDate;
-	var $distanceNext;
-	var $naamNext;
-	var $distancePrev;
-	var $naamPrev;
-	var $prevDayFlushCount;
-	var $subteam;
+	private $avgDailyPos;
+	private $candidates;
+	private $flush;
+	private $nodes;
+	private $rank;
+	private $dailyRank;
+	private $lFlushSize;
+	private $lFlushDate;
+	private $distanceNext;
+	private $naamNext;
+	private $distancePrev;
+	private $naamPrev;
+	private $prevDayFlushCount;
+	private $subteam;
 
 	private $team;
 
@@ -564,7 +564,7 @@ class MemberInfo
 	function gatherInformation()
 	{
 		$query = 'SELECT
-				COUNT(*)AS memberCount
+				COUNT(*)AS membercount
 			FROM
 				' . $this->prefix . '_subteamoffset
 			WHERE
@@ -574,7 +574,7 @@ class MemberInfo
 
 		if ( $line = $this->db->fetchArray($result) )
 		{
-			if ( $line['memberCount'] == 0 )
+			if ( $line['membercount'] == 0 )
 				$this->subteam = false;
 			else
 				$this->subteam = true;
@@ -607,7 +607,7 @@ class MemberInfo
 			( o.cands + o.daily ) AS credits,
 			o.daily AS flush,
 			o.currrank,
-			o.dailyPos
+			o.dailypos
 		FROM
 			' . $this->prefix . '_' . $this->speedTabel . ' o
 		WHERE
@@ -622,7 +622,7 @@ class MemberInfo
 			$this->candidates = $line['credits'];
 			$this->flush = $line['flush'];
 			$this->rank = $line['currrank'];
-			$this->dailyRank = $line['dailyPos'];
+			$this->dailyRank = $line['dailypos'];
 		}
 
 		$query = 'SELECT
