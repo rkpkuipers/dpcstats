@@ -49,7 +49,12 @@ for($i=0;$i<count($fl);$i++)
 	echo trBackground($i);
 	echo '<td align=right width=10>' . ( $i + 1 ) . '.</td>';
 	echo '<td align=right width=55><font color=red>' . number_format($fl[$i]->getCredits(), 0, ',', '.') . '</font></td>';
-	echo '<td align=left width=300><a href="index.php?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . $fl[$i]->getName() . '">' . $fl[$i]->getName() . '</a></td>';
+	echo '<td align=left width="300px">';
+	echo getURL(array('link' => $fl[$i]->getName(), 'mode' => 'detail', 'tabel' => $tabel, 
+				'name' => $fl[$i]->getName(), 'prefix' => $project->getPrefix(),
+				'date' => date("Y-m-d", strtotime($fl[$i]->getDate())),
+				'title' => 'Details for ' . $fl[$i]->getName()));
+	echo '</td>';
 	echo '<td align="right" width="75">' . date("d-m-Y", strtotime($fl[$i]->getDate())) . '</td>';
 	echo '</tr>';
 }
@@ -76,10 +81,18 @@ Overall Flushes
 for($i=0;$i<count($fl);$i++)
 {
         echo trBackground($i);
-        echo '<td align=right width=10>' . ( $i + 1 ) . '.</td>';
-        echo '<td align=right width=55><font color=red>' . number_format($fl[$i]->getCredits(), 0, ',', '.') . '</font></td>';
-        echo '<td align=left width=300><a href="index.php?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . $fl[$i]->getName() . '">' . $fl[$i]->getName() . '</a></td>';
-        echo '<td align=right width="75"><a href="index.php?prefix=' . $project->getPrefix() . '&amp;mode=Members&amp;tabel=' . $strippedTabel . '&amp;datum=' . $fl[$i]->getDate() . '">' . date("d-m-Y", strtotime($fl[$i]->getDate())) . '</a></td>';
+        echo '<td align="right" width="10px">' . ( $i + 1 ) . '.</td>';
+        echo '<td align="right" width="55px"><font color=red>' . number_format($fl[$i]->getCredits(), 0, ',', '.') . '</font></td>';
+        echo '<td align="left" width="300">';
+	echo getURL(array('name' => $fl[$i]->getName(), 'prefix' => $project->getPrefix(), 'mode' => 'detail',
+				'tabel' => $tabel, 'title' => 'Details for ' . $fl[$i]->getName(), 
+				'link' => $fl[$i]->getName(), 'date' => date("Y-m-d", strtotime($fl[$i]->getDate()))));
+	echo '</td>';
+        echo '<td align="right" width="75px">';
+	echo getURL(array('prefix' => $project->getPrefix(), 'mode' => 'Members', 'tabel' => $strippedTabel,
+			'date' => $fl[$i]->getDate(), 'link' => date("d-m-Y", strtotime($fl[$i]->getDate())),
+			'title' => 'Flust list for ' . date("d-m-Y", strtotime($fl[$i]->getDate()))));
+	echo '</td>';
         echo '</tr>';
 }
 echo '</table>';
