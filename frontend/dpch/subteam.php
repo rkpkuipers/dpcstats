@@ -295,7 +295,7 @@ $mi = new MemberInfo($db, $team, $project->getPrefix() . '_memberoffset', $datum
 if ( $mi->getFlush() > 0 )
 {
 	$query = 'SELECT 
-			avgMonthly 
+			avgmonthly 
 		FROM 
 			averageproduction 
 		WHERE 
@@ -306,17 +306,17 @@ if ( $mi->getFlush() > 0 )
 	
 	if ( $line = $db->fetchArray($result) )
 	{
-                $lineArray = array($line['avgMonthly']);
+                $lineArray = array($line['avgmonthly']);
 	}
 	else
 	{
         	$lineArray = array(0, 0);
 	}
 
-	$charArray = array('avgMonthly');
+	$charArray = array('avgmonthly');
 	$headArray = array('monthly');
 
-        $t = new TOThreats($db, $project->getPrefix() . '_memberoffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly', $team);
+        $t = new TOThreats($db, $project->getPrefix() . '_memberoffset', $lineArray[0], $mi, $datum, 10, 'avgmonthly', $team);
 	$tl = $t->getThreatList();;
 
         if ( count($tl) > 0 )
@@ -339,7 +339,7 @@ if ( $mi->getFlush() > 0 )
                 $rmlpage .= '[/table]' . "\n";
         }
 
-        $o = new Opertunities($db, $project->getPrefix() . '_memberoffset', $lineArray[0], $mi, $datum, 10, 'avgMonthly', $team);
+        $o = new Opertunities($db, $project->getPrefix() . '_memberoffset', $lineArray[0], $mi, $datum, 10, 'avgmonthly', $team);
         $ol = $o->getOpertunityList();;
         if ( count($ol) > 0 )
         {
