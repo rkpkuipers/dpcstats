@@ -26,6 +26,8 @@ require ('classes/subteam.php');
 
 require ('classes/AverageProduction.php');
 
+require ('classes/faq.php');
+
 # Initialize the database
 
 if ( ( in_array($_REQUEST['prefix'], array('fah', 'sah', 'tsc', 'd2ol', 'ufl', 'ud', 'smp')) ) || 

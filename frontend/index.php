@@ -362,7 +362,8 @@ function change( imageName, newSource )
 						'stats' => array('Stats Engine', 'stats.php'),
 						'avgProd' => array('Average Production Rate', 'average.php'),
 						'monthlyStats' => array('Monthly Stats', 'monthly.php'),
-						'memberGraphs' => array('Member Graphs', 'memberGraphs.php'));
+						'memberGraphs' => array('Member Graphs', 'memberGraphs.php'),
+						'faq' => array('Frequently Asked Questions', 'faq.php'));
 
 	if ( isset($pages[$mode]) )
 	{
