@@ -16,10 +16,10 @@ function searchTabel($tabel, $prefix, $string, $tabelNaam)
 
         $result = $db->selectQuery($query);
 
-	if ( $db->getNumAffectedRows() > 0 )
+	if ( $db->getNumAffectedRows($result) > 0 )
 	{
 		echo openColorTable(63);
-		echo '<b>' . $db->getNumAffectedRows() . ' matching ' .$tabelNaam . ' found</b>';
+		echo '<b>' . $db->getNumAffectedRows($result) . ' matching ' .$tabelNaam . ' found</b>';
         	echo '<hr>';
 		echo '<table width="100%">';
 		$pos = 1;
