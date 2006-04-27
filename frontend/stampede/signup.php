@@ -1,5 +1,10 @@
 <?
+
+$_REQUEST['prefix'] = 'rah';
+
 include('../classes.php');
+
+/*
 
 if ( isset($_REQUEST['nick']) )
 {
@@ -43,6 +48,7 @@ if ( ( $nick != '' ) && ( $team != '' ) )
 	}
 	$db->selectQuery($query);
 }
+*/
 ?>
 
 <html>
@@ -51,6 +57,7 @@ if ( ( $nick != '' ) && ( $team != '' ) )
 <hr>
 Vanaf 2 April tot 27 April is het mogelijk om een willekeurig stampedeteam te joinen. Om de competitie zo leuk mogelijk te houden wordt iedereen aangemoedigd om zich bij een van de lager geklasseerde teams aan te sluiten. Het veranderen van team of jezelf uitschrijven is in principe niet mogelijk, mocht er toch een dringende reden zijn waarom je van team wilt veranderen kan je hierover contact opnemen met Elteor via FDO of IRC. Lid worden van een stampede team kan door je nick te selecteren uit de Nickname lijst en het team wat je wilt joinen uit het Stampede team lijstje. 
 <hr>
+<? /*
 <center>
 <form name="addMember" action="signup.php" method="post">
 <table>
@@ -114,6 +121,8 @@ while ( $line = $db->fetchArray($result) )
 </form>
 <center>
 <hr>
+*/ ?>
+<center>
 <table>
 <tr><td><h3>Huidige Indeling</h3></td></tr>
 <tr><td></td></tr>
