@@ -104,7 +104,8 @@ class MijlPalen
 	{
 	        if (
         	        ( $total >= $low ) &&
-                	( $total < $high ) &&
+#                	( $total < $high ) &&
+			( ( floor($total / $paal) * $paal ) < $high ) &&
 	                ( floor( $total / $paal ) != floor( ( $total - $daily ) / $paal ) )
         	   )
 	        {
