@@ -1,8 +1,9 @@
 <?
 
+$_REQUEST['prefix'] = 'sp5';
+$prefix = 'sp5';
 include ('../classes.php');
 
-$prefix = 'sp5';
 
 if ( isset($_GET['datum']) )
 	$datum = $_GET['datum'];
@@ -297,7 +298,6 @@ $rmlpage .= '  [/table]' . "\n";
 
 # Code wordt voor de HTML uitvoer al aangeroepen
 $fmc = new FlushList('sp5_memberoffset', $db);
-
 $fmc->createMFList();
 $fl = $fmc->getMFList();
 

@@ -1,4 +1,7 @@
 <?php
+
+$_REQUEST['prefix'] = 'rah';
+
 include ("/usr/local/jpgraph-php5/jpgraph.php");
 include ("/usr/local/jpgraph-php5/jpgraph_pie.php");
 include ('/var/www/tstats/classes.php');
