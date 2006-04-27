@@ -51,7 +51,7 @@ echo '<tr><td align="left">Todays output</td><td align=right>' . number_format($
 
 $rankPage = ( ( floor((($mi->getRank())-1)/30) ) * 30 );
 
-echo '<tr><td align="left">Team Rank</td><td align=right><a href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;dlow=0&amp;datum=' . $datum . '&amp;low=' . $rankPage . '#Ranking">' . $mi->getRank() . '</a></td></tr>';
+echo '<tr><td align="left">Team Rank</td><td align=right><a href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;dlow=0&amp;datum=' . $datum . '&amp;team=' . rawurlencode($team) . '&amp;hl=' . rawurlencode($naam) . '&amp;low=' . $rankPage . '#Ranking">' . $mi->getRank() . '</a></td></tr>';
 echo '<tr><td align="left">Flush rank</td><td align=right>' . $mi->getDailyRank() . '</td></tr>';
 echo '<tr><td align="left">Average Daily Pos</td><td align=right>' . number_format($mi->getAvgDailyPos(), 1, ',', '.') . '</td></tr>';
 echo '<tr><td align="left">Increase</td>';
@@ -84,7 +84,7 @@ else
 echo '</td></tr>';
 echo '</table><hr><table border="0" width="100%">';
 echo '<tr><td align="left">Largest Flush</td><td align=right>' . number_format($mi->getLargestFlush(), 0, ',', '.') . '</td></tr>';
-echo '<tr><td align="left">Flush Date</td><td align=right><a href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $mi->getLargestFlushDate() . '">' . $mi->getLargestFlushDate() . '</a></td></tr>';
+echo '<tr><td align="left">Flush Date</td><td align=right><a href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $mi->getLargestFlushDate() . '&amp;team=' . rawurlencode($team) . '">' . $mi->getLargestFlushDate() . '</a></td></tr>';
 
 ?>
 </table>
