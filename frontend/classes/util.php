@@ -117,7 +117,7 @@ function getTop5Table($project, $ml, $headertext, $tabel)
 			echo '<td width="30px" align="center">' . $image . '' . $change . '</td>';
 			echo '<td>';
 			echo getURL(array('link' => $mbs[$i]->getShortName(), 'mode' => 'detail', 'name' => $mbs[$i]->getName(), 
-				'table' => $tabel, 'title' => 'Contestant details for ' . $mbs[$i]->getName()));
+				'table' => $tabel, 'title' => 'Details for ' . $mbs[$i]->getName()));
 			echo '</td>';
 			echo '</tr>';
 		}
@@ -151,7 +151,7 @@ function getShoutboxTable($db, $project, $tabel, $team)
 		if ( $messages[$i]->getEmail() == '' )
 			echo $messages[$i]->getPoster();
 		else
-			echo '<a href="mailto:' . $messages[$i]->getEmail() . '">' . $messages[$i]->getPoster() . '</a>';
+			echo '<a href="mailto:' . $messages[$i]->getEmail() . '" title="Mail ' . $messages[$i]->getPoster() . '">' . $messages[$i]->getPoster() . '</a>';
 
 		echo '</td>';
 		echo '</tr>';
@@ -484,11 +484,7 @@ function checkTable($tabel)
             ( $tabel != 'memberoffset' ) &&
             ( $tabel != 'teamoffset' ) &&
             ( $tabel != 'subteamoffset' ) &&
-	    ( $tabel != 'memberoffsetdaily' ) &&
-	    ( $tabel != 'subteamoffsetdaily' ) &&
-	    ( $tabel != 'teamoffsetdaily' ) &&
-	    ( $tabel != 'individualoffset' ) &&
-	    ( $tabel != 'individualoffsetdaily') 
+	    ( $tabel != 'individualoffset' )
    	   )die('Onjuiste tabel opgegeven');
 }
 
