@@ -26,7 +26,7 @@ function searchTabel($tabel, $prefix, $string, $tabelNaam)
 	        while ($line = $db->fetchArray($result))
 		{
 			echo trBackground($pos++);
-        	        echo '<td><a href="index.php?mode=detail&tabel=' . $tabel . 'daily&amp;prefix=' . $prefix . 
+        	        echo '<td><a href="index.php?mode=detail&tabel=' . $tabel . '&amp;prefix=' . $prefix . 
 				'&amp;naam=' . rawurlencode($line['naam']) . '&amp;team=' . rawurlencode($line['subteam']) . 
 				'">' . $line['naam'] . '</a></td>';
 			echo '</tr>';
