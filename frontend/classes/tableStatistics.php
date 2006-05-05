@@ -307,12 +307,11 @@ class TableStatisticsMonthly
 	var $dailyOutput;
 	var $totalOutput;
 	
-	function TableStatisticsMonthly($tabel, $datum)
+	function TableStatisticsMonthly($tabel, $datum, $db)
 	{
 		$this->tabel = $tabel;
 		$this->datum = $datum;
-		
-		$this->db = new DataBase();
+		$this->db = $db;
 	}
 
 	function gather()
