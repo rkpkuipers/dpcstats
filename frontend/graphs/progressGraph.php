@@ -5,17 +5,13 @@ include ($jpgraphdir . "/jpgraph_line.php");
 
 $dagen = array();
 
-if ( isset($_POST['tabel']) )
-	$tabel = $_POST['tabel'];
-elseif ( isset($_GET['tabel']) )
-	$tabel = $_GET['tabel'];
+if ( isset($_REQUEST['tabel']) )
+	$tabel = $_REQUEST['tabel'];
 else
         $tabel = 'memberoffset';
 
-if ( isset($_POST['teams']) )
-	$teams = $_POST['teams'];
-elseif ( isset($_GET['teams']) )
-	$teams = $_GET['teams'];
+if ( isset($_REQUEST['teams']) )
+	$teams = $_REQUEST['teams'];
 else
 	die("No members / teams were selected");
 
@@ -27,10 +23,8 @@ else
 if ( isset($_REQUEST['team']) )
 	$team = $_REQUEST['team'];
 
-if ( isset ($_POST['prefix'] ) )
-	$prefix = $_POST['prefix'];
-elseif ( isset ($_GET['prefix']) )
-	$prefix = $_GET['prefix'];
+if ( isset ($_REQUEST['prefix'] ) )
+	$prefix = $_REQUEST['prefix'];
 
 $width = 550;
 $sDate = date("Y-m-d", strtotime("-" . $timespan . " days"));
