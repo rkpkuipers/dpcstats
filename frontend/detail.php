@@ -8,7 +8,7 @@ if ( ! isset($naam) )
 	return;
 }
 
-$mi = new MemberInfo($db, $naam, $project->getPrefix() . '_' . $tabel, $datum, $project->getPrefix(), $speedTabel, $team);
+$mi = new MemberInfo($db, $naam, $project->getPrefix() . '_' . $tabel, $datum, $project->getPrefix(), $tabel, $team);
 
 if ( $mi->getCredits() == 0 )
 {
@@ -30,7 +30,7 @@ if ( $mi->getCredits() == 0 )
                 echo '<input type="hidden" name="mode" value="Subteam">';
                 echo '<input type="hidden" name="prefix" value="' . $project->getPrefix() . '">';
                 echo '<input type="hidden" name="team" value="' . $naam . '">';
-                echo '<input type="hidden" name="tabel" value="subteamoffsetdaily">';
+                echo '<input type="hidden" name="tabel" value="subteamoffset">';
                 echo '<input type="submit" class="TextField" value="Members">';
                 echo '</form>';
                 echo '<br>';
@@ -51,7 +51,7 @@ echo '<tr><td align="left">Todays output</td><td align=right>' . number_format($
 
 $rankPage = ( ( floor((($mi->getRank())-1)/30) ) * 30 );
 
-echo '<tr><td align="left">Team Rank</td><td align=right><a href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;dlow=0&amp;datum=' . $datum . '&amp;team=' . rawurlencode($team) . '&amp;hl=' . rawurlencode($naam) . '&amp;low=' . $rankPage . '#Ranking">' . $mi->getRank() . '</a></td></tr>';
+echo '<tr><td align="left">Team Rank</td><td align=right><a href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;dlow=0&amp;datum=' . $datum . '&amp;team=' . rawurlencode($team) . '&amp;hl=' . rawurlencode($naam) . '&amp;low=' . $rankPage . '#Ranking" title="Overall ranking hightlighting ' . $naam . '">' . $mi->getRank() . '</a></td></tr>';
 echo '<tr><td align="left">Flush rank</td><td align=right>' . $mi->getDailyRank() . '</td></tr>';
 echo '<tr><td align="left">Average Daily Pos</td><td align=right>' . number_format($mi->getAvgDailyPos(), 1, ',', '.') . '</td></tr>';
 echo '<tr><td align="left">Increase</td>';
@@ -72,19 +72,19 @@ echo '<tr><td align="left">To next member</td><td align=right>';
 if ( $mi->getNaamNext() == '' )
 	echo number_format( $mi->getDistanceNext(), 0, ',', '.');
 else
-	echo '<a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;team=' . rawurlencode($team) . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . $mi->getNaamNext() . '">' . number_format( $mi->getDistanceNext(), 0, ',', '.') . '</a>';
+	echo '<a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;team=' . rawurlencode($team) . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . $mi->getNaamNext() . '" title="Details for ' . $mi->getNaamNext() . '">' . number_format( $mi->getDistanceNext(), 0, ',', '.') . '</a>';
 echo '</td></tr>';
 
 echo '<tr><td align="left">From previous member</td><td align=right>';
 if ( $mi->getNaamPrev() == '' )
 	echo number_format($mi->getDistancePrev(), 0, ',', '.');
 else
-	echo '<a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;team=' . rawurlencode($team) . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . $mi->getNaamPrev() . '">' . number_format($mi->getDistancePrev(), 0, ',', '.') . '</a>';
+	echo '<a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;team=' . rawurlencode($team) . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . $mi->getNaamPrev() . '" title="Details for ' . $mi->getNaamPrev() . '">' . number_format($mi->getDistancePrev(), 0, ',', '.') . '</a>';
 
 echo '</td></tr>';
 echo '</table><hr><table border="0" width="100%">';
 echo '<tr><td align="left">Largest Flush</td><td align=right>' . number_format($mi->getLargestFlush(), 0, ',', '.') . '</td></tr>';
-echo '<tr><td align="left">Flush Date</td><td align=right><a href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $mi->getLargestFlushDate() . '&amp;team=' . rawurlencode($team) . '">' . $mi->getLargestFlushDate() . '</a></td></tr>';
+echo '<tr><td align="left">Flush Date</td><td align=right><a href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $mi->getLargestFlushDate() . '&amp;team=' . rawurlencode($team) . '" title="Flush list for ' . $mi->getLargestFlushDate() . '">' . $mi->getLargestFlushDate() . '</a></td></tr>';
 
 ?>
 </table>
@@ -115,7 +115,7 @@ unset($pos);
 
 $output .= '</table>';
 $output .= '<hr>';
-$output .= '<div align="right"><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '&amp;naam=' . $naam . '">More...</a></div>';
+$output .= '<div align="right"><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '&amp;naam=' . $naam . '" title="Complete flush history">More...</a></div>';
 $query = 'select avgdaily from averageproduction where naam=\'' . $naam . '\'';
 $result = $db->selectQuery($query);
 $avgDaily = 0;
@@ -186,7 +186,7 @@ for($j=0;$j<count($lineArray);$j++)
 		for($i=0;$i<count($tl);$i++)
 		{
 			echo trBackground($i);
-			echo '<td width="190" align="left"><a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . $tl[$i]['naam'] . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '">' . $tl[$i]['name'] . '</a></td>';
+			echo '<td width="190" align="left"><a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . $tl[$i]['name'] . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '" title="Details for ' . $tl[$i]['name'] . '">' . $tl[$i]['name'] . '</a></td>';
 			echo '<td width="50" align="right">' . number_format($tl[$i]['average'], 0, ',', '.') . '</td>';
 			echo '<td align="right" width="50">' . number_format($tl[$i]['days'], 0, ',', '.') . '</td>';
 			echo '</tr>';
@@ -206,7 +206,7 @@ for($j=0;$j<count($lineArray);$j++)
                 for($i=0;$i<count($ol);$i++)
                 {
                         echo trBackground($i);
-                        echo '<td width="190" align="left"><a href="index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . $ol[$i]['name'] . '">' . $ol[$i]['name'] . '</a></td>';
+                        echo '<td width="190" align="left"><a href="index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . $ol[$i]['name'] . '" title="Details for ' . $ol[$i]['name'] . '">' . $ol[$i]['name'] . '</a></td>';
 			echo '<td width="50" align="right">' . number_format($ol[$i]['average'], 0, ',', '.') . '</td>';
                         echo '<td align="right" width="50">' . number_format($ol[$i]['days'], 0, ',', '.') . '</td>';
                         echo '</tr>';
