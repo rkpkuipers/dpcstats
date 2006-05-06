@@ -5,7 +5,7 @@ include ('/home/rkuipers/stats/database.php');
 include ('/home/rkuipers/stats/include.php');
 include ('/var/www/tstats/classes/members.php');
 
-$datum = getCurrentDate('tsc');
+$datum = getCurrentDate('sah');
 
 dailyOffset('memberoffset', 'sah');
 dailyOffset('teamoffset', 'sah');
