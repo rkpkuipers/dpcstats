@@ -11,6 +11,4 @@ individualStatsrun('smp');
 individualStatsrun('ufl');
 individualStatsrun('sah');
 individualStatsrun('sob');
-individualStatsrun('sp5');
-
 ?>
