@@ -5,10 +5,7 @@ include ('/home/rkuipers/stats/database.php');
 include ('/home/rkuipers/stats/include.php');
 include ('/var/www/tstats/classes/members.php');
 
-header('Content-type: text/plain');
-
 # Gather data from sengent
-
 $datum = getCurrentDate('tsc');
 
 dailyOffset('memberoffset', 'tsc');
@@ -23,7 +20,7 @@ $tscmembers = array();
 
 for($i=10;$i<count($teams);$i+=6)
 {
-	if ( $teams[$i+4] == 'Dutch Power Cows' )
+	if ( ( $teams[$i+4] == 'Dutch Power Cows' ) && ( $teams[$i+1] > 0 ) )
 		$tscmembers[count($tscmembers)] = new Member($teams[$i], $teams[$i+1]);
 }
 
