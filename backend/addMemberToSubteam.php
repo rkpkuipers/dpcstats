@@ -16,44 +16,44 @@ $datum = getCurrentDate($project);
 $query = 'SELECT
 		cands
 	FROM
-		' . $project . '_memberOffsetDaily
+		' . $project . '_memberoffset
 	WHERE
-		naam = "' . $user . '"
-	AND	dag = "' . $datum . '"';
+		naam = \'' . $user . '\'
+	AND	dag = \'' . $datum . '\'';
 
 $result = $db->selectQuery($query);
 
-if ( $line = mysql_fetch_array($result) )
+if ( $line = $db->fetchArray($result) )
 	$userOffset = $line['cands'];
 else
 	die('Unable to determine user offset' . "\n");
 
 $query = 'UPDATE
-		' . $project . '_memberOffset
+		' . $project . '_memberoffset
 	SET
 		cands = cands + ' . $userOffset . '
 	WHERE
-		naam = "' . $team . '"
-	AND	dag = "' . $datum . '"';
+		naam = \'' . $team . '\'
+	AND	dag = \'' . $datum . '\'';
 
 $db->updateQuery($query);
 # Add entry for user in subteamOffset
 
 $query = 'INSERT INTO
-		' . $project . '_subteamOffset
+		' . $project . '_subteamoffset
 		( naam, cands, dag, subteam )
 	VALUES
 	(
-		"' . $user . '",
+		\'' . $user . '\',
 		' . $userOffset . ',
-		"' . getPrevDate($datum) . '",
-		"' . $team . '"
+		\'' . getPrevDate($datum) . '\',
+		\'' . $team . '\'
 	)';
 
 $db->insertQuery($query);
 
 # Add user to subteam tabel
-$query = 'INSERT INTO ' . $project . '_subteam ( name, member ) VALUE ( "' . $team . '", "' . $user . '")';
+$query = 'INSERT INTO ' . $project . '_subteam ( name, member ) VALUES ( \'' . $team . '\', \'' . $user . '\')';
 $db->insertQuery($query);
 
 $db->disconnect();
