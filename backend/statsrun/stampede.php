@@ -15,7 +15,7 @@ $query = 'SELECT
 		p.offset,
 		(o.cands+o.daily)AS total
 	FROM
-		stampedeParticipants p,
+		stampedeparticipants p,
 		rah_individualoffset o
 	WHERE
 		o.dag = \'' . date("Y-m-d") . '\'
@@ -56,6 +56,4 @@ $datum = getCurrentDate('sp5');
 
 addStatsrun($teamList, 'sp5_memberoffset');
 addSubTeamStatsRun($memberList, 'sp5_subteamoffset');
-
-$db->disconnect();
 ?>
