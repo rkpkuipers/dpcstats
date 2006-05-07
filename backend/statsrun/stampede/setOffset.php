@@ -3,7 +3,7 @@
 
 include('/var/www/tstats/classes.php');
 
-$db->updateQuery('UPDATE stampedeParticipants SET offset = 0');
+$db->updateQuery('UPDATE stampedeparticipants SET offset = 0');
 $db->deleteQuery('DELETE FROM sp5_memberoffset WHERE dag < \'' . getPrevDate() . '\'');
 $db->deleteQuery('DELETE FROM sp5_subteamoffset WHERE dag < \'' . getPrevDate() . '\'');
 $db->deleteQuery('DELETE FROM sp5_memberoffset WHERE dag = \'' . date("Y-m-d") . '\'');
@@ -22,7 +22,7 @@ $query = 'SELECT
 			SELECT
 				REPLACE(name, \'~\', \' - \')
 			FROM
-				stampedeParticipants
+				stampedeparticipants
 			ORDER BY
 				name
 		)
@@ -33,7 +33,7 @@ $result =$db->selectQuery($query);
 while ( $line = $db->fetchArray($result) )
 {
 	$uQuery = 'UPDATE 
-			stampedeParticipants
+			stampedeparticipants
 		SET
 			offset = ' . $line['offset'] . '
 		WHERE

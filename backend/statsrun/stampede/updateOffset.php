@@ -14,7 +14,7 @@ $query = 'SELECT
 			SELECT
 				REPLACE(name, \'~\', \' - \')
 			FROM
-				stampedeParticipants
+				stampedeparticipants
 			WHERE
 				offset = 0
 			ORDER BY
@@ -27,7 +27,7 @@ $result =$db->selectQuery($query);
 while ( $line = $db->fetchArray($result) )
 {
 	$uQuery = 'UPDATE 
-			stampedeParticipants
+			stampedeparticipants
 		SET
 			offset = ' . $line['offset'] . '
 		WHERE
