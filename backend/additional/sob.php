@@ -5,11 +5,13 @@ include ('/home/rkuipers/stats/database.php');
 include ('/home/rkuipers/stats/include.php');
 include ('/var/www/tstats/classes/members.php');
 
-$query = 'DELETE FROM additional where prefix LIKE \'sob\_%Offset\'';
+$query = 'DELETE FROM additional where prefix LIKE \'sob%\'';
 $db->deleteQuery($query);
 
 function getSubteam($name)
 {
+	global $db;
+
         $team = '';
 
         $query = 'SELECT
@@ -18,9 +20,9 @@ function getSubteam($name)
                         sob_subteam
                 WHERE
                         member = \'' . $name . '\'';
-        $result = mysql_query($query);
+        $result = $db->selectQuery($query);
 
-        if ( $line = mysql_fetch_array($result) )
+        if ( $line = $db->fetchArray($result) )
         {
                 $team = $line['name'];
         }
@@ -95,12 +97,15 @@ foreach ( $subTeamArray as $subTeamName => $member )
 	}
 }
 
+$copyData = array();
 foreach($members as $name => $tests)
-	$db->insertQuery('INSERT INTO additional ( naam, aantal, prefix ) VALUES ( \'' . $name . '\', ' . $tests . ', \'sob_memberOffset\')');
+	$copyData[] = "$name\t$tests\tsob_memberoffset\n";
 
 foreach($teams as $name => $tests)
-	$db->insertQuery('INSERT INTO additional ( naam, aantal, prefix ) VALUES ( \'' . $name . '\', ' . $tests . ', \'sob_teamOffset\')');
+	$copyData[] = "$name\t$tests\tsob_teamoffset\n";
 
 foreach($subteamMembers as $name => $tests)
-	$db->insertQuery('INSERT INTO additional ( naam, aantal, prefix ) VALUES ( \'' . $name . '\', ' . $tests . ', \'sob_subteamOffset\')');
+	$copyData[] = "$name\t$tests\tsob_subteamoffset\n";
+
+$db->copyData(array('additional', 'naam', 'aantal', 'prefix'), $copyData);
 ?>

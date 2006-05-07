@@ -8,15 +8,14 @@ include ('/home/rkuipers/stats/include.php');
 $html = implode('', file ('http://d2ol.childhooddiseases.org/stats/topMembersAll.jsp?t=Alltime')) or die("Error retrieving information");
 $teams = split("[|\n]", $html);
 
-mysql_query('DELETE FROM additional WHERE prefix = \'d2ol\' OR prefix = \'tsc\'');
+$db->deleteQuery('DELETE FROM additional WHERE prefix LIKE \'d2ol%\' OR prefix LIKE \'tsc%\'');
 
+$copyData = array();
 for($i=10;$i<count($teams);$i+=6)
 {
 	if ( strstr($teams[$i+4], 'Dutch Power Cows') )
 	{
-		$query = 'INSERT INTO additional VALUES ( \'' . $teams[$i] . '\', ' . $teams[$i+3] . ', \'tsc\')';
-		#echo $query . "\n";
-		mysql_query($query);
+		$copyData[] = $teams[$i] . "\t" . $teams[$i+3] . "\t" . 'tsc_memberoffset' . "\n";
 	}
 }
 
@@ -26,8 +25,7 @@ $teams = split("[|\n]", $html);
 
 for($i=10;$i<count($teams);$i+=6)
 {
-	$query = 'INSERT INTO additional VALUES ( \'' . $teams[$i] . '\', ' . $teams[$i+4] . ', \'tsc\')';
-	mysql_query($query);
+	$copyData[] = $teams[$i] . "\t" . $teams[$i+4] . "\t" . 'tsc_teamoffset' . "\n";
 }
 
 # D2OL Members
@@ -38,9 +36,7 @@ for($i=10;$i<count($teams);$i+=6)
 {
 	if ( strstr($teams[$i+4], 'Dutch Power Cows') )
 	{
-		$query = 'INSERT INTO additional VALUES ( \'' . $teams[$i] . '\', ' . $teams[$i+3] . ', \'d2ol\')';
-		#echo $query . "\n";
-		mysql_query($query);
+		$copyData[] = $teams[$i] . "\t" . $teams[$i+3] . "\t" . 'd2ol_memberoffset' . "\n";
 	}
 }
 
@@ -50,9 +46,8 @@ $teams = split("[|\n]", $html);
 
 for($i=10;$i<count($teams);$i+=6)
 {
-	$query = 'INSERT INTO additional VALUES ( \'' . $teams[$i] . '\', ' . $teams[$i+4] . ', \'d2ol\')';
-	#echo $query;
-	mysql_query($query);
+	$copyData[] = $teams[$i] . "\t" . $teams[$i+4] . "\t" . 'd2ol_teamoffset' . "\n";
 }
 
+$db->copyData(array('additional', 'naam', 'aantal', 'prefix'), $copyData);
 ?>
