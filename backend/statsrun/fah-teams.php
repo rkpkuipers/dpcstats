@@ -7,7 +7,9 @@ include ('/var/www/tstats/classes/members.php');
 
 # Gather data from sengent
 
-$datum = getCurrentDate('tsc');
+#system('killall -q fah-teams.php');
+
+$datum = getCurrentDate('fah');
 
 dailyOffset('teamoffset', 'fah');
 
