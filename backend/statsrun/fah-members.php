@@ -32,7 +32,7 @@ function getSubteam($name)
 	return $team;
 }
 
-$datum = getCurrentDate('tsc');
+$datum = getCurrentDate('fah');
 
 dailyOffset('memberoffset', 'fah');
 dailyOffset('subteamoffset', 'fah');
@@ -161,11 +161,17 @@ addStatsrun($fahmembers, 'fah_memberoffset');
 
 $fahsubteammembers = array();
 foreach ( $subteamMembers as $subTeamName => $member )
-	foreach ( $member as $memberName => $memberScore )
+{
+	if ( ( ! $subTeamName == '0' ) && (  count($subteamMembers[$subTeamName]) > 1 ) )
 	{
-		if ( ( ! $subTeamName == '0' ) && (  count($subteamMembers[$subTeamName]) > 1 ) )
+		arsort($member, SORT_NUMERIC);
+		
+		foreach ( $member as $memberName => $memberScore )
+		{
 			$fahsubteammembers[] = new TeamMember($memberName, $memberScore, $subTeamName);
+		}
 	}
+}
 
 addSubTeamStatsRun($fahsubteammembers, 'fah_subteamoffset');
 
