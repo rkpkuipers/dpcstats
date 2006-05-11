@@ -71,6 +71,13 @@ if ( ( $poster != '' ) && ( $bericht != '' ) )
 			\''. date("Y-m-d H:i:s") . '\',
 			\'' . $email . '\')';
  	$db->selectQuery($query);
+
+	$recipient = 'Remko Kuipers <rkpkuipers@planet.nl>';
+	$subject = 'Shoutbox post by ' . $poster;
+	$message = $poster . ' (' . $email . ') posted a message on ' . date("Y-m-d H:i:s") .
+			"\n\n" . parseCode(htmlspecialchars($bericht));
+	
+	mail($recipient, $subject, $message);
  }
 
  // page ending rejumping 2 index.
