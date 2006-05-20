@@ -8,7 +8,7 @@ $user = $argv[2];
 $project = $argv[3];
 
 echo 'Adding ' . $user . ' to subteam ' . $team . ' for project ' . $project . ' (ctrl-c to abort)' . "\n";
-readline();
+readline("Str");
 
 $datum = getCurrentDate($project);
 
@@ -26,7 +26,10 @@ $result = $db->selectQuery($query);
 if ( $line = $db->fetchArray($result) )
 	$userOffset = $line['cands'];
 else
-	die('Unable to determine user offset' . "\n");
+{
+	$userOffset = 0;
+	readline("User not found, add with offset 0?");
+}
 
 $query = 'UPDATE
 		' . $project . '_memberoffset
