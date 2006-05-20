@@ -1,6 +1,7 @@
 <?php
 
-$db = new DataBase();
+$db = new pgDataBase();
+$db->connect();
 
 # Globals
 
@@ -85,6 +86,7 @@ function addStatsRun($array, $tabel)
 
         # Check for retirements
         $query = 'SELECT naam, (cands+daily) as totaal, cands, currrank FROM ' . $tabel . ' WHERE dag = \'' . $datum . '\'';
+
         $result = $db->selectQuery($query);
 
 	$currentUsers = array();
@@ -107,7 +109,13 @@ function addStatsRun($array, $tabel)
 			$naam = str_replace('\\', '\\\\', $missing[$i]);
 			$naam = str_replace('/', '\/', $naam);
 			$naam = str_replace('\'', '\\\'', $naam);
-			$insQuery = 'REPLACE INTO
+
+			$remQuery = 'DELETE FROM ' . $tabel . ' WHERE naam = \'' . $naam . '\' AND dag = \'' . $datum . '\';';
+			#echo $remQuery;
+			$db->deleteQuery($remQuery);
+			 
+			
+			$insQuery = 'INSERT INTO
 					movement
 				( naam, datum, direction, candidates, tabel )
 				SELECT
@@ -123,23 +131,6 @@ function addStatsRun($array, $tabel)
 				AND	dag = \'' . $datum . '\'';
 
 			$db->insertQuery($insQuery);
-		
-                        $remQuery = 'DELETE FROM ' . $tabel . ' WHERE naam = \'' . $naam . '\' AND dag = \'' . $datum . '\'';
-			#echo $remQuery . "\n";
-                        $db->deleteQuery($remQuery);
-
-			$remQuery = 'REPLACE INTO 
-					movement 
-				VALUES 
-				( 
-					\'' . $line['naam'] . '\', 
-					\'' . $datum . '\', 
-					0, 
-					' . $line['totaal'] . ',
-					\'' . $tabel . '\'
-				)';
-			#echo $remQuery . "\n";
-//			$db->insertQuery($remQuery);a
                 }
         }
 
@@ -150,6 +141,7 @@ function addStatsRun($array, $tabel)
 		$naam = str_replace('\\', '\\\\', $naam);
 		$naam = str_replace('/', '\/', $naam);
                 $naam = str_replace('\'', '\\\'', $naam);
+		#echo $array[$i]->getName() . ' ' . $naam . "\n";
                 $score = $array[$i]->getCredits();
 
 		if ( ( $currentScore[$naam] != $score ) || ( $currentRanks[$naam] != ($i+1) ) ) # If no change in score there's no need for an update
@@ -188,7 +180,7 @@ function addStatsRun($array, $tabel)
 	                        #echo $insQuery . "\n";
         	                $db->insertQuery($insQuery);
 	
-				$insQuery = 'REPLACE INTO movement VALUES ( \'' . $naam . '\', \'' . $datum . '\', 1, ' . $score . ',\'' . $tabel . '\')';
+				$insQuery = 'INSERT INTO movement VALUES ( \'' . $naam . '\', \'' . $datum . '\', 1, ' . $score . ',\'' . $tabel . '\')';
 				#echo $query;
 				$db->insertQuery($insQuery);
 	                }
@@ -202,7 +194,8 @@ function addStatsRun($array, $tabel)
         $pos = 1;
         while( $line = $db->fetchArray($result, MYSQL_ASSOC) )
         {
-                $naam = str_replace('\'', '\\\'', $line['naam']);
+		$naam = str_replace('\\', '\\\\', $line['naam']);
+                $naam = str_replace('\'', '\\\'', $naam);
                 $updateQuery = 'UPDATE
                                         ' . $tabel . '
                                 SET     dailypos = ' . $pos . '
@@ -216,22 +209,15 @@ function addStatsRun($array, $tabel)
 
 	$info = explode('_', $tabel);
 
-	$query = 'REPLACE INTO
+	$query = 'UPDATE
 			updates
-			(
-				project,
-				tabel,
-				tijd
-			)
-			VALUES
-			(
-				\'' . $info[0] . '\',
-				\'' . $info[1] . '\',
-				\'' . date("Y-m-d:H:i:s") . '\'
-			)';
-	$db->insertQuery($query);
+		SET
+			tijd = \'' . date("Y-m-d H:i:s") . '\'
+		WHERE
+			project = \'' . $info[0] . '\'
+		AND	tabel = \'' . $info[1] . '\'';
 
-	fillDailyTable($tabel);
+	$db->insertQuery($query);
 }
 
 function addSubteamStatsrun($array, $tabel)
@@ -253,7 +239,8 @@ function addSubteamStatsrun($array, $tabel)
 
 	while ( $line = $db->fetchArray($result) )
 	{
-		$currentuser[$line['subteam']][$line['naam']] = $line['score'];
+		$naam = str_replace('\\', '\\\\', $line['naam']);
+		$currentuser[$line['subteam']][$naam] = $line['score'];
 	}
 	$userarray = getSubteamListFromArray($array);
 
@@ -263,7 +250,8 @@ function addSubteamStatsrun($array, $tabel)
 		{
 			if ( ! isset($userarray[$team][$membername]) )
 			{
-				$db->insertQuery('REPLACE INTO 
+				/*
+				$db->insertQuery('INSERT INTO 
 						movement 
 						( 
 							naam, 
@@ -279,7 +267,7 @@ function addSubteamStatsrun($array, $tabel)
 							0,
 							' . ( $currentuser[$team][$membername] ) . ',
 							\'' . $tabel . '\'
-						)');
+						)');*/
 				
 				$db->deleteQuery('DELETE FROM ' . $tabel . ' WHERE naam = \'' . $membername . '\' 
 					AND subteam = \'' . $team . '\' AND dag = \'' . $datum . '\'');
@@ -338,7 +326,7 @@ function addSubteamStatsrun($array, $tabel)
 			#echo $insQuery . "\n";
 			$db->insertQuery($insQuery);
 
-			$insQuery = 'REPLACE INTO movement VALUES ( \'' . $naam . '\', \'' . $datum . '\', 1, ' . $score . ',\'' . $tabel . '\')';
+			$insQuery = 'INSERT INTO movement VALUES ( \'' . $naam . '\', \'' . $datum . '\', 1, ' . $score . ',\'' . $tabel . '\')';
 			#echo $query;
 			//$db->insertQuery($insQuery);
 		}
@@ -374,26 +362,20 @@ function addSubteamStatsrun($array, $tabel)
 
 	$info = explode('_', $tabel);
 
-	$query = 'REPLACE INTO
+	$query = 'UPDATE
 			updates
-			(
-				project,
-				tabel,
-				tijd
-			)
-			VALUES
-			(
-				\'' . $info[0] . '\',
-				\'' . $info[1] . '\',
-				\'' . date("Y-m-d:H:i:s") . '\'
-			)';
-	$db->insertQuery($query);
+		SET
+			tijd = \'' . date("Y-m-d H:i:s") . '\'
+		WHERE
+			project = \'' . $info[0] . '\'
+		AND	tabel = \'' . $info[1] . '\'';
 
-	fillDailyTable($tabel);
+	$db->insertQuery($query);
 }
 
 function fillDailyTable($tabel)
 {
+	return 0;
 	global $db;
         $query = 'CREATE TABLE IF NOT EXISTS ' . $tabel . 'daily
         (
@@ -482,7 +464,7 @@ function individualStatsrun($project)
 		UNION 
 		(
 			SELECT 
-				CONCAT( subteam, \' - \', naam ) as naam,
+				' . ($db->getType()=='mysql'?'CONCAT( subteam, \' - \', naam ) as naam':'subteam || \' - \' || naam as naam') . ',
 				( cands + daily ) as total
 			FROM
 				' . $project . '_subteamoffset 
@@ -528,8 +510,6 @@ function setDailyOffset($prefix, $tabel, $datum)
 				WHERE
 					dag = \'' . date("Y-m-d", strtotime("-1 days", strtotime($datum))) . '\'';
 	$db->insertQuery($query);
-
-	fillDailyTable($prefix . '_' . $tabel);
 }
 
 function dailyOffset($tabel, $project)
