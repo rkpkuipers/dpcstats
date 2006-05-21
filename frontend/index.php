@@ -23,7 +23,7 @@ if ( isset($_REQUEST['setCookieActive']) )
 # These can be taken from the global array, if they're not set we use the default
 $allowed = array(	'mode' => 'Members',		# Which page to load
 			'searchString' => '',		# Inputstring used in search
-			'tabel' => 'memberoffsetdaily',	# Tabel to take data from
+			'tabel' => 'memberoffset',	# Tabel to take data from
 			'datum' => date("Y-m-d"),	# Date to collect data from
 			'naam' => '',			# Name used when collecting detailed member info
 			'frame' => '',			# Let's find out
@@ -52,31 +52,6 @@ checkTable($tabel);
 if ( $datum > date("Y-m-d") )
 	$datum = date("Y-m-d");
 
-# Decide wether or not to use the faster memory table instead of the normal one
-if ( $datum <= date("Y-m-d", strtotime("-3 day")) )
-# Langer dan 3 dagen geleden, beide variabelen op de standaardtabel zonder suffix
-{
-	if ( is_numeric(strpos($tabel, 'daily') ) )
-	{
-		$tabel = substr($tabel, 0, strpos($tabel, 'daily'));
-	}
-	
-	$speedTabel = $tabel;
-}
-else
-# Datum tussen vandaag en 2 dagen geleden, tabel op standaard en speedtabel op daily
-{
-	if ( ! is_numeric(strpos($tabel, 'daily') ) )
-	{
-		$speedTabel = $tabel . 'daily';
-	}
-	else
-	{
-		$speedTabel = $tabel;
-		$tabel = substr($tabel, 0, strpos($tabel, 'daily'));
-	}
-}
-
 if ( isset($_GET['detail']) )
 	$graphDetail = $_GET['detail'];
 else
@@ -100,7 +75,7 @@ else
 if ( isset($_REQUEST['prefix']) )
 	$project = new Project($db, $_REQUEST['prefix'], $tabel);
 else
-	$project = new Project($db, 'tsc', 'memberoffsetdaily');
+	$project = new Project($db, 'tsc', 'memberoffset');
 
 if ( isset($_GET['debug']) )
 	$debug = $_GET['debug'];
@@ -208,7 +183,7 @@ function change( imageName, newSource )
      <tr>
       <td colspan="1"><img name="index_r4_c1" src="images/index_r4_c1.jpg" width="159" class="cellHeight5" alt=""></td>
       <td colspan="2">
-       <a href="?mode=Members&amp;prefix=<? echo $project->getPrefix() ?>&amp;tabel=memberoffsetdaily&amp;datum=<? echo $datum; ?>" onmouseover="change('index_r4_c2', 'images/DPCm-bleu.jpg')" 
+       <a href="?mode=Members&amp;prefix=<? echo $project->getPrefix() ?>&amp;tabel=memberoffset&amp;datum=<? echo $datum; ?>" onmouseover="change('index_r4_c2', 'images/DPCm-bleu.jpg')" 
 <? 
 	if ( $mode == 'Members' )
 	{ 
@@ -234,7 +209,7 @@ function change( imageName, newSource )
       </td>
       <td>
 <?
-  	echo '<a href="?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffsetdaily&amp;datum=' . 
+  	echo '<a href="?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . 
 		$datum . '" onmouseover="change(\'index_r4_c4\', \'images/TSC-Team-blue.jpg\')" ';
 
 	if ( $mode == 'Teams' )
@@ -338,7 +313,7 @@ function change( imageName, newSource )
 	echo '.';
 	while ( $line = $db->fetchArray($result) )
 	{
-		echo ': <a href="index.php?prefix=' . $line['project'] . '&amp;datum=' . $datum . ($line['project']=='sp5'?'&amp;mode=Stampede':'&amp;mode=Members') . '"><b>' . $line['description'] . '</b></a> :';
+		echo ': <a href="index.php?prefix=' . $line['project'] . '&amp;datum=' . $datum . ($line['project']=='sp5'?'&amp;mode=Stampede':'&amp;mode=Members') . '" title="Stats for ' . $line['description'] . '"><b>' . $line['description'] . '</b></a> :';
 	}
 	echo '.';
 ?>
@@ -363,6 +338,7 @@ function change( imageName, newSource )
 						'avgProd' => array('Average Production Rate', 'average.php'),
 						'monthlyStats' => array('Monthly Stats', 'monthly.php'),
 						'memberGraphs' => array('Member Graphs', 'memberGraphs.php'),
+						'state' => array('Statement', 'statement.html'),
 						'faq' => array('Frequently Asked Questions', 'faq.php'));
 
 	if ( isset($pages[$mode]) )
@@ -435,6 +411,8 @@ function change( imageName, newSource )
 		echo getMenuEntry('Find a Drug', $baseUrl . '/index.php?mode=Members&amp;tabel=memberoffset&amp;naam=' . 
 				'&amp;datum=2006-01-26&amp;prefix=fad', $link++);
 		echo getMenuEntry('TSC Phase 1', $baseUrl . '/index.php?prefix=tp1&datum=2006-04-03&mode=Members', $link++);
+		echo getMenuEntry('Stampede V', $baseurl . '/index.php?prefix=sp5&datum=2006-05-05&mode=Stampede' .
+				'&datum=2006-04-30', $link++);
 	}
 	echo '</table>';
 
@@ -445,13 +423,13 @@ function change( imageName, newSource )
 
 	if ( $dtActive == 'on' )
 	{
-		$ml = new MemberList($project->getPrefix() . '_teamoffsetdaily', $project->getCurrentDate(), 0, 5, $db);
+		$ml = new MemberList($project->getPrefix() . '_teamoffset', $project->getCurrentDate(), 0, 5, $db);
 		$ml->generateFlushList();
-		getTop5Table($project, $ml, 'Top 5 Teams', 'teamoffsetdaily');
+		getTop5Table($project, $ml, 'Top 5 Teams', 'teamoffset');
 		
-		$ml = new MemberList($project->getPrefix() . '_memberoffsetdaily', $project->getCurrentDate(), 0, 5, $db);
+		$ml = new MemberList($project->getPrefix() . '_memberoffset', $project->getCurrentDate(), 0, 5, $db);
 		$ml->generateFlushList();
-		getTop5Table($project, $ml, 'Top 5 Members', 'memberoffsetdaily');
+		getTop5Table($project, $ml, 'Top 5 Members', 'memberoffset');
 	}
 
 	if ( $sbActive == 'on' )
@@ -520,10 +498,10 @@ function change( imageName, newSource )
      </tr>
      <tr>
       <td colspan="12" class="pageCell" style="background-image:url(images/index_r12_c1.jpg); background-position:right top; background-repeat:repeat-y" align="center">
-       <a href="mailto:speedkikker@planet.nl">Contact</a> 
-       | <a href="http://rkuipers.mine.nu/traffic/awstats.tadah.mine.nu.html">Site Traffic</a>
+       <a href="mailto:speedkikker@planet.nl" title="Mail SpeedKikker">Contact</a> 
+       | <a href="http://rkuipers.mine.nu/traffic/awstats.tadah.mine.nu.html" title="View site traffic">Site Traffic</a>
        | &copy;opyright 2004-2006 TaDaH
-       | <a href="http://rkuipers.mine.nu/viewcvs/">Revision <? echo $project->getVersion() . ' (' . date("d-m-Y", strtotime($project->getLastPageUpdate())) . ')';?></a> 
+       | <a href="http://rkuipers.mine.nu/viewcvs/" title="View revision history">Revision <? echo $project->getVersion() . ' (' . date("d-m-Y", strtotime($project->getLastPageUpdate())) . ')';?></a> 
        | <? $duration = microtime_diff($start_time, microtime()); $duration = sprintf("%0.3f", $duration);?> Page loaded in <?=$duration?> seconds
       </td>
       <td><img src="images/spacer.gif" width="1" height="34" alt=""></td>
