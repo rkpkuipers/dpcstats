@@ -18,6 +18,7 @@ class Project
 	private $srInterval;
 	private $wdoPrefix;
 	private $team;
+	private $additional;
 
 	private $db;
 	private $datum;
@@ -35,13 +36,12 @@ class Project
 		else
 			$this->datum = $datum;
 		
-		if ( is_numeric(strpos($tabel, 'daily')) )
-			$this->tabel = substr($tabel, 0, strpos($tabel, 'daily') );
-			
 		$this->teamRank = -1;
 		$this->teamDaily = -1;
 
 		$this->teamName = $team;
+
+		$this->additional = '';
 
 		$this->getInfo();
 	}
@@ -56,6 +56,7 @@ class Project
 				u.tijd,
 				p.dpchtitle,
 				p.teamname,
+				p.additional,
 				p.statsruninterval,
 				p.wdoprefix
 			FROM 
@@ -78,6 +79,7 @@ class Project
 				$this->teamName = $line['teamname'];
 			$this->dpchTitle = $line['dpchtitle'];
 			$this->srInterval = $line['statsruninterval'];
+			$this->additional = $line['additional'];
 			
 			if ( $line['wdoprefix'] == '' )
 				$this->wdoPrefix = $this->prefix;
@@ -103,6 +105,11 @@ class Project
 		$this->lastPageUpdate = $info[7];
 	}
 
+	function getAdditional()
+	{
+		return $this->additional;
+	}
+
 	function getCurrentDate()
 	{
         	switch($this->prefix)
@@ -123,7 +130,7 @@ class Project
 			$query = 'SELECT
 					currrank
 				FROM
-					' . $this->prefix . '_memberoffsetdaily
+					' . $this->prefix . '_memberoffset
 				WHERE
 					dag = \'' . date("Y-m-d", strtotime($this->datum)) . '\'
 				AND	naam = \'' . $this->teamName . '\'
@@ -145,7 +152,7 @@ class Project
 			$query = 'SELECT
 					dailypos
 				FROM
-					' . $this->prefix . '_memberoffsetdaily
+					' . $this->prefix . '_memberoffset
 				WHERE
 					dag = \'' . date("Y-m-d", strtotime($this->datum)) . '\'
 				AND	naam = \'' . $this->teamName . '\'
@@ -167,7 +174,7 @@ class Project
 			$query = 'SELECT 
 					currrank
 				FROM 
-					' . $this->prefix . '_teamoffsetdaily 
+					' . $this->prefix . '_teamoffset 
 				WHERE 
 					dag = \'' . date("Y-m-d", strtotime($this->datum)). '\' 
 				AND	naam = \'' . $this->teamName . '\'
@@ -188,7 +195,7 @@ class Project
 			$query = 'SELECT
 					dailypos
 				FROM
-					' . $this->prefix . '_teamoffsetdaily
+					' . $this->prefix . '_teamoffset
 				WHERE
 					dag = \'' . date("Y-m-d", strtotime($this->datum)) . '\'
 				AND	naam = \'' . $this->teamName . '\'
