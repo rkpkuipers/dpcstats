@@ -1,3 +1,6 @@
+<?
+include ('../classes.php');
+?>
 <html>
 <head>
 <style>
@@ -23,15 +26,12 @@ td
 <td>prefix</td>
 <td>Project</td>
 <td>
-d2ol - D2OL<br>
-fah - Folding@Home<br>
-rah - Rosetta@Home<br>
-sah - Seti@Home<br>
-smp - Simap<br>
-sob - Seventeen or Bust<br>
-tsc - TSC<br>
-ud - UD-Grid<br>
-ufl - &micro;fluids
+<?
+$query = 'SELECT project, description FROM project where active = 1 ORDER BY project';
+$result = $db->selectQuery($query);
+
+while ( $line = $db->fetchArray($result) ) echo $line['project'] . ' - ' . $line['description'] . '<br>';
+?>
 </td>
 </tr>
 <tr>
@@ -56,10 +56,12 @@ ufl - &micro;fluids
 </table>
 <br>
 <pre>
-Het xml script is te vinden onder http://tadah.mine.nu/xml/list.php Meerdere variabelen kunnen gecombineerd worden. 
+De xml scripts zijn te vinden onder http://tadah.mine.nu/xml/list.php en http://tadah.mine.nu/xml/detail.php 
+Meerdere variabelen kunnen gecombineerd worden. 
 De eerste wordt na een ? geplaatst. Alles wat daar na komt wordt door een & voorafgegaan:
 list.php?tabel=teamoffset&prefix=sob of
-list.php?prefix=rah&tabel=subteamoffset&naam=Los%20Alcoholicos
+list.php?prefix=rah&tabel=subteamoffset&team=Los%20Alcoholicos
+detail.php?prefix=sob&tabel=memberoffset&naam=SpeedKikker
 De volgorde van de variabelen maakt niet uit. 
 Prefix is verplicht, team is alleen verplicht als voor mode subteamoffset wordt meegegeven.
 </pre>
