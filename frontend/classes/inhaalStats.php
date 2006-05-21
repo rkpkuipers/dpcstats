@@ -52,11 +52,12 @@ class TOThreats extends TOSuperClass
                         FROM
                                 ' . $this->tabel . ' o,
                                 averageproduction ap
-                        WHERE
-                                ap.' . $this->fieldname . ' > ' . $this->avgProduction . '
-                        AND     id>' . $this->memberInfo->getRank() . '
-                        AND     dag = \'' . $this->datum . '\'
-                        AND     ap.naam = o.naam
+			WHERE
+				ap.' . $this->fieldname . ' > ' . $this->avgProduction . '
+			AND	id>' . $this->memberInfo->getRank() . '
+			AND	( o.cands + o.daily ) < ' . $this->memberInfo->getCredits() . '
+			AND	dag = \'' . $this->datum . '\'
+			AND	ap.naam = o.naam
 			AND	ap.tabel = \'' . $this->tabel . '\' ' .
 			((is_numeric(strpos($this->tabel, 'subteamoffset'))&&(strpos($this->tabel, 'subteamoffset')>0))?'AND o.subteam = \'' . $this->team . '\'':'') . '
                         ORDER BY
