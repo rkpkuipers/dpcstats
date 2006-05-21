@@ -373,31 +373,6 @@ function addSubteamStatsrun($array, $tabel)
 	$db->insertQuery($query);
 }
 
-function fillDailyTable($tabel)
-{
-	return 0;
-	global $db;
-        $query = 'CREATE TABLE IF NOT EXISTS ' . $tabel . 'daily
-        (
-                naam varchar(100),
-                cands int(10),
-                id int(4),
-                dag date,
-                daily int(6),
-                dailypos int(3),
-		subteam varchar(100),
-                currrank int(4),
-                PRIMARY KEY  (`naam`,`dag`))
-                ENGINE = MEMORY';
-        mysql_query($query);
-
-        $query = 'DELETE FROM ' . $tabel . 'daily';
-        $db->deleteQuery($query);
-
-        $query = 'INSERT INTO ' . $tabel . 'daily SELECT * from ' . $tabel . ' WHERE dag >= \'' . getTwoDaysPrev() . '\'';
-        $db->insertQuery($query);
-}
-
 function checkTeamMember($tabel, $team, $member)
 {
 	global $db;
