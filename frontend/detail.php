@@ -56,16 +56,15 @@ echo '<tr><td align="left">Flush rank</td><td align=right>' . $mi->getDailyRank(
 echo '<tr><td align="left">Average Daily Pos</td><td align=right>' . number_format($mi->getAvgDailyPos(), 1, ',', '.') . '</td></tr>';
 echo '<tr><td align="left">Increase</td>';
 echo '<td align=right>' . number_format($mi->getIncrease(), 2, ',', '.') . ' %</td></tr>';
-echo '</table><hr><table border="0" width="100%">';
-if ( ( ( $project->getPrefix() == 'tsc' ) || ( $project->getPrefix() == 'd2ol' ) ) && ( $tabel != 'nodeoffset' ) )
+if ( in_array($project->getPrefix(), array('tsc', 'd2ol', 'sob') ) )
 {
-	echo '<tr><td align="left">Nodes</td><td align=right>' . number_format($mi->getNodes(), 0, ',', '.') . '</td></tr>';
-	echo '<tr><td align="left">Average node output overall</td><td align=right>' . number_format($mi->getANOOverall(), 2, ',', '.') . '</td></tr>';
-	echo '<tr><td align="left">Average node output today</td><td align=right>' . number_format($mi->getANOToday(), 2, ',', '.') . '</td></tr>';
-	echo '</table><hr><table border="0" width="100%">';
+	echo '<tr><td align="left">' . $project->getAdditional() . '</td><td align=right>' . number_format($mi->getNodes(), 0, ',', '.') . '</td></tr>';
+	#echo '<tr><td align="left">Average node output overall</td><td align=right>' . number_format($mi->getANOOverall(), 2, ',', '.') . '</td></tr>';
+	#echo '<tr><td align="left">Average node output today</td><td align=right>' . number_format($mi->getANOToday(), 2, ',', '.') . '</td></tr>';
 }
+echo '</table><hr><table border="0" width="100%">';
 
-echo '<tr><td align="left"istances</td></tr>';
+echo '<tr><td align="left">Distance</td></tr>';
 
 echo '<tr><td align="left">To next member</td><td align=right>';
 
