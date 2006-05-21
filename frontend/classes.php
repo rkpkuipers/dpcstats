@@ -29,15 +29,8 @@ require ('classes/AverageProduction.php');
 require ('classes/faq.php');
 
 # Initialize the database
-
-if ( ( in_array($_REQUEST['prefix'], array('fah', 'sah', 'tsc', 'd2ol', 'ufl', 'ud', 'smp')) ) || 
-	( in_array($_REQUEST['project'], array('fah', 'sah', 'tsc', 'd2ol', 'ufl', 'ud', 'smp'))) )
-{
-	$db = new pgDataBase();
-	$db->connect();
-}
-else
-	$db = new DataBase();
+$db = new pgDataBase();
+$db->connect();
 
 # Globals
 $listsize = 30;
