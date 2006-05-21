@@ -121,8 +121,7 @@ function LimitText(fieldObj,maxChars)
 }
 
 //<![CDATA[
-var onImageURL = new Array("images/DPCm-bleu.jpg", "images/TSC-Team-blue.jpg", "images/Node-Blue.jpg", 
-			   "images/Member-blue.jpg", "images/Out-Graph-blue.jpg", "images/History-blue.jpg" );
+var onImageURL = new Array("images/DPCm-bleu.jpg", "images/Member-blue.jpg", "images/Out-Graph-blue.jpg", "images/History-blue.jpg" );
 
 var preload = new Array( onImageURL.length );
 var imgNum;
@@ -207,37 +206,10 @@ function change( imageName, newSource )
 ?>  
        width="108" class="cellHeight5" alt=""></a>
       </td>
-      <td>
-<?
-  	echo '<a href="?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . 
-		$datum . '" onmouseover="change(\'index_r4_c4\', \'images/TSC-Team-blue.jpg\')" ';
-
-	if ( $mode == 'Teams' )
-	{ 
-		echo "onmouseout=\"change('index_r4_c4', 'images/TSC-Team-blue.jpg')\"> "; 
-	}
-	else 
-	{ 
-		echo "onmouseout=\"change('index_r4_c4', 'images/index_r4_c4.jpg')\"> "; 
-	} 
-?> 
-       <img name="index_r4_c4" 
-<? 
-	if ( $debug == 1 )
-		echo 'src="images/spacer.3.jpg"';
-	else
-	{
-		if ( $mode == 'Teams' )
-		{ 
-			echo 'src="images/TSC-Team-blue.jpg"'; 
-		}
-		else 
-		{ 
-			echo 'src="images/index_r4_c4.jpg"'; 
-		} 
-	}
-?>  
-       width="99" class="cellHeight5" alt=""></a>
+      <td align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/teams.jpg); width:100" class="cellHeight5" onclick='window.open("<? echo '?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . $datum; ?>", "_self")'>
+       <div style="position:relative; top:9px">
+        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="<? echo '?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . $datum; ?>">Teams</a>
+       </div>
       </td>
 <?
 	if ( in_array($project->getPrefix(), array('fah', 'sah', 'smp', 'sob', 'ufl', 'rah')) )
