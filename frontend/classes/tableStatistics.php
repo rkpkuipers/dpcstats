@@ -321,7 +321,7 @@ class TableStatisticsMonthly
 			FROM 
 				' . $this->tabel . ' of 
 			WHERE 
-				of.dag >= \'' . $this->datum . '\' 
+				of.dag LIKE \'' . date("Y-m-%", strtotime($this->datum)) . '\' 
 			AND	daily > 0';
 		$result = $this->db->selectQuery($query);
 		if ( $line = $this->db->fetchArray($result) )
