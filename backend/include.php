@@ -281,7 +281,11 @@ function addSubteamStatsrun($array, $tabel)
 		$naam = str_replace('\'', '\\\'', $array[$i]->getName());
 		$score = $array[$i]->getCredits();
 		$subteam = $array[$i]->getTeam();
-		$subteamCounter[$subteam]++;
+
+		if ( ! isset($subteamCounter[$subteam]) )
+			$subteamCounter[$subteam] = 1;
+		else
+			$subteamCounter[$subteam]++;
 		
 		$query = 'SELECT 
 				cands 
