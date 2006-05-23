@@ -39,7 +39,7 @@ while ( $line = $db->fetchArray($result) )
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, 	"memberName=" . $line['username'] . 
 							"&password=" . $line['password']);
-
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		$data = curl_exec($ch);
 
 		curl_setopt($ch, CURLOPT_URL, "http://d2ol.childhooddiseases.org/memberServices/myNodes.jsp");
@@ -48,9 +48,10 @@ while ( $line = $db->fetchArray($result) )
 		$data = curl_exec($ch);
 		fclose($file);
 
-		system('cat ' . $tempdir . '/temp.txt | grep nodePopUp -A 1 | grep -v -- -- > ' . $tempdir . 'subteampage2.txt');
+		system('cat ' . $tempdir . '/subteampage.txt | grep nodePopUp -A 1 | grep -v -- -- > ' . $tempdir . 'subteampage2.txt');
 
 		$data = file_get_contents($tempdir . 'subteampage2.txt');
+		unlink($tempdir . 'subteampage2.txt');
 		$info = preg_replace(array('@</a>@si', '@<a[^>]*?>@si', '@<td[^>]*?>@si', '@</td>@si'), '||', $data);
 
 		$nodes = explode('||', $info);
