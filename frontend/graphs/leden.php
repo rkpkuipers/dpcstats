@@ -32,7 +32,7 @@ function createLine($tabel)
 	while($line = $db->fetchArray($result))
 	{
 		$cntQuery = 'SELECT 
-				COUNT(naam)AS cntNaam
+				COUNT(naam)AS cntnaam
 			FROM 
 				movement 
 			WHERE 
@@ -42,7 +42,7 @@ function createLine($tabel)
 #		echo $cntQuery;
 		$cntResult = $db->selectQuery($cntQuery);
 		if ( $cntline = $db->fetchArray($cntResult) )
-			$lines[$pos] = $cntline['cntNaam'];
+			$lines[$pos] = $cntline['cntnaam'];
 		else
 			$lines[$pos] = 0;
 
