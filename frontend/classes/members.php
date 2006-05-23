@@ -231,41 +231,43 @@ class MemberList
 		$query = 'SELECT
                         of.naam,
                         ( of.cands + of.daily ) AS total,
-                        oy.naam,
-                        MIN(oy.dag),
                         of.dailypos AS id,
                         oy.id AS dailypos,
                         of.id,
-                        oy.cands AS oudTotal,
-                        ( ( of.cands + of.daily ) - oy.cands ) AS flushed
+			CASE WHEN oy.cands IS NULL THEN 0 else oy.cands END AS oudtotal,
+			CASE WHEN ((of.cands+of.daily)-oy.cands) IS NULL THEN (of.cands+of.daily) ELSE ((of.cands+of.daily)-oy.cands) END AS flushed
                 FROM
-                        ' . $this->tabel . ' oy
-                LEFT JOIN
                         ' . $this->tabel . ' of
+                LEFT JOIN
+                        ' . $this->tabel . ' oy
                 ON
                         oy.naam = of.naam
-		AND	of.dag = \'' . $endDate . '\'
+		AND	oy.dag = \'' . $startDate . '-01\'
 		WHERE
-                	oy.dag LIKE \'' . $startDate . '-%\'
+                	of.dag = \'' . $endDate . '\'
                 GROUP BY
-                        of.naam
-		HAVING	flushed > 0
+                        of.naam, of.cands, of.daily, of.dailypos, oy.id, of.id, oy.cands
                 ORDER BY
-                        flushed DESC
-                LIMIT   ' . $this->listOffset . ',' . $this->listsize;
+                        flushed DESC ' .
+		( $this->db->getType() == 'mysql'?'LIMIT ' . $this->listOffset . ', ' . $this->listsize
+			:'OFFSET ' . $this->listOffset . ' LIMIT ' . $this->listsize);
+
                 $result = $this->db->selectQuery($query);
 
                 while ( $line = $this->db->fetchArray($result) )
                 {
-                        $tmpMemberID = count($this->members);
-                        $this->members[$tmpMemberID] = new DetailedMember($this->db,
-								$this->tabel,
-                                                                $this->datum,
-                                                                $line['naam'],
-                                                                $line['total'],
-                                                                $line['id'],
-                                                                $line['flushed'],
-                                                                $line['dailypos']);
+			if ( ( $line['flushed'] != 0 ) || ( ( $line['flushed'] == 'NULL' ) && ( $line['dailypos'] == 'NULL') ) )
+			{
+	                        $tmpMemberID = count($this->members);
+        	                $this->members[$tmpMemberID] = new DetailedMember($this->db,
+									$this->tabel,
+                        	                                        $this->datum,
+                                	                                $line['naam'],
+                                        	                        $line['total'],
+                                                	                $line['id'],
+                                                        	        $line['flushed'],
+                                                                	$line['dailypos']);
+			}
                         #$this->members[$tmpMemberID]->getYesterdayFlushPos();
                 }
         }
@@ -413,27 +415,26 @@ class MemberList
                 $query = 'SELECT
                         of.naam,
                         ( of.cands + of.daily ) AS total,
-                        oy.naam,
-                        MIN(oy.dag),
-                        of.id AS endId,
-                        oy.id AS startId,
-			of.dailypos AS dailyPos,
-                        oy.cands AS oudTotal,
-                        ( ( of.cands + of.daily ) - oy.cands ) AS flushed
+                        of.id AS endid,
+                        oy.id AS startid,
+			of.dailypos AS dailypos,
+                        oy.cands AS oudtotal,
+			CASE WHEN ((of.cands+of.daily)-oy.cands) IS NULL THEN (of.cands+of.daily) ELSE ( ( of.cands + of.daily ) - oy.cands ) END AS flushed
                 FROM
-                        ' . $this->tabel . ' oy
-                LEFT JOIN
                         ' . $this->tabel . ' of
+                LEFT JOIN
+                        ' . $this->tabel . ' oy
                 ON
                         oy.naam = of.naam
-		AND 	of.dag = \'' . $endDate . '\'
+		AND 	oy.dag = \'' . $startDate . '-01\'
 		WHERE
-                	oy.dag LIKE \'' . $startDate . '-%\'
+                	of.dag = \'' . $endDate . '\'
                 GROUP BY
-                        of.naam
+                        of.naam, of.cands, of.daily, of.id, oy.id, of.dailypos, oy.cands
                 ORDER BY
                         total DESC
-                LIMIT   ' . $this->listOffset . ',' . $this->listsize;
+                OFFSET	' . $this->listOffset . '
+		LIMIT	' . $this->listsize;
 
                 $result = $this->db->selectQuery($query);
 
@@ -446,10 +447,10 @@ class MemberList
                                                                 $this->datum,
                                                                 $line['naam'],
                                                                 $line['total'],
-                                                                $line['startId'],
+                                                                $line['startid'],
                                                                 $line['flushed'],
-                                                                $line['dailyPos'], 
-								$line['startId']);
+                                                                $line['dailypos'], 
+								$line['startid']);
                 }
 
         }
@@ -631,7 +632,7 @@ class MemberInfo
 				additional n
 			WHERE
 				n.naam = \'' . $this->naam . '\'
-			AND	n.prefix = \'' . $this->prefix . '\'';
+			AND	n.prefix = \'' . $this->tabel . '\'';
 		$result = $this->db->selectQuery($query);
 
 		if ( $line = $this->db->fetchArray($result) )
