@@ -36,7 +36,7 @@ $db->connect();
 $listsize = 30;
 $baseUrl = 'http://tadah.mine.nu';
 
-$jpgraphdir = '/usr/local/jpgraph-php5/';
+$jpgraphdir = '/usr/share/php5/jpgraph/';
 
  $kleur[0] = "#CC0000";
  $kleur[6] = "#FFFF00";   # Rood
