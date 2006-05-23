@@ -36,7 +36,7 @@ error_reporting(E_ALL);
 
 checkTable($tabel);
 
-$ts = new TableStatisticsMonthly($project->getPrefix() . '_' . $tabel, $maand);
+$ts = new TableStatisticsMonthly($project->getPrefix() . '_' . $tabel, $maand, $db);
 $ts->gather();
 
 {
@@ -206,7 +206,7 @@ echo openColorTable();
 <?
 $ts = new TableStatistics($project->getPrefix() . '_' . $tabel, $maand, $db);
 $ts->gather();
-echo '<tr><td>Total Output</td><td align="right">' . number_format($ts->getTotalOutput(), 0, ',', '.') . ' ' . $project->getWuName() . '</td></tr>';
+echo '<tr><td align="left">Total Output</td><td align="right">' . number_format($ts->getTotalOutput(), 0, ',', '.') . ' ' . $project->getWuName() . '</td></tr>';
 ?>
 </table>
 <hr>
