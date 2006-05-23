@@ -1,10 +1,10 @@
 <?
 
-$project = new Project($db, 'sp5', 'memberoffsetdaily');
+$project = new Project($db, 'sp5', 'memberoffset');
 
 $subteamCount = 10;
 
-$ts = new TableStatistics($project->getPrefix() . '_' . $speedTabel, $datum, $db);
+$ts = new TableStatistics($project->getPrefix() . '_' . $tabel, $datum, $db);
 $ts->gather();
 
 if ( $ts->getDailyFlushers() > 0 )
@@ -85,9 +85,9 @@ echo '</tr></table>';
 #echo '<hr>';
 
 if ( $flushList == 2 )
-	$ml = new MemberList($project->getPrefix() . '_' . $speedTabel, $datum, 0, $ts->getDailyFlushers(), $db, $team);
+	$ml = new MemberList($project->getPrefix() . '_' . $tabel, $datum, 0, $ts->getDailyFlushers(), $db, $team);
 else
-	$ml = new MemberList($project->getPrefix() . '_' . $speedTabel, $datum, $dlow, $listsize, $db, $team);
+	$ml = new MemberList($project->getPrefix() . '_' . $tabel, $datum, $dlow, $listsize, $db, $team);
 
 $ml->generateFlushList();
 $mbs = $ml->getMembers();
@@ -251,9 +251,9 @@ if ( $ts->getTotalMembers() > $listsize )
 
 <?php
 if ( $flushList == 1 )
-	$ml = new MemberList($project->getPrefix() . '_' . $speedTabel, $datum, 0, $ts->getTotalMembers(), $db, $team);
+	$ml = new MemberList($project->getPrefix() . '_' . $tabel, $datum, 0, $ts->getTotalMembers(), $db, $team);
 else
-	$ml = new MemberList($project->getPrefix() . '_' . $speedTabel, $datum, $low, $listsize, $db, $team);
+	$ml = new MemberList($project->getPrefix() . '_' . $tabel, $datum, $low, $listsize, $db, $team);
 $ml->generateRankList();
 
 $mbs = $ml->getMembers();
