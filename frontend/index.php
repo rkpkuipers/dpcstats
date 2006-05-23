@@ -121,7 +121,7 @@ function LimitText(fieldObj,maxChars)
 }
 
 //<![CDATA[
-var onImageURL = new Array("images/DPCm-bleu.jpg", "images/Member-blue.jpg", "images/Out-Graph-blue.jpg", "images/History-blue.jpg" );
+var onImageURL = new Array("images/DPCm-bleu.jpg", "images/History-blue.jpg" );
 
 var preload = new Array( onImageURL.length );
 var imgNum;
@@ -228,28 +228,11 @@ function change( imageName, newSource )
 		echo '<td style="background-image:url(images/spacer.3.jpg); width:100" class="cellHeight5"></td>';
 ?>
       <td colspan="2"><img name="spacer.4.jpg" src="images/spacer.4.jpg" width="103" class="cellHeight5" alt=""></td>
-      <td><a href="?mode=Graph&amp;tabel=teamoffset&amp;prefix=<? echo $project->getPrefix(); ?>&amp;teams[0]=<? echo rawurlencode($project->getTeamName()); ?>" onmouseover="change('index_r4_c8', 'images/Out-Graph-blue.jpg')" 
-<? 
-	if ( $mode == 'Graph' )
-	{ 
-		echo "onmouseout=\"change('index_r4_c8', 'images/Out-Graph-blue.jpg')\"> "; 
-	}
-	else 
-	{ 
-		echo "onmouseout=\"change('index_r4_c8', 'images/index_r4_c8.jpg')\"> "; 
-	} 
 
-	echo '<img name="index_r4_c8" ';
-	if ( $mode == 'Graph' )
-	{ 
-		echo 'src="images/Out-Graph-blue.jpg"'; 
-	}
-	else 
-	{ 
-		echo 'src="images/index_r4_c8.jpg"'; 
-	} 
-?> 
-       width="100" class="cellHeight5" alt=""></a>
+      <td align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/output-graph.jpg); width:100" class="cellHeight5" onclick='window.open("<? echo '?mode=Graph&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>", "_self")'>
+       <div style="position:relative; top:6px">
+        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="<? echo '?mode=Graph&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>">Output<br>Graphs</a>
+       </div>
       </td>
       <td colspan="3"><a href="?mode=Flush&amp;prefix=<? echo $project->getPrefix() ?>" onmouseover="change('index_r4_c9', 'images/History-blue.jpg')" 
 <? 
@@ -324,7 +307,7 @@ function change( imageName, newSource )
 		$pagefile = 'members.php';
 	}
 	
-	echo '<center style="color:#FFFFFF; font-size:14px; font-weight:bold">' . $project->getDescription() . '</center>';
+	echo '<center style="color:#FFFFFF; font-size:14px; font-weight:bold;"><a class="wLink" href="' . $project->getWebsite() . '">' . $project->getDescription() . '</a></center>';
 ?>
       </td>
       <td colspan="9" style="background-image:url(images/index_r5_c3.jpg); background-position:right top; background-repeat:repeat-y" align="left" >
