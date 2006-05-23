@@ -15,7 +15,7 @@ function createLine($tabel)
 {
 	global $lines, $dagen, $project, $db;
 
-	$query = 'SELECT COUNT(naam) AS leden, dag FROM ' . $project->getPrefix() . '_memberoffset where dag>\'' . date("Y-m-d", strtotime("-1 month" )) . '\' group by dag';
+	$query = 'SELECT COUNT(naam) AS leden, dag FROM ' . $project->getPrefix() . '_memberoffset where dag>\'' . date("Y-m-d", strtotime("-1 month" )) . '\' group by dag order by dag';
 	$result = $db->selectQuery($query);
 	$pos = 0;
 	$lines = array();
