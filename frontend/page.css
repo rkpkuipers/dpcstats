@@ -59,6 +59,9 @@ a:hover
 	width : 100%;
 }
 
+a.wLink:link    { color:#FFFFFF; }
+a.wLink:visited { color:#EEEEEE; }
+
 .score
 {
 	color : #FF0000;
