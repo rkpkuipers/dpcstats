@@ -36,7 +36,7 @@ setLocale(LC_ALL, 'nl_NL');
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
 <head>
-<title><?php echo strtoupper($project->getDPCHTitle());?> DPCH</title>
+<title><?php echo $project->getDPCHTitle();?> DPCH</title>
 <link rel="stylesheet" type="text/css" href="http://gathering.tweakers.net/global/templates/tweakers/css/nightlife.css?v=193h" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
@@ -46,14 +46,16 @@ setLocale(LC_ALL, 'nl_NL');
 $ts = new TableStatisticsMonthly($project->getPrefix() . '_memberoffset', $datum, $db);
 $ts->gather();
 
-$page = '[b]DPC ' . strtoupper($project->getDPCHTitle()) . ' maand-hitparade van ' . strftime('%B %Y', strtotime($prevMonth . '-01')) . '[/b]';
+$page = '[b]DPC ' . $project->getDPCHTitle() . ' maand-hitparade van ' . strftime('%B %Y', strtotime($prevMonth . '-01')) . '[/b][br][br]';
 $page .= '[table bgcolor="transparent" width="450px"]';
-$page .= '[tr][td colspan="6"][b]Monthly Top 30[/b][/td][/tr]';
-$page .= '[tr][td colspan="6"][small]Flushers: ' . $ts->getDailyFlushers() . ' / ' . number_format($ts->getTotalMembers(), 0, ',', '.') . ' (' . number_format($ts->getDailyFlushers() / ( $ts->getTotalMembers() / 100 ), 1, ',', '.') . ' %)[/small][/td][/tr]';
-$page .= '[td colspan="2"][b]pos[/b][/td]';
+$page .= '[tr][td colspan="5"][b]Monthly Top 30[/b][/td][/tr]';
+$page .= '[tr][td colspan="5"][small]Flushers: ' . $ts->getDailyFlushers() . ' / ' . number_format($ts->getTotalMembers(), 0, ',', '.') . ' (' . number_format($ts->getDailyFlushers() / ( $ts->getTotalMembers() / 100 ), 1, ',', '.') . ' %)[/small][/td][/tr]';
+$page .= '[tr]';
+$page .= '[td colspan="1"][b]pos[/b][/td]';
 $page .= '[td align="right"][b]daily[/b][/td]';
-$page .= '[td][b]member[/b][/td]';
+$page .= '[td colspan="1"][b]member[/b][/td]';
 $page .= '[td align="right"][b]total[/b][/td]';
+$page .= '[td][/td]';
 $page .= '[/tr]';
 
 $ml = new MemberList($project->getPrefix() . '_memberoffset', $datum, 0, 30, $db);
@@ -68,7 +70,7 @@ for($i=0;$i<count($mbs);$i++)
 	$page .= '[td align="right"]' . ( $pos ) . '.[/td]';
 
 	$page .= '[td align="right"][red]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/red][/td]';
-	$page .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberoffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+	$page .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberoffset&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
 	$page .= '[td align="right"][blue]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/blue][/td]';
 	$page .= '[td align="right"](' . $mbs[$i]->getRank() . ')[/td]';
 	$page .= '[/tr]';
@@ -76,9 +78,10 @@ for($i=0;$i<count($mbs);$i++)
 
 $page .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberoffset"]More...[/url][/td][/tr]';
 $page .= '[/table]';
+$page .= '[br]';
 
 $page .= '[table bgcolor="transparent" width="450px"]';
-$page .= '[tr][td colspan="6"][b]Overall Top 30[/b]][/td][/tr]';
+$page .= '[tr][td colspan="6"][b]Overall Top 30[/b][/td][/tr]';
 $page .= '[tr]';
 $page .= '[td colspan="2"][b]pos[/b][/td]';
 $page .= '[td align="right"][b]total[/b][/td]';
@@ -106,7 +109,7 @@ for($i=0;$i<count($mbs);$i++)
 		$page .= '[td]([img]http://www.tweakers.net/g/dpc/down.gif[/img]' . ( $change - ( $change * 2 )) . ')[/td]';
 	
 	$page .= '[td align="right"][blue]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/blue][/td]';
-	$page .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberoffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+	$page .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberoffset&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
 	$page .= '[td align="right"][red]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/red][/td]';
 	$page .= '[td align="right"]'./*(' . $mbs[$i]->getFlushRank() . ')*/'[/td]';
 	$page .= '[/tr]';
@@ -114,14 +117,16 @@ for($i=0;$i<count($mbs);$i++)
 
 $page .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberoffset"]More...[/url][/td][/tr]';
 $page .= '[/table]';
+$page .= '[br]';
 
 $page .= '[table width="450px"]';
-$page .= '[tr][td colspan="6"][b]Teams Monthly Top 15[/b][/td][/tr]';
+$page .= '[tr][td colspan="5"][b]Teams Monthly Top 15[/b][/td][/tr]';
 $page .= '[tr]';
-$page .= '[td colspan="2"][b]pos[/b][/td]';
-$page .= '[td][b]daily[/b][/td]';
+$page .= '[td colspan="1"][b]pos[/b][/td]';
+$page .= '[td align="right"][b]daily[/b][/td]';
 $page .= '[td][b]team[/b][/td]';
-$page .= '[td colspan="2"][b]total[/b][/td]';
+$page .= '[td align="right"][b]total[/b][/td]';
+$page .= '[td][/td]';
 $page .= '[/tr]';
 
 $ml = new MemberList($project->getPrefix() . '_teamoffset', $datum, 0, 15, $db);
@@ -136,21 +141,23 @@ for($i=0;$i<count($mbs);$i++)
         $page .= '[td align="right"]' . ( $pos ) . '.[/td]';
 
         $page .= '[td align="right"][red]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/red][/td]';
-        $page .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamoffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+        $page .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamoffset&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
         $page .= '[td align="right"][blue]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/blue][/td]';
         $page .= '[td align="right"](' . $mbs[$i]->getRank() . ')[/td]';
         $page .= '[/tr]';
 }
 $page .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=teamoffset"]More...[/url][/td][/tr]';
 $page .= '[/table]';
+$page .= '[br]';
 
 $page .= '[table width="450px"]';
-$page .= '[tr][td colspan="6"]Teams Overall Top 15[/td][/tr]';
+$page .= '[tr][td colspan="6"][b]Teams Overall Top 15[/b][/td][/tr]';
 $page .= '[tr]';
 $page .= '[td colspan="2"][b]pos[/b][/td]';
-$page .= '[td][b]total[/b][/td]';
+$page .= '[td align="right"][b]total[/b][/td]';
 $page .= '[td][b]team[/b][/td]';
-$page .= '[td colspan="2"][b]daily[/b][/td]';
+$page .= '[td align="right"][b]daily[/b][/td]';
+$page .= '[td][/td]';
 $page .= '[/tr]';
 
 $ml->generateMonthlyRankList(date("Y-m", strtotime($maand)), $maand);
@@ -173,7 +180,7 @@ for($i=0;$i<count($mbs);$i++)
                 $page .= '[td]([img]http://www.tweakers.net/g/dpc/down.gif[/img]' . ( $change - ( $change * 2 )) . ')[/td]';
 
         $page .= '[td align="right"][blue]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/blue][/td]';
-        $page .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamoffset&amp;datum=' . $datum . '&amp;naam=' . $mbs[$i]->getName() . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+        $page .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamoffset&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
         $page .= '[td align="right"][red]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/red][/td]';
         $page .= '[td align="right"](' . $mbs[$i]->getFlushRank() . ')[/td]';
         $page .= '[/tr]';
@@ -181,25 +188,26 @@ for($i=0;$i<count($mbs);$i++)
 
 $page .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberoffset"]More...[/url][/td][/tr]';
 $page .= '[/table]';
+$page .= '[br]';
 
 $fmc = new FlushList($project->getPrefix() . '_memberoffset', $db);
 
 $fmc->createMFList();
 $fl = $fmc->getMFList();
 
-$page .= '<p>Megaflush Top 5</p>';
+$page .= '[table width="350px"]';
+$page .= '[tr][td colspan="3"][b]Megaflush Top 5[/b][/td][/tr]';
 
-$page .= '<table>';
 for($i=0;$i<5;$i++)
 {
-	$page .= '<tr>';
-	$page .= '<td>' . ( $i + 1 ) . '.</td>';
-	$page .= '<td><a href="' . $baseUrl . '/index.php?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . $fl[$i]->getName() . '">' . $fl[$i]->getName() . '</a></td>';
-	$page .= '<td>' . number_format($fl[$i]->getCredits(), 0, ',', '.') . '</td>';
-	$page .= '</tr>';
+	$page .= '[tr]';
+	$page .= '[td]' . ( $i + 1 ) . '.[/td]';
+	$page .= '[td][url="' . $baseUrl . '/index.php?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($fl[$i]->getName()) . '"]' . $fl[$i]->getName() . '[/url][/td]';
+	$page .= '[td]' . number_format($fl[$i]->getCredits(), 0, ',', '.') . '[/td]';
+	$page .= '[/tr]';
 }
-$page .= '<tr><td><a href="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=Flush">More...</a></td></tr>';
-$page .= '</table>';
+$page .= '[tr][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=Flush"]More...[/url][/td][/tr]';
+$page .= '[/table]';
 
 $mi = new MemberInfo($db, $project->getTeamName(), $project->getPrefix() . '_teamoffset', $datum, $project->getPrefix(), 'teamoffset', $project->getTeamName());
 
@@ -232,56 +240,56 @@ if ( $mi->getFlush() > 0 )
 
         if ( count($tl) > 0 )
         {
-                $page .= '<p>When do they get you</p>';
-                $page .= '<table>';
-                $page .= '<tr><th align="left">Name</th><th class="ri">Average</th><th class="ri">Days</th></tr>';
+		$page .= '[br]';
+                $page .= '[table width="350px"]';
+		$page .= '[tr][td colspan="3"][b]When do they get you[/b][/td][/tr]';
+                $page .= '[tr][td align="left"][b]Name[/b][/td][td align="right"][b]Average[/b][/td][td align="right"][b]Days[/b][/td][/tr]';
                 for($i=0;$i<count($tl);$i++)
                 {
-                        $page .= '<tr>';
-                        $page .= '<td width="190" align="left"><a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . $tl[$i]->getName() . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '">' . $tl[$i]->getName() . '</a></td>';
-                        $page .= '<td width="50" align="right">' . number_format($tl[$i]->getAverage(), 0, ',', '.') . '</td>';
-                        $page .= '<td align="right" width="50">' . number_format($tl[$i]->getDagen(), 0, ',', '.') . '</td>';
-                        $page .= '</tr>';
+                        $page .= '[tr]';
+                        $page .= '[td width="190px" align="left"][url="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($tl[$i]['name']) . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '"]' . $tl[$i]['name'] . '[/url][/td]';
+			$page .= '[td width="50px" align="right"]' . number_format($tl[$i]['average'], 0, ',', '.') . '[/td]';
+			$page .= '[td align="right" width="50px"]' . number_format($tl[$i]['days'], 0, ',', '.') . '[/td]';
+                        $page .= '[/tr]';
                 }
-                $page .= '</table>';
+                $page .= '[/table]';
         }
 
         $o = new Opertunities($db, $project->getPrefix() . '_teamoffset', $lineArray[0], $mi, $datum, 10, 'avgmonthly', $project->getTeamName());
         $ol = $o->getOpertunityList();;
         if ( count($ol) > 0 )
         {
-                $page .= '<p>When do you get them</p>';
-                $page .= '<table width="100%">';
-                $page .= '<tr><th align="left">Name</th><th align="right">Avg.</th><th align="right">Days</th></tr>';
+		$page .= '[br]';
+                $page .= '[table width="350px"]';
+		$page .= '[tr][td colspan="3"][b]When do you get them[/b][/td][/tr]';
+                $page .= '[tr][td align="left"][b]Name[/b][/td][td align="right"][b]Avg.[/b][/td][td align="right"][b]Days[/b][/td][/tr]';
                 for($i=0;$i<count($ol);$i++)
                 {
-                        $page .= '<tr>';
-                        $page .= '<td width="190" align="left"><a href="' . $baseUrl . '/index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . $ol[$i]->getName() . '&amp;datum=' . $datum . '">' . $ol[$i]->getName() . '</a></td>';
-                        $page .= '<td width="50" align="right">' . number_format($ol[$i]->getAverage(), 0, ',', '.') . '</td>';
-                        $page .= '<td align="right" width="50">' . number_format($ol[$i]->getDagen(), 0, ',', '.') . '</td>';
-                        $page .= '</tr>';
+                        $page .= '[tr]';
+                        $page .= '[td width="190px" align="left"][url="' . $baseUrl . '/index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($ol[$i]['name']) . '&amp;datum=' . $datum . '"]' . $ol[$i]['name'] . '[/url][/td]';
+			$page .= '[td width="50px" align="right"]' . number_format($ol[$i]['average'], 0, ',', '.') . '[/td]';
+                        $page .= '[td align="right" width="50px"]' . number_format($ol[$i]['days'], 0, ',', '.') . '[/td]';
+                        $page .= '[/tr]';
                 }
-                $page .= '</table>';
+                $page .= '[/table]';
         }
 }
+$page .= '[br]';
 
-
-$page .= '<p>' . strtoupper($project->getDPCHTitle()) . ' Links</p>';
-$page .= '<a href="' . $project->getWebsite() . '">' . strtoupper($project->getDPCHTitle()) . ' webpage</a><br />';
-$page .= '<a href="' . $project->getForum() . '">' . strtoupper($project->getDPCHTitle()) . ' forum</a><br />';
-$page .= '<a href="http://www.dutchpowercows.org/doc.php?id=316">DPCH Suggestiepagina</a><br />';
-$page .= '<a href="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '">Bron</a>';
-
-$page .= '</div>';
+$page .= '[b]' . $project->getDPCHTitle() . ' Links[/b][br]';
+$page .= '[url="' . $project->getWebsite() . '"]' . $project->getDPCHTitle() . ' webpage[/url][br]';
+$page .= '[url="' . $project->getForum() . '"]' . $project->getDPCHTitle() . ' forum[/url][br]';
+$page .= '[url="http://www.dutchpowercows.org/doc.php?id=316"]DPCH Suggestiepagina[/url][br]';
+$page .= '[url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '"]Bron[/url][br]';
 
 echo str_replace('bgcolor="transparent"', '', parseRML($page));
 
 echo '<br /><hr />';
 
-echo 'Voor de statsposters:<br /><br /><input type="text" style="width:700px" value="[' . strtoupper($project->getDPCHTitle()) . '] maand-hitparade van ' . strftime('%B', strtotime($prevMonth . '-01')) . '" />';
+echo 'Voor de statsposters:<br /><br /><input type="text" style="width:700px" value="[' . $project->getDPCHTitle() . '] maand-hitparade van ' . strftime('%B', strtotime($prevMonth . '-01')) . '" />';
 
 ?>
-<br /><br /><textarea style="width:700px" rows="12" cols="85">{verhaal}[norml]<?php echo htmlentities($page); ?>[/norml]</textarea>
-
+<br /><br /><textarea style="width:700px" rows="12" cols="85">{verhaal}[br]<?php echo htmlentities($page); ?></textarea>
+<br>
 </body>
 </html>
