@@ -549,7 +549,8 @@ function parseRML($rml)
 				'/\[red\](.*?)\[\/red\]/is',
 				'/\[blue\](.*?)\[\/blue\]/is',
 				'/' . chr(10) . '/is',
-				'/\[small\](.*?)\[\/small\]/is');
+				'/\[small\](.*?)\[\/small\]/is',
+				'/\[br\]/is');
 
 	$replace = array(	'<b>\1</b>',
 				'<table\1>\2</table>',
@@ -563,7 +564,8 @@ function parseRML($rml)
 				'<font color="#FF0000">\1</font>',
 				'<font color="#0000FF">\1</font>',
 				'<br>',
-				'\1');
+				'\1',
+				'<br>');
 
 	$data = preg_replace($search, $replace, $rml);
 	$data = preg_replace($search, $replace, $data);
