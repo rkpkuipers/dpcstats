@@ -239,7 +239,7 @@ function addSubteamStatsrun($array, $tabel)
 
 	while ( $line = $db->fetchArray($result) )
 	{
-		$naam = str_replace('\\', '\\\\', $line['naam']);
+		$naam = $line['naam'];
 		$currentuser[$line['subteam']][$naam] = $line['score'];
 	}
 	$userarray = getSubteamListFromArray($array);
@@ -269,7 +269,7 @@ function addSubteamStatsrun($array, $tabel)
 							\'' . $tabel . '\'
 						)');*/
 				
-				$db->deleteQuery('DELETE FROM ' . $tabel . ' WHERE naam = \'' . $membername . '\' 
+				$db->deleteQuery('DELETE FROM ' . $tabel . ' WHERE naam = \'' . pg_escape_string($membername) . '\' 
 					AND subteam = \'' . $team . '\' AND dag = \'' . $datum . '\'');
 			}
 		}
@@ -278,7 +278,8 @@ function addSubteamStatsrun($array, $tabel)
 	$subteamCounter = array();
 	for($i=0;$i<count($array);$i++)
 	{
-		$naam = str_replace('\'', '\\\'', $array[$i]->getName());
+		$naam = $array[$i]->getName();
+		
 		$score = $array[$i]->getCredits();
 		$subteam = $array[$i]->getTeam();
 
@@ -292,7 +293,7 @@ function addSubteamStatsrun($array, $tabel)
 			FROM 
 				' . $tabel . ' 
 			WHERE 
-				naam = \'' . $naam . '\' 
+				naam = \'' . pg_escape_string($naam) . '\' 
 			AND dag = \'' . $datum . '\'
 			AND	subteam = \'' . $subteam . '\'';
 			#echo $query;
@@ -307,7 +308,7 @@ function addSubteamStatsrun($array, $tabel)
 							daily = ' . ($score - $line['cands'] ) . ',
 							currrank = ' . ( $subteamCounter[$subteam] ) . '
 						WHERE   
-							naam = \'' . $naam . '\'
+							naam = \'' . pg_escape_string($naam) . '\'
 						AND	dag = \'' . $datum . '\'
 						AND	subteam = \'' . $subteam . '\'';
 #			echo $updateQuery . ";" . ' ';
@@ -326,13 +327,13 @@ function addSubteamStatsrun($array, $tabel)
 					' . $tabel . '
 						(naam, subteam, dag, cands, daily, id)
 					VALUES
-						(\'' . $naam . '\', \'' . $subteam . '\', \'' . $datum . '\', ' . $score . ', 0, ' . $nwId . ')';
+						(\'' . pg_escape_string($naam) . '\', \'' . $subteam . '\', \'' . $datum . '\', ' . $score . ', 0, ' . $nwId . ')';
 			#echo $insQuery . "\n";
 			$db->insertQuery($insQuery);
 
-			$insQuery = 'INSERT INTO movement VALUES ( \'' . $naam . '\', \'' . $datum . '\', 1, ' . $score . ',\'' . $tabel . '\')';
-			#echo $query;
-			//$db->insertQuery($insQuery);
+			$insQuery = 'INSERT INTO movement VALUES ( \'' . pg_escape_string($naam) . '\', \'' . $datum . '\', 1, ' . $score . ',\'' . substr($tabel, 0, strpos($tabel, '_')) . '_memberoffset\')';
+			#echo $insQuery;
+			$db->insertQuery($insQuery);
 		}
 		#echo $i . "\n";
 	}
@@ -351,11 +352,10 @@ function addSubteamStatsrun($array, $tabel)
 			$currSubteam = $line['subteam'];
 		}
 
-		$naam = str_replace('\'', '\\\'', $line['naam']);
 		$updateQuery = 'UPDATE
 					' . $tabel . '
 				SET     dailypos = ' . $pos . '
-				WHERE   naam = \'' . $naam . '\'
+				WHERE   naam = \'' . pg_escape_string($line['naam']) . '\'
 				AND	subteam = \'' . $currSubteam . '\'
 				AND     dag = \'' . $datum . '\'';
 
