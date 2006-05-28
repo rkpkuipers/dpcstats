@@ -11,7 +11,7 @@ function searchTabel($tabel, $prefix, $string, $tabelNaam)
 		FROM 
 			' . $prefix . '_' . $tabel . ' 
 		WHERE 
-			naam LIKE \'%' . $string . '%\'
+			naam ILIKE \'%' . $string . '%\'
 		AND	dag = \'' . date("Y-m-d") . '\'';
 
         $result = $db->selectQuery($query);
