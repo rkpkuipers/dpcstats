@@ -8,6 +8,8 @@
 /home/rkuipers/stats/statsrun/d2ol-members.php
 /home/rkuipers/stats/statsrun/d2ol-teams.php
 
+/home/rkuipers/stats/statsrun/secure-subteams.php
+
 # Addapted scripts, used for Phase I
 #/home/rkuipers/stats/statsrun/dp1-members.php
 #/home/rkuipers/stats/statsrun/dp1-teams.php

@@ -35,13 +35,9 @@ while ( $line = $db->fetchArray($result) )
 	switch($line['prefix'])
 	{
 	case 'tsc':
-		curl_setopt($ch, CURLOPT_URL, "http://d2ol.childhooddiseases.org/memberServices/memberAuth.jsp");
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, 	"memberName=" . $line['username'] . 
 							"&password=" . $line['password']);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		$data = curl_exec($ch);
-
 		curl_setopt($ch, CURLOPT_URL, "http://d2ol.childhooddiseases.org/memberServices/myNodes.jsp");
 		curl_setopt($ch, CURLOPT_FILE, $file);
 
