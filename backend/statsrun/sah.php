@@ -85,7 +85,12 @@ foreach($xmldata->user as $xmluser)
 			$subteamMembers[$teamName][$user] = $score;
 		}
 		else
-			$member[$user] = $score;
+		{
+			if ( isset($member[$user]) )
+				$member[$user] += $score;
+			else
+				$member[$user] = $score;
+		}
 	}
 }
 
