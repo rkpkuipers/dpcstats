@@ -12,7 +12,7 @@ dailyOffset('memberoffset', 'smp');
 dailyOffset('subteamoffset', 'smp');
 dailyOffset('individualoffset', 'smp');
 
-$url = 'http://boinc.bio.wzw.tum.de/boincsimap/stats/team_id.gz';
+$url = 'http://boinc.bio.wzw.tum.de/boincsimap/stats/team.gz';
 $basedir = '/home/rkuipers/stats/statsrun/files/';
 
 #$xmldata = simplexml_load_file(rawurlencode($url));
@@ -42,7 +42,7 @@ foreach($team as $name => $score)
 
 addStatsrun($teamlist, 'smp_teamoffset');
 
-$url = 'http://boinc.bio.wzw.tum.de/boincsimap/stats/user_id.gz';
+$url = 'http://boinc.bio.wzw.tum.de/boincsimap/stats/user.gz';
 
 system('wget -q -O ' . $basedir . '/smp.user.gz ' . $url);
 
