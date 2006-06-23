@@ -31,7 +31,7 @@ if ( $mi->getCredits() == 0 )
                 echo '<input type="hidden" name="prefix" value="' . $project->getPrefix() . '">';
                 echo '<input type="hidden" name="team" value="' . $naam . '">';
                 echo '<input type="hidden" name="tabel" value="subteamoffset">';
-                echo '<input type="submit" class="TextField" value="Members">';
+                echo '<input type="submit" class="TextField" value="Members" title="Substeamstats for ' . $naam . '">';
                 echo '</form>';
                 echo '<br>';
                 echo '<hr>';
