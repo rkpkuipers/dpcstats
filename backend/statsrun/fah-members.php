@@ -196,4 +196,6 @@ foreach ( $subteamMembers as $subTeamName => $member )
 
 addSubTeamStatsRun($fahsubteammembers, 'fah_subteamoffset');
 
+individualStatsrun('fah');
+
 ?>
