@@ -54,7 +54,7 @@ while ( $line = $db->fetchArray($result) )
 		for($i=2;$i<count($nodes);$i+=6)
 		{
 #			echo $i . ' ' . $nodes[$i] . ' ' . $nodes[$i+3] . "\n";
-			$userdata[$line['prefix']][$line['username']][$nodes[$i]] = $nodes[$i+3];
+			$userdata[$line['prefix']][$line['username']][$nodes[$i]] = number_format($nodes[$i+3], 0, '', '');
 		}
 		break;
 	case 'd2ol':break;
