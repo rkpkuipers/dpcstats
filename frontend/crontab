@@ -1,9 +1,14 @@
-MAILTO={email}
+MAILTO=<email>
 
-1,20,40 * * * *    {statsdir}/stats/20-statsrun.sh
-*/60 * * * *	{statsdir}/stats/60-statsrun.sh
-18 */4 * * *	{statsdir}/stats/240-statsrun.sh
-0    3 * * *	{statsdir}/stats/additional/additional.sh
+1,20,40 * * * *    /home/rkuipers/stats/20-statsrun.sh
+*/60 * * * *    /home/rkuipers/stats/60-statsrun.sh
+11 */2 * * *    /home/rkuipers/stats/statsrun/fah-members.php
+20 */2 * * *    /home/rkuipers/stats/statsrun/fah-teams.php
+18 */4 * * *    /home/rkuipers/stats/240-statsrun.sh
 
-43   2 * * *	{statsdir}/stats/optimize.php > /dev/null
+42   1 * * *    /home/rkuipers/stats/statsrun/average.php
 
+0    3 * * *    /home/rkuipers/stats/additional/additional.sh
+
+#0    4 * * *	/usr/bin/pg_dump stats | bzip2 > /var/www/html/backup/complete.sql.bz2
+#55   3 * * *	/usr/bin/pg_dump stats -s | bzip2 > /var/www/html/backup/schema.sql.bz2
