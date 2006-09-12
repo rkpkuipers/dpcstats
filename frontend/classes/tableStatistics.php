@@ -295,17 +295,87 @@ class TableStatisticsYearly
 	}
 }
 
+class STTableStatisticsMonthly extends TableStatisticsMonthly
+{
+	private $subteam;
+	
+	function __construct($tabel, $datum, $db, $subteam)
+	{
+		$this->TableStatisticsMonthly($tabel, $datum, $db);
+		
+		$this->subteam = $subteam;
+	}
+	
+	function gather()
+	{
+		$query = 'SELECT 
+				count(distinct(of.naam)) AS aantal
+			FROM 
+				' . $this->tabel . ' of 
+			WHERE 
+				of.dag LIKE \'' . date("Y-m-%", strtotime($this->datum)) . '\' 
+			AND	daily > 0
+			AND	subteam = \'' . $this->subteam . '\'';
+		$result = $this->db->selectQuery($query);
+		if ( $line = $this->db->fetchArray($result) )
+		        $this->dailyFlushers = $line['0'];
+		else
+			$this->dailyFlushers = 0;
+
+		$query = 'SELECT 
+				count(distinct(naam)) AS aantal 
+			FROM 
+				' . $this->tabel . ' 
+			WHERE 	dag >= \'' . $this->datum . '\'
+			AND	subteam = \'' . $this->subteam . '\'';
+
+		$result = $this->db->selectQuery($query);
+		if ( $line = $this->db->fetchArray($result) )
+		        $this->totalMembers = $line['0'];
+		else
+			$this->totalMembers = 0;
+
+		# hiero
+		$query = 'SELECT 
+				SUM(daily) AS total 
+			FROM 
+				' . $this->tabel . ' 
+			WHERE 	dag >= \'' . date("Y-m-01", strtotime($this->datum)) . '\'
+			AND	subteam = \'' . $this->subteam . '\'';
+
+		$result = $this->db->selectQuery($query);
+		if ( $line = $this->db->fetchArray($result) )
+		        $this->dailyOutput = $line['0'];
+		else
+		        $this->dailyOutput = 0;
+
+		$query = 'SELECT 
+				max(dag),
+				( SUM(cands) + SUM(daily) ) AS totaal 
+			FROM 
+				' . $this->tabel . ' 
+			WHERE 	dag = \'' . $this->datum . '\'
+			AND	subteam = \'' . $this->subteam . '\'';
+		$result = $this->db->selectQuery($query);
+		if ( $line = $this->db->fetchArray($result))
+		        $this->totalOutput = $line['0'];
+		else
+			$this->totalOutput = 0;
+	}
+
+}
+
 class TableStatisticsMonthly
 {
-	var $tabel;
-	var $datum;
+	protected $tabel;
+	protected $datum;
 
-	var $db;
+	protected $db;
 
-	var $dailyFlushers;
-	var $totalMembers;
-	var $dailyOutput;
-	var $totalOutput;
+	protected $dailyFlushers;
+	protected $totalMembers;
+	protected $dailyOutput;
+	protected $totalOutput;
 	
 	function TableStatisticsMonthly($tabel, $datum, $db)
 	{
