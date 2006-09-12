@@ -262,12 +262,12 @@ $fl = $fmc->getMFList();
 
 $page .= '<p>Megaflush Top 5</p>';
 
-$page .= '<table style="width:350px">';
+$page .= '<table style="width:375px">';
 $page .= '<tr>';
-$page .= '<th width="10%">pos</th>';
-$page .= '<th width="45%">Team</th>';
-$page .= '<th width="20%" class="ri">Flush</th>';
-$page .= '<th width="25%" class="ri">Date</th>';
+$page .= '<th width="37">pos</th>';
+$page .= '<th width="169">Team</th>';
+$page .= '<th width="75" class="ri">Flush</th>';
+$page .= '<th width="94" class="ri">Date</th>';
 $page .= '</tr>';
 if ( count($fl) < 5 )
 	$top = count($fl);
@@ -279,7 +279,7 @@ for($i=0;$i<$top;$i++)
 	$page .= '<td class="ri">' . ( $i + 1 ) . '.</td>';
 	$page .= '<td><a href="' . $baseUrl . '/index.php?prefix=' . $project->getprefix() . '&amp;mode=detail&amp;tabel=memberoffset&amp;naam=' . $fl[$i]->getName() . '">' . $fl[$i]->getName() . '</a></td>';
 	$page .= '<td class="ri">' . number_format($fl[$i]->getCredits(), 0, ',', '.') . '</td>';
-	$page .= '<td align="right" width="65">' . date("d-m-Y", strtotime($fl[$i]->getDate())) . '</td>';
+	$page .= '<td align="right">' . date("d-m-Y", strtotime($fl[$i]->getDate())) . '</td>';
 	$page .= '</tr>';
 }
 $page .= '<tr><td><a href="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=Flush">More...</a></td></tr>';
@@ -652,10 +652,10 @@ $rmlpage .= '[table width="350px" bgcolor=transparent]';
 $rmlpage .= '[tr][td colspan="6"][img=400,1]http://gathering.tweakers.net/global/templates/got/images/layout/pixel.gif[/img][/td][/tr]';
 $rmlpage .= '[tr][td colspan="4"][b]Megaflush Top 5[/b][/td][/tr]';
 $rmlpage .= '[tr]';
-$rmlpage .= '[td width="10%"][b]pos[/b][/td]';
-$rmlpage .= '[td width="45%"][b]Team[/b][/td]';
-$rmlpage .= '[td width="20%" align="right"][b]Flush[/b][/td]';
-$rmlpage .= '[td width="25%" align="right"][b]Date[/b][/td]';
+$rmlpage .= '[td][b]pos[/b][/td]';
+$rmlpage .= '[td][b]Team[/b][/td]';
+$rmlpage .= '[td align="right"][b]Flush[/b][/td]';
+$rmlpage .= '[td align="right"][b]Date[/b][/td]';
 $rmlpage .= '[/tr]';
 for($i=0;$i<$top;$i++)
 {
@@ -663,7 +663,7 @@ for($i=0;$i<$top;$i++)
 	$rmlpage .= '[td align="right"]' . ( $i + 1 ) . '.[/td]';
 	$rmlpage .= '[td][url="' . $baseUrl . '/index.php?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberoffset&amp;naam=' . rawurlencode($fl[$i]->getName()) . '"]' . $fl[$i]->getName() . '[/url][/td]';
 	$rmlpage .= '[td align="right"]' . number_format($fl[$i]->getCredits(), 0, ',', '.') . '[/td]';
-	$rmlpage .= '[td align="right" width="65"]' . date("d-m-Y", strtotime($fl[$i]->getDate())) . '[/td]';
+	$rmlpage .= '[td align="right"]' . date("d-m-Y", strtotime($fl[$i]->getDate())) . '[/td]';
 	$rmlpage .= '[/tr]';
 }
 $rmlpage .= '[tr][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=Flush"]More...[/url][/td][/tr]';
