@@ -244,7 +244,8 @@ class MemberList
                         oy.naam = of.naam
 		AND	oy.dag = \'' . $startDate . '-01\'
 		WHERE
-                	of.dag = \'' . $endDate . '\'
+                	of.dag = \'' . $endDate . '\' ' . 
+		( $this->subteam!=''?'AND of.subteam = \'' . $this->subteam . '\'':'') . '
                 GROUP BY
                         of.naam, of.cands, of.daily, of.dailypos, oy.id, of.id, oy.cands
                 ORDER BY
@@ -428,7 +429,8 @@ class MemberList
                         oy.naam = of.naam
 		AND 	oy.dag = \'' . $startDate . '-01\'
 		WHERE
-                	of.dag = \'' . $endDate . '\'
+                	of.dag = \'' . $endDate . '\' ' .
+		( $this->subteam!=''?'AND of.subteam=\'' . $this->subteam . '\'':'') . '
                 GROUP BY
                         of.naam, of.cands, of.daily, of.id, oy.id, of.dailypos, oy.cands
                 ORDER BY
