@@ -82,6 +82,7 @@ if ( isset($_GET['debug']) )
 
 # Make sure the page expires when the next statsrun has completed
 header('Expires: ' . gmdate("D, d M Y H:i:s ", strtotime("+" . $project->getStatsrunInterval() . " minutes", strtotime($project->getLastUpdate()))) . 'GMT');
+header('Content-Type: text/html; charset=ISO-8859-1');
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
