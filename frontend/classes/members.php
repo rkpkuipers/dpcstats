@@ -661,7 +661,7 @@ class MemberInfo
 
 		$query = 'SELECT
 				o.naam,
-				o.cands
+				( o.cands + o.daily )as total
 			FROM
 				' . $this->prefix . '_' . $this->speedTabel . ' o
 			WHERE
@@ -674,7 +674,7 @@ class MemberInfo
 		if ( $line = $this->db->fetchArray($result) )
 		{
 			$this->naamNext = $line['naam'];
-			$this->distanceNext = ( $line['cands'] - $this->candidates );
+			$this->distanceNext = ( $line['total'] - $this->candidates );
 		}
 		else
 		{
@@ -684,7 +684,7 @@ class MemberInfo
 
 		$query = 'SELECT
 				o.naam,
-				o.cands
+				( o.cands + o.daily ) as total
 			FROM
 				' . $this->prefix . '_' . $this->speedTabel . ' o
 			WHERE
@@ -696,7 +696,7 @@ class MemberInfo
 
 		if ( $line = $this->db->fetchArray($result) )
 		{
-			$this->distancePrev = ( $this->candidates - $line['cands'] );
+			$this->distancePrev = ( $this->candidates - $line['total'] );
 			$this->naamPrev = $line['naam'];
 		}
 		else
