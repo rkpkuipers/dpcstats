@@ -110,7 +110,6 @@ class DetailedMember extends Member
 
 	function getDailyPosChange()
 	{
-		echo $this->flushrankYesterday . "-" .  $this->flushrank;
 		return ( $this->flushrank - $this->flushrankYesterday);
 	}
 
@@ -205,7 +204,6 @@ class MemberList
               		of.dailypos ' .
 		( $this->db->getType() == 'mysql'?'LIMIT ' . $this->listOffset . ', ' . $this->listsize
 						:'OFFSET ' . $this->listOffset . ' LIMIT ' . $this->listsize);
-#		echo $query;
 
 		$result = $this->db->selectQuery($query);
 
@@ -434,9 +432,9 @@ class MemberList
                 GROUP BY
                         of.naam, of.cands, of.daily, of.id, oy.id, of.dailypos, oy.cands
                 ORDER BY
-                        total DESC
-                OFFSET	' . $this->listOffset . '
-		LIMIT	' . $this->listsize;
+                        total DESC ' .
+			( $this->db->getType() == 'postgres' ? 'OFFSET	' . $this->listOffset . ' LIMIT	' . $this->listsize :
+							'LIMIT ' . $this->listOffset . ',' . $this->listsize);
 
                 $result = $this->db->selectQuery($query);
 
