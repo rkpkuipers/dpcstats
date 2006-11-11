@@ -8,4 +8,6 @@
 
 /home/rkuipers/stats/statsrun/ufl.php
 
+/home/rkuipers/stats/statsrun/eah.php
+
 /home/rkuipers/stats/statsrun/individual.php
