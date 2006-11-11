@@ -12,7 +12,7 @@ dailyOffset('memberoffset', 'ufl');
 dailyOffset('subteamoffset', 'ufl');
 dailyOffset('individualoffset', 'ufl');
 
-$url = 'http://www.ufluids.net/stats/team.gz';
+$url = 'http://www.ufluids.net/stats/team.xml.gz';
 
 #$xmldata = simplexml_load_file(rawurlencode($url));
 
@@ -41,7 +41,7 @@ foreach($team as $name => $score)
 
 addStatsrun($teamlist, 'ufl_teamoffset');
 
-$url = 'http://www.ufluids.net/stats/user.gz';
+$url = 'http://www.ufluids.net/stats/user.xml.gz';
 
 system('wget -q -O /home/rkuipers/stats/statsrun/files/ufl.user.gz ' . $url);
 
