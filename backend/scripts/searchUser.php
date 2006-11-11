@@ -40,7 +40,7 @@ foreach ($prefix as $project)
 				' . $project . '_' . $table . ' 
 			WHERE 
 				dag = \'' . date("Y-m-d") . '\' 
-			AND 	naam ILIKE \'%' . $name . '%\'';
+			AND 	lower(naam) LIKE \'%' . strtolower($name) . '%\'';
 
 		$result = $db->selectQuery($query);
 
