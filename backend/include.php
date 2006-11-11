@@ -1,6 +1,8 @@
 <?php
 
-$db = new pgDataBase();
+include('/var/www/tstats/classes/config.php');
+
+$db = new miDataBase($dbuser, $dbpass, $dbhost, $dbport, $dbname);
 $db->connect();
 
 # Globals
