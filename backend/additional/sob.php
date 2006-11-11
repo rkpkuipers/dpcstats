@@ -97,15 +97,35 @@ foreach ( $subTeamArray as $subTeamName => $member )
 	}
 }
 
-$copyData = array();
-foreach($members as $name => $tests)
-	$copyData[] = "$name\t$tests\tsob_memberoffset\n";
+if ( $db->getType() == 'postgres' )
+{
+	$copyData = array();
+	foreach($members as $name => $tests)
+		$copyData[] = "$name\t$tests\tsob_memberoffset\n";
 
-foreach($teams as $name => $tests)
-	$copyData[] = "$name\t$tests\tsob_teamoffset\n";
+	foreach($teams as $name => $tests)
+		$copyData[] = "$name\t$tests\tsob_teamoffset\n";
 
-foreach($subteamMembers as $name => $tests)
-	$copyData[] = "$name\t$tests\tsob_subteamoffset\n";
+	foreach($subteamMembers as $name => $tests)
+		$copyData[] = "$name\t$tests\tsob_subteamoffset\n";
 
-$db->copyData(array('additional', 'naam', 'aantal', 'prefix'), $copyData);
+	$db->copyData(array('additional', 'naam', 'aantal', 'prefix'), $copyData);
+}
+elseif ( $db->getType() == 'mysql' )
+{
+	$insData = '';
+
+	foreach($members as $name => $tests)
+		$insData .= ($insData!=''?',':'') . '("' . $name . '", ' . $tests . ', "sob_memberoffset")';
+	
+	foreach($teams as $name => $tests)
+		$insData .= ($insData!=''?',':'') . '("' . $name . '", ' . $tests . ', "sob_teamoffset")';
+	
+	foreach($subteamMembers as $name => $tests)
+		$insData .= ($insData!=''?',':'') . '("' . $name . '", ' . $tests . ', "sob_subteamoffset")';
+	
+	$db->insertQuery('INSERT INTO additional (naam, aantal, prefix) VALUES ' . $insData . ';');
+}
+else
+	die('Unknown database type encountered');
 ?>

@@ -49,5 +49,18 @@ for($i=10;$i<count($teams);$i+=6)
 	$copyData[] = $teams[$i] . "\t" . $teams[$i+4] . "\t" . 'd2ol_teamoffset' . "\n";
 }
 
-$db->copyData(array('additional', 'naam', 'aantal', 'prefix'), $copyData);
+if ( $db->getType() == 'postgres' )
+	$db->copyData(array('additional', 'naam', 'aantal', 'prefix'), $copyData);
+elseif ( $db->getType() == 'mysql' )
+{
+	$insData == '';
+
+	for($i=0;$i<count($copyData);$i++)
+	{
+		$data = explode("\t", $copyData[$i]);
+		$insData .= ($insData!=''?',':'') . 
+			'("' . $data[0] . '", ' . $data[1] . ', "' . chop($data[2]) . '")';
+	}
+	$db->insertQuery('INSERT INTO additional (naam, aantal, prefix) VALUES ' . $insData . ';');
+}
 ?>
