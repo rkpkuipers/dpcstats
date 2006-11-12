@@ -12,13 +12,6 @@ $plActive = handleCookie('plActive', $_GET['setPlActive'], $_GET['plActive'], $_
 $opActive = handleCookie('opActive', $_GET['setOpActive'], $_GET['opActive'], $_COOKIE['opActive']);
 $glActive = handleCookie('glActive', $_GET['setGlActive'], $_GET['glActive'], $_COOKIE['glActive']);
 
-if ( isset($_REQUEST['setCookieActive']) )
-{
-	$cName = $_REQUEST['cookieName'];
-
-#	handleCookie($cName, $_GET['setCookieActive'], $_GET);
-}
-
 # The allowed array contains all variables used with their default values. 
 # These can be taken from the global array, if they're not set we use the default
 $allowed = array(	'mode' => 'Members',		# Which page to load
