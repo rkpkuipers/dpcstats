@@ -1,9 +1,9 @@
 #!/usr/bin/php
 <?
 
-include ('../database.php');
-include ('../include.php');
-include ('../members.php');
+include ('/home/rkuipers/stats/database.php');
+include ('/home/rkuipers/stats/include.php');
+include ('/var/www/tstats/classes/members.php');
 
 $datum = getCurrentDate('tsc');
 
