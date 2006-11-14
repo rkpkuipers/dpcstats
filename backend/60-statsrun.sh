@@ -10,4 +10,6 @@
 
 /home/rkuipers/stats/statsrun/eah.php
 
+/home/rkuipers/stats/statsrun/ldc.php
+
 /home/rkuipers/stats/statsrun/individual.php
