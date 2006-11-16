@@ -515,4 +515,252 @@ function dailyOffset($tabel, $project)
 		setDailyOffset($project, $tabel, $datum);
 }
 
+function updateStats($members, $table)
+{
+	global $datum, $db;
+
+	# Retrieve a list of members currently in the database
+	$query = 'SELECT
+			naam,
+			cands,
+			daily,
+			(cands + daily)AS total
+		FROM
+			' . $table . '
+		WHERE
+			dag = \'' . $datum . '\'
+		ORDER BY
+			id';
+	
+	$result = $db->selectQuery($query);
+
+	$currMembers = array();
+	$currMemberInfo = array();
+	while ( $line = $db->fetchArray($result) )
+	{
+		$currMembers[$line['naam']] = $line['total'];
+		$currMemberInfo[$line['naam']]['cands'] = $line['cands'];
+		$currMemberInfo[$line['naam']]['daily'] = $line['daily'];
+	}
+
+	# Using array_diff obtain all members in the new array compared to the database contents
+	# this effectively yields an array with new members
+	$newMembers = array_diff(array_keys($members), array_keys($currMembers));
+
+	# Insert the new members one by one into the database
+	foreach($newMembers as $origID => $newMemberName)
+	{
+		$newMemberScore = $members[$newMemberName];
+
+		$insertQuery = 'INSERT INTO
+					' . $table . '
+				( 
+					naam, cands, id, dag, daily, currrank 
+				)
+				VALUES
+				(
+					\'' . $newMemberName . '\',
+					' . $newMemberScore . ',
+					' . ( count($currMembers) + 1 ) . ',
+					\'' . $datum . '\',
+					0,
+					' . ( count($surrMembers) + 1 ) . '
+				)';
+		$db->insertQuery($insertQuery);
+		unset($insertQuery);
+
+		$currMembers[$newMemberName] = $newMemberScore;
+		$currMemberInfo[$newMemberName]['cands'] = $newMemberScore;
+		$currMemberInfo[$newMemberName]['daily'] = 0;
+
+		# Register the new member in the movement table for listing as new member
+		addMovementRecord($newMemberName, $newMemberScore, $datum, 1, $table);
+
+		unset($newMemberScore);
+	}
+
+	unset($newMembers);
+
+	# Doing the reverse yields an array with all retired members
+	$retMembers = array_diff(array_keys($currMembers), array_keys($members));
+
+	foreach($retMembers as $origId => $retMemberName)
+	{
+		$retMemberScore = $members[$retMemberName];
+
+		$deleteQuery = 'DELETE FROM
+					' . $table . '
+				WHERE
+					naam = \'' . $retMemberName . '\'
+				AND	datum = \'' . $datum . '\'';
+		$db->deleteQuery($deleteQuery);
+
+		unset($deleteQuery);
+
+		addMovementRecord($retMemberName, $retMemberScore, $datum, 0, $table);
+		unset($retMemberScore);
+
+		unset($currMembers[$retMemberName]);
+		unset($currMemberInfo[$retMemberName]);
+	}
+	unset($retMembers);
+
+	# Now any differing records are caused by increased total scores thus
+	# a third array_diff yields all members who have flushed since the
+	# previous statsrun
+	$flushingMembers = array_diff($members, $currMembers);
+
+	foreach($flushingMembers as $flushMemberName => $flushTotalScore)
+	{
+		$updateQuery = 'UPDATE
+					' . $table . '
+				SET
+					daily = ' . ( $members[$flushMemberName] - $currMemberInfo[$flushMemberName]['cands'] ) . '
+				WHERE
+					naam = \'' . $flushMemberName . '\'
+				AND	dag = \'' . $datum . '\'';
+
+		$db->updateQuery($updateQuery);
+		unset($updateQuery);
+
+		$currMemberInfo[$flushMemberName]['daily'] = ( $members[$flushMemberName] - $currMemberInfo[$flushMemberName]['cands'] );
+		$currMemberInfo[$flushMemberName]['cands'] = $flushTotalScore;
+		$currMembers[$flushMemberName] = $flushTotalScore;
+	}
+	unset($flushingMembers);
+
+	#Set the flush rank for the members who have moved since the last run
+	updateDailyRanks($table);
+
+	#Set the curr rank for the members who have moved in the overall list since the last run
+	updateCurrRanks($table);
+
+	#Set the current time as last update time in the database
+	updateStatsrunTime($table);
+}
+
+function updateStatsrunTime($table)
+{
+	global $db;
+
+	$info = explode('_', $table);
+	$project = $info[0];
+	$tablename = $info[1];
+
+	$query = 'REPLACE INTO
+			updates
+		( project, tabel, tijd )
+		VALUES
+		(
+			\'' . $project . '\',
+			\'' . $tablename . '\',
+			NOW()
+		)';
+	
+	$db->insertQuery($query);
+}
+
+function updateCurrRanks($table)
+{
+	global $db, $datum;
+
+	$query = 'SELECT
+			naam,
+			(cands + daily) as total,
+			currrank
+		FROM
+			' . $table . '
+		WHERE
+			dag = \'' . $datum . '\'
+		ORDER BY
+			( cands + daily ) DESC,
+			naam';
+	
+	$result = $db->selectQuery($query);
+
+	$newTotalRank = 1;
+	while ( $line = $db->fetchArray($result) )
+	{
+		if ( $line['currrank'] != $newTotalRank )
+		{
+			$updQuery = 'UPDATE
+					' . $table . '
+				SET
+					currrank = ' . $newTotalRank . '
+				WHERE
+					naam = \'' . $line['naam'] . '\'
+				AND	currrank = ' . $line['currrank'] . '
+				AND	dag = \'' . $datum . '\'';
+
+			$db->updateQuery($updQuery);
+		}
+
+		$newTotalRank++;
+	}
+}
+
+function updateDailyRanks($table)
+{
+	global $db, $datum;
+
+	$query = 'SELECT
+			naam,
+			daily,
+			dailypos
+		FROM
+			' . $table . '
+		WHERE
+			dag = \'' . $datum . '\'
+		AND NOT	daily = 0
+		ORDER BY
+			daily DESC,
+			naam';
+	
+	$result = $db->selectQuery($query);
+
+	$newDailyRank = 1;
+	while ( $line = $db->fetchArray($result) )
+	{
+		if ( $line['dailypos'] != $newDailyRank )
+		{
+			$updQuery = 'UPDATE
+					' . $table . '
+				SET
+					dailypos = ' . $newDailyRank . '
+				WHERE
+					naam = \'' . $line['naam'] . '\'
+				AND	daily = ' . $line['daily'] . '
+				AND	dailypos = ' . $line['dailypos'];
+
+			$db->updateQuery($updQuery);
+			unset($updQuery);
+		}
+		$newDailyRank++;
+	}
+}
+
+function addMovementRecord($name, $credits, $datum, $direction, $table)
+# Adds a new record to the movement table in case of a join/leave
+{
+	global $db;
+
+	$insertQuery = 'INSERT INTO
+				movement
+			(
+				naam, candidates, datum, direction, tabel 
+			)
+			VALUES
+			(
+				\'' . $name . '\',
+				' . $credits . ',
+				\'' . $datum . '\',
+				' . $direction . ',
+				\'' . $table . '\'
+			)';
+	
+	$db->insertQuery($insertQuery);
+
+	unset($insertQuery);
+}
+
 ?>
