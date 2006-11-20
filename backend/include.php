@@ -729,8 +729,8 @@ function updateDailyRanks($table)
 					dailypos = ' . $newDailyRank . '
 				WHERE
 					naam = \'' . $line['naam'] . '\'
-				AND	daily = ' . $line['daily'] . '
-				AND	dailypos = ' . $line['dailypos'];
+				AND	dag = \'' . $datum . '\'
+				AND	daily = ' . $line['daily'];
 
 			$db->updateQuery($updQuery);
 			unset($updQuery);
