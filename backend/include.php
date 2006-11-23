@@ -271,7 +271,7 @@ function addSubteamStatsrun($array, $tabel)
 							\'' . $tabel . '\'
 						)');*/
 				
-				$db->deleteQuery('DELETE FROM ' . $tabel . ' WHERE naam = \'' . pg_escape_string($membername) . '\' 
+				$db->deleteQuery('DELETE FROM ' . $tabel . ' WHERE naam = \'' . $db->real_escape_string($membername) . '\' 
 					AND subteam = \'' . $team . '\' AND dag = \'' . $datum . '\'');
 			}
 		}
@@ -295,7 +295,7 @@ function addSubteamStatsrun($array, $tabel)
 			FROM 
 				' . $tabel . ' 
 			WHERE 
-				naam = \'' . pg_escape_string($naam) . '\' 
+				naam = \'' . $db->real_escape_string($naam) . '\' 
 			AND dag = \'' . $datum . '\'
 			AND	subteam = \'' . $subteam . '\'';
 			#echo $query;
@@ -310,7 +310,7 @@ function addSubteamStatsrun($array, $tabel)
 							daily = ' . ($score - $line['cands'] ) . ',
 							currrank = ' . ( $subteamCounter[$subteam] ) . '
 						WHERE   
-							naam = \'' . pg_escape_string($naam) . '\'
+							naam = \'' . $db->real_escape_string($naam) . '\'
 						AND	dag = \'' . $datum . '\'
 						AND	subteam = \'' . $subteam . '\'';
 #			echo $updateQuery . ";" . ' ';
@@ -329,11 +329,11 @@ function addSubteamStatsrun($array, $tabel)
 					' . $tabel . '
 						(naam, subteam, dag, cands, daily, id)
 					VALUES
-						(\'' . pg_escape_string($naam) . '\', \'' . $subteam . '\', \'' . $datum . '\', ' . $score . ', 0, ' . $nwId . ')';
+						(\'' . $db->real_escape_string($naam) . '\', \'' . $subteam . '\', \'' . $datum . '\', ' . $score . ', 0, ' . $nwId . ')';
 			#echo $insQuery . "\n";
 			$db->insertQuery($insQuery);
 
-			$insQuery = 'INSERT INTO movement VALUES ( \'' . pg_escape_string($naam) . '\', \'' . $datum . '\', 1, ' . $score . ',\'' . substr($tabel, 0, strpos($tabel, '_')) . '_memberoffset\')';
+			$insQuery = 'INSERT INTO movement VALUES ( \'' . $db->real_escape_string($naam) . '\', \'' . $datum . '\', 1, ' . $score . ',\'' . substr($tabel, 0, strpos($tabel, '_')) . '_memberoffset\')';
 			#echo $insQuery;
 			$db->insertQuery($insQuery);
 		}
@@ -357,7 +357,7 @@ function addSubteamStatsrun($array, $tabel)
 		$updateQuery = 'UPDATE
 					' . $tabel . '
 				SET     dailypos = ' . $pos . '
-				WHERE   naam = \'' . pg_escape_string($line['naam']) . '\'
+				WHERE   naam = \'' . $db->real_escape_string($line['naam']) . '\'
 				AND	subteam = \'' . $currSubteam . '\'
 				AND     dag = \'' . $datum . '\'';
 
@@ -559,7 +559,7 @@ function updateStats($members, $table)
 				)
 				VALUES
 				(
-					\'' . $newMemberName . '\',
+					\'' . $db->real_escape_string($newMemberName) . '\',
 					' . $newMemberScore . ',
 					' . ( count($currMembers) + 1 ) . ',
 					\'' . $datum . '\',
@@ -591,7 +591,7 @@ function updateStats($members, $table)
 		$deleteQuery = 'DELETE FROM
 					' . $table . '
 				WHERE
-					naam = \'' . $retMemberName . '\'
+					naam = \'' . $db->real_escape_string($retMemberName) . '\'
 				AND	datum = \'' . $datum . '\'';
 		$db->deleteQuery($deleteQuery);
 
@@ -617,7 +617,7 @@ function updateStats($members, $table)
 				SET
 					daily = ' . ( $members[$flushMemberName] - $currMemberInfo[$flushMemberName]['cands'] ) . '
 				WHERE
-					naam = \'' . $flushMemberName . '\'
+					naam = \'' . $db->real_escape_string($flushMemberName) . '\'
 				AND	dag = \'' . $datum . '\'';
 
 		$db->updateQuery($updateQuery);
@@ -688,7 +688,7 @@ function updateCurrRanks($table)
 				SET
 					currrank = ' . $newTotalRank . '
 				WHERE
-					naam = \'' . $line['naam'] . '\'
+					naam = \'' . $db->real_escape_string($line['naam']) . '\'
 				AND	currrank = ' . $line['currrank'] . '
 				AND	dag = \'' . $datum . '\'';
 
@@ -728,7 +728,7 @@ function updateDailyRanks($table)
 				SET
 					dailypos = ' . $newDailyRank . '
 				WHERE
-					naam = \'' . $line['naam'] . '\'
+					naam = \'' . $db->real_escape_string($line['naam']) . '\'
 				AND	dag = \'' . $datum . '\'
 				AND	daily = ' . $line['daily'];
 
@@ -751,7 +751,7 @@ function addMovementRecord($name, $credits, $datum, $direction, $table)
 			)
 			VALUES
 			(
-				\'' . $name . '\',
+				\'' . $db->real_escape_string($name) . '\',
 				' . $credits . ',
 				\'' . $datum . '\',
 				' . $direction . ',
