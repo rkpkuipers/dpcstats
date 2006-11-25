@@ -2,7 +2,6 @@
 function getCalender($datum)
 {
 	echo '<center>';
-	echo '<hr width="95%">';
 	echo '<table width="92%">';
 	echo '<tr><td align="left">Stats van:</td>';
 	echo '<td align="right">' . date("d-m-Y", strtotime($datum)) . '</td>';
@@ -339,6 +338,12 @@ function getMenuEntry($link, $target, $cellNo)
 	$html .= '<td align="left"><a href="' . $target . '">' . $link . '</a></td></tr>';
 
 	return $html;
+}
+
+function getNavBarEntry($link,$target)
+{
+
+	return '<li><a href="' . $target . '">' . $link . '</a></li>'."\n";
 }
 
 function getChangeImage($change, $ts)

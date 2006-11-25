@@ -132,7 +132,27 @@ function change( imageName, newSource )
 }
 // ]]>
 </script>
- <link rel="stylesheet" href="page.css" type="text/css">
+
+
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+
+sfHover = function() {
+	var sfEls = document.getElementById("nav").getElementsByTagName("LI");
+	for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+			this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+			this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+	}
+}
+if (window.attachEvent) window.attachEvent("onload", sfHover);
+
+//--><!]]></script>
+
+
+<link rel="stylesheet" href="page.css" type="text/css">
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
  <meta http-equiv="Pragma" content="no-cache">
  <link rel="shortcut icon" href="favicon.ico">
@@ -256,17 +276,10 @@ function change( imageName, newSource )
      <tr>
       <td align="center" colspan="12" style="background-image:url(images/index_r1_c1.jpg);" class="pageCell cellHeight1">
 <?
-	$query = 'SELECT project, description FROM project WHERE active = 1 ORDER BY project';
-	$result = $db->selectQuery($query);
-
-	echo '.';
-	while ( $line = $db->fetchArray($result) )
-	{
-		echo ': <a href="index.php?prefix=' . $line['project'] . '&amp;datum=' . $datum . ($line['project']=='sp5'?'&amp;mode=Stampede':'&amp;mode=Members') . '" title="Stats for ' . $line['description'] . '"><b>' . $line['description'] . '</b></a> :';
-	}
-	echo '.';
+	include("menu.php");
 ?>
-      </td>
+
+     </td>
      </tr>
      <tr>
       <td colspan="2" style="background-image:url(images/index_r5_c3.jpg); background-position:right top; background-repeat:repeat-y" align="left">
@@ -317,53 +330,7 @@ function change( imageName, newSource )
      </tr>
      <tr>
       <td valign="top" colspan="2" style="background-image:url(images/gray-back.jpg); background-position:right top; background-repeat:repeat-y"> 
-       <table width="180">
 <?
-	$link = 1;
-	$dotPrefix = '<td align="center" valign="middle" width="7px"><img src="images/dot.png" alt="dot"></td>';
-	echo getMenuHeader('General Links', 'glActive');
-	if ( $glActive == 'on' )
-	{
-		echo getMenuEntry('Bug Tracker', $baseUrl . '/mantis/view_all_bug_page.php', $link++);
-		echo getMenuEntry('GOT - /5', 'http://gathering.tweakers.net/forum/list_topics/5', $link++);
-		echo getMenuEntry('Source Code (Beta)', $baseUrl . '/?mode=stats', $link++);
-		echo getMenuEntry('Toggle Calendar', 'index.php?prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . 
-				'&amp;datum=' . $datum. '&amp;mode=' . $mode  . '&amp;naam=' . rawurlencode($naam) . 
-				'&amp;cActive=' . ($cActive=='on'?'off':'on') . '&amp;setCActive=&amp;team=' . rawurlencode($team), $link++);
-		echo trBackground($link++) . $dotPrefix . '<td align="left"><a href="index.php?prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;datum=' . $datum . '&amp;mode=' . $mode . '&amp;naam=' . rawurlencode($naam) . '&amp;dtActive=' . ($dtActive=='on'?'off':'on') . '&amp;setDtActive=&amp;teams=' . $teams . '">Toggle Daily Top\'s</a></td></tr>';
-		echo trBackground($link++) . $dotPrefix . '<td align="left"><a href="index.php?prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;datum=' . $datum . '&amp;mode=' . $mode . '&amp;naam=' . rawurlencode($naam) . '&amp;sbActive=' . ($sbActive=='on'?'off':'on') . '&amp;setSbActive=&amp;teams=' . $teams . '">Toggle Shoutbox</a></td></tr>';
-		if ( $debug == 1 )
-		{
-			echo '<form name="cookies" method="get" action="index.php">';
-			echo '<input type="hidden" name="setCookieActive" value="">';
-			echo '<input type="hidden" name="ca" value="' . $cActive . '">';
-			getDefaultFormFields();
-			echo trBackground($link++) . $dotPrefix . '<td align="left">Toggle <select class="TextField" onchange="submitCookieForm()" name="cookieName"><option value="dtActive">Daily Top</option><option value="cActive">Calendar</option></select></td></tr>';
-			echo '</form>';
-		}
-		echo trBackground($link++) . $dotPrefix . '<td align="left"><a href="http://www.dutchpowercows.org">WDO</a> & <a href="http://forum.dutchpowercows.org">FDO</a></td></tr>';
-	}
-	echo getMenuHeader('Project Links', 'plActive');
-	if ( $plActive == 'on' )
-	{
-		echo getMenuEntry('Average Production', $baseUrl . '/index.php?mode=avgProd&amp;tabel=memberoffset&amp;prefix=' . $project->getPrefix(), $link++);
-		echo getMenuEntry('DPC FAQ', 'http://www.dutchpowercows.org/faqs/' . $project->getWDOPrefix(), $link++);
-		echo getMenuEntry('DPCH', 'http://www.dutchpowercows.org/dpch/' . $project->getWDOPrefix(), $link++);
-		echo trBackground($link++) . $dotPrefix . '<td align="left">Official <a href="' . $project->getForum() . '">Forum</a> & ' . 
-				'<a href="' . $project->getWebsite() . '">Website</a><td></tr>';
-		echo getMenuEntry('Member Graphs', $baseUrl . '/index.php?mode=memberGraphs&amp;prefix=' . $project->getPrefix(), $link++);
-		echo getMenuEntry('Monthly Stats', $baseUrl . '/index.php?mode=monthlyStats&amp;prefix=' . $project->getPrefix(), $link++);
-	}
-	echo getMenuHeader('Old Projects', 'opActive');
-	if ( $opActive == 'on' )
-	{
-		echo getMenuEntry('Find a Drug', $baseUrl . '/index.php?mode=Members&amp;tabel=memberoffset&amp;naam=' . 
-				'&amp;datum=2006-01-26&amp;prefix=fad', $link++);
-		echo getMenuEntry('TSC Phase 1', $baseUrl . '/index.php?prefix=tp1&datum=2006-04-03&mode=Members', $link++);
-		echo getMenuEntry('Stampede V', $baseurl . '/index.php?prefix=sp5&datum=2006-05-05&mode=Stampede' .
-				'&datum=2006-04-30', $link++);
-	}
-	echo '</table>';
 
 	if ( $cActive == 'on' )
 	{

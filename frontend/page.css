@@ -100,7 +100,7 @@ hr
 
 .evenCell
 {
-	background-color : #C0C0C0;
+	background-color:#C0C0C0;
 }
 
 .pageCell
@@ -137,3 +137,77 @@ hr
 {
 	height : 40px;
 }
+
+
+
+#nav, #nav ul { /* all lists */
+	padding: 0px;
+	margin: 0px;
+	margin-left: 45px;
+	list-style: none;
+	line-height: 2;
+	font-family: verdana,arial,sans-serif;
+	font-size: 11px;
+	font-weight:bold;
+	background:#c0c0c0;
+}
+
+#nav a {
+	display: block;
+	width: 15em;
+	text-decoration:none;
+}
+
+#nav li ul a{
+	background:#c0c0c0;
+	text-decoration:none;
+}
+
+#nav li ul a:hover {
+	background:#b3b3b3;
+}
+
+#nav li { /* all list items */
+	float: left;
+	width: 15em; /* width needed or else Opera goes nuts */
+}
+
+#nav li ul { /* second-level lists */
+	font-weight:normal;
+	text-align:left;
+	text-decoration:none;
+	position: absolute;
+	padding: 5px;
+/*	background: #C0C0C0; */
+	border-color: #005FA9;
+	border-style: solid;
+	border-width: 1px;
+	width: 15em;
+	left: -999em; /* using left instead of display to hide menus because display: none isn't read by screen 
+readers */
+}
+
+#nav li ul ul { /* third-and-above-level lists */
+	margin: -1em 0 0 10em;
+}
+
+#nav li:hover ul ul, #nav li.sfhover ul ul {
+	text-decoration:none;
+	left: -999em;
+}
+
+
+#nav li:hover ul, #nav li li:hover ul, #nav li.sfhover ul, #nav li li.sfhover ul { /* lists nested under hovered list 
+items */
+/*	background: #b3b3b3; */
+	text-decoration:none;
+	left: auto;
+}
+
+#content {
+	clear: left;
+	color: #DADADA;
+}
+
+
+
