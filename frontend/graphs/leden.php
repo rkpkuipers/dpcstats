@@ -1,5 +1,5 @@
 <?php 
-include ('/var/www/tstats/classes.php');
+include ('../classes.php');
 include ($jpgraphdir . "/jpgraph.php"); 
 include ($jpgraphdir . "/jpgraph_bar.php"); 
 
