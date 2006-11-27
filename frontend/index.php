@@ -3,6 +3,8 @@ require('classes.php');
 
 $start_time = microtime();
 
+session_start();
+
 # Set/unset variables through cookies, used to save settings for hiding various parts on the site
 $cActive  = handleCookie('cActive',  $_GET['setCActive'],  $_GET['cActive'],  $_COOKIE['cActive']);
 $sbActive = handleCookie('sbActive', $_GET['setSbActive'], $_GET['sbActive'], $_COOKIE['sbActive']);
@@ -301,7 +303,11 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
 						'monthlyStats' => array('Monthly Stats', 'monthly.php'),
 						'memberGraphs' => array('Member Graphs', 'memberGraphs.php'),
 						'state' => array('Statement', 'statement.html'),
-						'faq' => array('Frequently Asked Questions', 'faq.php'));
+						'faq' => array('Frequently Asked Questions', 'faq.php'),
+						'login' => array('Login', 'admin/login.php'),
+						'register' => array('Register', 'admin/register.php'),
+						'verify' => array('Verify', 'admin/verify.php'),
+						'admin' => array('Admin Center', 'admin/admin.php'));
 
 	if ( isset($pages[$mode]) )
 	{
