@@ -1,8 +1,7 @@
 #!/usr/bin/php
 <?
 
-include ('/var/www/tstats/classes//database.php');
-include ('/home/rkuipers/stats/include.php');
+include (dirname(realpath($argv[0])) . '/../include.php');
 
 function calculateAverage($tabel)
 {
@@ -91,3 +90,9 @@ $datum = getCurrentDate('ud');
 
 calculateAverage('ud_teamoffset');
 calculateAverage('ud_memberoffset');
+
+$datum = getCurrentDate('ldc');
+calculateAverage('ldc_teamoffset');
+calculateAverage('ldc_memberoffset');
+calculateAverage('ldc_subteamoffset');
+calculateAverage('ldc_individualoffset');

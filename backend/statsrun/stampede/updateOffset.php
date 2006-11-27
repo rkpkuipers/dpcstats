@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?
 
-include('/var/www/tstats/classes.php');
+include (dirname(realpath($argv[0])) . '/../include.php');
 
 $query = 'SELECT 
 		REPLACE(naam, \' - \', \'~\')AS name,

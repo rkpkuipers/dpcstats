@@ -1,9 +1,7 @@
 #!/usr/bin/php
 <?php
 
-include ('/var/www/tstats/classes/database.php');
-include ('/home/rkuipers/stats/include.php');
-include ('/var/www/tstats/classes/members.php');
+include (dirname(realpath($argv[0])) . '/../include.php');
 
 function getSubteam($name)
 {
@@ -34,6 +32,12 @@ dailyOffset('memberoffset', 'sob');
 dailyOffset('teamoffset', 'sob');
 dailyOffset('subteamoffset', 'sob');
 dailyOffset('individualoffset', 'sob');
+
+dailyOffset('memberoffset', 'stg');
+dailyOffset('teamoffset', 'stg');
+dailyOffset('subteamoffset', 'stg');
+dailyOffset('individualoffset', 'stg');
+
 
 $html = implode('', file ('http://www.seventeenorbust.com/stats/textStats.mhtml')) or die("Error retrieving information");
 $lines = explode("\n", $html);
@@ -107,6 +111,9 @@ foreach($members as $member => $score)
 addStatsrun($memberList, 'sob_memberoffset');
 addStatsrun($teamList, 'sob_teamoffset');
 
+updateStats($members, 'stg_memberoffset');
+updateStats($teams, 'stg_teamoffset');
+
 foreach ( $subTeamArray as $subTeamName => $member )
 {
 	arsort($member, SORT_NUMERIC);
@@ -118,4 +125,5 @@ foreach ( $subTeamArray as $subTeamName => $member )
 
 
 addSubTeamStatsRun($subteammembers, 'sob_subteamoffset');
+addSubTeamStatsRun($subteammembers, 'stg_subteamoffset');
 ?>

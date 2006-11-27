@@ -1,11 +1,7 @@
 #!/usr/bin/php
 <?php
 
-include ('/home/rkuipers/stats/database.php');
-include ('/home/rkuipers/stats/include.php');
-include ('/var/www/tstats/classes/members.php');
-
-# Gather data from sengent
+include (dirname(realpath($argv[0])) . '/../include.php');
 
 function getSubteam($name)
 {

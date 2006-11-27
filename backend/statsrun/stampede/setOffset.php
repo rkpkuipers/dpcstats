@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?
 
-include('/var/www/tstats/classes.php');
+include (dirname(realpath($argv[0])) . '/../include.php');
 
 $db->updateQuery('UPDATE stampedeparticipants SET offset = 0');
 $db->deleteQuery('DELETE FROM sp5_memberoffset WHERE dag < \'' . getPrevDate() . '\'');

@@ -1,13 +1,16 @@
 <?php
 
-include('/var/www/tstats/classes/config.php');
+$webroot = '/var/www/tstats/';
+# Configuration
+include($webroot . '/classes/config.php');
+# Required for support of the member() class used by the soon to be deprecated addStatsRun functions
+include($webroot . '/classes/members.php');
+# Contains the database code
+include($webroot . '/classes/database.php');
 
 $db = new miDataBase($dbuser, $dbpass, $dbhost, $dbport, $dbname);
 $db->connect();
 
-# Globals
-
-$listsize = 30;
 
 function getCurrentDate($prefix)
 {
