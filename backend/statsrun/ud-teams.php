@@ -67,8 +67,7 @@ foreach($teams as $team => $score)
 	$teamList[] = new Member(str_replace(chr(160), ' ', $team), $score);
 }
 
-#echo count($teamList);
-addStatsrun($teamList, 'ud_teamoffset');
+updateStats($teams, 'ud_teamoffset');
 
 for($i=1;$i<=20;$i++)
 {

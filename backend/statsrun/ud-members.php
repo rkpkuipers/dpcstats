@@ -76,6 +76,7 @@ foreach($teams as $team => $score)
 
 #echo count($teamList);
 addStatsrun($teamList, 'ud_memberoffset');
+updateStats($teams, 'ud_memberoffset');
 
 for($i=1;$i<=15;$i++)
 {

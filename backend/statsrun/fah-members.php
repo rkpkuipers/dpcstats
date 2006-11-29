@@ -170,13 +170,13 @@ do
 	$itt++;
 	
 	getMembers();
-} while ( ( count($members) == 0 ) || ( count($subteamMembers) == 0 ) );
+} while ( ( ( count($members) == 0 ) || ( count($subteamMembers) == 0 ) ) && ( $itt < 25 ) );
 
 arsort($members, SORT_NUMERIC);
 foreach($members as $name => $score)
 	$fahmembers[] = new Member($name, $score);
 
-addStatsrun($fahmembers, 'fah_memberoffset');
+updateStats($members, 'fah_memberoffset');
 
 $fahsubteammembers = array();
 foreach ( $subteamMembers as $subTeamName => $member )

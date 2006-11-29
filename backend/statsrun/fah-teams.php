@@ -24,8 +24,9 @@ for($i=10;$i<count($data);$i+=3)
 	if ( $score > 0 )
 	{
 		$teams[] = new Member($name, $score);
+		$teamlist[$name] = $score;
 	}
 }
 
-addStatsRun($teams, 'fah_teamoffset');
+updateStats($teamlist, 'fah_teamoffset');
 ?>

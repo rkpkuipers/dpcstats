@@ -36,7 +36,8 @@ arsort($team, SORT_NUMERIC);
 foreach($team as $name => $score)
 	$teamlist[] = new Member($name, $score);
 
-addStatsrun($teamlist, 'sah_teamoffset');
+#addStatsrun($teamlist, 'sah_teamoffset');
+updateStats($team, 'sah_teamoffset');
 unlink($tempdir . '/sah.team.2');
 
 $url = 'http://setiathome.berkeley.edu/stats/user.gz';
@@ -104,7 +105,8 @@ arsort($member, SORT_NUMERIC);
 foreach($member as $name => $score)
 	$memberlist[] = new Member($name, $score);
 
-addStatsrun($memberlist, 'sah_memberoffset');
+#addStatsrun($memberlist, 'sah_memberoffset');
+updateStats($member, 'sah_memberoffset');
 
 foreach ( $subteamMembers as $subTeamName => $member )
 {

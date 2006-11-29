@@ -37,7 +37,8 @@ arsort($team, SORT_NUMERIC);
 foreach($team as $name => $score)
 	$teamlist[] = new Member($name, $score);
 
-addStatsrun($teamlist, 'rah_teamoffset');
+#addStatsrun($teamlist, 'rah_teamoffset');
+updateStats($team, 'rah_teamoffset');
 
 $url = 'http://boinc.bakerlab.org/rosetta/stats/user.gz';
 
@@ -126,7 +127,8 @@ arsort($member, SORT_NUMERIC);
 foreach($member as $name => $score)
 	$memberlist[] = new Member($name, $score);
 
-addStatsrun($memberlist, 'rah_memberoffset');
+#addStatsrun($memberlist, 'rah_memberoffset');
+updateStats($member, 'rah_memberoffset');
 
 foreach ( $subteamMembers as $subTeamName => $member )
 {
