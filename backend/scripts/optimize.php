@@ -1,15 +1,17 @@
 #!/usr/bin/php
 <?
 
-include ('/home/rkuipers/stats/database.php');
-include ('/home/rkuipers/stats/include.php');
+include (dirname(realpath($argv[0])) . '/include.php');
 
-$result = mysql_list_tables('stats');
+$db = new miDataBase($dbuser, $dbpass, $dbhost, $dbport, $dbname);
+$db->connect();
+
+$result = $db->selectQuery('SHOW TABLES FROM stats');
 
 $optQuery = 'OPTIMIZE TABLE ';
 
 $i = 0;
-while ( $line = mysql_fetch_array($result) )
+while ( $line = $db->fetchArray($result) )
 {
 	if ( $i > 0 ) $optQuery .= ',';
 	else $i++;
