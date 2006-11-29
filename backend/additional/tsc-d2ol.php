@@ -1,8 +1,7 @@
 #!/usr/bin/php
 <?php
 
-include ('/home/rkuipers/stats/database.php');
-include ('/home/rkuipers/stats/include.php');
+include (dirname(realpath($argv[0])) . '/../include.php');
 
 # TSC Members
 $html = implode('', file ('http://d2ol.childhooddiseases.org/stats/topMembersAll.jsp?t=Alltime')) or die("Error retrieving information");
