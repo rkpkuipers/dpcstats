@@ -11,4 +11,5 @@ individualStatsrun('sah');
 individualStatsrun('sob');
 individualStatsrun('eah');
 individualStatsrun('ldc');
+individualStatsrun('wcg');
 ?>
