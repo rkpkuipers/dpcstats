@@ -228,7 +228,7 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
        </div>
       </td>
 <?
-	if ( in_array($project->getPrefix(), array('fah', 'sah', 'smp', 'sob', 'ufl', 'rah')) )
+	if ( in_array($project->getPrefix(), array('fah', 'sah', 'smp', 'sob', 'ufl', 'rah', 'wcg', 'ldc')) )
 	{
 		$indUrl = $baseUrl . '/index.php?mode=Individuals&amp;tabel=individualoffset&amp;datum=' . 
 			$datum . '&amp;prefix=' . $project->getPrefix();
