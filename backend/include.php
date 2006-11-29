@@ -595,7 +595,7 @@ function updateStats($members, $table)
 					' . $table . '
 				WHERE
 					naam = \'' . $db->real_escape_string($retMemberName) . '\'
-				AND	datum = \'' . $datum . '\'';
+				AND	dag = \'' . $datum . '\'';
 		$db->deleteQuery($deleteQuery);
 
 		unset($deleteQuery);
@@ -764,6 +764,68 @@ function addMovementRecord($name, $credits, $datum, $direction, $table)
 	$db->insertQuery($insertQuery);
 
 	unset($insertQuery);
+}
+
+function addSubteamMember(&$members, &$subteams, $rawname, $score, $seperator)
+{
+	$seperatorPosition = strpos($rawname, $seperator);
+
+	if ( is_numeric($seperatorPosition) )
+	{
+		$team = substr($rawname, 0, $seperatorPosition);
+		$name = substr($rawname, ( $seperatorPosition + 1 ));
+
+		if ( isset($members[$team]) )
+		{
+			$members[$team] += $score;
+		}
+		else
+		{
+			$members[$team] = $score;
+		}
+
+		if ( ! isset($subteams[$team]) )
+		{
+			$subteams[$team] = array();
+		}
+
+		if ( isset($subteams[$team][$name]) )
+			$subteams[$team][$name] += $score;
+		else
+			$subteams[$team][$name] = $score;
+	}
+	elseif ( isset($members[$rawname]) )
+	{
+		$members[$rawname] += $score;
+	}
+	else
+	{
+		$members[$rawname] = $score;
+	}
+}
+
+function fixSubteamList(&$subteam, &$member, $seperator)
+{
+	# Remove subteams with only one member, consider those as members with the seperator in their name
+	foreach($subteam as $teamname => $subteammembers)
+	{
+		if ( count($subteammembers) == 1 )
+		{
+			$member[$teamname . $seperator . key($subteammembers)] = current($subteammembers);
+			unset($subteam[$teamname]);
+			unset($member[$teamname]);
+		}
+
+		foreach($subteammembers as $stmembername => $stmemberscore)
+		{
+			if ( isset($member[$teamname . $seperator . $stmembername]) )
+			{
+				unset($member[$teamname . $seperator . $stmembername]);
+			}
+		}
+	}
+
+	arsort($member, SORT_NUMERIC);
 }
 
 ?>
