@@ -12,7 +12,7 @@
 			}
 
 		?>
-			<li><a href="#">Discontiued Projects&nbsp;&nbsp;&nbsp;></a>
+			<li><a href="#">Discontinued Projects&nbsp;&nbsp;&nbsp;></a>
 				<ul>
 					<?
 					$query = 'SELECT project, description FROM project WHERE active = 0 ORDER BY project';	
