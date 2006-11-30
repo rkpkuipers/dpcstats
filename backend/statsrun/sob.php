@@ -73,7 +73,6 @@ for($line=2;$line<count($lines);$line++)
                                 $subTeamArray[$teamName] = array();
 
                         $subTeamArray[$teamName][$name] = $score;
-                        #echo $teamName . ' ' . $teams[$i] . ' ' . $teams[$i+5] . "\n";
                 }
                 else
                 {
@@ -82,8 +81,6 @@ for($line=2;$line<count($lines);$line++)
 	}
 
 }
-#echo count($members) . ' ' . count($teams) . "\n";
-
 arsort($teams, SORT_NUMERIC);
 
 $teamList = array();
@@ -103,16 +100,8 @@ foreach($members as $member => $score)
 	$memberList[] = new Member($member, $score);
 }
 
-#for($i=0;$i<25;$i++)
-#	echo $teamList[$i]->getNaam() . ' ' . $teamList[$i]->getCandidates() . "\n";
-
-#die();
-
-addStatsrun($memberList, 'sob_memberoffset');
-addStatsrun($teamList, 'sob_teamoffset');
-
-updateStats($members, 'stg_memberoffset');
-updateStats($teams, 'stg_teamoffset');
+updateStats($members, 'sob_memberoffset');
+updateStats($teams, 'sob_teamoffset');
 
 foreach ( $subTeamArray as $subTeamName => $member )
 {
@@ -123,7 +112,5 @@ foreach ( $subTeamArray as $subTeamName => $member )
 	}
 }
 
-
 addSubTeamStatsRun($subteammembers, 'sob_subteamoffset');
-addSubTeamStatsRun($subteammembers, 'stg_subteamoffset');
 ?>

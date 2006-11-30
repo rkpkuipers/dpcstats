@@ -49,44 +49,11 @@ function getMembersFromPage($file)
 		$teams[trim($data)] = str_replace(',', '', trim($lines[$i+2]));
 	}
 
-/*
-	$data = preg_replace(array('@<b>@si', '@</b>@si', '@<a[^>]*?>@si', '@</a>@si', '@<td[^>]*?>@si', '@</td>@si', '@</span>@si'), "||", $raw);
-	$info = explode('||', $data);
-	$info = str_replace('&nbsp;', ' ', $info);
-
-	for($i=0;$i<25;$i++)
-		echo $i . ' ' . $info[$i] . "\n";
-
-/*
-	for($i=5;$i<count($info);$i+=10)
-	{
-		if ( $info[$i] != '' )
-		{
-			$teams[trim(html_entity_decode($info[$i]))] = str_replace(',', '', $info[$i+4]);
-		#	echo html_entity_decode($info[$i]) . "\n";;
-		}
-	}*/
-
 	return $teams;
 }
 
 $teams = getMembersFromPage($tempdir . '/wcg-teams');
 
-#$teamold = $teams;
-#arsort($teams, SORT_NUMERIC);
-#print_r(array_diff($teamold, $teams));
-
-/*
-$teamList = array();
-foreach($teams as $team => $score)
-{
-	#echo $team . ' ' . $score . "\n";
-	$teamList[] = new Member(str_replace(chr(160), ' ', $team), $score);
-}
-*/
-
-#echo count($teamList);
-#addStatsrun($teamList, 'ud_teamoffset');
 updateStats($teams, 'wcg_teamoffset');
 
 for($i=1;$i<=20;$i++)

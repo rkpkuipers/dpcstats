@@ -766,7 +766,24 @@ function addMovementRecord($name, $credits, $datum, $direction, $table)
 	unset($insertQuery);
 }
 
-function addSubteamMember(&$members, &$subteams, $rawname, $score, $seperator)
+function addTeam(&$teams, $rawname, $score)
+{
+	foreach($teams as $teamname => $teamscore)
+	{
+		if ( strtolower($teamname) == strtolower($rawname) )
+		{
+			$teams[$teamname] += $score;
+			$score = 0;
+		}
+	}
+
+	if ( $score != 0 )
+	{
+		$teams[$rawname] = $score;
+	}
+}
+
+function addMember(&$members, &$subteams, $rawname, $score, $seperator)
 {
 	$seperatorPosition = strpos($rawname, $seperator);
 
@@ -775,36 +792,58 @@ function addSubteamMember(&$members, &$subteams, $rawname, $score, $seperator)
 		$team = substr($rawname, 0, $seperatorPosition);
 		$name = substr($rawname, ( $seperatorPosition + 1 ));
 
-		if ( isset($members[$team]) )
+		$teamset = 0;
+		foreach($members as $membername => $memberscore)
 		{
-			$members[$team] += $score;
+			if ( strtolower($membername) == strtolower($team) )
+			{
+				$members[$membername] += $score;
+				$teamset = 1;
+				$team = $membername;
+			}
 		}
-		else
-		{
+
+		if ( $teamset == 0 )
 			$members[$team] = $score;
-		}
+
+		unset($teamset);
 
 		if ( ! isset($subteams[$team]) )
 		{
 			$subteams[$team] = array();
 		}
 
-		if ( isset($subteams[$team][$name]) )
-			$subteams[$team][$name] += $score;
-		else
+		foreach($subteams[$team] as $stname => $stscore)
+		{
+			if ( strtolower($stname) == strtolower($name) )
+			{
+				$subteams[$team][$stname] += $score;
+				$score = 0;
+			}
+		}
+
+		if ( $score != 0 )
 			$subteams[$team][$name] = $score;
-	}
-	elseif ( isset($members[$rawname]) )
-	{
-		$members[$rawname] += $score;
 	}
 	else
 	{
-		$members[$rawname] = $score;
+		foreach($members as $membername => $memberscore)
+		{
+			if ( strtolower($membername) == strtolower($rawname) )
+			{
+				$members[$membername] += $score;
+				$score = 0;
+			}
+		}
+
+		if ( $score != 0 )
+		{
+			$members[$rawname] = $score;
+		}
 	}
 }
 
-function fixSubteamList(&$subteam, &$member, $seperator)
+function fixLists(&$member, &$subteam, $seperator)
 {
 	# Remove subteams with only one member, consider those as members with the seperator in their name
 	foreach($subteam as $teamname => $subteammembers)
@@ -815,6 +854,8 @@ function fixSubteamList(&$subteam, &$member, $seperator)
 			unset($subteam[$teamname]);
 			unset($member[$teamname]);
 		}
+		else
+			arsort($subteam[$teamname], SORT_NUMERIC);
 
 		foreach($subteammembers as $stmembername => $stmemberscore)
 		{

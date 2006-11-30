@@ -34,10 +34,7 @@ unlink('/home/rkuipers/stats/statsrun/files/ufl.team');
 
 arsort($team, SORT_NUMERIC);
 
-foreach($team as $name => $score)
-	$teamlist[] = new Member($name, $score);
-
-addStatsrun($teamlist, 'ufl_teamoffset');
+updateStats($team, 'ufl_teamoffset');
 
 $url = 'http://www.ufluids.net/stats/user.xml.gz';
 
@@ -89,10 +86,7 @@ foreach ( $subteamlist as $name => $score )
 
 arsort($member, SORT_NUMERIC);
 
-foreach($member as $name => $score)
-	$memberlist[] = new Member($name, $score);
-
-addStatsrun($memberlist, 'ufl_memberoffset');
+updateStats($member, 'ufl_memberoffset');
 
 foreach ( $subteamMembers as $subTeamName => $member )
 {

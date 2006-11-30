@@ -52,10 +52,10 @@ for($i=0;$i<count($lines);$i+=6)
 		
 	$score = str_replace(',', '', trim($lines[$i+4]));
 
-	addSubteamMember($member, $subteam, trim($data), str_replace(',', '', trim($lines[$i+4])), '.');
+	addMember($member, $subteam, trim($data), str_replace(',', '', trim($lines[$i+4])), '.');
 }
 
-fixSubteamList($subteam, $member, '.');
+fixLists($member, $subteam, '.');
 
 updateStats($member, 'wcg_memberoffset');
 

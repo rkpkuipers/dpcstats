@@ -12,8 +12,6 @@ dailyOffset('individualoffset', 'ldc');
 
 $url = 'http://boinc.gorlaeus.net/stats/team.xml.gz';
 
-#$xmldata = simplexml_load_file(rawurlencode($url));
-
 system('wget -q '. $url . ' -O /home/rkuipers/stats/statsrun/files/ldc.team.gz');
 
 $action = 'gunzip /home/rkuipers/stats/statsrun/files/ldc.team.gz';
@@ -37,7 +35,7 @@ arsort($team, SORT_NUMERIC);
 foreach($team as $name => $score)
 	$teamlist[] = new Member($name, $score);
 
-addStatsrun($teamlist, 'ldc_teamoffset');
+updateStats($team, 'ldc_teamoffset');
 
 $url = 'http://boinc.gorlaeus.net/stats/user.xml.gz';
 
@@ -92,7 +90,7 @@ arsort($member, SORT_NUMERIC);
 foreach($member as $name => $score)
 	$memberlist[] = new Member($name, $score);
 
-addStatsrun($memberlist, 'ldc_memberoffset');
+updateStats($member, 'ldc_memberoffset');
 
 foreach ( $subteamMembers as $subTeamName => $member )
 {

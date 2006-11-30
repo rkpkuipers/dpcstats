@@ -68,14 +68,7 @@ $teams = getMembersFromPage($tempDir . '/ud-members');
 arsort($teams, SORT_NUMERIC);
 
 $teamList = array();
-foreach($teams as $team => $score)
-{
-	#echo $team . ' ' . $score . "\n";
-	$teamList[] = new Member($team, $score);
-}
 
-#echo count($teamList);
-addStatsrun($teamList, 'ud_memberoffset');
 updateStats($teams, 'ud_memberoffset');
 
 for($i=1;$i<=15;$i++)

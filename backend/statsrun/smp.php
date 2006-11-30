@@ -35,10 +35,7 @@ unlink($basedir . '/smp.team');
 
 arsort($team, SORT_NUMERIC);
 
-foreach($team as $name => $score)
-	$teamlist[] = new Member($name, $score);
-
-addStatsrun($teamlist, 'smp_teamoffset');
+updateStats($team, 'smp_teamoffset');
 
 $url = 'http://boinc.bio.wzw.tum.de/boincsimap/stats/user.gz';
 
@@ -113,10 +110,7 @@ foreach ( $subteamlist as $name => $score )
 
 arsort($member, SORT_NUMERIC);
 
-foreach($member as $name => $score)
-	$memberlist[] = new Member($name, $score);
-
-addStatsrun($memberlist, 'smp_memberoffset');
+updateStats($member, 'smp_memberoffset');
 
 foreach ( $subteamMembers as $subTeamName => $member )
 {
