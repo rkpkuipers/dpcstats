@@ -471,7 +471,7 @@ function individualStatsrun($project)
 
 function setDailyOffset($prefix, $tabel, $datum)
 {
-	global $db;
+	global $db, $datum;
 	
 	if ( $tabel == 'subteamoffset' )
 		$selectFields = ' subteam, ';
@@ -498,8 +498,7 @@ function setDailyOffset($prefix, $tabel, $datum)
 
 function dailyOffset($tabel, $project)
 {
-	global $db;
-	$datum = getCurrentDate($project);
+	global $db, $datum;
 
 	$query = 'SELECT 
 			COUNT(naam) 

@@ -26,21 +26,21 @@ function getSubteam($name)
 
 # Gather data from sengent
 
-$datum = getCurrentDate('sob');
+$html = implode('', file ('http://www.seventeenorbust.com/stats/textStats2.mhtml')) or die("Error retrieving information");
+$lines = explode("\n", $html);
+
+$dateinfo = explode(' ', $lines[0]);
+$update = $dateinfo[1];
+
+$datum = date("Y-m-d", $update);
+unset($dateinfo, $update);
+
+#$datum = getCurrentDate('sob');
 
 dailyOffset('memberoffset', 'sob');
 dailyOffset('teamoffset', 'sob');
 dailyOffset('subteamoffset', 'sob');
 dailyOffset('individualoffset', 'sob');
-
-dailyOffset('memberoffset', 'stg');
-dailyOffset('teamoffset', 'stg');
-dailyOffset('subteamoffset', 'stg');
-dailyOffset('individualoffset', 'stg');
-
-
-$html = implode('', file ('http://www.seventeenorbust.com/stats/textStats.mhtml')) or die("Error retrieving information");
-$lines = explode("\n", $html);
 
 $members = array();
 $teams = array();
@@ -83,22 +83,12 @@ for($line=2;$line<count($lines);$line++)
 }
 arsort($teams, SORT_NUMERIC);
 
-$teamList = array();
-foreach($teams as $team => $score)
-	$teamList[] = new Member($team, $score);
-
 foreach ( $subteams as $name => $score )
 {
         $members[$name] = $score;
 }
 
 arsort($members, SORT_NUMERIC);
-
-$memberList = array();
-foreach($members as $member => $score)
-{
-	$memberList[] = new Member($member, $score);
-}
 
 updateStats($members, 'sob_memberoffset');
 updateStats($teams, 'sob_teamoffset');
