@@ -6,6 +6,8 @@ include (dirname(realpath($argv[0])) . '/../include.php');
 $datum = getCurrentDate('wcg');
 
 dailyOffset('memberoffset', 'wcg');
+dailyOffset('subteamoffset', 'wcg');
+dailyOffset('individualoffset', 'wcg');
 $tempdir = '/home/rkuipers/stats/statsrun/files/';
 
 $pages = 1;
