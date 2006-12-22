@@ -4,12 +4,12 @@
 include (dirname(realpath($argv[0])) . '/../include.php');
 
 #individualStatsrun('fah');
-individualStatsrun('rah');
-individualStatsrun('smp');
-individualStatsrun('ufl');
+#individualStatsrun('rah');
+#individualStatsrun('smp');
+#individualStatsrun('ufl');
 individualStatsrun('sah');
 individualStatsrun('sob');
-individualStatsrun('eah');
-individualStatsrun('ldc');
+#individualStatsrun('eah');
+#individualStatsrun('ldc');
 individualStatsrun('wcg');
 ?>
