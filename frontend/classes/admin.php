@@ -22,7 +22,7 @@ class admin
 		$query = 'SELECT
 				username
 			FROM
-				users
+				a_users
 			WHERE
 				username = \'' . $this->username . '\'';
 
@@ -37,7 +37,7 @@ class admin
 	function saveUser()
 	{
 		$query = 'INSERT INTO
-				users
+				a_users
 			(
 				username,
 				email,
@@ -62,7 +62,7 @@ class admin
 				email,
 				password
 			FROM
-				users
+				a_users
 			WHERE
 				username = \'' . $this->username . '\'
 			AND	password = \'' . md5($this->password) . '\'';

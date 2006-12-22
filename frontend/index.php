@@ -25,11 +25,13 @@ $allowed = array(	'mode' => 'Members',		# Which page to load
 			'hl' => '',			# Which team to highlight, used for custom position lists
 			'dlow' => 0,			# offset for the flush list (start at $dlow instead of 1)
 			'low' => 0,			# offset for the overall list
-			'team' => 'Dutch Power Cows');
+			'flushlist' => 0,			# whether to show the entire list
+			'team' => 'Dutch Power Cows');	# Default team name
 
 # All table names we're changed to lower case, convert any old names to new ones for backward compatibility
 $tabel = strtolower($tabel);
 
+# Allowed contains the variables in use, check if they were passed as _GET of _POST, otherwise load default values
 foreach($allowed as $name => $default)
 {
 	if ( isset($_REQUEST[$name]) )
@@ -39,6 +41,13 @@ foreach($allowed as $name => $default)
 }
 
 # Check some of the variables for valid contents
+
+# Change mode to login when trying to access the admin directly
+# This only affects visual output
+if ( ( $mode == 'admin' ) && ( ! isset($_SESSION['username']) ) )
+{
+	$mode = 'login';
+}
 
 # Verify we're going to use a tabel the scripts have direct access to
 checkTable($tabel);
@@ -51,11 +60,6 @@ if ( isset($_GET['detail']) )
 	$graphDetail = $_GET['detail'];
 else
 	$graphDetail = 0;
-
-if ( isset ( $_REQUEST['fl']) )
-	$flushList = $_REQUEST['fl'];
-else
-	$flushList = 0;
 
 if ( isset ( $_GET['sort']) )
 	$sort = $_GET['sort'];

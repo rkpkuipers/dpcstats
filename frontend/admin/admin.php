@@ -2,7 +2,9 @@
 
 if ( ! isset($_SESSION['username']) )
 {
-	header('Location: /index.php');
+	#header('Location: /index.php');
+	$mode = 'login';
+	return false;
 }
 echo '<center><h2>Welcome ' . $_SESSION['username'] . '</h2></center>';
 ?>

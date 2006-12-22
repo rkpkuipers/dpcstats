@@ -122,7 +122,7 @@ if ( $ts->getDailyFlushers() > $listsize )
         for($i=0;($i*$listsize)<$ts->getDailyFlushers();$i++)
         {
                 echo '<option value="' . ( $i * $listsize ) . '"';
-                if ( ( $flushList == 0 ) && ( $dlow > 0 ) && ( ($i) == ($dlow/$listsize) ) )
+                if ( ( $flushlist == 0 ) && ( $dlow > 0 ) && ( ($i) == ($dlow/$listsize) ) )
                         echo ' selected';
 
                 echo '>' . ( $i + 1 ) . '</option>';
@@ -229,7 +229,7 @@ if ( $ts->getTotalMembers() > $listsize )
         for($i=0;($i*$listsize)<$ts->getTotalMembers();$i++)
         {
                 echo '<option value="' . ( $i * $listsize ) . '"';
-                if ( ( $flushList == 0 ) && ( ($i) == ($low/$listsize) ) )
+                if ( ( $flushlist == 0 ) && ( ($i) == ($low/$listsize) ) )
                         echo ' selected';
 
                 echo '>' . ( $i + 1 ) . '</option>';

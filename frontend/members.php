@@ -53,7 +53,7 @@ if ( $ts->getDailyFlushers() > $listsize )
 	for($i=0;($i*$listsize)<$ts->getDailyFlushers();$i++)
 	{
 		echo '<option value="' . ( $i * $listsize ) . '"';
-		if ( ( $flushList == 0 ) && ( $dlow > 0 ) && ( ($i) == ($dlow/$listsize) ) )
+		if ( ( $flushlist == 0 ) && ( $dlow > 0 ) && ( ($i) == ($dlow/$listsize) ) )
 			echo ' selected';
 		
 		echo '>' . ( $i + 1 ) . '</option>';
@@ -70,7 +70,7 @@ if ( $ts->getDailyFlushers() > $listsize )
         echo '<input type="hidden" name="low" value="0">';
 	echo '<input type="hidden" name="team" value="' . $team . '">';
         echo '<input type="hidden" name="dlow" value="0">';
-        echo '<input type="hidden" name="fl" value="2">';
+        echo '<input type="hidden" name="flushlist" value="2">';
         echo '<input type="hidden" name="datum" value="' . $datum . '">';
         echo '<input type="submit" value="List" class="TextField">';
         echo '</p>';
@@ -91,7 +91,7 @@ echo '<INPUT TYPE="image" SRC="images/graph.jpg" value="Graph"></td>';
 echo '</tr></table>';
 echo '<hr>';
 
-if ( $flushList == 2 )
+if ( $flushlist == 2 )
 	$ml = new MemberList($project->getPrefix() . '_' . $tabel, $datum, 0, $ts->getDailyFlushers(), $db, $team);
 else
 	$ml = new MemberList($project->getPrefix() . '_' . $tabel, $datum, $dlow, $listsize, $db, $team);
@@ -213,7 +213,7 @@ if ( $ts->getTotalMembers() > $listsize )
         for($i=0;($i*$listsize)<$ts->getTotalMembers();$i++)
         {
 		echo '<option value="' . ( $i * $listsize ) . '"';
-                if ( ( $flushList == 0 ) && ( ($i) == ($low/$listsize) ) )
+                if ( ( $flushlist == 0 ) && ( ($i) == ($low/$listsize) ) )
                         echo ' selected';
 
 		echo '>' . ( $i + 1 ) . '</option>';
@@ -230,7 +230,7 @@ if ( $ts->getTotalMembers() > $listsize )
 	echo '<input type="hidden" name="low" value="0">';
 	echo '<input type="hidden" name="team" value="' . $team . '">';
 	echo '<input type="hidden" name="dlow" value="0">';
-	echo '<input type="hidden" name="fl" value="1">';
+	echo '<input type="hidden" name="flushlist" value="1">';
 	echo '<input type="hidden" name="datum" value="' . $datum . '">';
 	echo '<input type="submit" value="List" class="TextField">';
 	echo '</p>';
@@ -252,7 +252,7 @@ if ( $ts->getTotalMembers() > $listsize )
 <table border="0">
 
 <?php
-if ( $flushList == 1 )
+if ( $flushlist == 1 )
 	$ml = new MemberList($project->getPrefix() . '_' . $tabel, $datum, 0, $ts->getTotalMembers(), $db, $team);
 else
 	$ml = new MemberList($project->getPrefix() . '_' . $tabel, $datum, $low, $listsize, $db, $team);
