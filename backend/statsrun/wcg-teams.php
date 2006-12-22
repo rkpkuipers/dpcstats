@@ -20,14 +20,14 @@ for($ctrl=0;$ctrl<5;$ctrl++)
 {
         for($i=1;$i<=15;$i++)
 	{
-		if ( file_exists($tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT) ) )
+		if ( file_exists($tempdir . '/wcgt-' . str_pad($i, 2, 0, STR_PAD_LEFT) ) )
 		{
-			if ( filesize($tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT)) < 70000 )
-				system('wget --quiet --tries 5 -O ' . $tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT) . ' "http://www.worldcommunitygrid.org/stat/viewStatsByTeamAT.do?sort=points&numRecordsPerPage=250&pageNum=' . $i . '"');
+			if ( filesize($tempdir . '/wcgt-' . str_pad($i, 2, 0, STR_PAD_LEFT)) < 70000 )
+				system('wget --quiet --tries 5 -O ' . $tempdir . '/wcgt-' . str_pad($i, 2, 0, STR_PAD_LEFT) . ' "http://www.worldcommunitygrid.org/stat/viewStatsByTeamAT.do?sort=points&numRecordsPerPage=250&pageNum=' . $i . '"');
 		}
 		else
 		{
-			system('wget --quiet --tries 5 -O ' . $tempdir . '/udt-' . str_pad($i, 2, 0, STR_PAD_LEFT) . ' "http://www.worldcommunitygrid.org/stat/viewStatsByTeamAT.do?sort=points&numRecordsPerPage=250&pageNum=' . $i . '"');
+			system('wget --quiet --tries 5 -O ' . $tempdir . '/wcgt-' . str_pad($i, 2, 0, STR_PAD_LEFT) . ' "http://www.worldcommunitygrid.org/stat/viewStatsByTeamAT.do?sort=points&numRecordsPerPage=250&pageNum=' . $i . '"');
 		}
 	}
 }
