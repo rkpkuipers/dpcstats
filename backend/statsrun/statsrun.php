@@ -69,6 +69,7 @@ class StatsRun
 		{
 			if ( (int)$xmluser->teamid == $teamid )
 				addMember($member, $subteam, (string)$xmluser->name, (int)$xmluser->total_credit, $seperator);
+
 		}
 		
 		fixLists($member, $subteam, $seperator);
@@ -105,7 +106,7 @@ switch($run)
 	case 60:	$sr->boinc('smp', 'http://boinc.bio.wzw.tum.de/boincsimap/stats/', '~', 119, '');
 			$sr->boinc('eah', 'http://einstein.phys.uwm.edu/stats/', '~', 822, '_id');
 			$sr->boinc('cp', 'http://climateapps2.oucs.ox.ac.uk/stats/', '~', 28, '.xml');
-			$sr->boinc('ufl', 'http://www.ufluids.net/stats/team/', '~', 202 , '.xml');
+			$sr->boinc('ufl', 'http://www.ufluids.net/stats/', '~', 202 , '.xml');
 			$sr->boinc('rah', 'http://boinc.bakerlab.org/rosetta/stats/', '~', 78, '');
 			$sr->boinc('ldc', 'http://boinc.gorlaeus.net/stats/', '~', 99, '.xml');
 			break;
