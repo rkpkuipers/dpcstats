@@ -2,26 +2,23 @@
 	<li><a href="#">Projects</a>
 		<ul>
 		<?
-			$query = 'SELECT project, description FROM project WHERE active = 1 ORDER BY project';
+			$query = 'SELECT project, description, active FROM project ORDER BY active DESC, project';
 			$result = $db->selectQuery($query);
 
 		      
+		      	$currAct = 1;
 			while ( $line = $db->fetchArray($result) )
        			{
+				if ( ( $currAct == 1 ) && ( $line['active'] == 0 ) )
+				{	
+					echo '<li><a href="#">Additional Projects&nbsp;&nbsp;&nbsp;&gt;</a><ul>';
+					$currAct = 0;
+				}
+
 				echo '<li><a href="index.php?prefix=' . $line['project'] . '&amp;datum=' . $datum . ($line['project']=='sp5'?'&amp;mode=Stampede':'&amp;mode=Members') . '" title="Stats for ' . $line['description'] . '">' . $line['description'] . '</a></li>'."\n";
 			}
 
 		?>
-			<li><a href="#">Discontinued Projects&nbsp;&nbsp;&nbsp;></a>
-				<ul>
-					<?
-					$query = 'SELECT project, description FROM project WHERE active = 0 ORDER BY project';	
-					$result = $db->selectQuery($query);
-					while ( $line = $db->fetchArray($result) )
-					{
-						echo '<li><a href="index.php?prefix=' . $line['project'] . '&amp;datum=' . $datum . ($line['project']=='sp5'?'&amp;mode=Stampede':'&amp;mode=Members') . '" title="Stats for ' . $line['description'] . '">' . $line['description'] . '</a></li>'."\n";
-					}
-					?>	
 				</ul>
 			</li>
 		</ul>
