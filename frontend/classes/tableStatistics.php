@@ -213,13 +213,11 @@ class TableStatisticsYearly
 	var $dailyOutput;
 	var $totalOutput;
 	
-	function TableStatisticsYearly($tabel, $datum)
+	function TableStatisticsYearly($tabel, $datum, $db)
 	{
 		$this->tabel = $tabel;
 		$this->datum = $datum;
-		
-		$this->db = new DataBase();
-		$this->db->connect();
+		$this->db = $db;
 	}
 
 	function gather()
