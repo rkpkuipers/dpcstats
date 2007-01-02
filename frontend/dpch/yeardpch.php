@@ -1,6 +1,6 @@
 <?
 
-include ('classes.php');
+include ('../classes.php');
 
 if ( isset($_GET['project']) )
 	$project = $_GET['project'];
@@ -226,7 +226,7 @@ for($i=0;$i<5;$i++)
 $page .= '<tr><td><a href="' . $baseUrl . '/?prefix=' . $project . '&amp;mode=Flush">More...</a></td></tr>';
 $page .= '</table>';
 
-$mi = new MemberInfo($db, 'Dutch Power Cows', $project . '_teamoffset', $datum, $project, 'teamoffset');
+$mi = new MemberInfo($db, 'Dutch Power Cows', $project . '_teamoffset', $datum, $project, 'teamoffset', '');
 
 if ( $mi->getFlush() > 0 )
 {
