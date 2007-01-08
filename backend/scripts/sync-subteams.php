@@ -1,8 +1,7 @@
 #!/usr/bin/php
 <?php
 
-include ('/home/httpd/vhosts/dpchserver.nl/public_html/classes/database.php');
-include ('/home/httpd/vhosts/dpchserver.nl/public_html/Backend/include.php');
+include (dirname(realpath($argv[0])) . '/../include.php');
 
 # Projects to retrieve subteam information for
 $project = array('sob');
