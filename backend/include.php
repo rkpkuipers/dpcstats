@@ -854,13 +854,15 @@ function fixLists(&$member, &$subteam, $seperator)
 			unset($member[$teamname]);
 		}
 		else
+		{
 			arsort($subteam[$teamname], SORT_NUMERIC);
 
-		foreach($subteammembers as $stmembername => $stmemberscore)
-		{
-			if ( isset($member[$teamname . $seperator . $stmembername]) )
+			foreach($subteammembers as $stmembername => $stmemberscore)
 			{
-				unset($member[$teamname . $seperator . $stmembername]);
+				if ( isset($member[$teamname . $seperator . $stmembername]) )
+				{
+					unset($member[$teamname . $seperator . $stmembername]);
+				}
 			}
 		}
 	}
