@@ -35,6 +35,15 @@ class StatsRun
 		# Obtain the datafile from the project, unzip the file and load it into a simplexml object
 		system('wget -q '. $statslocation . '/team' . $statsfilesuffix . '.gz -O ' . $this->tempdir . '/' . $prefix . '.team.gz');
 
+		# Check if the file was obtained correctly
+		if ( filesize($this->tempdir . '/' . $prefix . '.team.gz') == 0 )
+		{
+			# Stop gathering stats if the file is empty
+			# Contains possible problem when team stats are down but user stats are not
+			echo 'Downloading team data returned empty file';
+	#		return 0;
+		}
+
 		system('gunzip ' . $this->tempdir . '/' . $prefix . '.team.gz');
 
 		$xmldata = simplexml_load_file($this->tempdir . '/' . $prefix . '.team');
@@ -93,6 +102,142 @@ class StatsRun
 		}
 
 	}
+
+	function D2OL()
+	{
+		global $datum;
+	
+		$datum = getCurrentDate('d2ol');
+	
+		if ( $html = @implode('', file ('http://app.d2ol.com/stats/topMembersAll.jsp?t=Alltime')) )
+		{
+			dailyOffset('memberoffset', 'd2ol');
+	
+			$teams = split("[\n|]", $html);
+			
+			$d2olmembers = array();
+			for($i=10;$i<count($teams);$i+=6)
+			{
+			        if ( ( $teams[$i+4] == 'Dutch Power Cows' ) && ( $teams[$i+1] > 0 ) )
+			                $d2olmembers[$teams[$i]] = $teams[$i+1];
+			}
+				
+			updateStats($d2olmembers, 'd2ol_memberoffset');
+			unset($d2olmembers, $teams);
+		}
+		else
+		{
+			echo 'Error fetching stats for D2OL members' . "\n";
+		}
+
+		unset($html);
+
+		if ( $html = @implode('', file ('http://app.d2ol.com/stats/topTeamsAll.jsp?t=Alltime')) )
+		{
+			dailyOffset('teamoffset', 'd2ol');
+
+			$teams = explode('|', $html);
+
+			$d2olteams = array();
+
+			for($i=6;$i<count($teams);$i+=5)
+			{
+		        	if ( ( $teams[$i+1] > 0 ) && (  ( $teams[$i] != 'Russia' ) || ( ( $teams[$i] == 'Russia' ) && ( $teams[$i+1] > 10000 ) ) ) )
+			        	        $d2olteams[$teams[$i]] = $teams[$i+1];
+			}
+
+			$html = @implode('', file ('http://d2ol.childhooddiseases.org/stats/topMembersAll.jsp?t=Alltime')) or die("Error retrieving information");
+			$teams = explode('|', $html);
+
+			$score = 0;
+			for($i=10;$i<count($teams);$i+=5)
+			{
+				if ( ( strstr($teams[$i], 'Unassigned') ) && ( $teams[$i-3] > 0 ) )
+				{
+			                $score += $teams[$i-3];
+			        }
+			}
+			$d2olteams['Unassigned'] = $score;
+
+			arsort($d2olteams);
+
+			updateStats($d2olteams, 'd2ol_teamoffset');
+		}
+		else
+		{
+			echo 'Error fetching stats for D2OL teams' . "\n";
+		}
+	}
+
+	function TSC()
+	{
+		global $datum;
+
+		$datum = getCurrentDate('tsc');
+
+		if ( $html = @implode('', file ('http://d2ol.childhooddiseases.org/stats/topMembersAll.jsp?t=Alltime')) )
+		{
+			dailyOffset('memberoffset', 'tsc');
+			$teams = split("[\n|]", $html);
+
+			$tscmembers = array();
+
+			for($i=10;$i<count($teams);$i+=6)
+			{
+			        if ( ( $teams[$i+4] == 'Dutch Power Cows' ) && ( $teams[$i+1] > 0 ) )
+			        {
+					$tscmembers[$teams[$i]] = $teams[$i+1];
+				}
+			}
+
+			updateStats($tscmembers, 'tsc_memberoffset');
+		}
+		else
+		{
+			echo 'Error fetching stats for TSC members' . "\n";
+		}
+
+		dailyOffset('teamoffset', 'tsc');
+
+		if ( $html = @implode('', file ('http://d2ol.childhooddiseases.org/stats/topTeamsAll.jsp?t=Alltime')) )
+		{
+			dailyOffset('teamoffset', 'tsc');
+			$teams = explode('|', $html);
+
+			$tscteams = array();
+
+			for($i=6;$i<count($teams);$i+=5)
+			{
+			        if ( ( $teams[$i+1] > 0 ) && ( ( $teams[$i] != 'Russia' ) || ( ( $teams[$i] == 'Russia' ) && ( $teams[$i+1] > 10000 ) ) ) )
+				        {
+				                $tscteams[$teams[$i]] = $teams[$i+1];
+				        }
+			}
+
+			$html = implode('', file ('http://d2ol.childhooddiseases.org/stats/topMembersAll.jsp?t=Alltime')) or die("Error retrieving information");
+			$teams = explode('|', $html);
+
+			$score = 0;
+
+			for($i=10;$i<count($teams);$i+=5)
+			{
+			        if ( ( strstr($teams[$i], 'Unassigned') ) && ( $teams[$i-3] > 0 ) )
+			        {
+			                $score += $teams[$i-3];
+			        }
+			}
+
+			$tscteams['Unassigned'] = $score;
+
+			arsort($tscteams, SORT_NUMERIC);
+
+			updateStats($tscteams, 'tsc_teamoffset');
+		}
+		else
+		{
+			echo 'Error fetching stats for TSC teams' . "\n";
+		}
+	}
 }
 
 $sr = new StatsRun($db, '/home/rkuipers/stats/statsrun/files/');
@@ -101,7 +246,8 @@ $run = $argv[1];
 
 switch($run)
 {
-	case 20:	# TSC, D2OL
+	case 20:	$sr->d2ol();
+			$sr->tsc();
 			break;
 	case 60:	$sr->boinc('smp', 'http://boinc.bio.wzw.tum.de/boincsimap/stats/', '~', 119, '');
 			$sr->boinc('eah', 'http://einstein.phys.uwm.edu/stats/', '~', 822, '_id');
