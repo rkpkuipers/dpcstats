@@ -98,7 +98,7 @@ class Project
 			$this->srInterval = 60;
 		}
 
-		$data = exec('time svn info file:///home/rkuipers/svnrepos/frontend/ | grep -e Revision -e "Last Changed Date" | tr "\n" " "');
+		$data = exec('svn info file:///home/rkuipers/svnrepos/frontend/ | grep -e Revision -e "Last Changed Date" | tr "\n" " "');
 
 		$info = preg_split("/\:|\ /", $data);
 		$this->version = $info[2];
