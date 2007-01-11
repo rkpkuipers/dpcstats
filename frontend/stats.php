@@ -13,7 +13,7 @@ identiek is aan TSC. Na de toevoeging van D2OL met alle wijzigingen
 in de backend van dien is het systeem uitgebreid met FaD om de
 conversie af te maken. Vanaf july 2005 zijn de stats officieel in
 gebruik door DPC als bron voor TSC en D2OL. Vanaf begin dit jaar zijn
-daar door de HTML -&gt; RML conversie SoB, Seti, <A HREF="mailto:Folding@Home">Folding@Home</A>
+daar door de HTML -&gt; RML conversie SoB, Seti, Folding@Home
 en enkele weken later uFluids aan toegevoegd.</P>
 <P STYLE="margin-bottom: 0in"><I>Opzet</I></P>
 <P STYLE="margin-bottom: 0in">Het stats syteem bestaat uit 2 delen
@@ -21,7 +21,7 @@ met een database voor opslag van gegevens. Een frontend die de data
 uit de database haalt en aan de user toont en een backend die de data
 van de verschillende projectsites haalt en in de database plaatst.
 Het systeem is gebouwd op een linux machine, de gebruikte webserver
-is Apache 2 met PHP 5. Voor de database wordt momenteel MySQL 4
+is Apache 2 met PHP 5. Voor de database wordt momenteel MySQL 5
 gebruikt.</P>
 <P STYLE="margin-bottom: 0in"><B>Database</B></P>
 <P STYLE="margin-bottom: 0in">Voor elk project zijn er losse tabellen
@@ -41,14 +41,6 @@ paar miljoen regels. Dat lijkt onwaarschijnlijk maar de hele database
 bevat op het moment dat ik dit schrijf (07-03-2006) 8,7 miljoen
 records versprijd over 83 tabellen. Het overgrote deel hiervan zijn
 member/team/subteam records van de verschillende projecten.</P>
-<P STYLE="margin-bottom: 0in">Naast de Offset tabellen zijn er nog
-een serie andere tabellen. Te beginnen met de *Daily tabellen. Elke
-Offset tabel heeft een corresponderende *Daily tabel. Deze tabellen
-worden in tegenstelling tot de rest niet op disk opgeslagen maar in
-het geheugen gehouden zodat de data snel beschikbaar is. De Daily
-tabellen bevatten niet alle data uit de originele tabellen maar
-beperken zich tot de data van de afgelopen drie dagen omdat er niet
-genoeg geheugen beschikbaar is om alle data in memory te houden.
 Naast de project tabellen zijn er nog een serie tabellen met
 metadata:</P>
 <TABLE WIDTH=100% BORDER=1 BORDERCOLOR="#000000">
@@ -153,7 +145,7 @@ miljoen records over 83 tabellen en is 1 GB groot.</P>
 <P STYLE="margin-bottom: 0in; font-weight: medium">De backend
 verzorgt de statsrun. Elk project heeft 1 of 2 scripts die de
 member/team informatie van de projectsites af halen en die parsen.
-Daarna worden de verkregen lijsten doorgegeven aan de addStatsrun()
+Daarna worden de verkregen lijsten doorgegeven aan de updateStats()
 functie die ervoor zorgt dat de database wordt bijgewerkt en alle
 getallen, lijsten en metadata goed word gezet. Voor elke statsrun uit
 draait het offset script. Die kijkt of er voor de huidige dag data in
@@ -164,8 +156,8 @@ verzamelen van het project, de algemene project informatie in de
 project tabel te zetten en de member/team/subteamOffset tabellen aan
 te maken. De scripts in de backend worden aangestuurd door een serie
 cronjobs.</P>
-<P STYLE="margin-bottom: 0in"><B>Frontend</B></P>
-<P STYLE="margin-bottom: 0in; font-weight: medium">To be written</P>
+<p style="margin-bottom: 0in"><b>Subversion Repository</b></p>
+<P STYLE="margin-bottom: 0in; font-weight: medium">Om de code beter beschikbaar en hanteerbaar te maken zit alles in een <a href="http://www.subversion.org">subversion</a> repository. Anonymous checkouts zijn mogelijk vanaf de url http://rkuipers.mine.nu/svn/frontend en http://rkuipers.mine.nu/svn/backend. Code commiten kan alleen met password maar patches op het geheel (via bv. svn diff) zijn altijd welkom.
 <P STYLE="margin-bottom: 0in"><B>Links</B></P>
 <br>
 <a href="http://rkuipers.mine.nu/backup/schema.sql.bz2">Database dump zonder data</a><br>
