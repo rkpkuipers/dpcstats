@@ -391,44 +391,30 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
 		echo '<a href="xml/list.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '&amp;datum=' . $datum . '">';
 		echo '<img src="images/xml.gif" alt="xml" border="0">';
 		echo '</a>';
+		echo '<br><br>';
 		echo '</td>';
 		echo '</tr>';
 	}
 ?>
        </table>
       </td>
-      <td valign="top" rowspan="5" colspan="8" style="background-image:url(images/gray-back2.jpg);">
+      <td valign="top" rowspan="1" colspan="8" style="background-image:url(images/gray-back2.jpg);">
 <?
 	# Include the file containing the requested content
 	include($pagefile);
 ?>
+       <br>
       </td>
       <td rowspan="0" style="background-image:url(images/index_r6_c11.jpg); background-position:right top; background-repeat:repeat-y" width="11" height="100%" ></td>
       <td style="background-image:url(images/spacer.gif);" width="1"></td>
-     </tr>
-     <tr valign="bottom">
-      <td style="background-image:url(images/gray-back.jpg); background-position:right top; background-repeat:repeat-y" colspan="2"></td>
-      <td style="background-image:url(images/index_r6_c11.jpg);"><img src="images/spacer.gif" width="1" height="45" alt=""></td>
-     </tr>
-     <tr>
-      <td colspan="2" style="background-image:url(images/gray-back.jpg); background-position:right top; background-repeat:repeat-y" valign="top"></td>
-      <td style="background-image:url(images/index_r6_c11.jpg);"><img src="images/spacer.gif" width="1" height="149" alt=""></td>
-     </tr>
-     <tr valign="bottom">
-      <td style="background-image:url(images/gray-back.jpg); background-position:right top; background-repeat:repeat-y" colspan="2">
-      <td style="background:url(images/index_r6_c11.jpg);"><img src="images/spacer.gif" width="1" height="44" alt=""></td>
-     </tr>
-     <tr>
-      <td colspan="2" style="background-image:url(images/gray-back.jpg); background-position:right top; background-repeat:repeat-y" valign="top"></td>
-      <td style="background-image:url(images/index_r6_c11.jpg);"><img src="images/spacer.gif" width="1" height="143" alt=""></td>
      </tr>
      <tr>
       <td colspan="12" class="pageCell" style="background-image:url(images/index_r12_c1.jpg); background-position:right top; background-repeat:repeat-y" align="center">
        <a href="mailto:speedkikker@planet.nl" title="Mail SpeedKikker">Contact</a> 
        | <a href="http://rkuipers.mine.nu/traffic/awstats.tadah.mine.nu.html" title="View site traffic">Site Traffic</a>
-       | &copy;opyright 2004-2006 TaDaH
+       | &copy;opyright 2004-2007 TaDaH
        | <a href="http://rkuipers.mine.nu/viewcvs/" title="View revision history">Revision <? echo $project->getVersion() . ' (' . date("d-m-Y", strtotime($project->getLastPageUpdate())) . ')';?></a> 
-       | <? $duration = microtime_diff($start_time, microtime()); $duration = sprintf("%0.3f", $duration);?> Page loaded in <?=$duration?> seconds
+       | <?php echo 'Page loaded in ' . sprintf("%0.3f", microtime_diff($start_time, microtime())) . ' seconds'; ?>
       </td>
       <td><img src="images/spacer.gif" width="1" height="34" alt=""></td>
      </tr>
