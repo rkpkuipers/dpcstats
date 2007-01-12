@@ -37,11 +37,15 @@ dailyOffset('subteamoffset', 'fah');
 dailyOffset('individualoffset', 'fah');
 
 $members = array();
-$subteamMembers = array();
+$subteams = array();
 
 function getMembers()
 {
-	global $datum, $members, $subteamMembers;
+	global $datum, $members, $subteams;
+
+	# Three members are placed in a subteam even though the name doesn't match
+	$customsubteam = array(	'New-Folder0twisted' => 'New_Folder', 
+				'Team_Elteor-borislavj0Missy' => 'Team_Elteor_Borislavj');
 	
 	$tempDir = '/home/rkuipers/stats/statsrun/files/';
 	system('wget "http://fah-web.stanford.edu/cgi-bin/main.py?qtype=teampage&teamnum=92" -q -O ' . $tempDir . '/fah-members.html');
@@ -57,7 +61,6 @@ function getMembers()
 
 	$members = array();
 	$subteams = array();
-	$subteamMembers = array();
 
 	for($i=2;$i<count($info);$i+=8)
 	{
@@ -67,95 +70,8 @@ function getMembers()
 		$score = trim($info[$i+4]);
 
 		if ( $score == 0 ) break;
-	
-		$team = getSubteam($user);
-		if ( $team != '' )
-		{
-			$subteams[$team] += $score;
-			$subteamMembers[$team][$user] = $score;
-		}
-		elseif ( is_numeric(strpos($user, '0')) )
-		{
-			$pos = strpos($user, '0');
-			$team = substr($user, 0, $pos);
-			$user = substr($user, ( $pos + 1 ) );
-			#echo $user . ' - ' . $team . "\n";
-		
-			$set = 0;
-			foreach($subteams as $stName => $stScore)
-			{
-				if ( strtoupper($stName) == strtoupper($team) )
-				{
-					$set = 1;
-					$subteams[$stName] += $score;
-				
-					if ( ! isset($subteamMembers[$stName][$user]) )
-						$subteamMembers[$stName][$user] = $score;
-					else
-						$subteamMembers[$stName][$user] += $score;
-				}
-			}
 
-			if ( $set == 0 )
-			{
-				$subteams[$team] = $score;
-				
-				$subteamMembers[$team] = array();
-
-				if ( ! isset($subteamMembers[$team][$user]) )
-					$subteamMembers[$team][$user] = $score;
-				else
-					$subteamMembers[$team][$user] += $score;
-			}
-		}
-		else
-		{
-			$set = 0;
-			foreach($members as $mName => $mScore)
-			{
-				if ( strtoupper($mName) == strtoupper($user) )
-				{
-					$members[$mName] += $score;
-					$set++;
-				}
-			}
-		
-			if ( $set == 0 )
-				$members[$user] = $score;
-		}
-	}
-
-	foreach($members as $mName => $mScore)
-	{
-		foreach($subteams as $stName => $stScore)
-		{
-			if ( strtoupper($mName) == strtoupper($stName) )
-			{
-				#$stScore += $mScore;
-				$subteams[$stName] += $mScore;
-				if ( ! isset($subteamMembers[$stName]) )
-					$subteamMembers[$stName] = $mScore;
-				else
-					$subteamMembers[$stName][$mName] += $mScore;
-				#echo $mName . "\n";
-			}
-		}
-	}
-
-	foreach ( $subteams as $name => $score )
-	{
-		if ( count($subteamMembers[$name] ) > 1 )
-		{
-			#$members[$name] = $score;
-			#echo $name . ' ' . $score . "\n";
-			if ( $name != '' )
-				$members[$name] = $score;
-		}
-		else
-		{
-			foreach($subteamMembers[$name] as $temp =>  $tmpname)
-				$members[$name . '0' . $temp] = $score;
-		}
+		addMember($members, $subteams, (isset($customsubteam[$user])?$customsubteam[$user].'0'.$user:$user), $score, '0');
 	}
 }
 
@@ -170,18 +86,16 @@ do
 	$itt++;
 	
 	getMembers();
-} while ( ( ( count($members) == 0 ) || ( count($subteamMembers) == 0 ) ) && ( $itt < 25 ) );
+} while ( ( ( count($members) == 0 ) || ( count($subteams) == 0 ) ) && ( $itt < 25 ) );
 
-arsort($members, SORT_NUMERIC);
-foreach($members as $name => $score)
-	$fahmembers[] = new Member($name, $score);
+fixLists($members, $subteams, '0');
 
 updateStats($members, 'fah_memberoffset');
 
 $fahsubteammembers = array();
-foreach ( $subteamMembers as $subTeamName => $member )
+foreach ( $subteams as $subTeamName => $member )
 {
-	if ( ( ! $subTeamName == '0' ) && (  count($subteamMembers[$subTeamName]) > 1 ) )
+	if ( ! $subTeamName == '0' )
 	{
 		arsort($member, SORT_NUMERIC);
 		
@@ -190,8 +104,11 @@ foreach ( $subteamMembers as $subTeamName => $member )
 			$fahsubteammembers[] = new TeamMember($memberName, $memberScore, $subTeamName);
 		}
 	}
+	else
+	{
+		echo 'hit';
+	}
 }
-
 addSubTeamStatsRun($fahsubteammembers, 'fah_subteamoffset');
 
 individualStatsrun('fah');

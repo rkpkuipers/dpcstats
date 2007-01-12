@@ -784,57 +784,86 @@ function addTeam(&$teams, $rawname, $score)
 
 function addMember(&$members, &$subteams, $rawname, $score, $seperator)
 {
+	# Determine the position of the seperator in the name
 	$seperatorPosition = strpos($rawname, $seperator);
 
-	if ( is_numeric($seperatorPosition) )
+	# If the first character is the seperator consider the member not to be part of a team
+	if ( substr($rawname, 0, 1) == $seperator )
 	{
+		$members[$rawname] = $score;
+	}
+	# Else if the seperator is found in the name we have a subteammember
+	elseif ( is_numeric($seperatorPosition) )
+	{
+		# Get the team and name from the rawname
 		$team = substr($rawname, 0, $seperatorPosition);
 		$name = substr($rawname, ( $seperatorPosition + 1 ));
 
+		# Loop through the existing members to check if the member allready exists with the same name in a different case
+		# This way user12 and USeR12 are merged into one member with the scores added up
 		$teamset = 0;
 		foreach($members as $membername => $memberscore)
 		{
 			if ( strtolower($membername) == strtolower($team) )
 			{
+				# If the subteam array for the current team doesn't exist but there is a member with the same name as the subteam
+				# add this member to the subteam with the subteamname as the membername
+				if ( ! isset($subteams[$team]) )
+					$subteams[$team][$team] = $members[$team];
+
+				# Add the score to the total teamscore
 				$members[$membername] += $score;
 				$teamset = 1;
 				$team = $membername;
 			}
 		}
 
+		# If the team hasn't been found insert it into the member array as a single new entity
 		if ( $teamset == 0 )
 			$members[$team] = $score;
 
 		unset($teamset);
 
+		# If the subteam array hasn't been set, create it
 		if ( ! isset($subteams[$team]) )
 		{
 			$subteams[$team] = array();
 		}
 
+		# Loop through the subteam members to verify is the subteammember doesn't exist with the name in a different case
 		foreach($subteams[$team] as $stname => $stscore)
 		{
 			if ( strtolower($stname) == strtolower($name) )
 			{
+				# If it does add the score to the allready existing member
 				$subteams[$team][$stname] += $score;
 				$score = 0;
 			}
 		}
 
+		# If the member wasn't found add it to the subteammembers list as a new subteammember
 		if ( $score != 0 )
 			$subteams[$team][$name] = $score;
 	}
+	# Otherwise we have a non-subteam member
 	else
 	{
+		# Loop through the existing members to check if the member allready exists with the same name in a different case
 		foreach($members as $membername => $memberscore)
 		{
 			if ( strtolower($membername) == strtolower($rawname) )
 			{
+				# If a user has the same name as a subteam, add it to the subteam as <user><seperator><user>
+				if ( isset($subteams[$membername]) )
+					$subteams[$membername][$membername] = $score;
+
+				# Add the score to the allready existing member
 				$members[$membername] += $score;
 				$score = 0;
 			}
 		}
 
+		# If the member wasn't found add it as a new entity
 		if ( $score != 0 )
 		{
 			$members[$rawname] = $score;
