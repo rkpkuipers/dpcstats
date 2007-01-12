@@ -2,15 +2,13 @@
 
 include ('../classes.php');
 
-if ( isset($_GET['project']) )
-	$prefix = $_GET['project'];
+if ( isset($_REQUEST['project']) )
+	$prefix = $_REQUEST['project'];
 else
 	$prefix = 'tsc';
 
-$project = new Project($db, $prefix, 'subteamoffset');
-
-if ( isset($_GET['datum']) )
-	$datum = $_GET['datum'];
+if ( isset($_REQUEST['datum']) )
+	$datum = $_REQUEST['datum'];
 else
 	$datum = getPrevDate();
 
@@ -24,7 +22,7 @@ else
 $query = 'SELECT 
 		MAX(dag) 
 	FROM 
-		' . $project->getPrefix() . '_subteamoffset 
+		' . $prefix . '_subteamoffset 
 	WHERE 
 		dag LIKE \'' . $prevMonth . '%\'
 	AND	subteam = \'' . $team . '\'';
@@ -35,6 +33,8 @@ if ( $line = $db->fetchArray($result) )
 	$maand = $line['0'];
 else
 	die('Error determining month');
+
+$project = new Project($db, $prefix, 'subteamoffset', $maand, $team);
 
 # Set locale to provide dutch names for days, months and such
 setLocale(LC_ALL, 'nl_NL');
@@ -50,13 +50,14 @@ setLocale(LC_ALL, 'nl_NL');
 <body>
 <?php
 
-$ts = new STTableStatisticsMonthly($project->getPrefix() . '_subteamoffset', $datum, $db, $team);
+$ts = new STTableStatisticsMonthly($project->getPrefix() . '_subteamoffset', $maand, $db, $team);
 $ts->gather();
 
 $page = '[b]DPC ' . $project->getDPCHTitle() . ' maand-hitparade van ' . strftime('%B %Y', strtotime($prevMonth . '-01')) . ' voor ' . $team . '[/b][br][br]';
 $page .= '[table bgcolor="transparent" width="450px"]';
 $page .= '[tr][td colspan="5"][b]Monthly Top 30[/b][/td][/tr]';
-$page .= '[tr][td colspan="5"][small]Flushers: ' . $ts->getDailyFlushers() . ' / ' . number_format($ts->getTotalMembers(), 0, ',', '.') . ' (' . number_format($ts->getDailyFlushers() / ( $ts->getTotalMembers() / 100 ), 1, ',', '.') . ' %)[/small][/td][/tr]';
+$page .= '[tr][td colspan="5"][small]Flushers: ' . $ts->getDailyFlushers() . ' / ' . number_format($ts->getTotalMembers(), 0, ',', '.') . 
+	' (' . number_format($ts->getDailyFlushers() / ( $ts->getTotalMembers() / 100 ), 1, ',', '.') . ' %)[/small][/td][/tr]';
 $page .= '[tr]';
 $page .= '[td colspan="1"][b]pos[/b][/td]';
 $page .= '[td align="right"][b]daily[/b][/td]';
@@ -77,13 +78,13 @@ for($i=0;$i<count($mbs);$i++)
 	$page .= '[td align="right"]' . ( $pos ) . '.[/td]';
 
 	$page .= '[td align="right"][red]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/red][/td]';
-	$page .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberoffset&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+	$page .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=subteamoffset&amp;team=' . $team . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
 	$page .= '[td align="right"][blue]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/blue][/td]';
 	$page .= '[td align="right"](' . $mbs[$i]->getRank() . ')[/td]';
 	$page .= '[/tr]';
 }
 
-$page .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '&amp;tabel=memberoffset"]More...[/url][/td][/tr]';
+$page .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;datum=' . $maand . '&amp;tabel=subteamoffset&amp;team=' . $team . '"]More...[/url][/td][/tr]';
 $page .= '[/table]';
 $page .= '[br]';
 
@@ -116,7 +117,7 @@ for($i=0;$i<count($mbs);$i++)
 		$page .= '[td]([img]http://www.tweakers.net/g/dpc/down.gif[/img]' . ( $change - ( $change * 2 )) . ')[/td]';
 	
 	$page .= '[td align="right"][blue]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/blue][/td]';
-	$page .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=memberoffset&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+	$page .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=subteamoffset&amp;datum=' . $maand . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '&amp;team=' . $team . '"]' . $mbs[$i]->getName() . '[/url][/td]';
 	$page .= '[td align="right"][red]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/red][/td]';
 	$page .= '[td align="right"]'./*(' . $mbs[$i]->getFlushRank() . ')*/'[/td]';
 	$page .= '[/tr]';
@@ -136,14 +137,30 @@ $page .= '[td align="right"][b]total[/b][/td]';
 $page .= '[td][/td]';
 $page .= '[/tr]';
 
-$ml = new MemberList($project->getPrefix() . '_subteamoffset', $datum, 0, 15, $db, $team);
+$ml = new MemberList($project->getPrefix() . '_memberoffset', $datum, 0, 15, $db);
 
 $ml->generateMonthlyFlushList(date("Y-m", strtotime($maand)), $maand);
 $mbs = $ml->getMembers();
 
+if ( $project->getTeamDaily(1) > 15 )
+{
+        if ( isset($mbs[0]) )
+                $tmpMember = array($mbs[0]);
+        else
+                $tmpMember = array();
+
+        $ml = new MemberList($project->getPrefix() . '_memberoffset', $datum, ( $project->getTeamDaily(1) - 8 ), 15, $db);
+        $ml->generateMonthlyFlushList(date("Y-m", strtotime($maand)), $maand);
+        $mbs = array_merge($tmpMember, $ml->getMembers());
+}
+
 for($i=0;$i<count($mbs);$i++)
 {
-        $pos = $i + 1;
+	if ( ( $i >= 1 ) && ( $project->getTeamDaily(1) > 15 ) )
+		$pos = $i + ( $project->getTeamDaily(1) - 8 );
+	else
+                $pos = $i + 1;
+
         $page .= '[tr]';
         $page .= '[td align="right"]' . ( $pos ) . '.[/td]';
 
@@ -167,12 +184,28 @@ $page .= '[td align="right"][b]daily[/b][/td]';
 $page .= '[td][/td]';
 $page .= '[/tr]';
 
+$ml = new MemberList($project->getPrefix() . '_memberoffset', $datum, 0, 15, $db);
 $ml->generateMonthlyRankList(date("Y-m", strtotime($maand)), $maand);
 $mbs = $ml->getMembers();
 
+if ( $project->getTeamRank(1) > 15 )
+{
+        $tmpMember = array($mbs[0]);
+
+        $ml = new MemberList($project->getPrefix() . '_memberoffset', $datum, ( $project->getTeamRank() - 8 ), 15, $db);
+        $ml->generateMonthlyRankList(date("Y-m", strtotime($maand)), $maand);
+        $mbs = $ml->getMembers();
+
+        $mbs = array_merge($tmpMember, $ml->getMembers());
+        #echo $tmpMember;
+}
+
 for($i=0;$i<count($mbs);$i++)
 {
-        $pos = $i + 1;
+	if ( ( $i >= 1 ) && ( $project->getTeamRank(1) > 15 ) )
+        	$pos = $i + ( $project->getTeamRank(1) - 8 );
+        else
+	        $pos = $i + 1;
 
         $page .= '[tr]';
         $page .= '    [td align="right"]' . $pos . '.[/td]';

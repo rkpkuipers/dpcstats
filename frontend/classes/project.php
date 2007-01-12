@@ -167,18 +167,19 @@ class Project
 		return $this->teamDaily;
 	}
 
-	function getTeamRank()
+	function getTeamRank($subteam = 0)
 	{
 		if ( $this->teamRank == -1 )
 		{
 			$query = 'SELECT 
 					currrank
 				FROM 
-					' . $this->prefix . '_teamoffset 
+					' . $this->prefix . ($subteam==1?'_memberoffset':'_teamoffset') . '
 				WHERE 
 					dag = \'' . date("Y-m-d", strtotime($this->datum)). '\' 
 				AND	naam = \'' . $this->teamName . '\'
 				LIMIT 	1';
+
 			$result = $this->db->selectQuery($query);
 
 			if ( $line = $this->db->fetchArray($result) )
@@ -188,14 +189,14 @@ class Project
 		return $this->teamRank;
 	}
 
-	function getTeamDaily()
+	function getTeamDaily($subteam = 0)
 	{
 		if ( $this->teamDaily == -1 )
 		{
 			$query = 'SELECT
 					dailypos
 				FROM
-					' . $this->prefix . '_teamoffset
+					' . $this->prefix . ($subteam==1?'_memberoffset':'_teamoffset') . '
 				WHERE
 					dag = \'' . date("Y-m-d", strtotime($this->datum)) . '\'
 				AND	naam = \'' . $this->teamName . '\'
