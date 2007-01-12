@@ -3,33 +3,6 @@
 
 include (dirname(realpath($argv[0])) . '/../include.php');
 
-# Gather data from sengent
-
-function getSubteam($name)
-{
-	global $db;
-	
-	$team = '';
-	
-	$name = str_replace('\'', '\\\'', $name);
-	
-	$query = 'SELECT
-			name
-		FROM
-			fah_subteam
-		WHERE
-			member = \'' . $name . '\'';
-
-	$result = $db->selectQuery($query) or die('');
-
-	if ( $line = $db->fetchArray($result) )
-	{
-		$team = $line['name'];
-	}
-	
-	return $team;
-}
-
 $datum = getCurrentDate('fah');
 
 dailyOffset('memberoffset', 'fah');
