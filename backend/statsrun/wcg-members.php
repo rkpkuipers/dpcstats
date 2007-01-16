@@ -76,4 +76,6 @@ for($i=1;$i<=$pages;$i++)
 	unlink($tempdir . '/wcgm-' . str_pad($i, 2, 0, STR_PAD_LEFT));
 }
 unlink($tempdir . '/wcg-members');
+
+individualStatsrun('wcg');
 ?>

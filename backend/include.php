@@ -83,148 +83,6 @@ function getMemberListFromArray($array)
 	return $members;
 }
 
-function addStatsRun($array, $tabel)
-{
-        global $datum, $db;
-
-	if ( count($array) == 0 )die('Lege array tijdens statsrun ' . date('Y-m-d:H:i') . ' voor tabel ' . $tabel);
-
-        # Check for retirements
-        $query = 'SELECT naam, (cands+daily) as totaal, cands, currrank FROM ' . $tabel . ' WHERE dag = \'' . $datum . '\'';
-
-        $result = $db->selectQuery($query);
-
-	$currentUsers = array();
-	$currentScore = array();
-	$currentRanks = array();
-        while ( $line = $db->fetchArray($result) )
-        {
-		$currentUsers[] = $line['naam'];
-		$currentScore[$line['naam']] = $line['cands'];
-		$currentRanks[$line['naam']] = $line['currrank'];
-	}
-
-	$missing = array_diff($currentUsers, getMemberListFromArray($array));
-	sort($missing);
-
-	if ( count($missing) > 0 )
-	{
-		for($i=0;$i<count($missing);$i++)
-                {
-			$naam = str_replace('\\', '\\\\', $missing[$i]);
-			$naam = str_replace('/', '\/', $naam);
-			$naam = str_replace('\'', '\\\'', $naam);
-
-			$remQuery = 'DELETE FROM ' . $tabel . ' WHERE naam = \'' . $naam . '\' AND dag = \'' . $datum . '\';';
-			#echo $remQuery;
-			$db->deleteQuery($remQuery);
-			 
-			
-			$insQuery = 'INSERT INTO
-					movement
-				( naam, datum, direction, candidates, tabel )
-				SELECT
-					naam,
-					dag,
-					0,
-					(cands+daily),
-					\'' . $tabel . '\'
-				FROM
-					' . $tabel . '
-				WHERE
-					naam = \'' . $naam . '\'
-				AND	dag = \'' . $datum . '\'';
-
-			$db->insertQuery($insQuery);
-                }
-        }
-
-        for($i=0;$i<count($array);$i++)
-        {
-		$naam = $array[$i]->getName();
-
-		$naam = str_replace('\\', '\\\\', $naam);
-		$naam = str_replace('/', '\/', $naam);
-                $naam = str_replace('\'', '\\\'', $naam);
-		#echo $array[$i]->getName() . ' ' . $naam . "\n";
-                $score = $array[$i]->getCredits();
-
-		if ( ( $currentScore[$naam] != $score ) || ( $currentRanks[$naam] != ($i+1) ) ) # If no change in score there's no need for an update
-		{
-                	$query = 'SELECT cands FROM ' . $tabel . ' WHERE naam = \'' . $naam . '\' AND dag = \'' . $datum . '\';';
-			#echo $query;
-        	        $result = $db->selectQuery($query);# or die("Error fetching offset\n" . $query);
-
-                	if ( $line = $db->fetchArray($result) )
-	#		if ( in_array($array[$i]->getNaam(), $currentUsers) )
-        	        {
-                	        $updateQuery = 'UPDATE
-                        	                        ' . $tabel . '
-                                	        SET     daily = ' . ($score - $line['cands'] ) . ',
-							currrank = ' . ( $i + 1 ) . '
-        	                                WHERE   naam = \'' . $naam . '\'
-                	                        AND     dag = \'' . $datum . '\'';
-	                        #echo $updateQuery . ";" . ' ';
-				$updateResult = $db->updateQuery($updateQuery);
-                	}
-	                else if ( ( $score > 0 ) || ( substr($tabel, 0, 4) == 'rah_' ) )
-  #			else if ( $currentScore[$array[$i]->getNaam()] > 0 )
-                	{
-                        	$maxIdQry = 'SELECT max(id) as tops FROM ' . $tabel . ' WHERE dag = \'' . $datum . '\'';
-	                        $maxIdResult = $db->selectQuery($maxIdQry);
-        	                if ( $maxIdLine = $db->fetchArray($maxIdResult) )
-                	                $nwId = $maxIdLine['tops'] + 1;
-                        	else
-	                                $nwId = 0;
-        	                #echo $nwId;
-                	        $insQuery = 'INSERT INTO
-                        	                ' . $tabel . '
-                                	                (naam, dag, cands, daily, id)
-                                        	VALUES
-                                                	(\'' . $naam . '\',\'' . $datum . '\', ' . $score . ', 0, ' . $nwId . ')';
-	                        #echo $insQuery . "\n";
-        	                $db->insertQuery($insQuery);
-	
-				$insQuery = 'INSERT INTO movement VALUES ( \'' . $naam . '\', \'' . $datum . '\', 1, ' . $score . ',\'' . $tabel . '\')';
-				#echo $query;
-				$db->insertQuery($insQuery);
-	                }
-		}
-		#echo $i . "\n";
-        }
-
-        $query = 'SELECT naam, daily FROM ' . $tabel . ' WHERE dag=\'' . $datum . '\' ORDER BY daily DESC';
-        $result = $db->selectQuery($query);
-
-        $pos = 1;
-        while( $line = $db->fetchArray($result, MYSQL_ASSOC) )
-        {
-		$naam = str_replace('\\', '\\\\', $line['naam']);
-                $naam = str_replace('\'', '\\\'', $naam);
-                $updateQuery = 'UPDATE
-                                        ' . $tabel . '
-                                SET     dailypos = ' . $pos . '
-                                WHERE   naam = \'' . $naam . '\'
-                                AND     dag = \'' . $datum . '\'';
-
-                #echo $updateQuery;
-                $db->updateQuery($updateQuery);
-                $pos++;
-        }
-
-	$info = explode('_', $tabel);
-
-	$query = 'UPDATE
-			updates
-		SET
-			tijd = \'' . date("Y-m-d H:i:s") . '\'
-		WHERE
-			project = \'' . $info[0] . '\'
-		AND	tabel = \'' . $info[1] . '\'';
-
-	$db->insertQuery($query);
-}
-
 function addSubteamStatsrun($array, $tabel)
 {
         global $datum, $db;
@@ -460,13 +318,13 @@ function individualStatsrun($project)
 	
 	$result = $db->selectQuery($query);
 
-	$members = array();
+	$member = array();
 	while ( $line = $db->fetchArray($result) )
 	{
-		$members[] = new Member($line['naam'], $line['total']);
+		$member[$line['naam']] = $line['total'];
 	}
 
-	addStatsrun($members, $project . '_individualoffset');
+	updateStats($member, $project . '_individualoffset');
 }
 
 function setDailyOffset($prefix, $tabel, $datum)
@@ -658,6 +516,7 @@ function updateStatsrunTime($table)
 			\'' . $tablename . '\',
 			NOW()
 		)';
+echo $query . "\n";
 	
 	$db->insertQuery($query);
 }
