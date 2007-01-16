@@ -516,7 +516,6 @@ function updateStatsrunTime($table)
 			\'' . $tablename . '\',
 			NOW()
 		)';
-echo $query . "\n";
 	
 	$db->insertQuery($query);
 }
