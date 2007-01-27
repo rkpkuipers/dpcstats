@@ -330,6 +330,7 @@ echo 'Voor de statsposters:<br /><br /><input type="text" style="width:700px" va
 
 ?>
 <br /><br /><textarea style="width:700px" rows="12" cols="85">{verhaal}[br]<?php echo htmlentities($page); ?></textarea>
+<br /><br /><textarea style="width:700px" rows="12" cols="85">{verhaal}[br]<?php echo htmlentities(parseRML($page)); ?></textarea>
 <br>
 </body>
 </html>
