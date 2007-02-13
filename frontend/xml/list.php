@@ -30,7 +30,7 @@ else
 	$offset = 0;
 	
 if ( isset($_REQUEST['listsize']) )
-	$entries = $_REQUEST['listsize'];
+	$listsize = $_REQUEST['listsize'];
 else
 	$listsize = 30;
 
