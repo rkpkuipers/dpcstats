@@ -67,7 +67,7 @@ if ( ( $poster != '' ) && ( $bericht != '' ) )
 		VALUES 
 		(
 			\'' . $poster . '\', 
-			\'' . parseCode(htmlspecialchars($bericht)) . '\', 
+			\'' . parseCode(htmlspecialchars($bericht, ENT_QUOTES)) . '\', 
 			\''. date("Y-m-d H:i:s") . '\',
 			\'' . $email . '\')';
  	$db->selectQuery($query);
