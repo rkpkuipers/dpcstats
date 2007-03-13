@@ -166,7 +166,7 @@ for($i=0;$i<count($mbs);$i++)
 	if ( $low == $rankPage )
 		echo $mbs[$i]->getCurrRank();
 	else
-		echo '<a title="Overall ranking highlighting ' . $mbs[$i]->getName() . '" href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;dlow=0&amp;datum=' . $datum . '&amp;low=' . $rankPage . '&amp;hl=' . $naam . '#Ranking">' . $mbs[$i]->getCurrRank() . '</a>';
+		echo '<a title="Overall ranking highlighting ' . $mbs[$i]->getName() . '" href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;dlow=0&amp;datum=' . $datum . '&amp;low=' . $rankPage . '&amp;hl=' . $mbs[$i]->getName() . '#Ranking">' . $mbs[$i]->getCurrRank() . '</a>';
 	
 	echo ')</td>';
 	
