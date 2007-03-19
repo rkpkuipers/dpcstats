@@ -62,6 +62,24 @@ if ( isset($_REQUEST['team']) )
 
 if ( ( $poster != '' ) && ( $bericht != '' ) )
 {
+	$file = file('banned');
+	foreach($file as $rand => $value)
+		$banlist[trim($value)] = 1;
+
+	if ( isset($banlist[$_SERVER['REMOTE_ADDR']]) )
+		$banned = true;
+	else
+		$banned = false;
+	
+	if ( substr($poster, 0, 4) == 'Alex' )
+		$banned = true;
+	
+	if ( substr($poster, 0, 3) == 'Bob' )
+		$banned = true;
+	
+	if ( substr_count($bericht, 'http://') > 2 )
+		$banned = true;
+		
 	$query = 'INSERT INTO 
 			shoutbox 
 		VALUES 
@@ -70,11 +88,22 @@ if ( ( $poster != '' ) && ( $bericht != '' ) )
 			\'' . parseCode(htmlspecialchars($bericht, ENT_QUOTES)) . '\', 
 			\''. date("Y-m-d H:i:s") . '\',
 			\'' . $email . '\')';
- 	$db->selectQuery($query);
+	
+	
+	if ( ! $banned )
+	 	$db->selectQuery($query);
+	elseif ( ( $banned ) && ( ! isset($banlist[$_SERVER['REMOTE_ADDR']]) ) )
+	{
+		# If the message is banned, add the adres to the banned file
+		$myFile = "banned";
+		$fh = fopen($myFile, 'a') or die("can't open file");
+		fwrite($fh, $_SERVER['REMOTE_ADDR'] . "\n");
+		fclose($fh);
+	}
 
 	$recipient = 'Remko Kuipers <rkpkuipers@planet.nl>';
 	$subject = 'Shoutbox post by ' . $poster;
-	$message = $poster . ' (' . $email . ') posted a message on ' . date("Y-m-d H:i:s") .
+	$message = $poster . "\n" . ($banned?'MESSAGE NOT POSTED':'') . "\n" . $email . "\n" . date("Y-m-d H:i:s") . "\n" . $_SERVER['REMOTE_ADDR'] . 
 			"\n\n" . parseCode(htmlspecialchars($bericht));
 	
 	mail($recipient, $subject, $message);
