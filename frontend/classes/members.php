@@ -244,7 +244,7 @@ class MemberList
 		AND	oy.dag LIKE \'' . $startDate . '%\'
 		WHERE
 			of.dag = \'' . $endDate . '\' ' .
-		( $this->subteam!=''?'AND of.subteam = \'' . $this->subteam . '\' AND oy.subteam = \'' . $this->subteam . '\'':'') . '
+		( $this->subteam!=''?'AND of.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\' AND oy.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\'':'') . '
 		GROUP BY
 			of.naam 
 		ORDER BY
@@ -430,7 +430,7 @@ class MemberList
 		AND 	oy.dag LIKE \'' . $startDate . '-%\'
 		WHERE
 			of.dag = \'' . $endDate . '\' ' .
-		( $this->subteam!=''?'AND of.subteam=\'' . $this->subteam . '\'':'') . '
+		( $this->subteam!=''?'AND of.subteam=\'' . $this->db->real_escape_string($this->subteam) . '\'':'') . '
 		GROUP BY
 			of.naam 
 		ORDER BY
@@ -571,7 +571,7 @@ class MemberInfo
 			FROM
 				' . $this->prefix . '_subteamoffset
 			WHERE
-				subteam = \'' . $this->naam . '\'';
+				subteam = \'' . $this->db->real_escape_string($this->naam) . '\'';
 
 		$result = $this->db->selectQuery($query);
 
@@ -586,7 +586,7 @@ class MemberInfo
 			$this->subteam = false;
 
 		if ( is_numeric(strpos($this->tabel, 'subteamoffset')) && ( strpos($this->tabel, 'subteamoffset') > 0 ) )
-			$where = ' AND subteam = \'' . $this->team . '\' ';
+			$where = ' AND subteam = \'' . $this->db->real_escape_string($this->team) . '\' ';
 		else
 			$where;
 			
