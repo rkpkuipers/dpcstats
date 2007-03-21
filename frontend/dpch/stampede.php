@@ -1,7 +1,6 @@
 <?
 
-$_REQUEST['prefix'] = 'sp5';
-$prefix = 'sp5';
+$prefix = 'sp6';
 include ('../classes.php');
 
 
@@ -297,7 +296,7 @@ for($i=0;$i<count($mbs);$i++)
 $rmlpage .= '  [/table]' . "\n";
 
 # Code wordt voor de HTML uitvoer al aangeroepen
-$fmc = new FlushList('sp5_memberoffset', $db);
+$fmc = new FlushList('sp6_memberoffset', $db);
 $fmc->createMFList();
 $fl = $fmc->getMFList();
 
