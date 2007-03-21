@@ -14,5 +14,3 @@
 
 killall -q statsrun.php
 /home/rkuipers/stats/statsrun/statsrun.php 60
-
-/home/rkuipers/stats/statsrun/individual.php
