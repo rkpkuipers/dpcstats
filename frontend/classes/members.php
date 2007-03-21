@@ -175,8 +175,8 @@ class MemberList
 	{
 		if ( strpos($this->tabel, 'subteamoffset') !== FALSE )
 		{
-			$where = ' 	AND of.subteam = \'' . $this->subteam . '\' ';
-			$join  = '	AND y.subteam = \'' . $this->subteam . '\' ';
+			$where = ' 	AND of.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\' ';
+			$join  = '	AND y.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\' ';
 		}
 
 		$query = '
@@ -358,8 +358,8 @@ class MemberList
 	{
 		if ( strpos($this->tabel,'subteamoffset') !== FALSE )
 		{
-			$where = ' AND of.subteam = \'' . $this->subteam . '\' ';
-			$joinWhere = ' AND y.subteam = \'' . $this->subteam . '\'';
+			$where = ' AND of.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\' ';
+			$joinWhere = ' AND y.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\'';
 		}
 	
 		$query = '
