@@ -577,4 +577,38 @@ function parseRML($rml)
 
 	return $data;
 }
+
+function returnMemberList($prefix, $tabel)
+{
+	global $db;
+
+	$query = 'SELECT naam FROM ' . $prefix . '_' . $tabel;
+	$result = $db->selectQuery($query);
+
+	$list = array();
+	while ( $line = $db->fetchArray($result) )
+		$list[] = $line['naam'];
+	
+	return $list;
+}
+
+function memberExists($project, $tabel, $member)
+{
+	global $db;
+
+	$query = 'SELECT 
+					naam 
+				FROM 
+					' . $project . '_' . $tabel . ' 
+				WHERE 
+					naam = \'' . $member . '\'
+				AND	dag = \'' . date("Y-m-d") . '\'';
+	
+	$result = $db->selectQuery($query);
+
+	if ( $line = $db->fetchArray($result) )
+		return true;
+	else
+		return false;
+}
 ?>
