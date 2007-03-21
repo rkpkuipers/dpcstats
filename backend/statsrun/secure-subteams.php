@@ -3,9 +3,9 @@
 
 include (dirname(realpath($argv[0])) . '/../include.php');
 
-dailyoffset('subteamoffset', 'tsc');
-
 $datum = getCurrentDate('tsc');
+
+dailyoffset('subteamoffset', 'tsc');
 
 $query = 'SELECT
 		prefix,
