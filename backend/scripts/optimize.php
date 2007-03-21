@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?
 
-include (dirname(realpath($argv[0])) . '/include.php');
+include (dirname(realpath($argv[0])) . '/../include.php');
 
 $db = new miDataBase($dbuser, $dbpass, $dbhost, $dbport, $dbname);
 $db->connect();
@@ -21,6 +21,6 @@ while ( $line = $db->fetchArray($result) )
 #echo $optQuery;
 $result = $db->selectQuery($optQuery);
 
-while ( $line=mysql_fetch_array($result))
+while ( $line = $db->fetchArray($result))
 	echo $line['0'] . "\r\t\t\t" . $line['1'] . "\t" . $line['2'] . "\t" . $line['3'] . "\n";
 ?>
