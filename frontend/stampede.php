@@ -1,6 +1,6 @@
 <?
 
-$project = new Project($db, 'sp5', 'memberoffset');
+$project = new Project($db, 'sp6', 'memberoffset');
 
 $subteamCount = 10;
 
