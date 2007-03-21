@@ -159,7 +159,6 @@ function addSubteamStatsrun($array, $tabel)
 				naam = \'' . $db->real_escape_string($naam) . '\' 
 			AND dag = \'' . $datum . '\'
 			AND	subteam = \'' . $subteam . '\'';
-			#echo $query;
 
 		$result = $db->selectQuery($query) or die("Error fetching offset\n" . $query);
 
@@ -174,11 +173,12 @@ function addSubteamStatsrun($array, $tabel)
 							naam = \'' . $db->real_escape_string($naam) . '\'
 						AND	dag = \'' . $datum . '\'
 						AND	subteam = \'' . $subteam . '\'';
-#			echo $updateQuery . ";" . ' ';
+			#echo $updateQuery . ";" . ' ';
 			$updateResult = $db->updateQuery($updateQuery);
 		}
 		else if ( ( $score > 0 ) || ( substr($tabel, 0, 4) == 'sp5_' ) )
 		{
+			#echo $score;
 			$maxIdQry = 'SELECT max(id) as tops FROM ' . $tabel . ' WHERE dag = \'' . $datum . '\' AND subteam = \'' . $subteam . '\'';
 			$maxIdResult = $db->selectQuery($maxIdQry);
 			if ( $maxIdLine = $db->fetchArray($maxIdResult) )
@@ -284,6 +284,8 @@ function individualStatsrun($project)
 {
 	global $db, $datum;
 	$datum = getCurrentDate($project);
+
+	$seperator = getSeperator($project);
 	
 	$query = '(
 			SELECT 
@@ -306,7 +308,7 @@ function individualStatsrun($project)
 		UNION 
 		(
 			SELECT 
-				' . ($db->getType()=='mysql'?'CONCAT( subteam, \' - \', naam ) as naam':'subteam || \' - \' || naam as naam') . ',
+				' . ($db->getType()=='mysql'?'CONCAT( subteam, \'' . $seperator . '\', naam ) as naam':'subteam || \' - \' || naam as naam') . ',
 				( cands + daily ) as total
 			FROM
 				' . $project . '_subteamoffset 
@@ -331,6 +333,7 @@ function setDailyOffset($prefix, $tabel, $datum)
 {
 	global $db, $datum;
 	
+	#echo 'Running setDailyOffset for ' . $prefix . '_' . $tabel . ' (' . $datum  . ')' . "\n";
 	if ( $tabel == 'subteamoffset' )
 		$selectFields = ' subteam, ';
 	else
@@ -357,6 +360,8 @@ function setDailyOffset($prefix, $tabel, $datum)
 function dailyOffset($tabel, $project)
 {
 	global $db, $datum;
+	if ( $datum == '' )
+		die('Error: Trying to run dailyOffset without $datum set');
 
 	$query = 'SELECT 
 			COUNT(naam) 
@@ -364,12 +369,15 @@ function dailyOffset($tabel, $project)
 			' . $project . '_' . $tabel . ' 
 		WHERE 
 			dag = \'' . $datum . '\'';
+
 	$result = $db->selectQuery($query);
 
 	if ( $line = $db->fetchArray($result) )
 	{
 		if ( $line[0] <= 0 )
+		{
 			setDailyOffset($project, $tabel, $datum);
+		}
 	}
 	else
 		setDailyOffset($project, $tabel, $datum);
@@ -755,6 +763,29 @@ function fixLists(&$member, &$subteam, $seperator)
 	}
 
 	arsort($member, SORT_NUMERIC);
+}
+
+
+function getSeperator($project)
+{
+	global $db;
+
+	$query = 'SELECT
+			seperator
+		FROM
+			project
+		WHERE
+			project = \'' . $project . '\'';
+	
+	$result = $db->selectQuery($query);
+
+	if ( $line = $db->fetchArray($result) )
+		$seperator =  $line['seperator'];
+	
+	if ( $seperator != '' )
+		return $seperator;
+	else
+		return ' - ';
 }
 
 ?>
