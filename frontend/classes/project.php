@@ -19,6 +19,7 @@ class Project
 	private $wdoPrefix;
 	private $team;
 	private $additional;
+	private $projectinfo = array();
 
 	private $db;
 	private $datum;
@@ -58,7 +59,8 @@ class Project
 				p.teamname,
 				p.additional,
 				p.statsruninterval,
-				p.wdoprefix
+				p.wdoprefix,
+				p.seperator
 			FROM 
 				project p,
 				updates u
@@ -85,6 +87,8 @@ class Project
 				$this->wdoPrefix = $this->prefix;
 			else
 				$this->wdoPrefix = $line['wdoprefix'];
+
+			$this->projectinfo['seperator'] = $line['seperator'];
 		}
 		else
 		{
@@ -103,6 +107,14 @@ class Project
 		$info = preg_split("/\:|\ /", $data);
 		$this->version = $info[2];
 		$this->lastPageUpdate = $info[7];
+	}
+
+	function getSeperator()
+	{
+		if ( $this->projectinfo['seperator'] != '' )
+			return $this->projectinfo['seperator'];
+		else
+			return ' - ';
 	}
 
 	function getAdditional()
