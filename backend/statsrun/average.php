@@ -3,18 +3,23 @@
 
 include (dirname(realpath($argv[0])) . '/../include.php');
 
-function calculateAverage($tabel)
+function calculateAverage($prefix, $tabel)
 {
 	global $datum, $db;
 
 	$db->deleteQuery('DELETE FROM averageproduction WHERE tabel = \'' . $tabel . '\'');
 	
-#	echo date("U") . "\t" . $tabel . "\n";
 	$query = 'INSERT INTO
 			averageproduction
-		SELECT 
-			DISTINCT(m1.naam), 
-			AVG(m2.daily), 
+		SELECT
+		';
+	
+	if ( $tabel == $prefix . '_subteamoffset' )
+		$query .= 'DISTINCT(CONCAT(m1.subteam, ' . getSeperator($prefix) . ', m1.naam)), ';
+	else
+		$query .= 'DISTINCT(m1.naam), ';
+	
+	$query .='	AVG(m2.daily), 
 			AVG(m3.daily), 
 			\'' . $tabel . '\'
 		FROM
@@ -24,7 +29,12 @@ function calculateAverage($tabel)
 		WHERE 
 			m2.naam = m1.naam 
 		AND 	m1.naam = m3.naam 
-		AND 	m2.naam = m3.naam 
+		AND 	m2.naam = m3.naam ';
+	
+	if ( $tabel == $prefix . '_subteamoffset' )
+		$query .= 'AND m1.subteam = m2.subteam AND m2.subteam = m3.subteam AND m1.subteam = m3.subteam ';
+	
+	$query .='
 		AND 	m1.dag = \'' . $datum . '\' 
 		AND 	m2.dag >= \'' . date("Y-m-d", strtotime("-7 day", strtotime($datum))) . '\'
 		AND 	m3.dag >= \'' . date("Y-m-d", strtotime("-1 month", strtotime($datum))) . '\' 
@@ -32,67 +42,24 @@ function calculateAverage($tabel)
 			m1.naam';
 
 	$db->insertQuery($query);
-#	echo $query . "\n\n";
 }
 
-$datum = getCurrentDate('rah');
+$query = 'SHOW TABLES FROM stats';
+$result = $db->selectQuery($query);
 
-calculateAverage('rah_memberoffset');
-calculateAverage('rah_teamoffset');
-calculateAverage('rah_subteamoffset');
-calculateAverage('rah_individualoffset');
+$tables = array();
+while ( $line = $db->fetchArray($result) )
+{
+	if ( substr($line[0], -6, 6) == 'offset' )
+		$tables[] = $line[0];
+}
 
-$datum = getCurrentDate('sob');
+foreach($tables as $table)
+{
+	$datum = getCurrentDate(substr($table, 0, strpos($table, '_') ));
+	calculateAverage(substr($table, 0, strpos($table, '_') ), $table);
+}
 
-calculateAverage('sob_memberoffset');
-calculateAverage('sob_teamoffset');
-calculateAverage('sob_subteamoffset');
-calculateAverage('sob_individualoffset');
+$db->disconnect();
 
-$datum = getCurrentDate('smp');
-
-calculateAverage('smp_teamoffset');
-calculateAverage('smp_memberoffset');
-calculateAverage('smp_subteamoffset');
-calculateAverage('smp_individualoffset');
-
-$datum = getCurrentDate('fah');
-
-calculateAverage('fah_teamoffset');
-calculateAverage('fah_memberoffset');
-calculateAverage('fah_subteamoffset');
-calculateAverage('fah_individualoffset');
-
-$datum = getCurrentDate('sah');
-
-calculateAverage('sah_teamoffset');
-calculateAverage('sah_memberoffset');
-calculateAverage('sah_subteamoffset');
-
-$datum = getCurrentDate('tsc');
-
-calculateAverage('tsc_memberoffset');
-calculateAverage('tsc_teamoffset');
-
-$datum = getCurrentDate('d2ol');
-
-calculateAverage('d2ol_memberoffset');
-calculateAverage('d2ol_teamoffset');
-
-$datum = getCurrentDate('ufl');
-
-calculateAverage('ufl_teamoffset');
-calculateAverage('ufl_memberoffset');
-calculateAverage('ufl_subteamoffset');
-calculateAverage('ufl_individualoffset');
-
-$datum = getCurrentDate('ud');
-
-calculateAverage('ud_teamoffset');
-calculateAverage('ud_memberoffset');
-
-$datum = getCurrentDate('ldc');
-calculateAverage('ldc_teamoffset');
-calculateAverage('ldc_memberoffset');
-calculateAverage('ldc_subteamoffset');
-calculateAverage('ldc_individualoffset');
+?>
