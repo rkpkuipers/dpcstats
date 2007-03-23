@@ -26,8 +26,11 @@ function getSubteam($name)
 
 # Gather data from sengent
 
-$html = implode('', file ('http://www.seventeenorbust.com/stats/textStats2.mhtml')) or die("Error retrieving information");
+$html = @implode('', file ('http://www.seventeenorbust.com/stats/textStats2.mhtml')) or die("Error retrieving information");
 $lines = explode("\n", $html);
+
+if ( count($lines) <= 1 )
+	die('Error retrieving SOB stats page');
 
 $dateinfo = explode(' ', $lines[0]);
 $update = $dateinfo[1];
