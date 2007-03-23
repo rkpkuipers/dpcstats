@@ -158,7 +158,7 @@ function addSubteamStatsrun($array, $tabel)
 			WHERE 
 				naam = \'' . $db->real_escape_string($naam) . '\' 
 			AND dag = \'' . $datum . '\'
-			AND	subteam = \'' . $subteam . '\'';
+			AND	subteam = \'' . $db->real_escape_string($subteam) . '\'';
 
 		$result = $db->selectQuery($query) or die("Error fetching offset\n" . $query);
 
@@ -172,14 +172,14 @@ function addSubteamStatsrun($array, $tabel)
 						WHERE   
 							naam = \'' . $db->real_escape_string($naam) . '\'
 						AND	dag = \'' . $datum . '\'
-						AND	subteam = \'' . $subteam . '\'';
+						AND	subteam = \'' . $db->real_escape_string($subteam) . '\'';
 			#echo $updateQuery . ";" . ' ';
 			$updateResult = $db->updateQuery($updateQuery);
 		}
-		else if ( ( $score > 0 ) || ( substr($tabel, 0, 4) == 'sp5_' ) )
+		else if ( ( $score > 0 ) || ( substr($tabel, 0, 2) == 'sp' ) )
 		{
 			#echo $score;
-			$maxIdQry = 'SELECT max(id) as tops FROM ' . $tabel . ' WHERE dag = \'' . $datum . '\' AND subteam = \'' . $subteam . '\'';
+			$maxIdQry = 'SELECT max(id) as tops FROM ' . $tabel . ' WHERE dag = \'' . $datum . '\' AND subteam = \'' . $db->real_escape_string($subteam) . '\'';
 			$maxIdResult = $db->selectQuery($maxIdQry);
 			if ( $maxIdLine = $db->fetchArray($maxIdResult) )
 				$nwId = $maxIdLine['tops'] + 1;
@@ -190,7 +190,7 @@ function addSubteamStatsrun($array, $tabel)
 					' . $tabel . '
 						(naam, subteam, dag, cands, daily, id)
 					VALUES
-						(\'' . $db->real_escape_string($naam) . '\', \'' . $subteam . '\', \'' . $datum . '\', ' . $score . ', 0, ' . $nwId . ')';
+						(\'' . $db->real_escape_string($naam) . '\', \'' . $db->real_escape_string($subteam) . '\', \'' . $datum . '\', ' . $score . ', 0, ' . $nwId . ')';
 			#echo $insQuery . "\n";
 			$db->insertQuery($insQuery);
 
@@ -219,7 +219,7 @@ function addSubteamStatsrun($array, $tabel)
 					' . $tabel . '
 				SET     dailypos = ' . $pos . '
 				WHERE   naam = \'' . $db->real_escape_string($line['naam']) . '\'
-				AND	subteam = \'' . $currSubteam . '\'
+				AND	subteam = \'' . $db->real_escape_string($currSubteam) . '\'
 				AND     dag = \'' . $datum . '\'';
 
 		#echo $updateQuery;
@@ -476,7 +476,7 @@ function updateStats($members, $table)
 	# Now any differing records are caused by increased total scores thus
 	# a third array_diff yields all members who have flushed since the
 	# previous statsrun
-	$flushingMembers = array_diff($members, $currMembers);
+	$flushingMembers = array_diff_assoc($members, $currMembers);
 
 	foreach($flushingMembers as $flushMemberName => $flushTotalScore)
 	{
@@ -764,7 +764,6 @@ function fixLists(&$member, &$subteam, $seperator)
 
 	arsort($member, SORT_NUMERIC);
 }
-
 
 function getSeperator($project)
 {
