@@ -3,9 +3,11 @@
 
 include (dirname(realpath($argv[0])) . '/../include.php');
 
-dailyOffset('memberoffset', 'sp5');
-dailyOffset('subteamoffset', 'sp5');
-dailyOffset('individualoffset', 'sp5');
+$datum = getCurrentDate('sp6');
+
+dailyOffset('memberoffset', 'sp6');
+dailyOffset('subteamoffset', 'sp6');
+dailyOffset('individualoffset', 'sp6');
 
 $query = 'SELECT
 		p.name,
@@ -13,8 +15,8 @@ $query = 'SELECT
 		p.offset,
 		(o.cands+o.daily)AS total
 	FROM
-		stampedeparticipants p,
-		rah_individualoffset o
+		stampede6participants p,
+		fah_individualoffset o
 	WHERE
 		o.dag = \'' . date("Y-m-d") . '\'
 	AND	p.name = REPLACE(o.naam, \' - \', \'~\')
@@ -50,8 +52,8 @@ arsort($teamscore);
 foreach($teamscore as $tName => $tScore)
 	$teamList[] = new Member($tName, $tScore);
 
-$datum = getCurrentDate('sp5');
-
-addStatsrun($teamList, 'sp5_memberoffset');
-addSubTeamStatsRun($memberList, 'sp5_subteamoffset');
+#addStatsrun($teamList, 'sp6_memberoffset');
+updateStats($teamscore, 'sp6_memberoffset');
+addSubTeamStatsRun($memberList, 'sp6_subteamoffset');
+individualStatsrun('sp6');
 ?>
