@@ -121,7 +121,7 @@ function LimitText(fieldObj,maxChars)
 }
 
 //<![CDATA[
-var onImageURL = new Array("images/DPCm-bleu.jpg", "images/History-blue.jpg" );
+var onImageURL = new Array("images/DPCm-bleu.jpg");
 
 var preload = new Array( onImageURL.length );
 var imgNum;
@@ -254,27 +254,10 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
         <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="<? echo '?mode=Graph&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>">Output<br>Graphs</a>
        </div>
       </td>
-      <td colspan="3"><a href="?mode=Flush&amp;prefix=<? echo $project->getPrefix() ?>" onmouseover="change('index_r4_c9', 'images/History-blue.jpg')" 
-<? 
-	if ( $mode == 'Flush' )
-	{ 
-		echo "onmouseout=\"change('index_r4_c9', 'images/History-blue.jpg')\"> "; 
-	}
-	else 
-	{ 
-		echo "onmouseout=\"change('index_r4_c9', 'images/index_r4_c9.jpg')\"> "; 
-	} 
-	echo '<img name="index_r4_c9" ';
-	if ( $mode == 'Flush' )
-	{ 
-		echo 'src="images/History-blue.jpg"'; 
-	}
-	else 
-	{ 
-		echo 'src="images/index_r4_c9.jpg"'; 
-	} 
-?>
-	width="99" class="cellHeight5" alt=""></a>
+      <td colspan="3" align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/spacer6.jpg);" class="cellHeight5" onclick='window.open("<? echo '?mode=Flush&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>", "_self")'>
+       <div style="position:relative; top:9px;">
+        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="?mode=Flush&amp;prefix=<? echo $project->getPrefix();?>">Flush History</a>
+       </div>
       </td>
       <td><img name="index_r4_c12" src="images/index_r4_c12.jpg" width="10" class="cellHeight5" alt=""></td>
       <td><img src="images/spacer.gif" width="1" class="cellHeight5" alt=""></td>
