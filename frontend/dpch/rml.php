@@ -20,7 +20,7 @@ else
 $project = new Project($db, $prefix, 'memberoffset', $datum);
 
 # Set locale to provide dutch names for days, months and such
-setLocale(LC_ALL, 'nl_NL.utf8');
+setlocale(LC_ALL, 'nl_NL.utf8', 'nl_NL');
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
