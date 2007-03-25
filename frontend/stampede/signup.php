@@ -6,7 +6,7 @@ include('../classes.php');
 
 if ( isset($_REQUEST['nick']) )
 {
-	$nick = $_REQUEST['nick'];
+	$nick = trim($_REQUEST['nick']);
 }
 
 if ( isset($_REQUEST['team']) )
@@ -61,9 +61,9 @@ if ( ( $nick != '' ) && ( $team != '' ) )
 <link rel="stylesheet" href="/page.css" type="text/css">
 </head>
 <body style="background-color:#CBCBCB">
-<center><h2>Stampede V - Inschrijfformulier</h2></center>
+<center><h2>Stampede VI - Inschrijfformulier</h2></center>
 <hr>
-Tot 31 maart is het mogelijk om een willekeurig stampedeteam te joinen. Om de competitie zo leuk mogelijk te houden wordt iedereen aangemoedigd om zich bij een van de lager geklasseerde teams aan te sluiten. Het veranderen van team of jezelf uitschrijven is in principe niet mogelijk, mocht er toch een dringende reden zijn waarom je van team wilt veranderen kan je hierover contact opnemen met Elteor via FDO of IRC. Lid worden van een stampede team kan door je nick in te voeren in het tekstveld, het team wat je wilt joinen uit het Stampede team lijstje te kiezen en op Join te klikken. 
+Tot 31 maart is het mogelijk om een willekeurig stampedeteam te joinen. Om de competitie zo leuk mogelijk te houden wordt iedereen aangemoedigd om zich bij een van de lager geklasseerde teams aan te sluiten. Het veranderen van team of jezelf uitschrijven is in principe niet mogelijk, mocht er toch een dringende reden zijn waarom je van team wilt veranderen kan je hierover contact opnemen met Elteor via FDO of IRC. Lid worden van een stampede team kan door je nick in te voeren in het tekstveld, het team wat je wilt joinen uit het Stampede team lijstje te kiezen en op Join te klikken. Let op: je nickname is hoofdlettergevoelig, user23 is dus niet hetzelfde als UsEr23.
 <hr>
 <center>
 <?
@@ -122,7 +122,7 @@ echo '<input type="text" class="TextField" name="nick" value="' . ($errorAddingM
 ?>
 </td>
 <td>
-<select name="team">
+<select name="team" class="TextField">
 <?
 $subteams = array('Folding Beasts', 'Bruce\'s Angels', 'The Folding SoB-ers', 'LSD Stampers', 'De Stampertjes');
 foreach($subteams as $name)
@@ -133,7 +133,7 @@ foreach($subteams as $name)
 </tr>
 <tr>
 <td colspan="2" align="center">
-<input type="submit" value="Join">
+<input type="submit" value="Join" class="TextField">
 </td>
 </tr>
 </table>
