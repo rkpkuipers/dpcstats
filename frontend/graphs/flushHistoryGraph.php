@@ -1,8 +1,8 @@
 <?        
 	require('../classes.php');
 
-if ( isset($HTTP_GET_VARS['tabel']) )
-        $tabel = $HTTP_GET_VARS['tabel'];
+if ( isset($_GET['tabel']) )
+        $tabel = $_GET['tabel'];
 else
         $tabel = 'memberoffset';
 
@@ -11,18 +11,18 @@ if ( isset($_GET['prefix']) )
 else
 	$project = new Project($db, 'tsc', 'memberoffset');
 
-if ( isset($HTTP_GET_VARS['naam']) )
-	$naam = $HTTP_GET_VARS['naam'];
+if ( isset($_GET['naam']) )
+	$naam = $_GET['naam'];
 else
 	die("Er is geen naam opgegeven");
 
-if ( isset($HTTP_GET_VARS['timespan']) )
-	$timespan = $HTTP_GET_VARS['timespan'];
+if ( isset($_GET['timespan']) )
+	$timespan = $_GET['timespan'];
 else
 	$timespan = 7;
 
-if ( isset($HTTP_GET_VARS['labelInterval']) )
-	$lblInt = $HTTP_GET_VARS['labelInterval'];
+if ( isset($_GET['labelInterval']) )
+	$lblInt = $_GET['labelInterval'];
 else
 	$lblInt = 1;
 
@@ -43,7 +43,7 @@ function switchArray($data)
 	include ($jpgraphdir . "/jpgraph_line.php");
 
 	if ( $tabel == 'subteamoffset' )
-		$where = ' AND subteam = \'' . $team . '\' ';
+		$where = ' AND subteam = \'' . $db->real_escape_string($team) . '\' ';
 	else
 		$where;
 
@@ -54,7 +54,7 @@ function switchArray($data)
 		FROM 
 			' . $project->getPrefix() . '_' . $tabel . ' 
 		WHERE 
-			naam = \'' . $naam . '\' ' .
+			naam = \'' . $db->real_escape_string($naam) . '\' ' .
 			$where . '
 		ORDER BY 
 			dag DESC 

@@ -595,7 +595,7 @@ class MemberInfo
 			FROM 
 				' . $this->tabel . ' 
 			WHERE 
-				naam=\'' . $this->naam . '\' 
+				naam=\'' . $this->db->real_escape_string($this->naam) . '\' 
 			AND 	dag > \'' . getPrevWeek($this->datum) . '\'
 			' . $where . '
 			GROUP BY 
@@ -614,7 +614,7 @@ class MemberInfo
 		FROM
 			' . $this->prefix . '_' . $this->speedTabel . ' o
 		WHERE
-			o.naam = \'' . $this->naam . '\'
+			o.naam = \'' . $this->db->real_escape_string($this->naam) . '\'
 		AND	o.dag = \'' . $this->datum . '\'
 		' . $where;
 
@@ -633,7 +633,7 @@ class MemberInfo
 			FROM
 				additional n
 			WHERE
-				n.naam = \'' . $this->naam . '\'
+				n.naam = \'' . $this->db->real_escape_string($this->naam) . '\'
 			AND	n.prefix = \'' . $this->tabel . '\'';
 		$result = $this->db->selectQuery($query);
 
@@ -646,7 +646,7 @@ class MemberInfo
 		FROM 
 			' . $this->tabel . ' 
 		WHERE 
-			naam = \'' . $this->naam . '\'
+			naam = \'' . $this->db->real_escape_string($this->naam) . '\'
 		' . $where . '
 		ORDER BY 
 			daily DESC 
@@ -716,8 +716,8 @@ class MemberInfo
 			FROM
 				' . $this->tabel . '
 			WHERE
-				naam = \'' . $this->naam . '\'' .
-			( $this->speedTabel=='subteamoffset'?'AND subteam = \'' . $this->team . '\'':'') . '
+				naam = \'' . $this->db->real_escape_string($this->naam) . '\'' .
+			( $this->speedTabel=='subteamoffset'?'AND subteam = \'' . $this->db->real_escape_string($this->team) . '\'':'') . '
 			ORDER BY
 				dag DESC ' .
 			( $timeperiod==0?'':'LIMIT ' . $timeperiod);

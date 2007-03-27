@@ -151,8 +151,9 @@ $query = 'SELECT
 	FROM 
 		averageproduction 
 	WHERE 
-		naam = \'' . $mi->getRealNaam() .'\' 
+		naam = \'' . ($tabel=='subteamoffset'?$db->real_escape_string($team) . $project->getSeperator():'') . $db->real_escape_string($mi->getRealNaam()) .'\' 
 	AND 	tabel = \'' . $project->getPrefix() . '_' . $tabel . '\'';
+
 $result = $db->selectQuery($query);
 if ( $line = $db->fetchArray($result) )
 {

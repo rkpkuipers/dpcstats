@@ -20,7 +20,7 @@ class STTableStatistics extends TableStatistics
 			WHERE 
 				of.dag = \'' . $this->datum . '\' 
 			AND 	of.daily > 0
-			AND	of.subteam = \'' . $this->subteam . '\'';
+			AND	of.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\'';
 
 		$result = $this->db->selectQuery($query);
 		if ( $line = $this->db->fetchArray($result) )
@@ -33,7 +33,7 @@ class STTableStatistics extends TableStatistics
 			FROM 
 				' . $this->tabel . ' of
 			WHERE 	of.dag = \'' . $this->datum . '\'
-			AND	of.subteam = \'' . $this->subteam . '\'';
+			AND	of.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\'';
 
 		$result = $this->db->selectQuery($query);
 		if ( $line = $this->db->fetchArray($result) )
@@ -47,7 +47,7 @@ class STTableStatistics extends TableStatistics
 			FROM 
 				' . $this->tabel . ' of
 			WHERE 	of.dag = \'' . $this->datum . '\' 
-			AND	of.subteam = \'' . $this->subteam . '\'
+			AND	of.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\'
 			AND 	of.daily > 0 
 			GROUP BY 
 				of.dag';
@@ -63,7 +63,7 @@ class STTableStatistics extends TableStatistics
 			FROM 
 				' . $this->tabel . ' of
 			WHERE 	of.dag = \'' . $this->datum . '\'
-			AND	of.subteam = \'' . $this->subteam . '\'';
+			AND	of.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\'';
 		$result = $this->db->selectQuery($query);
 		if ( $line = $this->db->fetchArray($result))
 		        $this->totalOutput = $line['0'];
@@ -77,7 +77,7 @@ class STTableStatistics extends TableStatistics
                         WHERE
                                 dag = \'' . getPrevDate($this->datum) . '\'
                         AND     daily > 0
-                        AND	of.subteam = \'' . $this->subteam . '\'';
+                        AND	of.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\'';
                 $result = $this->db->selectQuery($query);
                 if ( $line = $this->db->fetchArray($result) )
                         $this->prevDayFlushCount = $line['0'];

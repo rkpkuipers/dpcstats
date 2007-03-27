@@ -79,7 +79,7 @@ for($i=0;$i<count($mbs);$i++)
 						
 	$subteam[$mbs[$i]->getName()]->generateFlushList();
 	$stMembers = $subteam[$mbs[$i]->getName()]->getMembers();
-	if ( count($stMembers) < $listLength ) $cCount = ( count($stMembers) - 1 );
+	if ( count($stMembers) < $listLength ) $cCount = ( count($stMembers) );
 	else $cCount = $listLength;
 
 	$rmlpage .= '[tr]';
@@ -178,7 +178,7 @@ $rmlpage .= '[tr][td][/td][td][url="' . $baseUrl . '/?prefix=' . $project->getPr
 $rmlpage .= '[/table]' . "\n";
 
 $rmlpage .= '[table bgcolor="transparent" width="450px"]';
-$rmlpage .= '[tr][td colspan="6"][b]Teams Daily Top 5[/b][/td][/tr]';
+$rmlpage .= '[tr][td colspan="6"][b]Teams Daily[/b][/td][/tr]';
 $rmlpage .= '[tr]';
 $rmlpage .= '[td colspan="2"][b]pos[/b][/td]';
 $rmlpage .= '[td align="right"][b]daily[/b][/td]';
@@ -187,18 +187,19 @@ $rmlpage .= '[td align="right"][b]total[/b][/td]';
 $rmlpage .= '[td][/td]';
 $rmlpage .= '[/tr]';
 
+$pproject = new Project($db, 'fah', 'teamoffset', $datum);
 $ml = new MemberList('fah_teamoffset', $datum, 0, 5, $db);
 $ml->generateFlushList();
 $mbs = $ml->getMembers();
 
-if ( $project->getTeamDaily() > 15 )
+if ( $pproject->getTeamDaily() > 8 )
 {
 	if ( isset($mbs[0]) )
 		$tmpMember = array($mbs[0]);
 	else
 		$tmpMember = array();
 
-	$ml = new MemberList($project->getPrefix() . '_teamoffset', $datum, ( $project->getTeamDaily() - 8 ), 15, $db);
+	$ml = new MemberList($pproject->getPrefix() . '_teamoffset', $datum, ( $pproject->getTeamDaily() - 4 ), 8, $db);
 	$ml->generateFlushList();
 
 	$mbs = array_merge($tmpMember, $ml->getMembers());
@@ -206,8 +207,8 @@ if ( $project->getTeamDaily() > 15 )
 
 for($i=0;$i<count($mbs);$i++)
 {
-	if ( ( $i >= 1 ) && ( $project->getTeamDaily() > 15 ) )
-		$pos = $i + ( $project->getTeamDaily() - 8 );
+	if ( ( $i >= 1 ) && ( $pproject->getTeamDaily() > 8 ) )
+		$pos = $i + ( $pproject->getTeamDaily() - 4 );
 	else
 	        $pos = $i + 1;
 
@@ -228,7 +229,7 @@ for($i=0;$i<count($mbs);$i++)
                 $rmlpage .= '[td]([img]http://www.tweakers.net/g/dpc/down.gif[/img]' . ( $change - ( $change * 2 )) . ')[/td]';
 
         $rmlpage .= '[td align="right"][red]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/red][/td]';
-        $rmlpage .= '[td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamoffset' . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+        $rmlpage .= '[td][url="' . $baseUrl . '/?prefix=' . $pproject->getPrefix() . '&amp;mode=detail&amp;tabel=teamoffset' . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
         $rmlpage .= '[td align="right"][blue]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/blue][/td]';
         $rmlpage .= '[td align="right"](' . $mbs[$i]->getCurrRank() . ')[/td]';
         $rmlpage .= '[/tr]';
@@ -238,7 +239,7 @@ for($i=0;$i<count($mbs);$i++)
 $rmlpage .= '[/table]' . "\n";
 
 $rmlpage .= '[table bgcolor="transparent" width="450px"]';
-$rmlpage .= '[tr][td colspan="6"][b]Teams Overall Top 5[/b][/td][/tr]';
+$rmlpage .= '[tr][td colspan="6"][b]Teams Overall[/b][/td][/tr]';
 $rmlpage .= '[tr]';
 $rmlpage .= '[td colspan="2"][b]pos[/b][/td]';
 $rmlpage .= '[td align="right"][b]total[/b][/td]';
@@ -251,11 +252,11 @@ $ml = new MemberList('fah_teamoffset', $datum, 0, 5, $db);
 $ml->generateRankList();
 $mbs = $ml->getMembers();
 
-if ( $project->getTeamRank() > 15 )
+if ( $pproject->getTeamRank() > 15 )
 {
 	$tmpMember = array($mbs[0]);
 	
-	$ml = new MemberList($project->getPrefix() . '_teamoffset', $datum, ( $project->getTeamRank() - 8 ), 15, $db);
+	$ml = new MemberList($pproject->getPrefix() . '_teamoffset', $datum, ( $pproject->getTeamRank() - 4 ), 8, $db);
 	$ml->generateRankList();
 
 	$mbs = array_merge($tmpMember, $ml->getMembers());
@@ -264,8 +265,8 @@ if ( $project->getTeamRank() > 15 )
 	
 for($i=0;$i<count($mbs);$i++)
 {
-	if ( ( $i >= 1 ) && ( $project->getTeamRank() > 15 ) )
-		$pos = $i + ( $project->getTeamRank() - 8 );
+	if ( ( $i >= 1 ) && ( $pproject->getTeamRank() > 15 ) )
+		$pos = $i + ( $pproject->getTeamRank() - 4 );
 	else
 		$pos = $i + 1;
 
@@ -282,7 +283,7 @@ for($i=0;$i<count($mbs);$i++)
                 $rmlpage .= '    [td]([img]http://www.tweakers.net/g/dpc/down.gif[/img]' . ( $change - ( $change * 2 )) . ')[/td]';
 
         $rmlpage .= '    [td align="right"][red]' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '[/red][/td]';
-        $rmlpage .= '    [td][url="' . $baseUrl . '/?prefix=' . $project->getPrefix() . '&amp;mode=detail&amp;tabel=teamoffset' . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
+        $rmlpage .= '    [td][url="' . $baseUrl . '/?prefix=' . $pproject->getPrefix() . '&amp;mode=detail&amp;tabel=teamoffset' . '&amp;datum=' . $datum . '&amp;naam=' . rawurlencode($mbs[$i]->getName()) . '"]' . $mbs[$i]->getName() . '[/url][/td]';
         $rmlpage .= '    [td align="right"][blue]' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '[/blue][/td]';
         $rmlpage .= '    [td align="right"](' . $mbs[$i]->getFlushRank() . ')[/td]';
         $rmlpage .= '   [/tr]';
