@@ -15,7 +15,7 @@ function calculateAverage($prefix, $tabel)
 		';
 	
 	if ( $tabel == $prefix . '_subteamoffset' )
-		$query .= 'DISTINCT(CONCAT(m1.subteam, ' . getSeperator($prefix) . ', m1.naam)), ';
+		$query .= 'DISTINCT(CONCAT(m1.subteam, \'' . getSeperator($prefix) . '\', m1.naam)), ';
 	else
 		$query .= 'DISTINCT(m1.naam), ';
 	
