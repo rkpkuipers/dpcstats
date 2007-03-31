@@ -124,7 +124,7 @@ echo '<input type="text" class="TextField" name="nick" value="' . ($errorAddingM
 <td>
 <select name="team" class="TextField">
 <?
-$subteams = array('Folding Beasts', 'Bruce\'s Angels', 'The Folding SoB-ers', 'LSD Stampers', 'De Stampertjes', 'Computer Idee');
+$subteams = array('Computer Idee');
 foreach($subteams as $name)
 	echo '<option ' . (($errorAddingMember)&&($team==$name)?'selected':'') . '>' . $name . '</option>';
 ?>
