@@ -2,6 +2,7 @@
 
 class admin
 {
+	private $userid;
 	private $username;
 	private $password;
 	private $email;
@@ -13,6 +14,8 @@ class admin
 		$this->username = $username;
 		$this->password = $password;
 		$this->email = $email;
+
+		$this->userid = -1;
 
 		$this->db = $db;
 	}
@@ -60,6 +63,7 @@ class admin
 		$query = 'SELECT
 				username,
 				email,
+				userid,
 				password
 			FROM
 				a_users
@@ -75,8 +79,14 @@ class admin
 		if ( $line = $this->db->fetchArray($result) )
 		{
 			$this->email = $line['email'];
+			$this->userid = $line['userid'];
 		}
 
 		return true;
+	}
+
+	function getUserID()
+	{
+		return $this->userid;
 	}
 }

@@ -1,10 +1,29 @@
 <?
 
+function storeCrossLink($userid, $project, $prjusername)
+{
+	global $db;
+
+	$db->deleteQuery('DELETE FROM a_cpl WHERE userid = ' . $userid . ' AND project = \'' . $project . '\'');
+	$db->insertQuery('INSERT INTO a_cpl (userid, project, username) VALUES (' . $userid . ', \'' . $db->real_escape_string($project) . '\', \'' . $db->real_escape_string($prjusername) . '\')');
+}
+
 function crossProjectLinks()
 {
 	global $db;
 
-	$query = 'SELECT project, description FROM project ORDER BY description';
+	$query = 'SELECT 
+			p.project, 
+			p.description,
+			c.username
+		FROM 
+			project p
+		LEFT JOIN
+			a_cpl c
+		ON	c.project = p.project
+		AND	c.userid = ' . $_SESSION['userid'] . '
+		ORDER BY 
+			p.description';
 	$result = $db->selectQuery($query);
 
 	echo '<hr>';
@@ -30,6 +49,7 @@ function crossProjectLinks()
 			# Store member cross link in database
 			# <green>Validated</green>
 			echo '<td style="color:#005500">Member exists</td>';
+			storeCrossLink($_SESSION['userid'], $line['project'], $_POST['nm' . $line['project']]);
 		}
 		else
 		{
@@ -64,9 +84,14 @@ if ( isset($_POST['action']) )
     <input type="submit" value="Cross Project Links" class="TextField">
    </form>
   </td>
-<td align="center">SoB/F@H Members</td>
-<td align="center">Sengent Info</td>
-</tr>
+  <td align="center">SoB/F@H Members</td>
+  <td align="center">Sengent Info</td>
+  <td align="center">
+   <form name="logout" action="/admin/logout.php" method="post">
+    <input type="submit" value="Logout" class="TextField">
+   </form>
+  </td>
+ </tr>
 </table>
 <?
 switch ($action)

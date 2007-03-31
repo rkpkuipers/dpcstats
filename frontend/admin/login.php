@@ -13,10 +13,10 @@
 <table width="250px">
 <form name="registerForm" action="/index.php" method="post">
 <input type="hidden" name="mode" value="register">
-<tr><td>Username</td><td align="right"><input name="username" type="textfield" class="TextField"></td></tr>
-<tr><td>E-Mail</td><td align="right"><input name="email" type="textfield" class="TextField"></td></tr>
-<tr><td>Password</td><td align="right"><input name="password" type="password" class="TextField"></td></tr>
-<tr><td>Password again</td><td align="right"><input name="passagain" type="password" class="TextField"></td></tr>
+<tr><td align="left">Username</td><td align="right"><input name="username" type="textfield" class="TextField"></td></tr>
+<tr><td align="left">E-Mail</td><td align="right"><input name="email" type="textfield" class="TextField"></td></tr>
+<tr><td align="left">Password</td><td align="right"><input name="password" type="password" class="TextField"></td></tr>
+<tr><td align="left">Password again</td><td align="right"><input name="passagain" type="password" class="TextField"></td></tr>
 <tr><td colspan="2" align="center"><input type="submit" name="Register" value="Register" class="TextField"></td></tr>
 </form>
 </table>

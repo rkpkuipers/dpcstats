@@ -26,6 +26,7 @@ if ( ! $adm->verifyUser() )
 session_start();
 
 $_SESSION['username'] = $username;
+$_SESSION['userid'] = $adm->getUserID();
 
 header('Location:/index.php?mode=admin');
 ?>
