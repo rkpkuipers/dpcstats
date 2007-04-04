@@ -10,7 +10,7 @@ if ( ! isset($naam) )
 
 $mi = new MemberInfo($db, $naam, $project->getPrefix() . '_' . $tabel, $datum, $project->getPrefix(), $tabel, $team);
 
-if ( $mi->getCredits() == 0 )
+if ( ! $mi->exists() )
 {
 	echo '<h3>Member: ' . $naam . ' komt niet voor in de database, kies een member uit de lijst of ga terug naar de <a href="#" onclick="history.go(-1)">vorige pagina</a></h3>';
 	getMemberList($project->getPrefix(), $tabel, $datum);
@@ -143,79 +143,68 @@ if ( $frame == 'm' )
 	closeTable(2);
 }
 
-#if ( $mi->getFlush() > 0 )
+$opp = new Oppertunities($naam, $team, $project, $db);
+
+$info = $opp->getOppList();
+
+echo openColorTable();
+echo '<center><b>Average output</b></center>';
+echo '<hr width="75%">';
+echo '<table width="420px">';
+echo '<tr><td align="left">Last week</td><td align="right">' . number_format($info['average'], 0, ',', '.') . '&nbsp;' . $project->getWuName() . '</td></tr>';
+echo '<tr><td align="left">Last month</td><td align="right">' . number_format($info['maverage'], 0, ',', '.') . '&nbsp;' . $project->getWuName() . '</td></tr>';
+echo '</table>';
+if ( count($info['opp']) > 0 )
 {
-$query = 'SELECT 
-		avgdaily, 
-		avgmonthly 
-	FROM 
-		averageproduction 
-	WHERE 
-		naam = \'' . ($tabel=='subteamoffset'?$db->real_escape_string($team) . $project->getSeperator():'') . $db->real_escape_string($mi->getRealNaam()) .'\' 
-	AND 	tabel = \'' . $project->getPrefix() . '_' . $tabel . '\'';
-
-$result = $db->selectQuery($query);
-if ( $line = $db->fetchArray($result) )
-{
-	if ( $line['avgdaily'] == $line['avgmonthly'] )
-		$lineArray = array($line['avgdaily']);
-	else
-		$lineArray = array($line['avgdaily'], $line['avgmonthly']);
-}
-else
-	$lineArray = array(0, 0);
-
-$charArray = array('avgdaily', 'avgmonthly');
-$headArray = array('weekly', 'monthly');
-
-for($j=0;$j<count($lineArray);$j++)
-{
-	$t = new TOThreats($db, $project->getPrefix() . '_' . $tabel, $lineArray[$j], $mi, $datum, $listsize, $charArray[$j], $team);
-	$tl = $t->getThreatList();;
-
-	echo '<br>';
-	echo openColorTable();
-	echo '<b><div align="left">Based on an average ' . $headArray[$j] . ' output of ' . number_format($t->getAverageProduction(), 0, ',' ,'.') . '</div></b>';
-	echo '<hr>';
-	if ( count($tl) > 0 )
+	echo '<hr width="75%">';
+	echo '<center><b>Oppertunities</b></center>';
+	echo '<hr width="75%">';
+	echo '<table>';
+	echo '<tr><td width="200px"></td><td colspan="2">Weekly</td><td colspan="2">Monthly</td></tr>';
+	echo '<tr><td>User</td><td>Avg.</td><td>Days</td><td>Avg.</td><td>Days</td></tr>';
+	$cnt = 0;
+	foreach($info['opp'] as $opp)
 	{
-		echo '<b>When do they get you</b>';
-		echo '<hr>';
-		echo '<table width="100%">';
-		echo '<tr><td align="center">Name</td><td align="center">Avg.</td><td align="center">Days</td></tr>';
-		for($i=0;$i<count($tl);$i++)
-		{
-			echo trBackground($i);
-			echo '<td width="190" align="left"><a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;naam=' . $tl[$i]['name'] . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum . '" title="Details for ' . $tl[$i]['name'] . '">' . $tl[$i]['name'] . '</a></td>';
-			echo '<td width="50" align="right">' . number_format($tl[$i]['average'], 0, ',', '.') . '</td>';
-			echo '<td align="right" width="50">' . number_format($tl[$i]['days'], 0, ',', '.') . '</td>';
-			echo '</tr>';
-		}
-		echo '</table>';
-		echo '<hr>';
+		echo trBackground($cnt++);
+		echo '<td align="left">' . getURL(array(	'name' => $opp['name'],
+								'link' => $opp['name'],
+								'title' => 'Details for ' . $opp['name'])) . '</td>';
+		echo '<td align="right" width="50px">' . number_format($opp['average'], 0, ',', '.') . '</td>';
+		echo '<td align="right" width="50px">' . round($opp['days']) . '</td>';
+		echo '<td align="right" width="50px">' . number_format($opp['maverage'], 0, ',', '.') . '</td>';
+		echo '<td align="right" width="50px">' . ($opp['mdays']<0?'-':number_format(round($opp['mdays']), 0, ',', '.')) . '</td>';
+		echo '</tr>';
 	}
+	echo '</table>';
+}
+if ( count($info['thr']) > 0 )
+{
+	echo '<hr width="75%">';
+	echo '<center><b>Threats</b></center>';
+	echo '<hr width="75%">';
+	echo '<table>';
+	echo '<tr><td width="200px"></td><td colspan="2">Weekly</td><td colspan="2">Monthly</td></tr>';
+	echo '<tr><td>User</td><td>Avg.</td><td>Days</td><td>Avg.</td><td>Days</td></tr>';
+	$cnt = 0;
+	foreach($info['thr'] as $thr)
+	{
+		echo trBackground($cnt++);
+		echo '<td align="left">' . getUrl(array(	'name' => $thr['name'],
+								'tabel' => $tabel,
+								'link' => $thr['name'],
+								'title' => 'Details for ' . $thr['name'])) . '</td>';
+		echo '<td align="right" width="50px">' . number_format($thr['average'], 0, ',', '.') . '</td>';
+		echo '<td align="right" width="50px">' . round($thr['days']) . '</td>';
+		echo '<td align="right" width="50px">' . number_format($thr['maverage'], 0, ',', '.') . '</td>';
+		echo '<td align="right" width="50px">' . number_format(round($thr['mdays']), 0, ',', '.') . '</td>';
+		echo '</tr>';
+	}
+	echo '</table>';
+}
+echo '</td></tr></table>';
+echo '</td></tr></table>';
 
-	$o = new Opertunities($db, $project->getPrefix() . '_' . $tabel, $lineArray[$j], $mi, $datum, $listsize, $charArray[$j], $team);
-	$ol = $o->getOpertunityList();;
-	if ( count($ol) > 0 )
-        {
-                echo '<b>When do you get them</b>';
-                echo '<hr>';
-                echo '<table width="100%">';
-		echo '<tr><td align="center">Name</td><td align="center">Avg.</td><td align="center">Days</td></tr>';
-                for($i=0;$i<count($ol);$i++)
-                {
-                        echo trBackground($i);
-                        echo '<td width="190" align="left"><a href="index.php?mode=detail&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . $ol[$i]['name'] . '" title="Details for ' . $ol[$i]['name'] . '">' . $ol[$i]['name'] . '</a></td>';
-			echo '<td width="50" align="right">' . number_format($ol[$i]['average'], 0, ',', '.') . '</td>';
-                        echo '<td align="right" width="50">' . number_format($ol[$i]['days'], 0, ',', '.') . '</td>';
-                        echo '</tr>';
-                }
-                echo '</table>';
-		echo '<hr>';
-        }
-        closeTable(2);
-}
-}
+unset($opp, $info);
+
 ?>
 </center>

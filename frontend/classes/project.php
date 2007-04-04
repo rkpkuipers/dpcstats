@@ -7,7 +7,6 @@ class Project
 	private $prefix;
 	private $website;
 	private $forum;
-	private $tabel;
 	private $lastUpdate;
 	private $lastPageUpdate;
 	private $version;
@@ -30,7 +29,7 @@ class Project
 
 		$this->prefix = $prefix;
 
-		$this->tabel = $tabel;
+		$this->projectinfo['tabel'] = $tabel;
 
 		if ( $datum == 0 )
 			$this->datum = date("Y-m-d");
@@ -66,7 +65,7 @@ class Project
 				updates u
 			WHERE 
 				p.project = u.project
-			AND	u.tabel = \'' . $this->tabel . '\'
+			AND	u.tabel = \'' . $this->projectinfo['tabel'] . '\'
 			AND	p.project = \'' . $this->prefix . '\'';
 		$result = $this->db->selectQuery($query);
 
@@ -120,6 +119,11 @@ class Project
 	function getAdditional()
 	{
 		return $this->additional;
+	}
+
+	function getTabel()
+	{
+		return $this->projectinfo['tabel'];
 	}
 
 	function getCurrentDate()

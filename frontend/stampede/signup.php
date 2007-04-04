@@ -14,11 +14,27 @@ if ( isset($_REQUEST['team']) )
 	$team = $_REQUEST['team'];
 }
 
+function stampedeMemberExists($name)
+{
+	global $db;
+
+	$query = 'SELECT name FROM stampede6participants WHERE name = \'' . $db->real_escape_string($name) . '\'';
+	$result = $db->selectQuery($query);
+
+	if ( $line = $db->fetchArray($result) )
+		return true;
+	else
+		return false;
+}
+
 $errorAddingMember = false;
 if ( ( $nick != '' ) && ( $team != '' ) )
 {
 	if ( ( memberExists('fah', 'individualoffset', $nick) ) || ( $_GET['forced'] == 1 ) )
 	{
+		if ( ! stampedeMemberExists($nick) )
+		{
+
 		$query = 'SELECT
 				(cands+daily)AS offset
 			FROM
@@ -47,6 +63,7 @@ if ( ( $nick != '' ) && ( $team != '' ) )
 			)';
 
 		$db->selectQuery($query);
+		}
 	}
 	else
 	{

@@ -536,6 +536,7 @@ class MemberInfo
 	private $naamPrev;
 	private $prevDayFlushCount;
 	private $subteam;
+	private $exists;
 
 	private $team;
 
@@ -560,6 +561,8 @@ class MemberInfo
 		$this->subteam = FALSE;
 
 		$this->team = $team;
+
+		$this->exists = false;
 
 		$this->gatherInformation();
 	}
@@ -626,6 +629,7 @@ class MemberInfo
 			$this->flush = $line['flush'];
 			$this->rank = $line['currrank'];
 			$this->dailyRank = $line['dailypos'];
+			$this->exists = true;
 		}
 
 		$query = 'SELECT
@@ -783,6 +787,11 @@ class MemberInfo
 	function getRank()
 	{
 		return $this->rank;
+	}
+
+	function exists()
+	{
+		return $this->exists;
 	}
 
 	function getDailyRank()
