@@ -7,6 +7,12 @@ if ( isset($_GET['project']) )
 else
 	$prefix = 'tsc';
 
+if ( $prefix == 'sp6' )
+{
+	header('Location: stampede.php');
+	die();
+}
+
 if ( isset($_GET['datum']) )
 	$datum = $_GET['datum'];
 else
