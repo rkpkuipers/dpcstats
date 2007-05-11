@@ -157,7 +157,7 @@ echo '</table>';
 if ( count($info['opp']) > 0 )
 {
 	echo '<hr width="75%">';
-	echo '<center><b>Oppertunities</b></center>';
+	echo '<center><b>Opportunities</b></center>';
 	echo '<hr width="75%">';
 	echo '<table>';
 	echo '<tr><td width="200px"></td><td colspan="2">Weekly</td><td colspan="2">Monthly</td></tr>';
