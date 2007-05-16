@@ -385,6 +385,8 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
 <?
 	# Include the file containing the requested content
 	include($pagefile);
+	if ( rand(0, 30) < 10 )
+	{
 ?>
        <br><br><br><br><br><center>
 <script type="text/javascript"><!--
@@ -402,6 +404,7 @@ google_color_url = "005FA9";
 //--></script>
 <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 </center>
+<? } ?>
       </td>
       <td rowspan="0" style="background-image:url(images/index_r6_c11.jpg); background-position:right top; background-repeat:repeat-y" width="11" height="100%" ></td>
       <td style="background-image:url(images/spacer.gif);" width="1"></td>
