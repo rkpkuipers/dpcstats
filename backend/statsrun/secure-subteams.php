@@ -42,24 +42,26 @@ while ( $line = $db->fetchArray($result) )
 		$data = curl_exec($ch);
 		fclose($file);
 
-		system('cat ' . $tempdir . '/subteampage.txt | grep nodePopUp -A 1 | grep -v -- -- > ' . $tempdir . 'subteampage2.txt');
-
-		$data = file_get_contents($tempdir . 'subteampage2.txt');
-		unlink($tempdir . 'subteampage2.txt');
-		$info = preg_replace(array('@</a>@si', '@<a[^>]*?>@si', '@<td[^>]*?>@si', '@</td>@si'), '||', $data);
-
-		$nodes = explode('||', $info);
-		for($i=2;$i<count($nodes);$i+=6)
+		if ( is_file($tempdir . '/subteampage.txt') )
 		{
-#			echo $i . ' ' . $nodes[$i] . ' ' . $nodes[$i+3] . "\n";
-			$userdata[$line['prefix']][$line['username']][$nodes[$i]] = number_format($nodes[$i+3], 0, '', '');
+			system('cat ' . $tempdir . '/subteampage.txt | grep nodePopUp -A 1 | grep -v -- -- > ' . $tempdir . 'subteampage2.txt');
+
+			$data = file_get_contents($tempdir . 'subteampage2.txt');
+			unlink($tempdir . 'subteampage2.txt');
+			$info = preg_replace(array('@</a>@si', '@<a[^>]*?>@si', '@<td[^>]*?>@si', '@</td>@si'), '||', $data);
+
+			$nodes = explode('||', $info);
+			for($i=2;$i<count($nodes);$i+=6)
+			{
+	#			echo $i . ' ' . $nodes[$i] . ' ' . $nodes[$i+3] . "\n";
+				$userdata[$line['prefix']][$line['username']][$nodes[$i]] = number_format($nodes[$i+3], 0, '', '');
+			}
+			unlink($tempdir . '/subteampage.txt');
 		}
 		break;
 	case 'd2ol':break;
 	case 'ud':break;
 	}
-
-	unlink($tempdir . 'subteampage.txt');
 }
 
 $subteams = array();
@@ -78,7 +80,8 @@ foreach($userdata as $project => $subteam)
 #call the addSubteamStatsRun() function
 foreach($subteams as $project => $members)
 {
-	addSubteamStatsrun($members, $project . '_subteamoffset');
+	if ( count($members) > 0 )
+		addSubteamStatsrun($members, $project . '_subteamoffset');
 }
 
 ?>
