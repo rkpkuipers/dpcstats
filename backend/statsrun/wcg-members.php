@@ -10,7 +10,7 @@ dailyOffset('subteamoffset', 'wcg');
 dailyOffset('individualoffset', 'wcg');
 $tempdir = '/home/rkuipers/stats/statsrun/files/';
 
-$pages = 1;
+$pages = 2;
 
 #/*
 for($i=1;$i<=$pages;$i++)
