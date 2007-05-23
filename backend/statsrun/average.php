@@ -40,7 +40,29 @@ function calculateAverage($prefix, $tabel)
 		AND 	m3.dag >= \'' . date("Y-m-d", strtotime("-1 month", strtotime($datum))) . '\' 
 		GROUP BY 
 			m1.naam';
+	$db->insertQuery($query);
 
+	$query = 'INSERT INTO
+			averageproduction
+		SELECT 
+			DISTINCT(CONCAT(subteam, \'' . getSeperator($prefix) . '\', naam))AS cnaam, 
+			0, 
+			0, 
+			\'' . $tabel . '\'
+		FROM 
+			' . $tabel . '
+		WHERE 
+			dag = \'' . $datum . '\' 
+		AND 	CONCAT(subteam,\'' . getSeperator($prefix) . '\', naam) NOT IN 
+			(
+				SELECT 
+					naam 
+				FROM 
+					averageproduction 
+				WHERE 
+					tabel = \'' . $tabel . '\'
+			)';
+	
 	$db->insertQuery($query);
 }
 
