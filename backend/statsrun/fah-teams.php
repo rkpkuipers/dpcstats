@@ -19,9 +19,10 @@ for($i=10;$i<count($data);$i+=3)
 	$name = str_replace('"', '\"', $name);
 	$name = str_replace('/', '\/', $name);
 	$name = str_replace('\'', '\\\'', $name);
+
 	$score = $data[$i+1];
 
-	if ( $score > 0 )
+	if ( ( $score > 0 ) && ( $name != 'Google' ) )
 	{
 		$teams[] = new Member($name, $score);
 		$teamlist[$name] = $score;
@@ -29,4 +30,6 @@ for($i=10;$i<count($data);$i+=3)
 }
 
 updateStats($teamlist, 'fah_teamoffset');
+
+$db->disconnect();
 ?>
