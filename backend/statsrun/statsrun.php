@@ -178,6 +178,7 @@ class StatsRun
 		if ( $html = @implode('', file ('http://d2ol.childhooddiseases.org/stats/topMembersAll.jsp?t=Alltime')) )
 		{
 			dailyOffset('memberoffset', 'tsc');
+			dailyOffset('subteamoffset', 'tsc');
 			$teams = split("[\n|]", $html);
 
 			$tscmembers = array();
@@ -261,4 +262,6 @@ switch($run)
 	default:	echo 'Unknown option passed to statsrun.php';
 			break;
 }
+
+$db->disconnect();
 ?>
