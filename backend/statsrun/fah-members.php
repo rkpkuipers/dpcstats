@@ -54,4 +54,6 @@ addSubTeamStatsRun($subteammembers, 'fah_subteamoffset');
 
 individualStatsrun('fah');
 
+$db->disconnect();
+
 ?>

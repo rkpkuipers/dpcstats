@@ -118,4 +118,6 @@ foreach ( $subteamMembers as $subTeamName => $member )
 addSubTeamStatsRun($subteammembers, 'sah_subteamoffset');
 
 individualStatsrun('sah');
+
+$db->disconnect();
 ?>

@@ -61,4 +61,6 @@ for($i=1;$i<=20;$i++)
 	unlink($tempdir . '/wcgt-' . str_pad($i, 2, 0, STR_PAD_LEFT));
 }
 unlink($tempdir . '/wcg-teams');
+
+$db->disconnect();
 ?>

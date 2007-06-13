@@ -84,4 +84,5 @@ foreach($subteams as $project => $members)
 		addSubteamStatsrun($members, $project . '_subteamoffset');
 }
 
+$db->disconnect();
 ?>

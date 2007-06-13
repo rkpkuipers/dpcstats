@@ -78,4 +78,6 @@ for($i=1;$i<=$pages;$i++)
 unlink($tempdir . '/wcg-members');
 
 individualStatsrun('wcg');
+
+$db->disconnect();
 ?>
