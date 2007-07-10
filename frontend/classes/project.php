@@ -101,11 +101,9 @@ class Project
 			$this->srInterval = 60;
 		}
 
-		$data = exec('svn info file:///home/rkuipers/svnrepos/frontend/ | grep -e Revision -e "Last Changed Date" | tr "\n" " "');
-
-		$info = preg_split("/\:|\ /", $data);
-		$this->version = $info[2];
-		$this->lastPageUpdate = $info[7];
+		$data = file('/var/www/tstats/classes/version.txt');
+		$this->version = $data[0];
+		$this->lastPageUpdate = $data[1];
 	}
 
 	function getSeperator()
