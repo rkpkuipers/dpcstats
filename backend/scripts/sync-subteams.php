@@ -42,12 +42,16 @@ for($i=0;$i<count($project);$i++)
 		$ret_members = array_diff($subteam[$subteamname], $memberlist);
 
 		foreach($new_members as $newMemberName)
+		{
 			$db->insertQuery('INSERT INTO ' . $project[$i] . '_subteam (name, member) VALUES (\'' . $subteamname . '\', \'' . $newMemberName . '\')');
-#			echo $newMemberName . ' joined ' . $subteamname . "\n";
+			echo $newMemberName . ' joined ' . $subteamname . "\n";
+		}
 
 		foreach($ret_members as $retMemberName)
+		{
 			$db->deleteQuery('DELETE FROM ' . $project[$i] . '_subteam WHERE name = \'' . $subteamname . '\' AND member = \'' . $retMemberName . '\'');
-#			echo $retMemberName . ' left ' . $subteamname . "\n";
+			echo $retMemberName . ' left ' . $subteamname . "\n";
+		}
 	}
 }
 
