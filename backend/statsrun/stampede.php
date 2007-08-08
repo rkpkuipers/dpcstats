@@ -15,10 +15,10 @@ $query = 'SELECT
 		p.offset,
 		(o.cands+o.daily)AS total
 	FROM
-		stampede6participants p,
+		stampede6participants p
+	LEFT JOIN
 		fah_individualoffset o
-	WHERE
-		o.dag = \'' . date("Y-m-d") . '\'
+	ON	o.dag = \'' . date("Y-m-d") . '\'
 	AND	p.name = REPLACE(o.naam, \' - \', \'~\')
 	ORDER BY
 		stampedeTeam,
@@ -52,7 +52,6 @@ arsort($teamscore);
 foreach($teamscore as $tName => $tScore)
 	$teamList[] = new Member($tName, $tScore);
 
-#addStatsrun($teamList, 'sp6_memberoffset');
 updateStats($teamscore, 'sp6_memberoffset');
 addSubTeamStatsRun($memberList, 'sp6_subteamoffset');
 individualStatsrun('sp6');
