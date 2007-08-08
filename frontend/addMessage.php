@@ -71,15 +71,24 @@ if ( ( $poster != '' ) && ( $bericht != '' ) )
 	else
 		$banned = false;
 	
-	if ( substr($poster, 0, 4) == 'Alex' )
-		$banned = true;
-	
-	if ( substr($poster, 0, 3) == 'Bob' )
-		$banned = true;
-	
 	if ( substr_count($bericht, 'http://') > 2 )
 		$banned = true;
-		
+	
+	if ( substr_count($bericht, 'https://') > 2 )
+		$banned = true;
+	
+	if ( strlen($bericht) > 400 )
+		$banned = true;
+	
+	if ( in_array($poster, array('none', 'None', 'Unknown', '<a href=  ></a>   [url=][/url]   ', 'phentermine') ) )
+		$banned = true;
+
+	if ( preg_match('/\@mail.com$/', $email) )
+		$banned = true;
+
+	if ( ( ! isset($_SERVER['HTTP_REFERER']) ) || ( substr_count($_SERVER['HTTP_REFERER'], 'tadah.mine.nu') == 0 ) )
+		$banned = true;
+
 	$query = 'INSERT INTO 
 			shoutbox 
 		VALUES 
@@ -91,22 +100,28 @@ if ( ( $poster != '' ) && ( $bericht != '' ) )
 	
 	
 	if ( ! $banned )
+	{
+		# If the message is not banned, add it to the database and mail
 	 	$db->selectQuery($query);
+
+		$recipient = 'Remko Kuipers <rkpkuipers@planet.nl>';
+		$subject = 'Shoutbox post by ' . $poster;
+		$message = $poster . "\n" . 
+				($banned?'MESSAGE NOT POSTED':'') . "\n" . 
+				$email . "\n" . date("Y-m-d H:i:s") . "\n" . 
+				$_SERVER['REMOTE_ADDR'] . "\n\n" . 
+				parseCode(htmlspecialchars($bericht)) . "\n\n";
+		
+		mail($recipient, $subject, $message);
+	}
 	elseif ( ( $banned ) && ( ! isset($banlist[$_SERVER['REMOTE_ADDR']]) ) )
 	{
 		# If the message is banned, add the adres to the banned file
-		$myFile = "banned";
+		$myFile = "/var/www/tstats/banned";
 		$fh = fopen($myFile, 'a') or die("can't open file");
 		fwrite($fh, $_SERVER['REMOTE_ADDR'] . "\n");
 		fclose($fh);
 	}
-
-	$recipient = 'Remko Kuipers <rkpkuipers@planet.nl>';
-	$subject = 'Shoutbox post by ' . $poster;
-	$message = $poster . "\n" . ($banned?'MESSAGE NOT POSTED':'') . "\n" . $email . "\n" . date("Y-m-d H:i:s") . "\n" . $_SERVER['REMOTE_ADDR'] . 
-			"\n\n" . parseCode(htmlspecialchars($bericht));
-	
-	mail($recipient, $subject, $message);
  }
 
  // page ending rejumping 2 index.
