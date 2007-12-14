@@ -570,23 +570,20 @@ class MemberInfo
 	function gatherInformation()
 	{
 		$query = 'SELECT
-				COUNT(*)AS membercount
+				naam
 			FROM
 				' . $this->prefix . '_subteamoffset
 			WHERE
-				subteam = \'' . $this->db->real_escape_string($this->naam) . '\'';
+				subteam = \'' . $this->db->real_escape_string($this->naam) . '\'
+			LIMIT	1';
 
 		$result = $this->db->selectQuery($query);
 
+		$this->subteam = false;
 		if ( $line = $this->db->fetchArray($result) )
 		{
-			if ( $line['membercount'] == 0 )
-				$this->subteam = false;
-			else
-				$this->subteam = true;
+			$this->subteam = true;
 		}
-		else
-			$this->subteam = false;
 
 		if ( is_numeric(strpos($this->tabel, 'subteamoffset')) && ( strpos($this->tabel, 'subteamoffset') > 0 ) )
 			$where = ' AND subteam = \'' . $this->db->real_escape_string($this->team) . '\' ';
