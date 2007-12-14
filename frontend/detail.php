@@ -115,13 +115,6 @@ unset($pos);
 $output .= '</table>';
 $output .= '<hr>';
 $output .= '<div align="right"><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '&amp;naam=' . $naam . '" title="Complete flush history">More...</a></div>';
-$query = 'select avgdaily from averageproduction where naam=\'' . $naam . '\'';
-$result = $db->selectQuery($query);
-$avgDaily = 0;
-if ( $line = $db->fetchArray($result) )
-{
-        $avgDaily += $line['avgdaily'];
-}
 
 echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . rawurlencode($naam) . '&amp;team=' . rawurlencode($team) . '" alt="History">';
 echo '<hr>';
