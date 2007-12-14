@@ -1,6 +1,9 @@
 <?
 
-include ('../classes.php');
+include('../classes.php');
+$db->disconnect();
+$db = new miDataBase('stdpchuser', 'stdpchuser', $dbhost, $dbport, $dbname);
+$db->connect();
 
 if ( isset($_GET['project']) )
 	$prefix = $_GET['project'];
