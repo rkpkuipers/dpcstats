@@ -2,7 +2,7 @@
 
 include('../classes.php');
 $db->disconnect();
-$db = new miDataBase('stdpchuser', 'stdpchuser', $dbhost, $dbport, $dbname);
+$db = new miDataBase('stdpchuser', 'stdpchpass', $dbhost, $dbport, $dbname);
 $db->connect();
 
 if ( isset($_GET['project']) )
