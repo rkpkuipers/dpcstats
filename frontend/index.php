@@ -347,6 +347,18 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
 	if ( $sbActive == 'on' )
 	{
 		getShoutboxTable($db, $project, $tabel, $team);
+
+#		if ( $_SERVER['REMOTE_ADDR'] == '137.224.222.24' )
+		{
+#		if ( session_is_registered("username") )
+		{
+			getShoutBoxForm($project, $tabel, $team);
+		}
+#		else
+		{
+#			getLoginRegisterForm($project, $tabel, $team);
+		}
+		}
 	}
 ?>
        <table width="180px" cellspacing="0" cellpadding="0">
