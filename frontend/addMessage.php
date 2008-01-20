@@ -80,6 +80,9 @@ if ( ( $poster != '' ) && ( $bericht != '' ) )
 	if ( strlen($bericht) > 400 )
 		$banned = true;
 	
+	if ( substr($poster, 0, 16) == '<a href= http://' )
+		$banned = true;
+
 	if ( in_array($poster, array('none', 'None', 'Unknown', '<a href=  ></a>   [url=][/url]   ', 'phentermine') ) )
 		$banned = true;
 
