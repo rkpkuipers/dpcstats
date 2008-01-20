@@ -5,12 +5,7 @@ include('../classes/admin.php');
 
 if ( ( ! isset($_REQUEST['username']) ) || ( ! isset($_REQUEST['password']) ))
 {
-	header('Location: /index.php?message=notset');
-}
-
-if ( ( empty($_REQUEST['username']) ) || ( empty($_REQUEST['password']) ) )
-{
-	header('Location: /index.php?message=empty');
+	header('Location: /index.php?mode=register');
 }
 
 $username = $_REQUEST['username'];
@@ -26,7 +21,6 @@ if ( ! $adm->verifyUser() )
 session_start();
 
 $_SESSION['username'] = $username;
-$_SESSION['userid'] = $adm->getUserID();
 
-header('Location:/index.php?mode=admin');
+header('Location:/index.php');
 ?>
