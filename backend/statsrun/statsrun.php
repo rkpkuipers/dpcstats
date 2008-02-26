@@ -108,6 +108,8 @@ class StatsRun
 		global $datum;
 	
 		$datum = getCurrentDate('d2ol');
+
+		$unassignedscore = 0;
 	
 		if ( $html = @implode('', file ('http://app.d2ol.com/stats/topMembersAll.jsp?t=Alltime')) )
 		{
@@ -120,6 +122,9 @@ class StatsRun
 			{
 			        if ( ( $teams[$i+4] == 'Dutch Power Cows' ) && ( $teams[$i+1] > 0 ) )
 			                $d2olmembers[$teams[$i]] = $teams[$i+1];
+
+				if ( ( $teams[$i+4] == 'Unassigned' ) && ( $teams[$i+1] > 0 ) )
+					$unassignedscore += $teams[$i+1];
 			}
 				
 			updateStats($d2olmembers, 'd2ol_memberoffset');
@@ -146,18 +151,7 @@ class StatsRun
 			        	        $d2olteams[$teams[$i]] = $teams[$i+1];
 			}
 
-			$html = @implode('', file ('http://d2ol.childhooddiseases.org/stats/topMembersAll.jsp?t=Alltime')) or die("Error retrieving information");
-			$teams = explode('|', $html);
-
-			$score = 0;
-			for($i=10;$i<count($teams);$i+=5)
-			{
-				if ( ( strstr($teams[$i], 'Unassigned') ) && ( $teams[$i-3] > 0 ) )
-				{
-			                $score += $teams[$i-3];
-			        }
-			}
-			$d2olteams['Unassigned'] = $score;
+			$d2olteams['Unassigned'] = $unassignedscore;
 
 			arsort($d2olteams);
 
@@ -253,7 +247,7 @@ switch($run)
 	case 60:	$sr->boinc('smp', 'http://boinc.bio.wzw.tum.de/boincsimap/stats/', '~', 119, '');
 			$sr->boinc('eah', 'http://einstein.phys.uwm.edu/stats/', '~', 822, '_id');
 			$sr->boinc('cp', 'http://climateapps2.oucs.ox.ac.uk/stats/', '~', 28, '.xml');
-			$sr->boinc('ufl', 'http://www.ufluids.net/stats/', '~', 202 , '.xml');
+			$sr->boinc('ufl', 'http://www.ufluids.net/stats/', '~', 202 , '');
 			$sr->boinc('rah', 'http://boinc.bakerlab.org/rosetta/stats/', '~', 78, '');
 			$sr->boinc('ldc', 'http://boinc.gorlaeus.net/stats/', '~', 99, '.xml');
 			break;
