@@ -131,10 +131,6 @@ for (imgNum = 0; imgNum < onImageURL.length; imgNum++)
     preload[imgNum].src = onImageURL[imgNum];
 }
 
-function change( imageName, newSource )
-{
-    document[imageName].src = newSource;
-}
 // ]]>
 </script>
 
@@ -201,29 +197,7 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
      <tr>
       <td colspan="1"><img name="index_r4_c1" src="images/index_r4_c1.jpg" width="159" class="cellHeight5" alt=""></td>
       <td colspan="2">
-       <a href="?mode=Members&amp;prefix=<? echo $project->getPrefix() ?>&amp;tabel=memberoffset&amp;datum=<? echo $datum; ?>" onmouseover="change('index_r4_c2', 'images/DPCm-bleu.jpg')" 
-<? 
-	if ( $mode == 'Members' )
-	{ 
-		echo "onmouseout=\"change('index_r4_c2', 'images/DPCm-bleu.jpg')\"> "; 
-	}
-	else 
-	{ 
-		echo "onmouseout=\"change('index_r4_c2', 'images/index_r4_c2.jpg')\"> "; 
-	}
-?>
-       <img name="index_r4_c2" 
-<? 
-	if ( $mode == 'Members' )
-	{ 
-		echo ' src="images/DPCm-bleu.jpg"'; 
-	}
-	else 
-	{ 
-		echo 'src="images/index_r4_c2.jpg "'; 
-	} 
-?>  
-       width="108" class="cellHeight5" alt=""></a>
+       <a href="?mode=Members&amp;prefix=<? echo $project->getPrefix() ?>&amp;tabel=memberoffset&amp;datum=<? echo $datum; ?>"><img name="index_r4_c2" src="images/index_r4_c2.jpg" width="108" class="cellHeight5" alt=""></a>
       </td>
       <td align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/teams.jpg); width:100" class="cellHeight5" onclick='window.open("<? echo '?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . $datum; ?>", "_self")'>
        <div style="position:relative; top:9px">
