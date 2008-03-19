@@ -119,19 +119,6 @@ function LimitText(fieldObj,maxChars)
 	return result;
 }
 
-//<![CDATA[
-var onImageURL = new Array("images/DPCm-bleu.jpg");
-
-var preload = new Array( onImageURL.length );
-var imgNum;
-
-for (imgNum = 0; imgNum < onImageURL.length; imgNum++)
-{
-    preload[imgNum] = new Image( );
-    preload[imgNum].src = onImageURL[imgNum];
-}
-
-// ]]>
 </script>
 
 
