@@ -88,11 +88,6 @@ header('Content-Type: text/html; charset=ISO-8859-1');
   <title><? echo $project->getDescription(); ?> - Statistics</title>
 
 <script type="text/javascript">
-function submitCookieForm()
-{
-	alert("1");
-	document.cookies.submit();
-}
 
 function TrackCount(fieldObj,countFieldName,maxChars)
 {
@@ -120,7 +115,6 @@ function LimitText(fieldObj,maxChars)
 }
 
 </script>
-
 
 <script type="text/javascript"><!--//--><![CDATA[//><!--
 
