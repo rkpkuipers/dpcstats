@@ -6,13 +6,9 @@ $start_time = microtime();
 session_start();
 
 # Set/unset variables through cookies, used to save settings for hiding various parts on the site
-$cActive  = handleCookie('cActive',  $_GET['setCActive'],  $_GET['cActive'],  $_COOKIE['cActive']);
-$sbActive = handleCookie('sbActive', $_GET['setSbActive'], $_GET['sbActive'], $_COOKIE['sbActive']);
-$dtActive = handleCookie('dtActive', $_GET['setDtActive'], $_GET['dtActive'], $_COOKIE['dtActive']);
-
-$plActive = handleCookie('plActive', $_GET['setPlActive'], $_GET['plActive'], $_COOKIE['plActive']);
-$opActive = handleCookie('opActive', $_GET['setOpActive'], $_GET['opActive'], $_COOKIE['opActive']);
-$glActive = handleCookie('glActive', $_GET['setGlActive'], $_GET['glActive'], $_COOKIE['glActive']);
+$cActive  = handleCookie('cActive',  $_GET['setCActive'],  $_GET['cActive'],  $_COOKIE['cActive']);	# Calender
+$sbActive = handleCookie('sbActive', $_GET['setSbActive'], $_GET['sbActive'], $_COOKIE['sbActive']);	# Shoutbox
+$dtActive = handleCookie('dtActive', $_GET['setDtActive'], $_GET['dtActive'], $_COOKIE['dtActive']);	# Daily tops
 
 # The allowed array contains all variables used with their default values. 
 # These can be taken from the global array, if they're not set we use the default
