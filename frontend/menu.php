@@ -5,25 +5,14 @@
 			$query = 'SELECT project, description, active FROM project ORDER BY active DESC, project';
 			$result = $db->selectQuery($query);
 
-		      
-		      	$currAct = 1;
 			while ( $line = $db->fetchArray($result) )
        			{
-				if ( ( $currAct == 1 ) && ( $line['active'] == 0 ) )
-				{	
-					echo '<li><a href="#">Additional Projects&nbsp;&nbsp;&nbsp;&gt;</a><ul>';
-					$currAct = 0;
-				}
-
 				echo '<li><a href="index.php?prefix=' . $line['project'] . 
 					'&amp;datum=' . $datum . 
 					'&amp;mode=' . (in_array($line['project'], array('sp5', 'sp6'))?'Stampede':'Members') .
 					'" title="Stats for ' . $line['description'] . '">' . $line['description'] . '</a></li>'."\n";
 			}
-
 		?>
-				</ul>
-			</li>
 		</ul>
 	</li>
 
