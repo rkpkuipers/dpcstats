@@ -8,7 +8,6 @@ class Project
 	private $website;
 	private $forum;
 	private $lastUpdate;
-	private $lastPageUpdate;
 	private $version;
 	private $teamName;
 	private $dpchTitle;
@@ -101,9 +100,7 @@ class Project
 			$this->srInterval = 60;
 		}
 
-		$data = file('/var/www/tstats/classes/version.txt');
-		$this->version = $data[0];
-		$this->lastPageUpdate = $data[1];
+		$this->version = exec('svnversion /var/www/tstats/');
 	}
 
 	function getSeperator()
@@ -262,11 +259,6 @@ class Project
 	function getLastUpdate()
 	{
 		return $this->lastUpdate;
-	}
-
-	function getLastPageUpdate()
-	{
-		return $this->lastPageUpdate;
 	}
 
 	function getStatsrunInterval()
