@@ -98,7 +98,7 @@ else
 
 $ml->generateFlushList();
 $mbs = $ml->getMembers();
-echo "<table>";
+echo "<table style=\"white-space:nowrap;\">";
 
 for($i=0;$i<count($mbs);$i++)
 {
@@ -137,7 +137,7 @@ for($i=0;$i<count($mbs);$i++)
 
         echo '<td align="center" width="30">' . $image . $change . '</td>';
 	echo '<td align="right" width="65" class="score">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
-	echo '<td align="right" width="70"><font size="1px">(' . number_format($mbs[$i]->getFlush() / ( $ts->getDailyOutput() / 100 ), 2, ',', '.') . ' %)</font></td>';
+	echo '<td align="right" width="65"><font size="10px">(' . number_format($mbs[$i]->getFlush() / ( $ts->getDailyOutput() / 100 ), 2, ',', '.') . ' %)</font></td>';
 	
 	if ( $ml->getSubteamCount() > 0 )
 	{
@@ -154,7 +154,7 @@ for($i=0;$i<count($mbs);$i++)
 
 		echo '</td>';
 	}
-	echo '<td align="left" width="305">';
+	echo '<td align="left" width="230">';
 	echo getURL(array('link' => $mbs[$i]->getName(), 'name' => $mbs[$i]->getName(), 'mode' => 'detail', 'title' => 'Details for ' . $mbs[$i]->getName()));
 	echo '</td>';
 
@@ -293,7 +293,7 @@ for($i=0;$i<count($mbs);$i++)
         echo '<td align="right" width="30">' . ( $pos + $low ) . '.</td>';
 	echo '<td align="center" width="30">' . $image . $change . '</td>';
 	echo '<td align="right" width="75" class="score">' . number_format($mbs[$i]->getCredits(), 0, ',', '.') . '</td>';
-	echo '<td align="right" width="75">(' . number_format($mbs[$i]->getCredits() / ( $ts->getTotalOutput() / 100 ), 2, ',', '.') . ' %)</td>';
+	echo '<td align="right" width="75" style="font-size:10px">(' . number_format($mbs[$i]->getCredits() / ( $ts->getTotalOutput() / 100 ), 2, ',', '.') . ' %)</td>';
 	if ( $ml->getSubteamCount() > 0 )
 	{
 		echo '<td>';
