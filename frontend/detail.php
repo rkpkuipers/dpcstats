@@ -1,5 +1,8 @@
 <?php
 
+# Strip slashes from the name to enable db lookup of the member
+$naam = stripslashes($naam);
+
 if ( ! isset($naam) )
 {
 	echo '<h3>Geen member opgegeven, kies een member uit de lijst of ga terug naar de <a href="#" onclick="history.go(-1)">vorige pagina</a></h3>';

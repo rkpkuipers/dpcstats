@@ -12,7 +12,7 @@ else
 	$project = new Project($db, 'tsc', 'memberoffset');
 
 if ( isset($_GET['naam']) )
-	$naam = $_GET['naam'];
+	$naam = stripslashes($_GET['naam']);
 else
 	die("Er is geen naam opgegeven");
 
