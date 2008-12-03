@@ -137,7 +137,7 @@ for($i=0;$i<count($mbs);$i++)
 
         echo '<td align="center" width="30">' . $image . $change . '</td>';
 	echo '<td align="right" width="65" class="score">' . number_format($mbs[$i]->getFlush(), 0, ',', '.') . '</td>';
-	echo '<td align="right" width="65"><font size="10px">(' . number_format($mbs[$i]->getFlush() / ( $ts->getDailyOutput() / 100 ), 2, ',', '.') . ' %)</font></td>';
+	echo '<td align="right" width="65" style="font-size:10px;">(' . number_format($mbs[$i]->getFlush() / ( $ts->getDailyOutput() / 100 ), 2, ',', '.') . ' %)</td>';
 	
 	if ( $ml->getSubteamCount() > 0 )
 	{
