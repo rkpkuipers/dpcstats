@@ -26,6 +26,8 @@ for($i=0;$i<count($page);$i++)
 		$user = preg_replace("/<a[^>]*?>(.*)<\/a>/i", "$1", $data[0]);
 		$score = $data[1];
 
+		$user = str_replace('[DPC]_Team_Coldfusion', '[DPC]_Team_ColdFusion', $user);
+
 		if ( ( is_numeric($score) ) && ( $score > 0 ) )
 		{
 			addMember(	$members, 
