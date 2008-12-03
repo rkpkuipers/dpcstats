@@ -2,6 +2,8 @@
 
 include ('classes.php');
 
+die();
+
 function parseCode($text)
 {
 // Array of tags with opening and closing
