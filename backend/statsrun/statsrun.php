@@ -250,6 +250,10 @@ switch($run)
 			$sr->boinc('ufl', 'http://www.ufluids.net/stats/', '~', 202 , '');
 			$sr->boinc('rah', 'http://boinc.bakerlab.org/rosetta/stats/', '~', 78, '');
 			$sr->boinc('ldc', 'http://boinc.gorlaeus.net/stats/', '~', 99, '.xml');
+			$sr->boinc('szt', 'http://szdg.lpds.sztaki.hu/szdg/stats/', '~', 168, '.xml');
+			$sr->boinc('sph', 'http://spin.fh-bielefeld.de/stats/', '~', 79, '');
+			$sr->boinc('prg', 'http://www.primegrid.com/stats/', '~', 103, '');
+			#$sr->boinc('rss', 'http://boinc.rieselsieve.com/stats/', '~', 512,'_id');
 			break;
 	case 240:	# UD, WCG, S@H
 			break;
