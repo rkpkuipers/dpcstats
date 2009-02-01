@@ -134,31 +134,50 @@ function getShoutboxTable($db, $project, $tabel, $team)
 	echo '<td align="center" style="font-size:13px; font-weight:bold; color:#FFFFFF; cursor:pointer;" ';
 	echo 'onclick=\'window.open("' . $baseUrl . '/index.php?mode=shoutbox", "_self")\'>Shoutbox</td>';
 	echo '</tr></table>';
-
-	echo '<table width="180px" cellspacing="2">';
-
-	$shoutbox = new Shoutbox($db);
-	$shoutbox->getMessages(8);
-	$messages = $shoutbox->getMessageList();
 	
-	for($i=0;$i<count($messages);$i++)
+	echo '<table width="180px" cellspacing="2">';
+	
+	# Retrieve the shoutbox elements from the database
+	$query = 'SELECT 
+			naam,
+			bericht,
+			geplaatst,
+			email
+		FROM
+			shoutbox
+		ORDER BY
+			geplaatst DESC
+		LIMIT
+			8';
+
+	# Execute the query
+	$result = $db->selectQuery($query);
+	
+	# Row number
+	$row = 0;
+	
+	# Loop through the results
+	while ( $line = $db->fetchArray($result) )
 	{
 		echo trBackground(0);
 		echo '<td>';
-		echo date("d-m H:i", strtotime($messages[$i]->getTijd())) . ' - ';
 		
-		if ( $messages[$i]->getEmail() == '' )
-			echo $messages[$i]->getPoster();
+		# Show the date nicely formatted
+		echo date("d-m H:i", strtotime($line['geplaatst'])) . ' - ';
+		
+		# Show the poster name, link to an email adress if present
+		if ( empty($line['email']) )
+			echo $line['naam'];
 		else
-			echo '<a href="mailto:' . $messages[$i]->getEmail() . '" title="Mail ' . $messages[$i]->getPoster() . '">' . $messages[$i]->getPoster() . '</a>';
-
+			echo '<a href="mailto:' . $line['email'] . '" title="Mail ' . $line['naam'] . '">' . $line['naam'] . '</a>';
+		
 		echo '</td>';
 		echo '</tr>';
-
-		echo trBackground($i+1);
+		
+		echo trBackground($row++);
 		echo '<td width="180px">';
 		
-		$mess = explode(' ', $messages[$i]->getBericht());
+		$mess = explode(' ', $line['bericht']);
 		for($j=0;$j<count($mess);$j++)
 		{
 			if ( substr($mess[$j], 0, 4) == 'http' )
@@ -177,7 +196,7 @@ function getShoutboxTable($db, $project, $tabel, $team)
 			echo '</tr>';
 			echo '<tr><td><br></td></tr>';
 	}
-
+	
 	echo '</table>';
 }
 
