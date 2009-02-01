@@ -1,8 +1,10 @@
 <? 
 require('classes.php');
 
+# Record the start time to be able to show a Page loaded in x seconds line
 $start_time = microtime();
 
+# Start the session
 session_start();
 
 # Set/unset variables through cookies, used to save settings for hiding various parts on the site
@@ -21,7 +23,7 @@ $allowed = array(	'mode' => 'Members',		# Which page to load
 			'hl' => '',			# Which team to highlight, used for custom position lists
 			'dlow' => 0,			# offset for the flush list (start at $dlow instead of 1)
 			'low' => 0,			# offset for the overall list
-			'flushlist' => 0,			# whether to show the entire list
+			'flushlist' => 0,		# whether to show the entire list
 			'team' => 'Dutch Power Cows');	# Default team name
 
 # All table names we're changed to lower case, convert any old names to new ones for backward compatibility
@@ -67,16 +69,11 @@ else
 		$sort = 'avgDaily';
 }
 
+# Load the project data, if none is specified use TSC
 if ( isset($_REQUEST['prefix']) )
-{
-#	if ( in_array($_REQUEST['prefix'], array('fah') ))die('Die tabel is momenteel niet beschikbaar');
 	$project = new Project($db, $_REQUEST['prefix'], $tabel);
-}
 else
 	$project = new Project($db, 'tsc', 'memberoffset');
-
-if ( isset($_GET['debug']) )
-	$debug = $_GET['debug'];
 
 # Make sure the page expires when the next statsrun has completed
 header('Expires: ' . gmdate("D, d M Y H:i:s ", strtotime("+" . $project->getStatsrunInterval() . " minutes", strtotime($project->getLastUpdate()))) . 'GMT');

@@ -340,16 +340,13 @@ function getYesterday($prefix)
 
 function getDefaultFormFields()
 {
-	global $naam, $tabel, $project, $team, $datum, $debug;
+	global $naam, $tabel, $project, $team, $datum;
 
 	echo '<input type="hidden" name="naam" value="' . $naam . '">';
 	echo '<input type="hidden" name="tabel" value="' . $tabel . '">';
 	echo '<input type="hidden" name="prefix" value="' . $project->getPrefix() . '">';
 	echo '<input type="hidden" name="datum" value="' . $datum . '">';
 	echo '<input type="hidden" name="team" value="' . $team . '">';
-
-	if ( isset($debug) )
-		echo '<input type="hidden" name="debug" value="' . $debug . '">';
 }
 
 function getMenuHeader($link, $cookie)
@@ -572,9 +569,6 @@ function getURL($array)
 
 	$href = 'index.php?mode=' . $mode . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) .
 		'&amp;datum=' . $datum . '&amp;team=' . rawurlencode($team) . '&amp;prefix=' . $prefix;
-	
-	if ( $debug == 1 )
-		$href .= '&amp;debug=1';
 	
 	return '<a title="' . $title . '" href="' . $href . '">' . $link . '</a>';
 }

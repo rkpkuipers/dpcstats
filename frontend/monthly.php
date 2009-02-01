@@ -46,7 +46,6 @@ $ts->gather();
 	echo '<br>';
 	echo '<form name="maandselectie" action="index.php">';
 	echo '<input type="hidden" name="mode" value="monthlyStats">';
-	echo '<input type="hidden" name="debug" value="1">';
 	echo '<input type="hidden" name="tabel" value="' . $tabel . '">';
 	echo '<input type="hidden" name="prefix" value="' . $project->getPrefix() . '">';
 	echo '&nbsp;<select name="maand" class="Textfield">';
