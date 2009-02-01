@@ -16,8 +16,6 @@ require ('classes/inhaalStats.php');
 
 require ('classes/movement.php');
 
-require ('classes/shoutbox.php');
-
 require ('classes/project.php');
 
 require ('classes/flush.php');
