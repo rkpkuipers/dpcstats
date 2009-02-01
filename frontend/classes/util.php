@@ -154,7 +154,7 @@ function getShoutboxTable($db, $project, $tabel, $team)
 	$result = $db->selectQuery($query);
 	
 	# Row number
-	$row = 0;
+	$row = 1;
 	
 	# Loop through the results
 	while ( $line = $db->fetchArray($result) )
