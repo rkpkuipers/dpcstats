@@ -1,4 +1,7 @@
 <?
+
+session_start();
+
 # Include the classes used 
 require ('classes/config.php');
 

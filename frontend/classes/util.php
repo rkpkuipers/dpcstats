@@ -1,4 +1,18 @@
 <?
+function getLoginRegisterBox($db)
+{
+	echo '<hr>';
+	echo '<h3>Login</h3>';
+	echo '<table style="width:100%">';
+	echo '<form name="login" action="admin/login.php" method="post">';
+	echo '<tr><td>Username</td><td style="text-align:right"><input style="width:95px" type="text" name="username" value=""></td></tr>';
+	echo '<tr><td>Password</td><td style="text-align:right"><input style="width:95px" type="password" name="password" value=""></td></tr>';
+	echo '<tr><td colspan="2" style="text-align:center"><input type="submit" value="Login"></td></tr>';
+	echo '</form>';
+	echo '</table>';
+	echo 'Of <a href="/index.php?mode=register">Register</a>';
+}
+
 function getCalender($datum)
 {
 	echo '<center>';
@@ -223,26 +237,15 @@ function getShoutboxForm($project, $tabel, $team)
 		<input type="hidden" name="tabel" value="<? echo $tabel; ?>">
 		<input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
 		<input type="hidden" name="team" value="<? echo rawurlencode($team); ?>">
-	<table>
-	
-	<tr><td>Poster</td></tr>
-	<tr><td><input class="TextField" type="text" name="poster" style="width:155px"></td></tr>
-	<tr><td><br></td></tr>
-	<tr><td>E-Mail <small>(optional)</small></td></tr>
-	<tr><td><input class="TextField" type="text" name="email" style="width:155px"></td></tr>
-	<tr><td><br></td></tr>
-	<tr><td>
-	
+	<hr>
 	<table width="100%">
 	<tr>
 	<td>Message</td>
 	<td align="right"><input class="TextField" style="text-align:right;" type="text" name="textcount" size="3" value="350" readonly></td>
 	</tr>
-	</table>
 	
-	</td></tr>
-	<tr><td><textarea class="TextField" name="bericht" cols="18" rows="3" onkeyup="TrackCount(this,'textcount',350)" onkeypress="LimitText(this,350)"></textarea></td></tr>
-	<tr><td><br></td></tr>
+	<tr><td colspan="2"><textarea class="TextField" name="bericht" cols="18" rows="3" onkeyup="TrackCount(this,'textcount',350)" onkeypress="LimitText(this,350)"></textarea></td></tr>
+	<tr><td colspan="2"><br></td></tr>
 	<tr><td align="center"><input class="TextField" type="submit" value="Post"></td></tr>
 	</table>
 	</form>

@@ -2,7 +2,8 @@
 
 include ('classes.php');
 
-die();
+if ( ! isset($_SESSION['username']) )
+	die('ERROR: Je moet ingelogd zijn om te kunnen posten');
 
 function parseCode($text)
 {
@@ -43,13 +44,10 @@ if ( isset($HTTP_GET_VARS['bericht']) )
 else
 	$bericht = '';
 
-if ( isset($HTTP_GET_VARS['poster']) )
-	$poster = $HTTP_GET_VARS['poster'];
-else
-	$poster = '';
+$poster = $_SESSION['username'];
 
-if ( isset($HTTP_GET_VARS['email']) )
-	$email = $HTTP_GET_VARS['email'];
+if ( isset($_SESSION['email']) )
+	$email = $_SESSION['email'];
 else
 	$email = '';
 

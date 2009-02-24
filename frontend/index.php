@@ -257,7 +257,13 @@ function LimitText(fieldObj,maxChars)
      <tr>
       <td valign="top" colspan="2" style="background-image:url(images/gray-back.jpg); background-position:right top; background-repeat:repeat-y"> 
 <?
-
+	if ( isset($_SESSION['username']) )
+	{
+		echo '&nbsp;Logged in as: ' . $_SESSION['username'] . '<br>';
+		echo '&nbsp;<a href="admin/logout.php">Logout</a>';
+		echo '<div><hr></div>';
+	}
+	
 	if ( $cActive == 'on' )
 	{
 		getCalender($datum);
@@ -277,18 +283,12 @@ function LimitText(fieldObj,maxChars)
 	if ( $sbActive == 'on' )
 	{
 		getShoutboxTable($db, $project, $tabel, $team);
-
-#		if ( $_SERVER['REMOTE_ADDR'] == '137.224.222.24' )
-		{
-#		if ( session_is_registered("username") )
-		{
+		
+		# Show a login/register form if not logged in, otherwise show a post box
+		if ( ! isset($_SESSION['username']) )
+			getLoginRegisterBox($db);
+		else
 			getShoutBoxForm($project, $tabel, $team);
-		}
-#		else
-		{
-#			getLoginRegisterForm($project, $tabel, $team);
-		}
-		}
 	}
 ?>
        <table width="180px" cellspacing="0" cellpadding="0">
