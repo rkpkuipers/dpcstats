@@ -1,6 +1,6 @@
 <?php
 
-$webroot = '/var/www/tstats/';
+$webroot = '/home/rkuipers/public_html/';
 # Configuration
 include($webroot . '/classes/config.php');
 # Required for support of the member() class used by the soon to be deprecated addStatsRun functions

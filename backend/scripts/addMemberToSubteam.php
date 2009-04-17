@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?
 
-include ('/var/www/tstats/classes.php');
+include ('/home/rkuipers/public_html/classes.php');
 
 $team = $argv[1];
 $user = $argv[2];

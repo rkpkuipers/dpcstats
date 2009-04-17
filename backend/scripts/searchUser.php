@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?
 
-include ('/var/www/tstats/classes.php');
+include ('/home/rkuipers/public_html/classes.php');
 
 $tables = array('memberoffset', 'teamoffset');
 $addtables = array('subteamoffset', 'individualoffset');
