@@ -52,7 +52,10 @@ class StatsRun
 		$team = array();
 		foreach($xmldata->team as $xmlteam)
 		{
-			addTeam($team, strval($xmlteam->name), intval($xmlteam->total_credit));
+			if ( $prefix == 'wcg' )
+				addTeam($team, strval($xmlteam->name), intval($xmlteam->total_credit * 7)) ;
+			else
+				addTeam($team, strval($xmlteam->name), intval($xmlteam->total_credit));
 		}
 		unlink($this->tempdir . '/' . $prefix . '.team');
 
@@ -77,8 +80,12 @@ class StatsRun
 		foreach($xmldata->user as $xmluser)
 		{
 			if ( (int)$xmluser->teamid == $teamid )
-				addMember($member, $subteam, (string)$xmluser->name, (int)$xmluser->total_credit, $seperator);
-
+			{
+				if ( $prefix == 'wcg' )
+					addMember($member, $subteam, (string)$xmluser->name, (int)($xmluser->total_credit*7), $seperator);
+				else
+					addMember($member, $subteam, (string)$xmluser->name, (int)$xmluser->total_credit, $seperator);
+			}
 		}
 		
 		fixLists($member, $subteam, $seperator);
@@ -256,6 +263,7 @@ switch($run)
 			#$sr->boinc('rss', 'http://boinc.rieselsieve.com/stats/', '~', 512,'_id');
 			break;
 	case 240:	# UD, WCG, S@H
+			$sr->boinc('wcg', 'http://www.worldcommunitygrid.org/boinc/stats/', '.', 245, '');
 			break;
 	default:	echo 'Unknown option passed to statsrun.php';
 			break;
