@@ -100,7 +100,7 @@ class Project
 			$this->srInterval = 60;
 		}
 
-		$this->version = exec('svnversion /var/www/tstats/');
+		$this->version = exec('svnversion /var/www/tadah.mine.nu/');
 	}
 
 	function getSeperator()

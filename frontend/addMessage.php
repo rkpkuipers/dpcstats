@@ -120,7 +120,7 @@ if ( ( $poster != '' ) && ( $bericht != '' ) )
 	elseif ( ( $banned ) && ( ! isset($banlist[$_SERVER['REMOTE_ADDR']]) ) )
 	{
 		# If the message is banned, add the adres to the banned file
-		$myFile = "/var/www/tstats/banned";
+		$myFile = "/var/www/tadah.mine.nu/banned";
 		$fh = fopen($myFile, 'a') or die("can't open file");
 		fwrite($fh, $_SERVER['REMOTE_ADDR'] . "\n");
 		fclose($fh);
