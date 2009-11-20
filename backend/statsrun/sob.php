@@ -51,6 +51,11 @@ $teams = array();
 for($line=2;$line<count($lines);$line++)
 {
 	$info = explode(' ', $lines[$line]);
+	
+	# Skip incomplete lines
+	if ( count($info) < 9 )
+		continue;
+
 	$type = $info[0];
 	$name = $info[2];
 	$score = number_format(round($info[8]/1000000), 0, '', '');
