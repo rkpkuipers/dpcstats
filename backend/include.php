@@ -1,6 +1,6 @@
 <?php
 
-$webroot = '/home/rkuipers/public_html/';
+$webroot = '/var/www/tadah.mine.nu/';
 # Configuration
 include($webroot . '/classes/config.php');
 # Required for support of the member() class used by the soon to be deprecated addStatsRun functions
@@ -432,7 +432,7 @@ function updateStats($members, $table)
 					' . ( count($currMembers) + 1 ) . ',
 					\'' . $datum . '\',
 					0,
-					' . ( count($surrMembers) + 1 ) . '
+					' . ( count($currMembers) + 1 ) . '
 				)';
 		$db->insertQuery($insertQuery);
 		unset($insertQuery);
@@ -778,11 +778,8 @@ function getSeperator($project)
 	
 	$result = $db->selectQuery($query);
 
-	if ( $line = $db->fetchArray($result) )
-		$seperator =  $line['seperator'];
-	
-	if ( $seperator != '' )
-		return $seperator;
+	if ( ( $line = $db->fetchArray($result) ) && ( ! empty($line['seperator']) ) )
+		return $line['seperator'];
 	else
 		return ' - ';
 }
