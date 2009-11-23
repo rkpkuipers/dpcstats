@@ -680,7 +680,7 @@ function addMember(&$members, &$subteams, $rawname, $score, $seperator)
 				# If the subteam array for the current team doesn't exist but there is a member with the same name as the subteam
 				# add this member to the subteam with the subteamname as the membername
 				if ( ! isset($subteams[$team]) )
-					$subteams[$team][$team] = $members[$team];
+					$subteams[$team][$team] = $members[$membername];
 
 				# Add the score to the total teamscore
 				$members[$membername] += $score;
