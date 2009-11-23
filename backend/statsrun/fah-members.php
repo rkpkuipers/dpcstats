@@ -20,6 +20,10 @@ $customsubteam = array(	'New-Folder0twisted' => 'New_Folder',
 for($i=0;$i<count($page);$i++)
 {
 	$data = explode("\t", $page[$i]);
+	
+	# Skip entries without a team number
+	if ( ! isset($data[3]) )
+		continue;
 
 	if ($data[3] == 92 )
 	{
