@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ALL);
+
 $webroot = '/var/www/tadah.mine.nu/';
 # Configuration
 include($webroot . '/classes/config.php');
@@ -454,7 +456,10 @@ function updateStats($members, $table)
 
 	foreach($retMembers as $origId => $retMemberName)
 	{
-		$retMemberScore = $members[$retMemberName];
+		if ( isset($members[$retMemberName]) )
+			$retMemberScore = $members[$retMemberName];
+		else
+			$retMemberScore = 0;
 
 		$deleteQuery = 'DELETE FROM
 					' . $table . '
