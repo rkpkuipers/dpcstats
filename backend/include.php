@@ -339,7 +339,7 @@ function setDailyOffset($prefix, $tabel, $datum)
 	if ( $tabel == 'subteamoffset' )
 		$selectFields = ' subteam, ';
 	else
-		$selectFields;
+		$selectFields = '';
 	
 	$query = 'INSERT INTO 
 			' . $prefix . '_' . $tabel . '
