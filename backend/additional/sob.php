@@ -41,6 +41,11 @@ $teams = array();
 for($line=2;$line<count($lines);$line++)
 {
 	$info = explode(' ', $lines[$line]);
+
+	# Verify the line contained anything
+	if ( count($info) < 2 )
+		continue;
+
 	$type = $info[0];
 	$name = $info[2];
 	$name = str_replace('\\', '\\\\', $name);
