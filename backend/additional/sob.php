@@ -32,7 +32,10 @@ function getSubteam($name)
 
 $datum = getCurrentDate('sob');
 
-$html = implode('', file ('http://www.seventeenorbust.com/stats/textStats.mhtml')) or die("Error retrieving information");
+# Retrieve the raw html
+$raw = file ('http://www.seventeenorbust.com/stats/textStats.mhtml') or die("");
+
+$html = implode('', $raw);
 $lines = explode("\n", $html);
 
 $members = array();
