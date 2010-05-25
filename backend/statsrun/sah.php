@@ -14,30 +14,34 @@ $tempdir = '/home/rkuipers/stats/statsrun/files/';
 
 $url = 'http://setiathome.berkeley.edu/stats/team.gz';
 system('wget -q '. $url . ' -O ' . $tempdir . '/sah.team.gz');
-$action = 'gunzip ' . $tempdir . '/sah.team.gz';
-system($action);
-$action = 'cat ' . $tempdir . '/sah.team | grep -v -e create_time -e description -e country -e expavg_credit -e expavg_time -e type -e nusers -e founder_name -e url -e name_html -e userid -e \<id\> > ' . $tempdir . '/sah.team.2';
-system($action);
-unlink($tempdir . '/sah.team');
 
-$xmldata = simplexml_load_file('/home/rkuipers/stats/statsrun/files/sah.team.2');
-$team = array();
-foreach($xmldata->team as $xmlteam)
+if ( filesize($tempdir . '/sah.team.gz') > 0 )
 {
-#	echo  $xmlteam->name . ' ' . $xmlteam->total_credit . "\n";
-	$name = '' . $xmlteam->name;
-	$score = 0 + $xmlteam->total_credit;
+	$action = 'gunzip ' . $tempdir . '/sah.team.gz';
+	system($action);
+	$action = 'cat ' . $tempdir . '/sah.team | grep -v -e create_time -e description -e country -e expavg_credit -e expavg_time -e type -e nusers -e founder_name -e url -e name_html -e userid -e \<id\> > ' . $tempdir . '/sah.team.2';
+	system($action);
+	unlink($tempdir . '/sah.team');
 
-	$team[$name] = $score;
+	$xmldata = simplexml_load_file('/home/rkuipers/stats/statsrun/files/sah.team.2');
+	$team = array();
+	foreach($xmldata->team as $xmlteam)
+	{
+	#	echo  $xmlteam->name . ' ' . $xmlteam->total_credit . "\n";
+		$name = '' . $xmlteam->name;
+		$score = 0 + $xmlteam->total_credit;
+	
+		$team[$name] = $score;
+	}
+	#unlink('/home/rkuipers/stats/statsrun/files/sah.team');
+	arsort($team, SORT_NUMERIC);
+	
+	foreach($team as $name => $score)
+		$teamlist[] = new Member($name, $score);
+	
+	updateStats($team, 'sah_teamoffset');
+	unlink($tempdir . '/sah.team.2');
 }
-#unlink('/home/rkuipers/stats/statsrun/files/sah.team');
-arsort($team, SORT_NUMERIC);
-
-foreach($team as $name => $score)
-	$teamlist[] = new Member($name, $score);
-
-updateStats($team, 'sah_teamoffset');
-unlink($tempdir . '/sah.team.2');
 
 $url = 'http://setiathome.berkeley.edu/stats/user.gz';
 
