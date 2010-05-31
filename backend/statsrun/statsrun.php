@@ -33,40 +33,38 @@ class StatsRun
 		# Team stats
 
 		# Obtain the datafile from the project, unzip the file and load it into a simplexml object
-		system('wget -q '. $statslocation . '/team' . $statsfilesuffix . '.gz -O ' . $this->tempdir . '/' . $prefix . '.team.gz');
+		system('wget --timeout=500 -q '. $statslocation . '/team' . $statsfilesuffix . '.gz -O ' . $this->tempdir . '/' . $prefix . '.team.gz');
 
 		# Check if the file was obtained correctly
-		if ( filesize($this->tempdir . '/' . $prefix . '.team.gz') == 0 )
+		if ( filesize($this->tempdir . '/' . $prefix . '.team.gz') > 0 )
 		{
-			# Stop gathering stats if the file is empty
-			# Contains possible problem when team stats are down but user stats are not
-			echo 'Downloading team data returned empty file';
-	#		return 0;
+			system('gunzip ' . $this->tempdir . '/' . $prefix . '.team.gz');
+
+			$xmldata = simplexml_load_file($this->tempdir . '/' . $prefix . '.team');
+
+			# Build an array with the teamname as key and the score as value
+			$team = array();
+			foreach($xmldata->team as $xmlteam)
+			{
+				if ( $prefix == 'wcg' )
+					addTeam($team, strval($xmlteam->name), intval($xmlteam->total_credit * 7)) ;
+				else
+					addTeam($team, strval($xmlteam->name), intval($xmlteam->total_credit));
+			}
+			unlink($this->tempdir . '/' . $prefix . '.team');
+
+			arsort($team, SORT_NUMERIC);
+
+			updateStats($team, $prefix . '_teamoffset');
 		}
-
-		system('gunzip ' . $this->tempdir . '/' . $prefix . '.team.gz');
-
-		$xmldata = simplexml_load_file($this->tempdir . '/' . $prefix . '.team');
-
-		# Build an array with the teamname as key and the score as value
-		$team = array();
-		foreach($xmldata->team as $xmlteam)
-		{
-			if ( $prefix == 'wcg' )
-				addTeam($team, strval($xmlteam->name), intval($xmlteam->total_credit * 7)) ;
-			else
-				addTeam($team, strval($xmlteam->name), intval($xmlteam->total_credit));
-		}
-		unlink($this->tempdir . '/' . $prefix . '.team');
-
-		arsort($team, SORT_NUMERIC);
-
-		updateStats($team, $prefix . '_teamoffset');
 
 		# Member and subteam stats
 
 		# Obtain the datafile from the project, unzip the file and load it into a simplexml object
-		system('wget -q ' . $statslocation . '/user' . $statsfilesuffix . '.gz -O ' . $this->tempdir . '/' . $prefix . '.user.gz');
+		system('wget --timeout=500 -q ' . $statslocation . '/user' . $statsfilesuffix . '.gz -O ' . $this->tempdir . '/' . $prefix . '.user.gz');
+
+		if ( filesize($this->tempdir . '/' . $prefix . '.user.gz') == 0 )
+			return;
 
 		system('gunzip ' . $this->tempdir . '/' . $prefix . '.user.gz');
 
@@ -123,10 +121,10 @@ switch($run)
 			$sr->boinc('ufl', 'http://www.ufluids.net/stats/', '~', 202 , '');
 			$sr->boinc('rah', 'http://boinc.bakerlab.org/rosetta/stats/', '~', 78, '');
 			$sr->boinc('ldc', 'http://boinc.gorlaeus.net/stats/', '~', 99, '.xml');
-			$sr->boinc('szt', 'http://szdg.lpds.sztaki.hu/szdg/stats/', '~', 168, '.xml');
+			$sr->boinc('szt', 'http://szdg.lpds.sztaki.hu/szdg/stats/', '~', 168, '');
 			$sr->boinc('sph', 'http://spin.fh-bielefeld.de/stats/', '~', 79, '');
 			$sr->boinc('prg', 'http://www.primegrid.com/stats/', '~', 103, '');
-			#$sr->boinc('rss', 'http://boinc.rieselsieve.com/stats/', '~', 512,'_id');
+			$sr->boinc('mc', 'http://www.malariacontrol.net/stats/', '~', 192, '');
 			break;
 	case 240:	# UD, WCG, S@H
 			$sr->boinc('wcg', 'http://www.worldcommunitygrid.org/boinc/stats/', '.', 245, '');
