@@ -33,7 +33,7 @@ function getSubteam($name)
 $datum = getCurrentDate('sob');
 
 # Retrieve the raw html
-$raw = file ('http://www.seventeenorbust.com/stats/textStats.mhtml') or die("");
+$raw = @file ('http://www.seventeenorbust.com/stats/textStats.mhtml') or die("");
 
 $html = implode('', $raw);
 $lines = explode("\n", $html);
