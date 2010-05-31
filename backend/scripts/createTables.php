@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?
 
-include('/home/rkuipers/public_html/classes.php');
+include(dirname($argv[0]) . '/../classes.php');
 
 $prefix = $argv[1];
 
