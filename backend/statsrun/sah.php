@@ -47,81 +47,84 @@ $url = 'http://setiathome.berkeley.edu/stats/user.gz';
 
 system('wget -q -O ' . $tempdir . '/sah.user.gz ' . $url);
 
-$action = 'gunzip ' . $tempdir . '/sah.user.gz';
-system($action);
-
-$action = 'cat ' . $tempdir . '/sah.user | grep -v -e country -e \<id\> -e expavg_time -e expavg_credit -e cpid -e create_time > ' . $tempdir . '/sah.user.2';
-system($action);
-
-unlink($tempdir . '/sah.user');
-
-unset($xmldata);
-$xmldata = simplexml_load_file('/home/rkuipers/stats/statsrun/files/sah.user.2');
-
-unlink('/home/rkuipers/stats/statsrun/files/sah.user.2');
-
-$member = array();
-$subteamlist = array();
-$subteamMembers = array();
-foreach($xmldata->user as $xmluser)
+if ( filesize($tempdir . '/sah.user.gz') > 0 )
 {
-	$user = '' . $xmluser->name;
-	$score = 0 + $xmluser->total_credit;
-	$team = 0 + $xmluser->teamid;
+	$action = 'gunzip ' . $tempdir . '/sah.user.gz';
+	system($action);
 
-	if ( $team == 30206 )
+	$action = 'cat ' . $tempdir . '/sah.user | grep -v -e country -e \<id\> -e expavg_time -e expavg_credit -e cpid -e create_time > ' . $tempdir . '/sah.user.2';
+	system($action);
+
+	unlink($tempdir . '/sah.user');
+
+	unset($xmldata);
+	$xmldata = simplexml_load_file('/home/rkuipers/stats/statsrun/files/sah.user.2');
+
+	unlink('/home/rkuipers/stats/statsrun/files/sah.user.2');
+
+	$member = array();
+	$subteamlist = array();
+	$subteamMembers = array();
+	foreach($xmldata->user as $xmluser)
 	{
-		$tildepos = strpos($user, '~');
-		if ( $tildepos > 0 )
-		{
-			$teamName = substr($user, 0, $tildepos);
-			$user = substr($user, ( $tildepos + 1 ));
-			if ( ! isset($subteamlist[$teamName]) )
-				$subteamlist[$teamName] = $score;
-			else
-				$subteamlist[$teamName] += $score;
+		$user = '' . $xmluser->name;
+		$score = 0 + $xmluser->total_credit;
+		$team = 0 + $xmluser->teamid;
 
-			if ( ! isset($subteamMembers[$teamName]) )
-				$subteamMembers[$teamName] = array();
-
-			$subteamMembers[$teamName][$user] = $score;
-		}
-		else
+		if ( $team == 30206 )
 		{
-			if ( isset($member[$user]) )
-				$member[$user] += $score;
+			$tildepos = strpos($user, '~');
+			if ( $tildepos > 0 )
+			{
+				$teamName = substr($user, 0, $tildepos);
+				$user = substr($user, ( $tildepos + 1 ));
+				if ( ! isset($subteamlist[$teamName]) )
+					$subteamlist[$teamName] = $score;
+				else
+					$subteamlist[$teamName] += $score;
+
+				if ( ! isset($subteamMembers[$teamName]) )
+					$subteamMembers[$teamName] = array();
+
+				$subteamMembers[$teamName][$user] = $score;
+			}
 			else
-				$member[$user] = $score;
+			{
+				if ( isset($member[$user]) )
+					$member[$user] += $score;
+				else
+					$member[$user] = $score;
+			}
 		}
 	}
-}
 
-unset($xmldata);
-foreach ( $subteamlist as $name => $score )
-{
-        $member[$name] = $score;
-	#echo $name . "\n";
-}
-
-arsort($member, SORT_NUMERIC);
-
-foreach($member as $name => $score)
-	$memberlist[] = new Member($name, $score);
-
-updateStats($member, 'sah_memberoffset');
-
-foreach ( $subteamMembers as $subTeamName => $member )
-{
-        arsort($member, SORT_NUMERIC);
-        foreach ( $member as $memberName => $memberScore )
-        {
-                $subteammembers[] = new TeamMember($memberName, $memberScore, $subTeamName);
+	unset($xmldata);
+	foreach ( $subteamlist as $name => $score )
+	{
+        	$member[$name] = $score;
+		#echo $name . "\n";
 	}
+
+	arsort($member, SORT_NUMERIC);
+
+	foreach($member as $name => $score)
+		$memberlist[] = new Member($name, $score);
+
+	updateStats($member, 'sah_memberoffset');
+
+	foreach ( $subteamMembers as $subTeamName => $member )
+	{
+	        arsort($member, SORT_NUMERIC);
+        	foreach ( $member as $memberName => $memberScore )
+	        {
+        	        $subteammembers[] = new TeamMember($memberName, $memberScore, $subTeamName);
+		}
+	}
+
+	addSubTeamStatsRun($subteammembers, 'sah_subteamoffset');
+
+	individualStatsrun('sah');
 }
-
-addSubTeamStatsRun($subteammembers, 'sah_subteamoffset');
-
-individualStatsrun('sah');
 
 $db->disconnect();
 ?>
