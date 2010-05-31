@@ -109,6 +109,9 @@ function addSubteamStatsrun($array, $tabel)
 	}
 	$userarray = getSubteamListFromArray($array);
 
+	if ( empty($currentuser) )
+		return;
+
 	foreach($currentuser as $team => $members)
 	{
 		foreach($members as $membername => $score)
