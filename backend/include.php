@@ -680,9 +680,25 @@ function addMember(&$members, &$subteams, $rawname, $score, $seperator)
 		{
 			if ( strtolower($membername) == strtolower($team) )
 			{
-				# If the subteam array for the current team doesn't exist but there is a member with the same name as the subteam
-				# add this member to the subteam with the subteamname as the membername
-				if ( ! isset($subteams[$team]) )
+				# Variable to indicate wheter the subteam allready exists
+				$present = false;
+
+				# Loop through the available subteams
+				foreach($subteams as $teamname => $members2)
+				{
+					# Check if the name matches, lowercase both for a complete comparison
+					if ( strtolower($teamname) == strtolower($team) )
+					{
+						# Signal the team as present
+						$present = true;
+
+						# Skip from the loop
+						break;
+					}
+				}
+				
+				# When the subteam was not allready found in the team add it
+				if ( ! $present )
 					$subteams[$team][$team] = $members[$membername];
 
 				# Add the score to the total teamscore
