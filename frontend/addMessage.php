@@ -39,8 +39,8 @@ function parseCode($text)
 return $text;
 }
 
-if ( isset($HTTP_GET_VARS['bericht']) )
-	$bericht = $HTTP_GET_VARS['bericht'];
+if ( isset($_REQUEST['bericht']) )
+	$bericht = $_REQUEST['bericht'];
 else
 	$bericht = '';
 
@@ -60,7 +60,7 @@ if ( isset($_GET['prefix']) )
 if ( isset($_REQUEST['team']) )
 	$team = $_REQUEST['team'];
 
-if ( ( $poster != '' ) && ( $bericht != '' ) )
+if ( ( ! empty($poster) ) && ( ! empty($bericht) ) )
 {
 	$file = file('banned');
 	foreach($file as $rand => $value)
