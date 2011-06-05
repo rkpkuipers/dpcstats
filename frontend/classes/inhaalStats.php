@@ -1,4 +1,4 @@
-<?
+<?php
 class TOSuperClass
 {
         protected $tabel;

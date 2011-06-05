@@ -1,5 +1,6 @@
-<?
+<?php
 
+error_reporting(E_ERROR);
 session_start();
 
 # Include the classes used 

@@ -1,4 +1,4 @@
-<?
+<?php
 class SubTeamMember
 {
 	private $naam;

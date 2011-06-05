@@ -1,4 +1,4 @@
-<?
+<?php
 
 class STTableStatistics extends TableStatistics
 {
