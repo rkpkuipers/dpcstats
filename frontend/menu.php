@@ -19,7 +19,6 @@
 	<li><a href="#">General Links</a>
 		<ul>
 		<?php
-			echo getNavBarEntry('Bug Tracker', $baseUrl . '/mantis/view_all_bug_page.php');
 			echo getNavBarEntry('GOT - /5', 'http://gathering.tweakers.net/forum/list_topics/5');
 			echo getNavBarEntry('Source Code (Beta)', $baseUrl . '/?mode=stats');
 			echo getNavBarEntry('Website Dutch Power Cows','http://www.dutchpowercows.org');
