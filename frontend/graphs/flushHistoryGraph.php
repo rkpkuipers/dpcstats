@@ -1,4 +1,4 @@
-<?        
+<?php
 	require('../classes.php');
 
 if ( isset($_GET['tabel']) )
