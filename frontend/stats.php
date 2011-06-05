@@ -76,16 +76,6 @@ metadata:</P>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=20%>
-				<FONT SIZE=2>changelog</FONT>
-			</TD>
-			<TD WIDTH=80%>
-				<FONT SIZE=2>Veranderingen die in het systeem zijn
-				aangebracht. Gebruik moet nog geherevalueerd worden na het succes
-				van de bugtracker.</FONT>
-			</TD>
-		</TR>
-		<TR VALIGN=TOP>
-			<TD WIDTH=20%>
 				<FONT SIZE=2>links</FONT>
 			</TD>
 			<TD WIDTH=80%>

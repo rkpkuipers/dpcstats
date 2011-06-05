@@ -186,7 +186,6 @@ header('Content-Type: text/html; charset=ISO-8859-1');
 						'Subteam' => array('Subteam Stats', 'members.php'),
 						'Graph' => array('Output Graph', 'graphs/progress.php'),
 						'Flush' => array('Flush History', 'flush.php'),
-						'changelog' => array('Changelog', 'changelog.php'),
 						'search' => array('Search', 'search.php'),
 						'history' => array('Flush History', 'flushHistory.php'),
 						'detail' => array('Contestant Details', 'detail.php'),

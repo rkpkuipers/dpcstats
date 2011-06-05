@@ -24,8 +24,6 @@ require ('classes/project.php');
 
 require ('classes/flush.php');
 
-require ('classes/changelog.php');
-
 require ('classes/subteam.php');
 
 require ('classes/AverageProduction.php');
