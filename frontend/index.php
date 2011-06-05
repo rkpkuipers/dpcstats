@@ -195,7 +195,6 @@ header('Content-Type: text/html; charset=ISO-8859-1');
 						'avgProd' => array('Average Production Rate', 'average.php'),
 						'monthlyStats' => array('Monthly Stats', 'monthly.php'),
 						'memberGraphs' => array('Member Graphs', 'memberGraphs.php'),
-						'state' => array('Statement', 'statement.html'),
 						'faq' => array('Frequently Asked Questions', 'faq.php'),
 						'login' => array('Login', 'admin/login.php'),
 						'register' => array('Register', 'admin/register.php'),
