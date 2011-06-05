@@ -160,8 +160,7 @@ cronjobs.</P>
 <P STYLE="margin-bottom: 0in; font-weight: medium">Om de code beter beschikbaar en hanteerbaar te maken zit alles in een <a href="http://www.subversion.org">subversion</a> repository. Anonymous checkouts zijn mogelijk vanaf de url http://rkuipers.mine.nu/svn/frontend en http://rkuipers.mine.nu/svn/backend. Code commiten kan alleen met password maar patches op het geheel (via bv. svn diff) zijn altijd welkom.
 <P STYLE="margin-bottom: 0in"><B>Links</B></P>
 <br>
-<a href="http://rkuipers.mine.nu/backup/schema.sql.bz2">Database dump zonder data</a><br>
-<a href="http://rkuipers.mine.nu/backup/complete.sql.bz2">Database dump met data</a><br>
-<a href="http://rkuipers.mine.nu/viewcvs/Frontend/root.tar.gz?view=tar">Frontend</a><br>
-<a href="http://rkuipers.mine.nu/viewcvs/Backend/root.tar.gz?view=tar">Backend</a><br>
+<a href="http://tadah.mine.nu/export/database.sql">Database dump zonder data</a><br>
+<a href="http://tadah.mine.nu/export/frontend.tar.bz2">Frontend</a><br>
+<a href="http://tadah.mine.nu/export/backend.tar.bz2">Backend</a><br>
 <a href="crontab">Cronjobs</a>
