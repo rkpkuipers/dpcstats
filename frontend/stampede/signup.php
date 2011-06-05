@@ -75,7 +75,7 @@ if ( ( $nick != '' ) && ( $team != '' ) )
 
 <html>
 <head>
-<link rel="stylesheet" href="/page.css" type="text/css">
+<link rel="stylesheet" href="/resources/page.css" type="text/css">
 </head>
 <body style="background-color:#CBCBCB">
 <center><h2>Stampede VI - Inschrijfformulier</h2></center>
