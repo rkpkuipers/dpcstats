@@ -15,7 +15,6 @@ $dtActive = handleCookie('dtActive', $_GET['setDtActive'], $_GET['dtActive'], $_
 # The allowed array contains all variables used with their default values. 
 # These can be taken from the global array, if they're not set we use the default
 $allowed = array(	'mode' => 'Members',		# Which page to load
-			'searchString' => '',		# Inputstring used in search
 			'tabel' => 'memberoffset',	# Tabel to take data from
 			'datum' => date("Y-m-d"),	# Date to collect data from
 			'naam' => '',			# Name used when collecting detailed member info

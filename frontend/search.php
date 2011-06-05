@@ -1,3 +1,13 @@
+<?php
+
+# Fetch the search string
+if ( ( isset($_REQUEST['searchString']) ) && ( preg_match('/^[a-zA-Z0-9\[\]_\-\.]+$/', $_REQUEST['searchString']) ) )
+	$searchString = $_REQUEST['searchString'];
+else
+	$searchString = '';
+
+?>
+
 <center>
 <br>
 <?php
