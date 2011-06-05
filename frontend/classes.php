@@ -30,8 +30,6 @@ require ('classes/subteam.php');
 
 require ('classes/AverageProduction.php');
 
-require ('classes/faq.php');
-
 require ('classes/oppertunities.php');
 
 # Initialize the database
