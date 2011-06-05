@@ -1,4 +1,4 @@
-<?
+<?php
 function getLoginRegisterBox($db)
 {
 	echo '<hr>';
@@ -227,16 +227,16 @@ function getLoginRegisterForm($project, $tabel, $team)
 	<input type="submit" value="Login" class="TextField"></center>
 	</form>
 	&nbsp;<a href="index.php?mode=register">Register</a><br><br>
-<?
+<?php
 }
 
 function getShoutboxForm($project, $tabel, $team)
 {
 ?>
 	<form method="get" action="addMessage.php" name="shoutbox">
-		<input type="hidden" name="tabel" value="<? echo $tabel; ?>">
-		<input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
-		<input type="hidden" name="team" value="<? echo rawurlencode($team); ?>">
+		<input type="hidden" name="tabel" value="<?php echo $tabel; ?>">
+		<input type="hidden" name="prefix" value="<?php echo $project->getPrefix(); ?>">
+		<input type="hidden" name="team" value="<?php echo rawurlencode($team); ?>">
 	<hr>
 	<table width="100%">
 	<tr>
@@ -258,27 +258,27 @@ function getShoutboxForm($project, $tabel, $team)
 	<br>
 	&nbsp;<b>Smilies:</b><br>
 	&nbsp;&nbsp;
-<?
+<?php
 	$smDir = $baseUrl . '/images/smilies/';
 ?>
-	<img class="smiley" src="<? echo $smDir; ?>smile.gif" onClick="document.shoutbox.bericht.value+=':) '" alt=":)">&nbsp;
-	<img class="smiley" src="<? echo $smDir; ?>biggrin.gif" onClick="document.shoutbox.bericht.value+=':D '" alt=":D">&nbsp;
-	<img class="smiley" src="<? echo $smDir; ?>clown.gif" onClick="document.shoutbox.bericht.value+=':+ '" alt=":+">&nbsp;
-	<img class="smiley" src="<? echo $smDir; ?>cry.gif" onClick="document.shoutbox.bericht.value+=':\'( '" alt=":'(">&nbsp;
-	<img class="smiley" src="<? echo $smDir; ?>devil.gif" onClick="document.shoutbox.bericht.value+='>:) '" alt=">:)">&nbsp;
-	<img class="smiley" src="<? echo $smDir; ?>frown.gif" onClick="document.shoutbox.bericht.value+=':( '" alt=":(">&nbsp;
-	<img class="smiley" src="<? echo $smDir; ?>frusty.gif" onClick="document.shoutbox.bericht.value+='|:( '" alt="|:("><br>
+	<img class="smiley" src="<?php echo $smDir; ?>smile.gif" onClick="document.shoutbox.bericht.value+=':) '" alt=":)">&nbsp;
+	<img class="smiley" src="<?php echo $smDir; ?>biggrin.gif" onClick="document.shoutbox.bericht.value+=':D '" alt=":D">&nbsp;
+	<img class="smiley" src="<?php echo $smDir; ?>clown.gif" onClick="document.shoutbox.bericht.value+=':+ '" alt=":+">&nbsp;
+	<img class="smiley" src="<?php echo $smDir; ?>cry.gif" onClick="document.shoutbox.bericht.value+=':\'( '" alt=":'(">&nbsp;
+	<img class="smiley" src="<?php echo $smDir; ?>devil.gif" onClick="document.shoutbox.bericht.value+='>:) '" alt=">:)">&nbsp;
+	<img class="smiley" src="<?php echo $smDir; ?>frown.gif" onClick="document.shoutbox.bericht.value+=':( '" alt=":(">&nbsp;
+	<img class="smiley" src="<?php echo $smDir; ?>frusty.gif" onClick="document.shoutbox.bericht.value+='|:( '" alt="|:("><br>
 	&nbsp;&nbsp;
-	<img class="smiley" src="<? echo $smDir; ?>kwijl.gif" onClick="document.shoutbox.bericht.value+=':9~ '" alt=":9~">&nbsp;
-	<img class="smiley" src="<? echo $smDir; ?>puh2.gif" onClick="document.shoutbox.bericht.value+=':P '" alt=":P">&nbsp;
-	<img class="smiley" src="<? echo $smDir; ?>pukey.gif" onClick="document.shoutbox.bericht.value+=':r '" alt=":r">&nbsp;
-	<img class="smiley" src="<? echo $smDir; ?>redface.gif" onClick="document.shoutbox.bericht.value+=':o '" alt=":0">&nbsp;
-	<img class="smiley" src="<? echo $smDir; ?>wink.gif" onClick="document.shoutbox.bericht.value+=';) '" alt=";)">&nbsp;
-	<img class="smiley" src="<? echo $smDir; ?>bye.gif" onClick="document.shoutbox.bericht.value+=':w '" alt=":w"><br>
+	<img class="smiley" src="<?php echo $smDir; ?>kwijl.gif" onClick="document.shoutbox.bericht.value+=':9~ '" alt=":9~">&nbsp;
+	<img class="smiley" src="<?php echo $smDir; ?>puh2.gif" onClick="document.shoutbox.bericht.value+=':P '" alt=":P">&nbsp;
+	<img class="smiley" src="<?php echo $smDir; ?>pukey.gif" onClick="document.shoutbox.bericht.value+=':r '" alt=":r">&nbsp;
+	<img class="smiley" src="<?php echo $smDir; ?>redface.gif" onClick="document.shoutbox.bericht.value+=':o '" alt=":0">&nbsp;
+	<img class="smiley" src="<?php echo $smDir; ?>wink.gif" onClick="document.shoutbox.bericht.value+=';) '" alt=";)">&nbsp;
+	<img class="smiley" src="<?php echo $smDir; ?>bye.gif" onClick="document.shoutbox.bericht.value+=':w '" alt=":w"><br>
 
 	&nbsp;&nbsp;<small><a href="http://www.tweakers.net">&copy; Tweakers.net</a></small>
 	<br><br>
-<?
+<?php
 }
 
 function getMemberList($prefix, $tabel, $datum = 0,$order = 'naam')

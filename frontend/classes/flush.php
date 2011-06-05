@@ -1,4 +1,4 @@
-<?
+<?php
 
 class FlushMember extends Member
 {

@@ -1,4 +1,4 @@
-<?
+<?php
 
 echo '<div style="margin-left:auto; margin-right:auto; text-align:center;"><h2>Shoutbox</h2></div>';
 

@@ -1,4 +1,4 @@
-<?
+<?php
 if ( $tabel == 'subteamoffset' )
 	$ts = new STTableStatistics($project->getPrefix() . '_' . $tabel, $datum, $db, $team);
 else
@@ -19,7 +19,7 @@ echo openColorTable();
 <table width="100%">
 <tr>
 <td align="left">Flushers Today</td>
-<?
+<?php
 echo '<td align="right">' . number_format($ts->getDailyFlushers(), 0, ',', '.') . '/' . number_format($ts->getTotalMembers(), 0, ',', '.') . ' (' . number_format($ts->getDailyFlushers() / ( $ts->getTotalMembers() / 100 ), 0, ',', '.') . ' %)</td>';
 
 echo '</tr>';
@@ -81,11 +81,11 @@ if ( $ts->getDailyFlushers() > $listsize )
 <td align="right">
 <form name="Daily" action="graphs/dailyBars.php" method="post">
 <p>
-<input type="hidden" name="tabel" value="<? echo $tabel ?>">
-<input type="hidden" name="prefix" value="<? echo $project->getPrefix() ?>">
-<input type="hidden" name="team" value="<? echo $team; ?>">
+<input type="hidden" name="tabel" value="<?php echo $tabel ?>">
+<input type="hidden" name="prefix" value="<?php echo $project->getPrefix() ?>">
+<input type="hidden" name="team" value="<?php echo $team; ?>">
 </p>
-<?
+<?php
 #echo '<td align="right">
 echo '<INPUT TYPE="image" SRC="images/graph.jpg" value="Graph"></td>';
 echo '</tr></table>';
@@ -180,13 +180,13 @@ closeTable(2);
 }
 ?>
 <br>
-<?
+<?php
 echo openColorTable(); 
 ?>
 <b><a name="Ranking">Ranking</a></b>
 <hr>
 <table width="100%">
-<?
+<?php
 echo '<tr><td>Total Output</td><td align="right">' . number_format($ts->getTotalOutput(), 0, ',', '.') . ' ' . $project->getWuName() . '</td></tr>';
 ?>
 </table>
@@ -239,10 +239,10 @@ if ( $ts->getTotalMembers() > $listsize )
 
 ?>
 <form name="progress" method="post" action="index.php">
-<input type="hidden" name="tabel" value="<? echo $tabel?>">
-<input type="hidden" name="prefix" value="<? echo $project->getPrefix() ?>">
+<input type="hidden" name="tabel" value="<?php echo $tabel?>">
+<input type="hidden" name="prefix" value="<?php echo $project->getPrefix() ?>">
 <input type="hidden" name="mode" value="Graph">
-<input type="hidden" name="team" value="<? echo $team; ?>">
+<input type="hidden" name="team" value="<?php echo $team; ?>">
 </td>
 <td align="right"><INPUT TYPE="image" SRC="images/graph.jpg" value="Graph"></td>
 </tr>
@@ -327,7 +327,7 @@ for($i=0;$i<count($mbs);$i++)
 <table width="100%">
  <tr>
   <td align="center">
-<?
+<?php
 $mp = new MijlPalen($project->getPrefix() . '_' . $tabel, $datum, $project->getPrefix(), $db, $team);
 $mpl = $mp->getMijlpalen();
 if ( count($mpl) > 0 )

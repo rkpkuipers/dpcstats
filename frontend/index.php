@@ -1,4 +1,4 @@
-<? 
+<?php 
 require('classes.php');
 
 # Record the start time to be able to show a Page loaded in x seconds line
@@ -82,7 +82,7 @@ header('Content-Type: text/html; charset=ISO-8859-1');
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
  <head>
-  <title><? echo $project->getDescription(); ?> - Statistics</title>
+  <title><?php echo $project->getDescription(); ?> - Statistics</title>
 
 <script type="text/javascript">
 
@@ -157,39 +157,39 @@ function LimitText(fieldObj,maxChars)
      <tr>
       <td colspan="1"><img name="index_r4_c1" src="images/index_r4_c1.jpg" width="159" class="cellHeight5" alt=""></td>
       <td colspan="2">
-       <a href="?mode=Members&amp;prefix=<? echo $project->getPrefix() ?>&amp;tabel=memberoffset&amp;datum=<? echo $datum; ?>"><img name="index_r4_c2" src="images/index_r4_c2.jpg" width="108" class="cellHeight5" alt=""></a>
+       <a href="?mode=Members&amp;prefix=<?php echo $project->getPrefix() ?>&amp;tabel=memberoffset&amp;datum=<?php echo $datum; ?>"><img name="index_r4_c2" src="images/index_r4_c2.jpg" width="108" class="cellHeight5" alt=""></a>
       </td>
-      <td align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/teams.jpg); width:100" class="cellHeight5" onclick='window.open("<? echo '?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . $datum; ?>", "_self")'>
+      <td align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/teams.jpg); width:100" class="cellHeight5" onclick='window.open("<?php echo '?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . $datum; ?>", "_self")'>
        <div style="position:relative; top:9px">
-        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="<? echo '?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . $datum; ?>">Teams</a>
+        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="<?php echo '?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . $datum; ?>">Teams</a>
        </div>
       </td>
-<?
+<?php
 	if ( in_array($project->getPrefix(), array('fah', 'sah', 'smp', 'sob', 'ufl', 'rah', 'wcg', 'ldc', 'sp6')) )
 	{
 		$indUrl = $baseUrl . '/index.php?mode=Individuals&amp;tabel=individualoffset&amp;datum=' . 
 			$datum . '&amp;prefix=' . $project->getPrefix();
 ?>
-      <td align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/spacer.3.jpg); width:100" class="cellHeight5" onclick='window.open("<? echo $indUrl; ?>", "_self")'>
+      <td align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/spacer.3.jpg); width:100" class="cellHeight5" onclick='window.open("<?php echo $indUrl; ?>", "_self")'>
        <div style="position:relative; top:9px">
-        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="<? echo $indUrl; ?>">Individuals</a>
+        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="<?php echo $indUrl; ?>">Individuals</a>
        </div>
       </td>
-<?
+<?php
 	}
 	else
 		echo '<td style="background-image:url(images/spacer.3.jpg); width:100" class="cellHeight5"></td>';
 ?>
       <td colspan="2"><img name="spacer.4.jpg" src="images/spacer.4.jpg" width="103" class="cellHeight5" alt=""></td>
 
-      <td align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/output-graph.jpg); width:100" class="cellHeight5" onclick='window.open("<? echo '?mode=Graph&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>", "_self")'>
+      <td align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/output-graph.jpg); width:100" class="cellHeight5" onclick='window.open("<?php echo '?mode=Graph&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>", "_self")'>
        <div style="position:relative; top:6px">
-        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="<? echo '?mode=Graph&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>">Output<br>Graphs</a>
+        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="<?php echo '?mode=Graph&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>">Output<br>Graphs</a>
        </div>
       </td>
-      <td colspan="3" align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/spacer6.jpg);" class="cellHeight5" onclick='window.open("<? echo '?mode=Flush&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>", "_self")'>
+      <td colspan="3" align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/spacer6.jpg);" class="cellHeight5" onclick='window.open("<?php echo '?mode=Flush&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>", "_self")'>
        <div style="position:relative; top:9px;">
-        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="?mode=Flush&amp;prefix=<? echo $project->getPrefix();?>">Flush History</a>
+        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="?mode=Flush&amp;prefix=<?php echo $project->getPrefix();?>">Flush History</a>
        </div>
       </td>
       <td><img name="index_r4_c12" src="images/index_r4_c12.jpg" width="10" class="cellHeight5" alt=""></td>
@@ -197,7 +197,7 @@ function LimitText(fieldObj,maxChars)
      </tr>
      <tr>
       <td align="center" colspan="12" style="background-image:url(images/index_r1_c1.jpg);" class="pageCell cellHeight1">
-<?
+<?php
 	include("menu.php");
 ?>
 
@@ -246,7 +246,7 @@ function LimitText(fieldObj,maxChars)
       <td colspan="9" style="background-image:url(images/index_r5_c3.jpg); background-position:right top; background-repeat:repeat-y" align="left" >
        <table width="100%" border="0">
         <tr style="color:#FFFFFF; font-size:14px;">
-	 <td align="left"><? echo $pagename . ' of ' . date("F d, Y", strtotime($datum)); ?></td>
+	 <td align="left"><?php echo $pagename . ' of ' . date("F d, Y", strtotime($datum)); ?></td>
          <td align="right">Last update: <?php echo date("l j F Y, H:i", strtotime($project->getLastUpdate())); ?></td>
 	</tr>
        </table>
@@ -256,7 +256,7 @@ function LimitText(fieldObj,maxChars)
      </tr>
      <tr>
       <td valign="top" colspan="2" style="background-image:url(images/gray-back.jpg); background-position:right top; background-repeat:repeat-y"> 
-<?
+<?php
 	if ( isset($_SESSION['username']) )
 	{
 		echo '&nbsp;Logged in as: ' . $_SESSION['username'] . '<br>';
@@ -327,7 +327,7 @@ function LimitText(fieldObj,maxChars)
        </table>
       </td>
       <td valign="top" rowspan="1" colspan="8" style="background-image:url(images/gray-back2.jpg);">
-<?
+<?php
 	# Include the file containing the requested content
 	include($pagefile);
 ?>
@@ -340,7 +340,7 @@ function LimitText(fieldObj,maxChars)
        <a href="mailto:speedkikker@planet.nl" title="Mail SpeedKikker">Contact</a> 
        | <a href="http://tadah.mine.nu/traffic/awstats.tadah.mine.nu.html" title="View site traffic">Site Traffic</a>
        | &copy;opyright 2004-2008 TaDaH
-       | <a href="http://rkuipers.mine.nu/viewcvs/" title="View revision history">Revision <? echo $project->getVersion();?></a> 
+       | <a href="http://rkuipers.mine.nu/viewcvs/" title="View revision history">Revision <?php echo $project->getVersion();?></a> 
        | <?php echo 'Page loaded in ' . sprintf("%0.3f", microtime_diff($start_time, microtime())) . ' seconds'; ?>
       </td>
       <td><img src="images/spacer.gif" width="1" height="34" alt=""></td>
@@ -352,6 +352,6 @@ function LimitText(fieldObj,maxChars)
  </table>
 </body>
 </html>
-<?
+<?php
 $db->disconnect();
 ?>

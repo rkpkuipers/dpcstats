@@ -22,9 +22,9 @@ if ( ! $mi->exists() )
 
 ?>
 <br>
-<center><h2><? echo str_replace('\\', '', $mi->getNaam()) ?></h2></center>
+<center><h2><?php echo str_replace('\\', '', $mi->getNaam()) ?></h2></center>
 <hr>
-<?
+<?php
         if ( $mi->isSubteam() )
         {
                 echo '<br>';
@@ -43,7 +43,7 @@ if ( ! $mi->exists() )
 
 ?>
 <center>
-<?
+<?php
 echo openColorTable();
 ?>	
 <table border="0">

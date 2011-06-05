@@ -1,4 +1,4 @@
-<?
+<?php
 
 if ( isset($_REQUEST['teams']) )
 	$teams = $_REQUEST['teams'];
@@ -17,7 +17,7 @@ else
 <center>
 <h2>Overall Progress</h2>
 <hr>
-<?
+<?php
 $variables = array(	'tabel' => $tabel,
 			'prefix' => $project->getPrefix(),
 			'timespan' => $timespan,
@@ -27,7 +27,7 @@ echo '<img src="/graphs/progressGraph.php?' . http_build_query($variables) . '">
 ?>
 <br><br>
 <table>
-<?
+<?php
 for($i=0;$i<count($teams);$i++)
 {
 	echo '<tr>';

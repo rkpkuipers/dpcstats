@@ -1,7 +1,7 @@
 <ul id="nav">
 	<li><a href="#">Projects</a>
 		<ul>
-		<?
+		<?php
 			$query = 'SELECT project, description, active FROM project ORDER BY active DESC, project';
 			$result = $db->selectQuery($query);
 
@@ -18,7 +18,7 @@
 
 	<li><a href="#">General Links</a>
 		<ul>
-		<?
+		<?php
 			echo getNavBarEntry('Bug Tracker', $baseUrl . '/mantis/view_all_bug_page.php');
 			echo getNavBarEntry('GOT - /5', 'http://gathering.tweakers.net/forum/list_topics/5');
 			echo getNavBarEntry('Source Code (Beta)', $baseUrl . '/?mode=stats');
@@ -30,7 +30,7 @@
 
 	<li><a href="#">Project Links</a>
 		<ul>
-		<?
+		<?php
 			echo getNavBarEntry('DPC FAQ', 'http://www.dutchpowercows.org/faqs/' . $project->getWDOPrefix());
 			echo getNavBarEntry('DPCH', 'http://www.dutchpowercows.org/dpch/' . $project->getWDOPrefix());
 			echo getNavBarEntry('Member Graphs', $baseUrl . '/index.php?mode=memberGraphs&amp;prefix=' . $project->getPrefix(), $link++);
@@ -45,7 +45,7 @@
 
 	<li><a href="#">Visual Options</a>
 		<ul>
-			<?
+			<?php
 	
 			echo getNavBarEntry('Toggle Calendar ', 'index.php?prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel .'&amp;datum=' . $datum. '&amp;mode=' . $mode  . '&amp;naam=' . rawurlencode($naam) . '&amp;cActive=' . ($cActive=='on'?'off':'on') . '&amp;setCActive=&amp;team=' . rawurlencode($team) );
 

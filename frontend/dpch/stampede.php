@@ -1,4 +1,4 @@
-<?
+<?php
 
 $prefix = 'sp6';
 include ('../classes.php');

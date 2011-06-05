@@ -1,4 +1,4 @@
-<?
+<?php
 
 $project = new Project($db, 'sp6', 'memberoffset');
 
@@ -73,13 +73,13 @@ if ( $ts->getDailyFlushers() > $listsize )
 
 ?>
 <td align="right">
-<?/*
+<?php/*
 <form name="Daily" action="graphs/dailyBars.php" method="post">
 <p>
-<input type="hidden" name="tabel" value="<? echo $tabel ?>">
-<input type="hidden" name="prefix" value="<? echo $project->getPrefix() ?>">
+<input type="hidden" name="tabel" value="<?php echo $tabel ?>">
+<input type="hidden" name="prefix" value="<?php echo $project->getPrefix() ?>">
 </p>
-<?
+<?php
 echo '<INPUT TYPE="image" SRC="images/graph.jpg" value="Graph"></td>'; */
 echo '</tr></table>';
 #echo '<hr>';
@@ -185,13 +185,13 @@ closeTable(2);
 }
 ?>
 <br>
-<?
+<?php
 echo openColorTable(); 
 ?>
 <b><a name="Ranking">Ranking</a></b>
 <hr>
 <table width="100%">
-<?
+<?php
 echo '<tr><td>Total Output</td><td align="right">' . number_format($ts->getTotalOutput(), 0, ',', '.') . ' ' . $project->getWuName() . '</td></tr>';
 ?>
 </table>
@@ -349,7 +349,7 @@ echo '</form>';
 <table width="100%">
  <tr>
   <td align="center">
-<?
+<?php
 $mp = new MijlPalen($project->getPrefix() . '_' . $tabel, $datum, $project->getPrefix(), $db, $team);
 $mpl = $mp->getMijlpalen();
 if ( count($mpl) > 0 )

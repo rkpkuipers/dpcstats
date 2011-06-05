@@ -1,5 +1,5 @@
 <center><h3>Frequently Asked Questions</h3></center>
-<?
+<?php
 
 $faq = new FAQ($db);
 $entry = $faq->getEntries();
