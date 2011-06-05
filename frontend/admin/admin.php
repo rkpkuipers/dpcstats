@@ -1,4 +1,4 @@
-<?
+<?php
 
 function storeCrossLink($userid, $project, $prjusername)
 {
@@ -93,7 +93,7 @@ if ( isset($_POST['action']) )
   </td>
  </tr>
 </table>
-<?
+<?php
 switch ($action)
 {
 	case 'cpl':	crossProjectLinks();
