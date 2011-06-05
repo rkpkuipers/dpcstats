@@ -1,4 +1,4 @@
-<?
+<?php
 
 $_REQUEST['prefix'] = 'rah';
 
@@ -83,16 +83,16 @@ if ( ( $nick != '' ) && ( $team != '' ) )
 Tot 31 maart is het mogelijk om een willekeurig stampedeteam te joinen, daarna is het enkel nog mogelijk om het Computer Idee team te joinen. Om de competitie zo leuk mogelijk te houden wordt iedereen aangemoedigd om zich bij een van de lager geklasseerde teams aan te sluiten. Het veranderen van team of jezelf uitschrijven is in principe niet mogelijk, mocht er toch een dringende reden zijn waarom je van team wilt veranderen kan je hierover contact opnemen met Elteor via FDO of IRC. Lid worden van een stampede team kan door je nick in te voeren in het tekstveld, het team wat je wilt joinen uit het Stampede team lijstje te kiezen en op Join te klikken. Let op: je nickname is hoofdlettergevoelig, user23 is dus niet hetzelfde als UsEr23.
 <hr>
 <center>
-<?
+<?php
 if ( $errorAddingMember )
 {
 ?>
-<span style="color:#FF0000">De user <? echo $nick; ?> is geen actief lid van het Folding@Home DPC team.</span><br>
+<span style="color:#FF0000">De user <?php echo $nick; ?> is geen actief lid van het Folding@Home DPC team.</span><br>
 Criteria voor actief lid zijn is onderdeel uitmaken van het DPC team (team 92) en minimaal 1 punt gescoord hebben.<br>
-Om <b><? echo $nick; ?></b> toch toe te voegen aan team <b><? echo $team; ?></b> klik <a href="/stampede/signup.php?nick=<? echo $nick; ?>&amp;team=<? echo $team; ?>&amp;forced=1">hier</a>
+Om <b><?php echo $nick; ?></b> toch toe te voegen aan team <b><?php echo $team; ?></b> klik <a href="/stampede/signup.php?nick=<?php echo $nick; ?>&amp;team=<?php echo $team; ?>&amp;forced=1">hier</a>
 <br>
 <hr>
-<?
+<?php
 }
 ?>
 <form name="addMember" action="signup.php" method="post">
@@ -100,7 +100,7 @@ Om <b><? echo $nick; ?></b> toch toe te voegen aan team <b><? echo $team; ?></b>
 <tr><td align="center">Nickname</td><td align="center">Stampede Team</td></tr>
 <tr>
 <td>
-<?
+<?php
 /*
 <select name="nick">
 $query = '(
@@ -140,7 +140,7 @@ echo '<input type="text" class="TextField" name="nick" value="' . ($errorAddingM
 </td>
 <td>
 <select name="team" class="TextField">
-<?
+<?php
 $subteams = array('Computer Idee');
 foreach($subteams as $name)
 	echo '<option ' . (($errorAddingMember)&&($team==$name)?'selected':'') . '>' . $name . '</option>';
@@ -161,7 +161,7 @@ foreach($subteams as $name)
 <table>
 <tr><td><h3>Huidige Indeling</h3></td></tr>
 <tr><td></td></tr>
-<?
+<?php
 $query = 'SELECT
 		count(name)AS teamCount,
 		stampedeTeam

@@ -1,4 +1,4 @@
-<?
+<?php
 if ( isset($HTTP_GET_VARS['maand']) )
 	$maand = $HTTP_GET_VARS['maand'];
 else
@@ -13,7 +13,7 @@ else
   <input type="hidden" name="mode" value="monthlyStats">
   <input type="hidden" name="tabel" value="memberoffset">
   <input type="Submit" value="DPC Members" class="TextField">
-  <input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
+  <input type="hidden" name="prefix" value="<?php echo $project->getPrefix(); ?>">
   </form>
  </td>
  <td width="25%" align="center">
@@ -21,7 +21,7 @@ else
    <input type="hidden" name="mode" value="monthlyStats">
    <input type="hidden" name="tabel" value="teamoffset">
    <input type="Submit" value="Teams" class="TextField">
-   <input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
+   <input type="hidden" name="prefix" value="<?php echo $project->getPrefix(); ?>">
    </form>
  </td>
 </tr>
@@ -29,7 +29,7 @@ else
 <hr>
 </center>
 <br>
-<?
+<?php
 #echo $datum;
 
 error_reporting(E_ALL);
@@ -82,7 +82,7 @@ $ts->gather();
 ?>
 <center>
 <br>
-<?
+<?php
 echo openColorTable(); 
 ?>
 <b>Month</b>
@@ -90,7 +90,7 @@ echo openColorTable();
 <table width="100%">
 <tr>
 <td align="left">Flushers Today</td>
-<?
+<?php
 if ( $ts->getDailyFlushers() != 0 )
         echo '<td align="right">' . $ts->getDailyFlushers() . '/' . $ts->getTotalMembers() . ' (' . number_format($ts->getDailyFlushers() / ( $ts->getTotalMembers() / 100 ), 0, ',', '.') . ' %)</td>';
 else
@@ -135,9 +135,9 @@ if ( $ts->getDailyFlushers() > $listsize )
 ?>
 </td>
 <form name="Daily" action="graphs/dailyBars.php" method="post">
-<input type="hidden" name="tabel" value="<? echo $tabel ?>">
-<input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
-<?
+<input type="hidden" name="tabel" value="<?php echo $tabel ?>">
+<input type="hidden" name="prefix" value="<?php echo $project->getPrefix(); ?>">
+<?php
 
 echo '<td align=right><INPUT TYPE="image" SRC="images/graph.jpg" value="Graph"></td>';
 echo '<input type="hidden" name="timespan" value="' . date("d") . '">';
@@ -196,13 +196,13 @@ closeTable(2);
 ?>
 </form>
 <br>
-<?
+<?php
 echo openColorTable(); 
 ?>
 <b><a name="Ranking">Ranking</a></b>
 <hr>
 <table width="100%">
-<?
+<?php
 $ts = new TableStatistics($project->getPrefix() . '_' . $tabel, $maand, $db);
 $ts->gather();
 echo '<tr><td align="left">Total Output</td><td align="right">' . number_format($ts->getTotalOutput(), 0, ',', '.') . ' ' . $project->getWuName() . '</td></tr>';
@@ -212,7 +212,7 @@ echo '<tr><td align="left">Total Output</td><td align="right">' . number_format(
 <table width="100%">
 <tr>
 <td align="left">
-<?
+<?php
 if ( $ts->getTotalMembers() > $listsize )
 {
         echo '<table><tr>';
@@ -254,10 +254,10 @@ if ( $ts->getTotalMembers() > $listsize )
 ?>
 </td>
 <form name="progress" method="post" action="graphs/progress.php">
-<input type="hidden" name="tabel" value="<? echo $tabel?>">
-<input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
+<input type="hidden" name="tabel" value="<?php echo $tabel?>">
+<input type="hidden" name="prefix" value="<?php echo $project->getPrefix(); ?>">
 <td align="right"><INPUT TYPE="image" SRC="images/graph.jpg" value="Graph"></td>
-<input type="hidden" name="timespan" value="<? echo date("d"); ?>">
+<input type="hidden" name="timespan" value="<?php echo date("d"); ?>">
 </tr>
 </table>
 <hr>

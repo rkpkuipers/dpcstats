@@ -6,7 +6,7 @@
   <form action="index.php">
   <input type="hidden" name="mode" value="Flush">
   <input type="hidden" name="tabel" value="memberoffset">
-  <input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
+  <input type="hidden" name="prefix" value="<?php echo $project->getPrefix(); ?>">
   <input type="Submit" value="DPC Members" class="TextField">
   </form>
  </td>
@@ -15,7 +15,7 @@
    <input type="hidden" name="mode" value="Flush">
    <input type="hidden" name="tabel" value="teamoffset">
    <input type="Submit" value="Teams" class="TextField">
-   <input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
+   <input type="hidden" name="prefix" value="<?php echo $project->getPrefix(); ?>">
    </form>
  </td>
 </tr>
@@ -26,7 +26,7 @@
 <table width="100%">
 <tr>
 <td align=center valign=top>
-<?
+<?php
 if ( is_numeric(strpos($tabel, 'daily') ) )
 	$strippedTabel = substr($tabel, 0, strpos($tabel, 'daily'));
 else
@@ -42,7 +42,7 @@ echo openColorTable();
 Member Flushes
 <hr>
 <table>
-<?
+<?php
 
 for($i=0;$i<count($fl);$i++)
 {
@@ -66,7 +66,7 @@ closeTable(2);
 </td>
 </tr><tr><td>&nbsp;</td></tr><tr>
 <td align=center valign=top>
-<?
+<?php
 
 $fmc->createFlushList();
 
@@ -77,7 +77,7 @@ echo openColorTable();
 Overall Flushes
 <hr>
 <table>
-<?
+<?php
 for($i=0;$i<count($fl);$i++)
 {
         echo trBackground($i);

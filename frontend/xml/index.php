@@ -1,4 +1,4 @@
-<?
+<?php
 include ('../classes.php');
 ?>
 <html>
@@ -26,7 +26,7 @@ td
 <td>prefix</td>
 <td>Project</td>
 <td>
-<?
+<?php
 $query = 'SELECT project, description FROM project where active = 1 ORDER BY project';
 $result = $db->selectQuery($query);
 

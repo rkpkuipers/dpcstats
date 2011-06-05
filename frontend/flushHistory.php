@@ -1,6 +1,6 @@
-<center><h2><? echo $naam; ?></h2></center>
+<center><h2><?php echo $naam; ?></h2></center>
 <hr>
-<?
+<?php
 echo '<center>';
 echo '<br>';
 echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) . '&amp;prefix=' . $project->getPrefix() . '&amp;timespan=7&amp;team=' . rawurlencode($team) . '">';

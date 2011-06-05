@@ -6,7 +6,7 @@
   <form action="index.php">
   <input type="hidden" name="mode" value="avgProd">
   <input type="hidden" name="tabel" value="memberoffset">
-  <input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
+  <input type="hidden" name="prefix" value="<?php echo $project->getPrefix(); ?>">
   <input type="Submit" value="DPC Members" class="TextField">
   </form>
  </td>
@@ -15,10 +15,10 @@
    <input type="hidden" name="mode" value="avgProd">
    <input type="hidden" name="tabel" value="teamoffset">
    <input type="Submit" value="Teams" class="TextField">
-   <input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
+   <input type="hidden" name="prefix" value="<?php echo $project->getPrefix(); ?>">
    </form>
  </td>
-<?
+<?php
 if ( in_array($project->getPrefix(), array('fah', 'rah', 'sah', 'smp', 'sob', 'ufl')) )
 {
 ?>
@@ -27,10 +27,10 @@ if ( in_array($project->getPrefix(), array('fah', 'rah', 'sah', 'smp', 'sob', 'u
    <input type="hidden" name="mode" value="avgProd">
    <input type="hidden" name="tabel" value="subteamoffset">
    <input type="Submit" value="Subteam Members" class="TextField">
-   <input type="hidden" name="prefix" value="<? echo $project->getPrefix(); ?>">
+   <input type="hidden" name="prefix" value="<?php echo $project->getPrefix(); ?>">
    </form>
  </td>
-<?
+<?php
 }
 ?>
 </tr>
@@ -39,7 +39,7 @@ if ( in_array($project->getPrefix(), array('fah', 'rah', 'sah', 'smp', 'sob', 'u
 </center>
 <br>
 <center>
-<?
+<?php
 $avgProduction = new AverageList($db, $project->getPrefix() . '_' . $tabel, $datum, $project);
 $avgProduction->gather();
 
@@ -49,8 +49,8 @@ echo openColorTable(87);
 echo '<tr>';
 echo '<td></td>';
 echo '<td></td>';
-echo '<td><a href="index.php?mode=avgProd&amp;prefix=<? echo $project->getPrefix(); ?>&amp;tabel=<? echo $tabel; ?>&amp;sort=avgDaily">WeekAvg</a></td>';
-echo '<td><a href="index.php?mode=avgProd&amp;prefix=<? echo $project->getPrefix(); ?>&amp;tabel=<? echo $tabel; ?>&amp;sort=avgMonthly">MonthAvg</a></td>';
+echo '<td><a href="index.php?mode=avgProd&amp;prefix=<?php echo $project->getPrefix(); ?>&amp;tabel=<?php echo $tabel; ?>&amp;sort=avgDaily">WeekAvg</a></td>';
+echo '<td><a href="index.php?mode=avgProd&amp;prefix=<?php echo $project->getPrefix(); ?>&amp;tabel=<?php echo $tabel; ?>&amp;sort=avgMonthly">MonthAvg</a></td>';
 echo '</tr>';
 
 for($member=0;$member<count($avgProductionList);$member++)

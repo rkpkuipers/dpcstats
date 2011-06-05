@@ -1,4 +1,4 @@
-<?
+<?php
 
 $changelog = new ChangeLog($db);
 $changelog->createChangelog();
