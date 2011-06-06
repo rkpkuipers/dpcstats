@@ -1,21 +1,9 @@
 <?php
 
-# Fetch the search string
-if ( ( isset($_REQUEST['searchString']) ) && ( preg_match('/^[a-zA-Z0-9\[\]_\-\.]+$/', $_REQUEST['searchString']) ) )
-	$searchString = $_REQUEST['searchString'];
-else
-	$searchString = '';
-
-?>
-
-<center>
-<br>
-<?php
-function searchTabel($tabel, $prefix, $string, $tabelNaam)
+# Search function
+function searchTabel($db, $tabel, $prefix, $string, $tabelNaam)
 {
-	global $db;
-
-        $query = 'SELECT 
+	$query = 'SELECT 
 			DISTINCT(naam) ' .
 			($tabel=='subteamoffset'?',subteam':'') . '
 		FROM 
@@ -23,17 +11,17 @@ function searchTabel($tabel, $prefix, $string, $tabelNaam)
 		WHERE 
 			upper(naam) LIKE \'%' . strtoupper($string) . '%\'
 		AND	dag = \'' . date("Y-m-d") . '\'';
-
-        $result = $db->selectQuery($query);
-
+	
+	$result = $db->selectQuery($query);
+	
 	if ( $db->getNumAffectedRows($result) > 0 )
 	{
-		echo openColorTable(63);
+		echo '<div class="colorbox">';
 		echo '<b>' . $db->getNumAffectedRows($result) . ' matching ' .$tabelNaam . ' found</b>';
-        	echo '<hr>';
+		echo '<hr>';
 		echo '<table width="100%">';
 		$pos = 1;
-	        while ($line = $db->fetchArray($result))
+		while ($line = $db->fetchArray($result))
 		{
 			echo trBackground($pos++);
         	        echo '<td><a href="index.php?mode=detail&tabel=' . $tabel . '&amp;prefix=' . $prefix . 
@@ -42,39 +30,46 @@ function searchTabel($tabel, $prefix, $string, $tabelNaam)
 			echo '</tr>';
 		}
 		echo '</table>';
-		closeTable(2);
+		echo '</div>';
 		echo '<br>';
 	}
 }
 
-if ( trim($searchString) == '' )
-	echo 'Empty searchstring';
-else
+# Fetch the search string
+if ( ( ! isset($_REQUEST['searchString']) ) || ( ! preg_match('/^[a-zA-Z0-9\[\]_\-\.]+$/', $_REQUEST['searchString']) ) )
 {
-	searchTabel('memberoffset', 'tsc', $searchString, 'TSC Members');
-	searchTabel('teamoffset', 'tsc', $searchString, 'TSC Teams');
-	searchTabel('memberoffset', 'sob', $searchString, 'SoB Members');
-	searchTabel('teamoffset', 'sob', $searchString, 'SoB Teams');
-	searchTabel('subteamoffset', 'sob', $searchString, 'SoB Subteams Members');
-	searchTabel('memberoffset', 'fad', $searchString, 'FAD Members');
-	searchTabel('teamoffset', 'fad', $searchString, 'FAD Teams');
-	searchTabel('subteamoffset', 'fad', $searchString, 'FAD Subteam Members');
-	searchTabel('teamoffset', 'rah', $searchString, 'R@H Teams');
-	searchTabel('memberoffset', 'rah', $searchString, 'R@H Members');
-	searchTabel('subteamoffset', 'rah', $searchString, 'R@H Subteam Members');
-	searchTabel('memberoffset', 'sah', $searchString, 'S@H Members');
-	searchTabel('subteamoffset', 'sah', $searchString, 'S@H Subteam Members');
-	searchTabel('teamoffset', 'sah', $searchString, 'S@H Teams');
-	searchTabel('memberoffset', 'ufl', $searchString, '&micro;Fluid Members');
-	searchTabel('teamoffset', 'ufl', $searchString, '&micro;Fluid Teams');
-	searchTabel('subteamoffset', 'ufl', $searchString, '&micro;Fluid Subteam Members');
-	searchTabel('teamoffset', 'fah', $searchString, 'F@H Teams');
-	searchTabel('memberoffset', 'fah', $searchString, 'F@H Members');
-	searchTabel('subteamoffset', 'fah', $searchString, 'F@H Subteam Members');
-	searchTabel('memberoffset', 'smp', $searchString, 'Simap Members');
-	searchTabel('subteamoffset', 'smp', $searchString, 'Simap Subteam Members');
-	searchTabel('teamoffset', 'smp', $searchString, 'Simap Teams');
+	# Throw a warning
+	echo '<b>Empty searchstring provided</b>';
+	
+	# Abort
+	return;
 }
 
+# Load the search string
+$searchstring = $_REQUEST['searchString'];
+
+# Center the content
+echo '<center>';
+
+# Header
+echo '<h2>Search Results</h2>';
+
+# Retrieve the projects from the database
+$projects = $db->getRecordsByCondition("project", array("project", "description"), array(), "project");
+
+# Loop through the projects
+foreach($projects as $projectdata)
+{
+	# Search through the members
+	searchTabel($db, 'memberoffset', $projectdata['project'], $searchstring, $projectdata['description'] . ' Members');
+	
+	# Search through the teams
+	searchTabel($db, 'teamoffset', $projectdata['project'], $searchstring, $projectdata['description'] . ' Teams');
+	
+	searchTabel($db, 'subteamoffset', $projectdata['project'], $searchstring, $projectdata['description'] . ' Subteams Members');
+}
+
+# Close the centration tag
+echo '</center>';
+
 ?>
-</center>
