@@ -341,17 +341,6 @@ function getYesterday($prefix)
 	return date("Y-m-d", strtotime("Yesterday", date("U")));
 }
 
-function getDefaultFormFields()
-{
-	global $naam, $tabel, $project, $team, $datum;
-
-	echo '<input type="hidden" name="naam" value="' . $naam . '">';
-	echo '<input type="hidden" name="tabel" value="' . $tabel . '">';
-	echo '<input type="hidden" name="prefix" value="' . $project->getPrefix() . '">';
-	echo '<input type="hidden" name="datum" value="' . $datum . '">';
-	echo '<input type="hidden" name="team" value="' . $team . '">';
-}
-
 function getMenuHeader($link, $cookie)
 {
 	global $project, $naam, $tabel, $datum, $mode, $$cookie;
