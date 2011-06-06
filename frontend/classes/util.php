@@ -341,33 +341,6 @@ function getYesterday($prefix)
 	return date("Y-m-d", strtotime("Yesterday", date("U")));
 }
 
-function getMenuHeader($link, $cookie)
-{
-	global $project, $naam, $tabel, $datum, $mode, $$cookie;
-
-	$html = trBackground(0);
-	$html .= '<td colspan="2" align="left">';
-	$html .= '<table width="100%" cellpadding="0" cellspacing="0">';
-	$html .= '<tr>';
-	$html .= '<td style="font-weight:bold" align="left">' . $link . '</td>';
-	$html .= '<td align="right" valign="middle" style="font-size:10px">';
-	$html .= '<a href="index.php?prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;datum=' . $datum. '&amp;mode=' . $mode  . 
-		'&amp;naam=' . rawurlencode($naam) . '&amp;' . $cookie . '=' . ($$cookie=='on'?'off':'on') . 
-		'&amp;set' . ucfirst($cookie) . '">' . ($$cookie=='off'?'un':'') . 'hide</a>';
-	$html .= '</td></tr></table></td></tr>';
-
-	return $html;
-}
-
-function getMenuEntry($link, $target, $cellNo)
-{
-	$html = trBackground($cellNo);
-	$html .= '<td align="center" valign="middle" width="7px"><img src="images/dot.png" alt="dot"></td>';
-	$html .= '<td align="left"><a href="' . $target . '">' . $link . '</a></td></tr>';
-
-	return $html;
-}
-
 function getNavBarEntry($link,$target)
 {
 
