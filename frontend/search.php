@@ -53,8 +53,6 @@ else
 {
 	searchTabel('memberoffset', 'tsc', $searchString, 'TSC Members');
 	searchTabel('teamoffset', 'tsc', $searchString, 'TSC Teams');
-	searchTabel('memberoffset', 'd2ol', $searchString, 'D2OL Members');
-	searchTabel('teamoffset', 'd2ol', $searchString, 'D2OL Teams');
 	searchTabel('memberoffset', 'sob', $searchString, 'SoB Members');
 	searchTabel('teamoffset', 'sob', $searchString, 'SoB Teams');
 	searchTabel('subteamoffset', 'sob', $searchString, 'SoB Subteams Members');

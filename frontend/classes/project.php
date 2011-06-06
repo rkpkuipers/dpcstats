@@ -125,7 +125,7 @@ class Project
 	{
         	switch($this->prefix)
 	        {
-        	case 'd2ol': case 'tsc':
+        	case 'tsc':
               		return date("Y-m-d", strtotime("-1 hours" ));
         	case 'fad': default:        
 			return date("Y-m-d");

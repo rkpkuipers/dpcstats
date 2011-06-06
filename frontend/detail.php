@@ -59,7 +59,7 @@ echo '<tr><td align="left">Flush rank</td><td align=right>' . $mi->getDailyRank(
 echo '<tr><td align="left">Average Daily Pos</td><td align=right>' . number_format($mi->getAvgDailyPos(), 1, ',', '.') . '</td></tr>';
 echo '<tr><td align="left">Increase</td>';
 echo '<td align=right>' . number_format($mi->getIncrease(), 2, ',', '.') . ' %</td></tr>';
-if ( in_array($project->getPrefix(), array('tsc', 'd2ol', 'sob') ) )
+if ( in_array($project->getPrefix(), array('tsc', 'sob') ) )
 {
 	echo '<tr><td align="left">' . $project->getAdditional() . '</td><td align=right>' . number_format($mi->getNodes(), 0, ',', '.') . '</td></tr>';
 	#echo '<tr><td align="left">Average node output overall</td><td align=right>' . number_format($mi->getANOOverall(), 2, ',', '.') . '</td></tr>';
