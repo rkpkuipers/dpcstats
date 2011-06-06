@@ -83,7 +83,7 @@ header('Content-Type: text/html; charset=ISO-8859-1');
  <head>
   <title><?php echo $project->getDescription(); ?> - Statistics</title>
 
-<script type="text/javascript" src="/resources/shoutbox.js"/>
+<script type="text/javascript" src="/resources/shoutbox.js"></script>
 
 <link rel="stylesheet" href="/resources/page.css" type="text/css">
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
