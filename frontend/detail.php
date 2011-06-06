@@ -41,34 +41,30 @@ if ( ! $mi->exists() )
 		echo '</center>';
         }
 
-?>
-<center>
-<?php
-echo openColorTable();
-?>	
-<table border="0">
-<?php
-echo '<tr><td width=200 align="left">' . $project->getWuName() . '</td><td width=90 align=right>' . number_format($mi->getCredits(), 0, ',', '.') . '</td></tr>';
-echo '</table><hr><table border="0" width="100%">';
-echo '<tr><td align="left">Todays output</td><td align=right>' . number_format($mi->getFlush(), 0, ',', '.') . '</td></tr>';
+# Center the content
+echo '<center>';
 
+# Determine the page of the flushlist the member is on
 $rankPage = ( ( floor((($mi->getRank())-1)/30) ) * 30 );
 
+# Data table
+echo '<table style="width:400px" class="colorbox">';
+echo '<tr><td width=300 align="left">' . $project->getWuName() . '</td><td width=90 align=right>' . number_format($mi->getCredits(), 0, ',', '.') . '</td></tr>';
+echo '<tr><td colspan="2"><hr></td></tr>';
+echo '<tr><td align="left">Todays output</td><td align=right>' . number_format($mi->getFlush(), 0, ',', '.') . '</td></tr>';
 echo '<tr><td align="left">Team Rank</td><td align=right><a href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;dlow=0&amp;datum=' . $datum . '&amp;team=' . rawurlencode($team) . '&amp;hl=' . rawurlencode($naam) . '&amp;low=' . $rankPage . '#Ranking" title="Overall ranking hightlighting ' . $naam . '">' . $mi->getRank() . '</a></td></tr>';
 echo '<tr><td align="left">Flush rank</td><td align=right>' . $mi->getDailyRank() . '</td></tr>';
 echo '<tr><td align="left">Average Daily Pos</td><td align=right>' . number_format($mi->getAvgDailyPos(), 1, ',', '.') . '</td></tr>';
 echo '<tr><td align="left">Increase</td>';
 echo '<td align=right>' . number_format($mi->getIncrease(), 2, ',', '.') . ' %</td></tr>';
+
+# Show additional data for SoB/TSC
 if ( in_array($project->getPrefix(), array('tsc', 'sob') ) )
-{
 	echo '<tr><td align="left">' . $project->getAdditional() . '</td><td align=right>' . number_format($mi->getNodes(), 0, ',', '.') . '</td></tr>';
-	#echo '<tr><td align="left">Average node output overall</td><td align=right>' . number_format($mi->getANOOverall(), 2, ',', '.') . '</td></tr>';
-	#echo '<tr><td align="left">Average node output today</td><td align=right>' . number_format($mi->getANOToday(), 2, ',', '.') . '</td></tr>';
-}
-echo '</table><hr><table border="0" width="100%">';
 
+# Data table
+echo '<tr><td colspan="2"><hr></td></tr>';
 echo '<tr><td align="left">Distance</td></tr>';
-
 echo '<tr><td align="left">To next member</td><td align=right>';
 
 if ( $mi->getNaamNext() == '' )
@@ -84,69 +80,70 @@ else
 	echo '<a href="index.php?mode=detail&amp;tabel=' . $tabel . '&amp;team=' . rawurlencode($team) . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . $mi->getNaamPrev() . '" title="Details for ' . $mi->getNaamPrev() . '">' . number_format($mi->getDistancePrev(), 0, ',', '.') . '</a>';
 
 echo '</td></tr>';
-echo '</table><hr><table border="0" width="100%">';
+echo '<tr><td colspan="2"><hr></td></tr>';
 echo '<tr><td align="left">Largest Flush</td><td align=right>' . number_format($mi->getLargestFlush(), 0, ',', '.') . '</td></tr>';
 echo '<tr><td align="left">Flush Date</td><td align=right><a href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $mi->getLargestFlushDate() . '&amp;team=' . rawurlencode($team) . '" title="Flush list for ' . $mi->getLargestFlushDate() . '">' . $mi->getLargestFlushDate() . '</a></td></tr>';
 
-?>
-</table>
-</td></tr></table>
-</td></tr></table>
-<br>
-<?php
-echo openColorTable();
+# Close the data table
+echo '</table>';
 
+# Spacer
+echo '<br>';
+
+# Gather flush history
 $flushHistory = $mi->getFlushHistory(7);
 
-echo '<b>Flush History</b>';
-echo '<hr>';
+# Display a graphical overview of the production
+echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . rawurlencode($naam) . '&amp;team=' . rawurlencode($team) . '" alt="History">';
 
-$output = "";
-$output .= '<table width="100%">';
-$output .= '<tr><td width="33%">Date</td><td width="33%">Output</td><td width="33%">Daily Rank</td></tr>';
+# Spacer
+echo '<div><br></div>';
+
+# Table for the flush history
+echo '<table class="colorbox" width="400px">';
+echo '<tr><td colspan="3" style="text-align:center"><b>Flush History</b></td></tr>';
+echo '<tr><td width="33%">Date</td><td width="33%">Output</td><td width="33%">Daily Rank</td></tr>';
+
+# Counter
 $pos = 0;
+
+# Loop through the flush history
 foreach($flushHistory as $flush)
 {
-	$output .= trBackground($pos++);
-	$output .= '<td width="60%">' . date("d-m-Y", strtotime($flush['date'])) . '</td>';
-	$output .= '<td align="right" width="40%">' . number_format($flush['flush'], 0, ',', '.') . '</td>';
-	$output .= '<td>' . $flush['flushrank'] . '</td>';
-	$output .= '</tr>';
+	echo trBackground($pos++);
+	echo '<td width="60%">' . date("d-m-Y", strtotime($flush['date'])) . '</td>';
+	echo '<td align="right" width="40%">' . number_format($flush['flush'], 0, ',', '.') . '</td>';
+	echo '<td>' . $flush['flushrank'] . '</td>';
+	echo '</tr>';
 }
-unset($pos);
 
-$output .= '</table>';
-$output .= '<hr>';
-$output .= '<div align="right"><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '&amp;naam=' . $naam . '" title="Complete flush history">More...</a></div>';
+# More link
+echo '<tr><td colspan="3" style="text-align:right"><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . 
+	'&amp;team=' . rawurlencode($team) . '&amp;naam=' . $naam . '" title="Complete flush history">More...</a></td></tr>';
+echo '</table>';
 
-echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . rawurlencode($naam) . '&amp;team=' . rawurlencode($team) . '" alt="History">';
-echo '<hr>';
-echo $output;
-
-closeTable(2);
+# Spacer
 echo '<br>';
 
 if ( $frame == 'm' )
 {
-	echo openColorTable();
-	echo '<b>Monthly Graphs</b>';
-	echo '<center><hr></center>';
 	echo '<br>';
 	echo '<img src="graphs/monthlyOutput.php?naam=' . $naam . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '">';
 	echo '<br><br>';
-	echo '<img src="graphs/monthlyProgress.php?naam=' . $naam . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '">';
-	echo '<br>';
-	closeTable(2);
+	echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . rawurlencode($naam) . 
+		'&amp;team=' . rawurlencode($team) . '&amp;timespan=31" alt="History">';
+	
+	# Spacer
+	echo '<div><br></div>';
 }
 
 $opp = new Oppertunities($naam, $team, $project, $db);
 
 $info = $opp->getOppList();
 
-echo openColorTable();
+echo '<div class="colorbox" style="width:400px">';
 echo '<center><b>Average output</b></center>';
-echo '<hr width="75%">';
-echo '<table width="420px">';
+echo '<table width="100%">';
 echo '<tr><td align="left">Last week</td><td align="right">' . number_format($info['average'], 0, ',', '.') . '&nbsp;' . $project->getWuName() . '</td></tr>';
 echo '<tr><td align="left">Last month</td><td align="right">' . number_format($info['maverage'], 0, ',', '.') . '&nbsp;' . $project->getWuName() . '</td></tr>';
 echo '</table>';
@@ -154,7 +151,6 @@ if ( count($info['opp']) > 0 )
 {
 	echo '<hr width="75%">';
 	echo '<center><b>Opportunities</b></center>';
-	echo '<hr width="75%">';
 	echo '<table>';
 	echo '<tr><td width="200px"></td><td colspan="2">Weekly</td><td colspan="2">Monthly</td></tr>';
 	echo '<tr><td>User</td><td>Avg.</td><td>Days</td><td>Avg.</td><td>Days</td></tr>';
@@ -177,7 +173,6 @@ if ( count($info['thr']) > 0 )
 {
 	echo '<hr width="75%">';
 	echo '<center><b>Threats</b></center>';
-	echo '<hr width="75%">';
 	echo '<table>';
 	echo '<tr><td width="200px"></td><td colspan="2">Weekly</td><td colspan="2">Monthly</td></tr>';
 	echo '<tr><td>User</td><td>Avg.</td><td>Days</td><td>Avg.</td><td>Days</td></tr>';
@@ -197,10 +192,9 @@ if ( count($info['thr']) > 0 )
 	}
 	echo '</table>';
 }
-echo '</td></tr></table>';
-echo '</td></tr></table>';
+echo '</div>';
 
-unset($opp, $info);
+# Close the centration tag
+echo '</center>';
 
 ?>
-</center>
