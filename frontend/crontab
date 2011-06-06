@@ -1,14 +1,18 @@
 MAILTO=<email>
 
-1,20,40 * * * *    /home/rkuipers/stats/20-statsrun.sh
-*/60 * * * *    /home/rkuipers/stats/60-statsrun.sh
-11 */2 * * *    /home/rkuipers/stats/statsrun/fah-members.php
-20 */2 * * *    /home/rkuipers/stats/statsrun/fah-teams.php
-18 */4 * * *    /home/rkuipers/stats/240-statsrun.sh
+# tadah.mine.nu statsruns
+*/60 * * * *    stats/60-statsrun.sh
+30 * * * *      stats/statsrun/sob.php
+35 */3 * * *    stats/statsrun/fah-members.php
+30 */3 * * *    stats/statsrun/fah-teams.php
+10 */4 * * *    stats/240-statsrun.sh
 
-42   1 * * *    /home/rkuipers/stats/statsrun/average.php
+# Routinely check the databases to ensure no tables are damaged
+12   1 * * *    mysqlcheck -h <servername> --all-databases --auto-repair | grep -v OK$
 
-0    3 * * *    /home/rkuipers/stats/additional/additional.sh
+# Optional: Drop users accessing the stats database after the request has exceeded 300 seconds to prevent connection limits being reached
+*/5  * * * *    stats/scripts/purge.php
 
-#0    4 * * *	/usr/bin/pg_dump stats | bzip2 > /var/www/html/backup/complete.sql.bz2
-#55   3 * * *	/usr/bin/pg_dump stats -s | bzip2 > /var/www/html/backup/schema.sql.bz2
+# Calculate the average scores and the additional production for all stats members once a day
+42   5 * * *    stats/statsrun/average.php
+0    3 * * *    stats/additional/additional.sh
