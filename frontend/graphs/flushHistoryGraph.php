@@ -79,7 +79,7 @@ function switchArray($data)
 	$datay = array_reverse($datay);
 
         // Setup the graph.
-	$graph = new Graph(300, 300, "auto");
+	$graph = new Graph(400, 300, "auto");
         $graph->SetScale("textlin");
 	if ( ( $maxValue >= 0 ) && ( $maxValue < 1000 ) )
 		$graph->img->SetMargin(40,15,30,75);
