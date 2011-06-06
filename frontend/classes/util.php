@@ -214,22 +214,6 @@ function getShoutboxTable($db, $project, $tabel, $team)
 	echo '</table>';
 }
 
-function getLoginRegisterForm($project, $tabel, $team)
-{
-?>
-	<hr>
-	<center><b>Login</b></center>
-	<form method="post" action="admin/verify.php" name="login">
-	&nbsp;Username<br>
-	<center><input class="TextField" type="text" name="username" value=""></center>
-	&nbsp;Password<br>
-	<center><input class="TextField" type="text" name="password" value=""><br><br>
-	<input type="submit" value="Login" class="TextField"></center>
-	</form>
-	&nbsp;<a href="index.php?mode=register">Register</a><br><br>
-<?php
-}
-
 function getShoutboxForm($project, $tabel, $team)
 {
 ?>
