@@ -28,6 +28,8 @@ require ('classes/AverageProduction.php');
 
 require ('classes/oppertunities.php');
 
+require ('classes/flush.php');
+
 # Initialize the database
 $db = new miDataBase($dbuser, $dbpass, $dbhost, $dbport, $dbname);
 $db->connect();
