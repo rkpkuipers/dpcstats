@@ -406,26 +406,6 @@ function getRMLDPCHChangeImage($change, $ts)
 	return '(' . $image . $change . ')';
 }
 
-
-function openColorTable($width = 0)
-{
-	$output = "";
-	if ( $width == 0 )
-		$output .= '<table class="outerTable">';
-	else
-		$output .= '<table class="outerTable" width="' . $width . '%">';
-	$output .= '<tr><td>';
-	$output .= '<table class="innerTable">';
-	$output .= '<tr><td>';
-	return $output;
-}
-
-function closeTable($times)
-{
-	for($i=0;$i<$times;$i++)
-		echo '</td></tr></table>';
-}
-
 function getCurrentDate($prefix)
 {
 	return date("Y-m-d");

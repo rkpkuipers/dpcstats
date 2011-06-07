@@ -53,19 +53,6 @@ a:hover
 	margin-right: 5px;
 }
 
-.outerTable
-{
-	background-color : #808080;
-	border : 0;
-}
-
-.innerTable
-{
-	background-color : #CBCBCB;
-	border : 0;
-	width : 100%;
-}
-
 a.wLink:link    { color:#FFFFFF; }
 a.wLink:visited { color:#EEEEEE; }
 
