@@ -32,8 +32,8 @@
 		<?php
 			echo getNavBarEntry('DPC FAQ', 'http://www.dutchpowercows.org/faqs/' . $project->getWDOPrefix());
 			echo getNavBarEntry('DPCH', 'http://www.dutchpowercows.org/dpch/' . $project->getWDOPrefix());
-			echo getNavBarEntry('Member Graphs', $baseUrl . '/index.php?mode=memberGraphs&amp;prefix=' . $project->getPrefix(), $link++);
-			echo getNavBarEntry('Monthly Stats', $baseUrl . '/index.php?mode=monthlyStats&amp;prefix=' . $project->getPrefix(), $link++);
+			echo getNavBarEntry('Member Graphs', $baseUrl . '/index.php?mode=memberGraphs&amp;prefix=' . $project->getPrefix());
+			echo getNavBarEntry('Monthly Stats', $baseUrl . '/index.php?mode=monthlyStats&amp;prefix=' . $project->getPrefix());
 			echo getNavBarEntry('Average Production', $baseUrl . '/index.php?mode=avgProd&amp;tabel=memberoffset&amp;prefix=' . $project->getPrefix());
 		
 			echo getNavBarEntry('Official Website', $project->getWebsite() );
