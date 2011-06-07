@@ -101,44 +101,45 @@ function addSubteamStatsrun($array, $tabel)
 			dag = \'' . $datum . '\'';
 	
 	$result = $db->selectQuery($query);
-
+	
 	while ( $line = $db->fetchArray($result) )
 	{
 		$naam = $line['naam'];
 		$currentuser[$line['subteam']][$naam] = $line['score'];
 	}
+	
 	$userarray = getSubteamListFromArray($array);
-
-	if ( empty($currentuser) )
-		return;
-
-	foreach($currentuser as $team => $members)
+	
+	if ( ! empty($currentuser) )
 	{
-		foreach($members as $membername => $score)
+		foreach($currentuser as $team => $members)
 		{
-			if ( ! isset($userarray[$team][$membername]) )
+			foreach($members as $membername => $score)
 			{
-				/*
-				$db->insertQuery('INSERT INTO 
-						movement 
-						( 
-							naam, 
-							datum, 
-							direction, 
-							candidates, 
-							tabel 
-						)
-						VALUES
-						(
-							\'' . $membername . '\',
-							\'' . $datum . '\',
-							0,
-							' . ( $currentuser[$team][$membername] ) . ',
-							\'' . $tabel . '\'
-						)');*/
-				
-				$db->deleteQuery('DELETE FROM ' . $tabel . ' WHERE naam = \'' . $db->real_escape_string($membername) . '\' 
-					AND subteam = \'' . $team . '\' AND dag = \'' . $datum . '\'');
+				if ( ! isset($userarray[$team][$membername]) )
+				{
+					/*
+					$db->insertQuery('INSERT INTO 
+							movement 
+							( 
+								naam, 
+								datum, 
+								direction, 
+								candidates, 
+								tabel 
+							)
+							VALUES
+							(
+								\'' . $membername . '\',
+								\'' . $datum . '\',
+								0,
+								' . ( $currentuser[$team][$membername] ) . ',
+								\'' . $tabel . '\'
+							)');*/
+					
+					$db->deleteQuery('DELETE FROM ' . $tabel . ' WHERE naam = \'' . $db->real_escape_string($membername) . '\' 
+						AND subteam = \'' . $team . '\' AND dag = \'' . $datum . '\'');
+				}
 			}
 		}
 	}
