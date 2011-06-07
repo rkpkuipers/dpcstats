@@ -22,9 +22,6 @@ $allowed = array(	'mode' => 'Members',		# Which page to load
 			'flushlist' => 0,		# whether to show the entire list
 			'team' => 'Dutch Power Cows');	# Default team name
 
-# All table names we're changed to lower case, convert any old names to new ones for backward compatibility
-$tabel = strtolower($tabel);
-
 # Allowed contains the variables in use, check if they were passed as _GET of _POST, otherwise load default values
 foreach($allowed as $name => $default)
 {
