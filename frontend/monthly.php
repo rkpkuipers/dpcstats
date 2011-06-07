@@ -80,12 +80,11 @@ $ts->gather();
 	echo '<br><hr><br>';
 }
 ?>
-<center>
 <br>
 <?php
-echo openColorTable(); 
+echo '<div class="colorbox">';
 ?>
-<b>Month</b>
+<h4>&nbsp;Month</h4>
 <hr>
 <table width="100%">
 <tr>
@@ -192,14 +191,14 @@ for($i=0;$i<count($mbs);$i++)
 }
 
 echo '</table>';
-closeTable(2);
+echo '</div>';
 ?>
 </form>
 <br>
 <?php
-echo openColorTable(); 
+echo '<div class="colorbox">';
 ?>
-<b><a name="Ranking">Ranking</a></b>
+<h4>&nbsp;<a name="Ranking">Ranking</a></h4>
 <hr>
 <table width="100%">
 <?php
@@ -309,6 +308,5 @@ for($i=0;$i<count($mbs);$i++)
 ?>
 </form>
 </table>
-</td></tr></table>
-</td></tr></table>
-</center>
+</div>
+<div><br></div>
