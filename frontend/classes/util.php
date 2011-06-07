@@ -239,7 +239,7 @@ function getShoutboxForm($project, $tabel, $team)
 	&nbsp;<b>Code:</b><br>
 	&nbsp;&nbsp;[b]<b>Bold</b>[/b]<br>
 	&nbsp;&nbsp;[i]<i>Italic</i>[/i]<br>
-	&nbsp;&nbsp;[u]<span class="uExample">Underline</span>[/u]<br>
+	&nbsp;&nbsp;[u]<span style="text-decoration:underline;">Underline</span>[/u]<br>
 	&nbsp;&nbsp;[br]Enter<br>
 	<br>
 	&nbsp;<b>Smilies:</b><br>
