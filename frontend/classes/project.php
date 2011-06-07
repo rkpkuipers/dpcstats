@@ -123,15 +123,7 @@ class Project
 
 	function getCurrentDate()
 	{
-        	switch($this->prefix)
-	        {
-        	case 'tsc':
-              		return date("Y-m-d", strtotime("-1 hours" ));
-        	case 'fad': default:        
-			return date("Y-m-d");
-		default:
-			return date("Y-m-d");
-        	}
+        	return date("Y-m-d");
 	}
 
 	function getSubteamRank()
