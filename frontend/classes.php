@@ -1,7 +1,9 @@
 <?php
 
 error_reporting(E_ERROR);
-session_start();
+
+if ( ! isset($_SESSION) )
+	session_start();
 
 # Include the classes used 
 require ('classes/config.php');
