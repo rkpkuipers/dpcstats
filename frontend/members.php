@@ -12,9 +12,9 @@ else
 
 if ( $ts->getDailyFlushers() > 0 )
 {
-echo openColorTable(); 
+echo '<div class="colorbox">';
 ?>
-<b>Today</b>
+<h4>&nbsp;Today</h4>
 <hr>
 <table width="100%">
 <tr>
@@ -176,14 +176,14 @@ for($i=0;$i<count($mbs);$i++)
 }
 echo '</form>';
 echo '</table>';
-closeTable(2);
+echo '</div>';
 }
 ?>
 <br>
 <?php
-echo openColorTable(); 
+echo '<div class="colorbox">';
 ?>
-<b><a name="Ranking">Ranking</a></b>
+<h4><a name="Ranking">&nbsp;Ranking</a></h4>
 <hr>
 <table width="100%">
 <?php
@@ -322,22 +322,19 @@ for($i=0;$i<count($mbs);$i++)
 ?>
 </form>
 </table>
-</td></tr></table>
-</td></tr></table>
-<table width="100%">
- <tr>
-  <td align="center">
+</div>
+
 <?php
 $mp = new MijlPalen($project->getPrefix() . '_' . $tabel, $datum, $project->getPrefix(), $db, $team);
 $mpl = $mp->getMijlpalen();
 if ( count($mpl) > 0 )
 {
 	echo '<br>';
-	echo openColorTable(50);
-	echo '<b>' . count($mpl) . ' Milestone';
+	echo '<div class="colorbox" style="width:350px; margin-left:auto; margin-right:auto;">';
+	echo '<h4>&nbsp;' . count($mpl) . ' Milestone';
 	if ( count($mpl) != 1 )
 		echo 's';
-	echo '</b>';
+	echo '</h4>';
 	echo '<hr>';
 	echo '<table width="100%">';
 	for($i=0;$i<count($mpl);$i++)
@@ -351,7 +348,8 @@ if ( count($mpl) > 0 )
 		echo '</tr>';
 	}
 	echo '</table>';
-	closeTable(2);
+	echo '</div>';
+	echo '<div><br></div>';
 }
 
 # Initialize Joins/Leaves class
@@ -362,11 +360,11 @@ $leaves = $movement->getMembers(0);
 if ( count($leaves) > 0 )
 {
         echo '<br>';
-        echo openColorTable(50);
-        echo '<b>' . count($leaves) . ' Retired Member';
+        echo '<div class="colorbox" style="width:350px; margin-left:auto; margin-right:auto;">';
+        echo '<h4>&nbsp;' . count($leaves) . ' Retired Member';
         if ( count($leaves) != 1 )
                 echo 's';
-        echo ' ( ' . number_format($movement->getTotalCredits(0), 0, ',', '.') . ' ' . $project->getWuName() . ' )</b>';
+        echo ' ( ' . number_format($movement->getTotalCredits(0), 0, ',', '.') . ' ' . $project->getWuName() . ' )</h4>';
         echo '<hr>';
         echo '<table width="100%">';
         for($i=0;$i<count($leaves);$i++)
@@ -377,7 +375,8 @@ if ( count($leaves) > 0 )
                 echo '</tr>';
         }
         echo '</table>';
-        closeTable(2);
+        echo '</div>';
+        echo '<div><br></div>';
 }
 
 # Get joins
@@ -386,11 +385,11 @@ $joins = $movement->getMembers(1);
 if ( count($joins) > 0 )
 {
         echo '<br>';
-        echo openColorTable(50);
-        echo '<b>' . count($joins) . ' New Member';
+        echo '<div class="colorbox" style="width:350px; margin-left:auto; margin-right:auto;">';
+        echo '<h4>&nbsp;' . count($joins) . ' New Member';
         if ( count($joins) != 1 )
                 echo 's';
-        echo ' ( ' . number_format($movement->getTotalCredits(1), 0, ',', '.') . ' ' . $project->getWuName() . ' )</b>';
+        echo ' ( ' . number_format($movement->getTotalCredits(1), 0, ',', '.') . ' ' . $project->getWuName() . ' )</h4>';
         echo '<hr>';
         echo '<table width="100%">';
         for($i=0;$i<count($joins);$i++)
@@ -405,10 +404,10 @@ if ( count($joins) > 0 )
                 echo '</tr>';
         }
         echo '</table>';
-        closeTable(2);
+        echo '</div>';
+        echo '<div><br></div>';
 }
 
 unset($leaves, $joins, $movement);
 
 ?>
-</td></tr></table>
