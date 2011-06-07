@@ -1,14 +1,26 @@
-<center><h2><?php echo $naam; ?></h2></center>
-<hr>
 <?php
-echo '<center>';
-echo '<br>';
-echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) . '&amp;prefix=' . $project->getPrefix() . '&amp;timespan=7&amp;team=' . rawurlencode($team) . '">';
-echo '<br><br>';
-echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) . '&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '&amp;timespan=31&amp;labelInterval=2">';
-echo '</center>';
-echo '<br>';
 
+# Center the content
+echo '<div style="width:100%; text-align:center">';
+
+# Header
+echo '<h2>' . $naam . '</h2>';
+
+# Flush history of this week
+echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) . 
+	'&amp;prefix=' . $project->getPrefix() . '&amp;timespan=7&amp;team=' . rawurlencode($team) . '">';
+
+# Spacer
+echo '<div><br></div>';
+
+# Flush history of the month
+echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) . 
+	'&amp;prefix=' . $project->getPrefix() . '&amp;team=' . rawurlencode($team) . '&amp;timespan=31&amp;labelInterval=2">';
+
+# Spacer
+echo '<div><br><div>';
+
+# Retrieve the flush history
 $query = 'SELECT 
 		( cands + daily ) AS day_total, 
 		daily, 
@@ -21,25 +33,41 @@ $query = 'SELECT
 	($tabel=='subteamoffset'?'AND subteam = \'' . $db->real_escape_string($team) . '\'':'') . ' 
 	ORDER BY 
 		' . $sort . ' DESC';
+
+# Execute the query
 $result = $db->selectQuery($query);
 
-echo '<center>';
-echo openColorTable();
-echo '<table>';
+# Table for the results
+echo '<table class="colorbox" style="margin-left:auto; margin-right:auto;">';
 echo '<tr>';
+
+# Link the column headers to allow sorting of the table
 echo '<td><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;naam=' . $naam . '&amp;sort=dag">Dag</td>';
 echo '<td align="center"><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;naam=' . $naam . '&amp;sort=daily">Flush</a></td>';
+
 echo '<td align="center">Total</td>';
 echo '</tr>';
+
+# Counter
 $pos = 0;
-while($line = $db->fetchArray($result))
+
+# Loop through the results
+while($line = $db->fetchAssocArray($result))
 {
 	echo trBackground($pos++);
 	echo '<td width="110">' . $line['dag'] . '</td>';
-	echo '<td align="right" width="80">' . number_format($line['daily'], 0, ',', '.') . ' (' . $line['dailypos'] . ')</td>';
-	echo '<td align="right" width="85">' . number_format($line['day_total'], 0, ',' ,'.') . '</td>';
+	echo '<td align="right" width="80px">' . number_format($line['daily'], 0, ',', '.') . ' (' . $line['dailypos'] . ')</td>';
+	echo '<td align="right" width="85px">' . number_format($line['day_total'], 0, ',' ,'.') . '</td>';
 	echo '</tr>';
 }
+
+# Close the data table
 echo '</table>';
-echo '</center>';
-closeTable(2);
+
+# Close the centration div
+echo '</div>';
+
+# Spacer
+echo '<div><br></div>';
+
+?>
