@@ -7,10 +7,8 @@
 
 			while ( $line = $db->fetchArray($result) )
        			{
-				echo '<li><a href="index.php?prefix=' . $line['project'] . 
-					'&amp;datum=' . $datum . 
-					'&amp;mode=' . (in_array($line['project'], array('sp5', 'sp6'))?'Stampede':'Members') .
-					'" title="Stats for ' . $line['description'] . '">' . $line['description'] . '</a></li>'."\n";
+				echo '<li><a href="index.php?prefix=' . $line['project'] . '&amp;datum=' . $datum . 
+					'&amp;mode=Members" title="Stats for ' . $line['description'] . '">' . $line['description'] . '</a></li>'."\n";
 			}
 		?>
 		</ul>

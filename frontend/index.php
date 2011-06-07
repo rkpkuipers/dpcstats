@@ -139,7 +139,6 @@ header('Content-Type: text/html; charset=ISO-8859-1');
 <?php
 	$pages = array(	'Members' => array(	'Member Stats', 'members.php'),
 						'Teams' => array('Team Stats', 'members.php'),
-						'Stampede' => array('Stampede Stats', 'stampede.php'),
 						'Individuals' => array('Individual Stats', 'members.php'),
 						'Subteam' => array('Subteam Stats', 'members.php'),
 						'Graph' => array('Output Graph', 'graphs/progress.php'),

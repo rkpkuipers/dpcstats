@@ -11,12 +11,6 @@ if ( ( isset($_REQUEST['project']) ) && ( preg_match('/^[a-z0-9]+$/', $_REQUEST[
 else
 	die("ERROR: No project specified");
 
-if ( $prefix == 'sp6' )
-{
-	header('Location: stampede.php');
-	die();
-}
-
 if ( isset($_GET['datum']) )
 	$datum = $_GET['datum'];
 else
