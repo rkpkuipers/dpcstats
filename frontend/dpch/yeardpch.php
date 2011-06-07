@@ -2,10 +2,11 @@
 
 include ('../classes.php');
 
-if ( isset($_GET['project']) )
-	$project = $_GET['project'];
+# Retrieve the project
+if ( ( isset($_REQUEST['project']) ) && ( preg_match('/^[a-z0-9]+$/', $_REQUEST['project']) ) )
+	$project = $_REQUEST['project'];
 else
-	$project = 'tsc';
+	die("ERROR: No project specified");
 
 $datum = date("Y-01-01", strtotime(date("Y-m-d", strtotime("-1 year"))));
 

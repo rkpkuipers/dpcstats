@@ -2,10 +2,11 @@
 
 include ('../classes.php');
 
-if ( isset($_GET['project']) )
-	$prefix = $_GET['project'];
+# Retrieve the project
+if ( ( isset($_REQUEST['project']) ) && ( preg_match('/^[a-z0-9]+$/', $_REQUEST['project']) ) )
+	$prefix = $_REQUEST['project'];
 else
-	$prefix = 'tsc';
+	die("ERROR: No project specified");
 
 $project = new Project($db, $prefix, 'memberoffset');
 
