@@ -1,5 +1,4 @@
 <br>
-<center>
 <table width="100%">
 <tr>
  <td width="25%" align="center">
@@ -36,16 +35,16 @@ if ( in_array($project->getPrefix(), array('fah', 'rah', 'sah', 'smp', 'sob', 'u
 </tr>
 </table>
 <hr>
-</center>
-<br>
-<center>
+<div><br></div>
+<div style="width:100%; text-align:center;">
 <?php
 $avgProduction = new AverageList($db, $project->getPrefix() . '_' . $tabel, $datum, $project);
 $avgProduction->gather();
 
 $avgProductionList = $avgProduction->getList();
 
-echo openColorTable(87);
+echo '<table class="colorbox" style="width:470px; margin-left:auto; margin-right:auto;">';
+echo '<tr><td colspan="4"><h3>Average Output</h3></td></tr>';
 echo '<tr>';
 echo '<td></td>';
 echo '<td></td>';
@@ -64,5 +63,5 @@ for($member=0;$member<count($avgProductionList);$member++)
 }
 ?>
 </table>
-</td></tr></table>
+
 </center>
