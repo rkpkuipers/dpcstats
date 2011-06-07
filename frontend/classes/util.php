@@ -267,38 +267,6 @@ function getShoutboxForm($project, $tabel, $team)
 <?php
 }
 
-function getMemberList($prefix, $tabel, $datum = 0,$order = 'naam')
-{
-	global $db;
-
-	if ( $datum == 0 ) $datum = date("Y-m-d");
-	
-	echo '<center>';
-	echo '<table width="200px">';
-
-	$query = 'SELECT
-			naam
-		FROM
-			' . $prefix . '_' . $tabel . '
-		WHERE
-			dag = \'' . $datum . '\'
-		ORDER BY
-			' . $order;
-	
-	$result = $db->selectQuery($query);
-
-	$row = 1;
-	while ( $line = $db->fetchArray($result) )
-	{
-#		echo '<tr>';
-		echo trBackground($row++);
-		echo '<td align="center">' . getURL(array('link' => $line['naam'], 'name' => $line['naam'])) . '</td>';
-		echo '</tr>';
-	}
-	echo '</table>';
-	echo '</center>';
-}
-
 function microtime_diff($a, $b)
 {
         list($a_dec, $a_sec) = explode(" ", $a);

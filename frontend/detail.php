@@ -3,20 +3,20 @@
 # Strip slashes from the name to enable db lookup of the member
 $naam = stripslashes($naam);
 
-if ( ! isset($naam) )
+# Check if a naam was specified
+if ( ( ! isset($naam) ) || ( empty($naam) ) )
 {
-	echo '<h3>Geen member opgegeven, kies een member uit de lijst of ga terug naar de <a href="#" onclick="history.go(-1)">vorige pagina</a></h3>';
-	echo '<br>';
-	getMemberList($project->getPrefix(), $tabel, $datum);
+	echo '<h3>&nbsp;ERROR: Geen member opgegeven</h3>';
 	return;
 }
 
+# Gather member info
 $mi = new MemberInfo($db, $naam, $project->getPrefix() . '_' . $tabel, $datum, $project->getPrefix(), $tabel, $team);
 
+# Check if the member exists
 if ( ! $mi->exists() )
 {
-	echo '<h3>Member: ' . $naam . ' komt niet voor in de database, kies een member uit de lijst of ga terug naar de <a href="#" onclick="history.go(-1)">vorige pagina</a></h3>';
-	getMemberList($project->getPrefix(), $tabel, $datum);
+	echo '<h3>&nbsp;ERROR: Member ' . $naam . ' bestaat niet</h3>';
 	return;
 }
 
