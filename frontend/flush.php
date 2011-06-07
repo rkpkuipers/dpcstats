@@ -21,11 +21,7 @@
 </tr>
 </table>
 <hr>
-</center>
-<br>
-<table width="100%">
-<tr>
-<td align=center valign=top>
+<div><br></div>
 <?php
 if ( is_numeric(strpos($tabel, 'daily') ) )
 	$strippedTabel = substr($tabel, 0, strpos($tabel, 'daily'));
@@ -37,13 +33,16 @@ $fmc = new FlushList($project->getPrefix() . '_' . $strippedTabel, $db);
 $fmc->createMFList();
 $fl = $fmc->getMFList();
 
-echo openColorTable();
-?>
-Member Flushes
-<hr>
-<table>
-<?php
+# Div for the box
+echo '<div style="width:475px" class="colorbox">';
 
+# Header
+echo '<h3>Member Flushes</h3>';
+
+# Table for the list
+echo '<table>';
+
+# Loop through the results
 for($i=0;$i<count($fl);$i++)
 {
 	echo trBackground($i);
@@ -59,25 +58,27 @@ for($i=0;$i<count($fl);$i++)
 	echo '</tr>';
 }
 
+# Close the table and the color box
 echo '</table>';
-closeTable(2);
+echo '</div>';
 
-?>
-</td>
-</tr><tr><td>&nbsp;</td></tr><tr>
-<td align=center valign=top>
-<?php
+# Spacer
+echo '<div><br></div>';
 
 $fmc->createFlushList();
 
 $fl = $fmc->getFlushList();
 
-echo openColorTable();
-?>
-Overall Flushes
-<hr>
-<table>
-<?php
+# Colorbox
+echo '<div style="width:470px" class="colorbox">';
+
+# Header
+echo '<h3>Overall Flushes</h3>';
+
+# Table for the results
+echo '<table>';
+
+# Loop through the results
 for($i=0;$i<count($fl);$i++)
 {
         echo trBackground($i);
@@ -95,8 +96,14 @@ for($i=0;$i<count($fl);$i++)
 	echo '</td>';
         echo '</tr>';
 }
+# Close the results table and color box
 echo '</table>';
-echo '</table>';
-closeTable(2);
+echo '</div>';
+
+# Close the centration tag
+echo '</center>';
+
+# Spacer
+echo '<div><br></div>';
 
 ?>
