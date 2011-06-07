@@ -178,6 +178,11 @@ class MemberList
 			$where = ' 	AND of.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\' ';
 			$join  = '	AND y.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\' ';
 		}
+		else
+		{
+			$where = '';
+			$join = '';
+		}
 
 		$query = '
   		SELECT
@@ -209,7 +214,7 @@ class MemberList
 
 		while ( $line = $this->db->fetchArray($result) )
 		{
-			$this->members[] = new DetailedMember($db,
+			$this->members[] = new DetailedMember($this->db,
 							      $this->tabel,
 							      $this->datum,
 							      $line['naam'],
@@ -361,7 +366,12 @@ class MemberList
 			$where = ' AND of.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\' ';
 			$joinWhere = ' AND y.subteam = \'' . $this->db->real_escape_string($this->subteam) . '\'';
 		}
-	
+		else
+		{
+			$where = '';
+			$joinWhere = '';
+		}
+		
 		$query = '
 		SELECT
 			of.naam,
@@ -393,7 +403,7 @@ class MemberList
 		$this->members = array();
 		while ( $line = $this->db->fetchArray($result, MYSQL_ASSOC) )
 		{
-			$this->members[] = new DetailedMember($db,
+			$this->members[] = new DetailedMember($this->db,
 							      $this->tabel,
 							      $this->datum,
 							      $line['naam'],
@@ -588,7 +598,7 @@ class MemberInfo
 		if ( is_numeric(strpos($this->tabel, 'subteamoffset')) && ( strpos($this->tabel, 'subteamoffset') > 0 ) )
 			$where = ' AND subteam = \'' . $this->db->real_escape_string($this->team) . '\' ';
 		else
-			$where;
+			$where = '';
 			
 		$query = 'SELECT 
 				AVG(dailypos) AS pos 

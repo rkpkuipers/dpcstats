@@ -169,7 +169,7 @@ if ( count($info['opp']) > 0 )
 	}
 	echo '</table>';
 }
-if ( count($info['thr']) > 0 )
+if ( ( isset($info['thr']) ) && ( count($info['thr']) > 0 ) )
 {
 	echo '<hr width="75%">';
 	echo '<center><b>Threats</b></center>';

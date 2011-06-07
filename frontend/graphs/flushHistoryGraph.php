@@ -46,7 +46,7 @@ function switchArray($data)
 	if ( $tabel == 'subteamoffset' )
 		$where = ' AND subteam = \'' . $db->real_escape_string($team) . '\' ';
 	else
-		$where;
+		$where = '';
 
         // We need some data
 	$query = 'SELECT 

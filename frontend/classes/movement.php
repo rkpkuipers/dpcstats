@@ -48,8 +48,11 @@ class Movement
 			{
 				$this->members[$direction][] = array(	'name' => $line['naam'],
 									'credits' => $line['candidates']);
-
-				$this->totalCredits[$direction] += $line['candidates'];
+				
+				if ( ! isset($this->totalCredits[$direction]) )
+					$this->totalCredits[$direction] = $line['candidates'];
+				else
+					$this->totalCredits[$direction] += $line['candidates'];
 			}
 		}
 		

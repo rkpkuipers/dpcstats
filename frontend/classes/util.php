@@ -92,6 +92,7 @@ function getCalender($datum)
 
 function getTop5Table($project, $ml, $headertext, $tabel)
 {
+	global $baseUrl;
 	$mbs = $ml->getMembers();
 	if ( count($mbs) > 0 )
 	{
@@ -216,6 +217,7 @@ function getShoutboxTable($db, $project, $tabel, $team)
 
 function getShoutboxForm($project, $tabel, $team)
 {
+	global $baseUrl;
 ?>
 	<form method="get" action="addMessage.php" name="shoutbox">
 		<input type="hidden" name="tabel" value="<?php echo $tabel; ?>">
@@ -332,7 +334,7 @@ function getYesterday($prefix)
 	return date("Y-m-d", strtotime("Yesterday", date("U")));
 }
 
-function getNavBarEntry($link,$target)
+function getNavBarEntry($link, $target)
 {
 
 	return '<li><a href="' . $target . '">' . $link . '</a></li>'."\n";
@@ -521,7 +523,11 @@ function getURL($array)
 		$prefix = $array['prefix'];
 	
 	$link = $array['link'];
-	$title = $array['title'];
+	
+	if ( isset($array['title']) )
+		$title = $array['title'];
+	else
+		$title = '';
 
 	$href = 'index.php?mode=' . $mode . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) .
 		'&amp;datum=' . $datum . '&amp;team=' . rawurlencode($team) . '&amp;prefix=' . $prefix;

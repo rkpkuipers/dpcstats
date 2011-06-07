@@ -63,7 +63,7 @@ class MijlPalen
 		if ( is_numeric(strpos($this->tabel, 'subteamoffset')) )
 			$where = ' AND o.subteam = \'' . $this->subteam . '\' ';
 		else
-			$where;
+			$where = '';
 
 		$query = 'SELECT
 	                	o.naam,
