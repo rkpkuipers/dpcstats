@@ -23,12 +23,8 @@
 <hr>
 <div><br></div>
 <?php
-if ( is_numeric(strpos($tabel, 'daily') ) )
-	$strippedTabel = substr($tabel, 0, strpos($tabel, 'daily'));
-else
-	$strippedTabel = $tabel;
-	
-$fmc = new FlushList($project->getPrefix() . '_' . $strippedTabel, $db);
+
+$fmc = new FlushList($project->getPrefix() . '_' . $tabel, $db);
 
 $fmc->createMFList();
 $fl = $fmc->getMFList();
