@@ -6,10 +6,11 @@ if ( isset($_GET['tabel']) )
 else
         $tabel = 'memberoffset';
 
-if ( isset($_GET['prefix']) )
-	$project = new Project($db, $_GET['prefix'], $tabel);
+# Retrieve the project
+if ( ( isset($_REQUEST['prefix']) ) && ( preg_match('/^[a-z0-9]+$/', $_REQUEST['prefix']) ) )
+	$project = new Project($db, $_REQUEST['prefix'], 'memberoffset');
 else
-	$project = new Project($db, 'tsc', 'memberoffset');
+	die("ERROR: No project specified");
 
 if ( isset($_GET['naam']) )
 	$naam = stripslashes($_GET['naam']);

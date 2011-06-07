@@ -3,10 +3,11 @@ include ('../classes.php');
 include ($jpgraphdir . "/jpgraph.php"); 
 include ($jpgraphdir . "/jpgraph_line.php"); 
 
-if ( isset ( $_GET['prefix'] ) )
-	$project = new Project($db, $_GET['prefix'], 'memberoffset');
+# Retrieve the project
+if ( ( isset($_REQUEST['prefix']) ) && ( preg_match('/^[a-z0-9]+$/', $_REQUEST['prefix']) ) )
+	$project = new Project($db, $_REQUEST['prefix'], 'memberoffset');
 else
-	$project = new Project($db, 'tsc', 'memberoffset');
+	die("ERROR: No project specified");
 
 $dagen = array();
 

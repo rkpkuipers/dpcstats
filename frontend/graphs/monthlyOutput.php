@@ -19,10 +19,12 @@ if ( isset($HTTP_GET_VARS['timespan']) )
 else
 	$timespan = 7;
 
-if ( isset ($_GET['prefix']) )
-	$project = new Project($db, $_GET['prefix'], $tabel);
+# Retrieve the project
+if ( ( isset($_REQUEST['prefix']) ) && ( preg_match('/^[a-z0-9]+$/', $_REQUEST['prefix']) ) )
+	$project = new Project($db, $_REQUEST['prefix'], 'memberoffset');
 else
-	$project = new Project($db, 'tsc', 'memberoffset');
+	die("ERROR: No project specified");
+
 
 function getMonthOutput($tabel, $naam, $maand)
 {
