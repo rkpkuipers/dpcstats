@@ -217,4 +217,8 @@ items */
 }
 
 
-
+.menulink {
+	color: #005FA9;
+	font-weight: bold;
+	text-decoration: none;
+}

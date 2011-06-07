@@ -97,6 +97,16 @@ header('Content-Type: text/html; charset=ISO-8859-1');
    	style="background-image:url(images/bg1222.jpg); background-position:right top; background-repeat:repeat-y"></td>
    <td>
     <table border="0" cellpadding="0" cellspacing="0" class="pageCell">
+         <tr>
+     
+     
+      <td align="center" colspan="12" style="background-image:url(images/index_r1_c1.jpg);" class="pageCell cellHeight1">
+<?php
+	include("menu.php");
+?>
+
+     </td>
+     </tr>
      <tr>
       <td><img src="images/spacer.gif" width="159" class="cellHeight4" alt=""></td>
       <td><img src="images/spacer.gif" width="21" class="cellHeight4" alt=""></td>
@@ -112,69 +122,24 @@ header('Content-Type: text/html; charset=ISO-8859-1');
       <td><img src="images/spacer.gif" width="12" class="cellHeight4" alt=""></td>
       <td><img src="images/spacer.gif" width="1" class="cellHeight4" alt=""></td>
      </tr>
-     <tr>
-      <td align="center" colspan="12" style="background-image:url(images/index_r1_c1.jpg);" class="pageCell cellHeight1"></td>
-      <td><img src="images/spacer.gif" width="1" class="cellHeight1" alt=""></td>
-     </tr>
+     
      <tr>
       <td colspan="12">
        <a href="/"><img name="index_r2_c1" src="images/index_r2_c1.jpg" class="pageCell cellHeight2" alt="Stats"></a>
       </td>
       <td><img src="images/spacer.gif" width="1" class="cellHeight2" alt=""></td>
      </tr>
-     <tr>
-      <td colspan="12"><img name="index_r3_c1" src="images/index_r3_c1.jpg" class="pageCell cellHeight3" alt=""></td>
-      <td><img src="images/spacer.gif" width="1" class="cellHeight3" alt=""></td>
-     </tr>
-     <tr>
-      <td colspan="1"><img name="index_r4_c1" src="images/index_r4_c1.jpg" width="159" class="cellHeight5" alt=""></td>
-      <td colspan="2">
-       <a href="?mode=Members&amp;prefix=<?php echo $project->getPrefix() ?>&amp;tabel=memberoffset&amp;datum=<?php echo $datum; ?>"><img name="index_r4_c2" src="images/index_r4_c2.jpg" width="108" class="cellHeight5" alt=""></a>
-      </td>
-      <td align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/teams.jpg); width:100" class="cellHeight5" onclick='window.open("<?php echo '?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . $datum; ?>", "_self")'>
-       <div style="position:relative; top:9px">
-        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="<?php echo '?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . $datum; ?>">Teams</a>
-       </div>
-      </td>
-<?php
-	if ( in_array($project->getPrefix(), array('fah', 'sah', 'smp', 'sob', 'ufl', 'rah', 'wcg', 'ldc', 'sp6')) )
-	{
-		$indUrl = $baseUrl . '/index.php?mode=Individuals&amp;tabel=individualoffset&amp;datum=' . 
-			$datum . '&amp;prefix=' . $project->getPrefix();
-?>
-      <td align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/spacer.3.jpg); width:100" class="cellHeight5" onclick='window.open("<?php echo $indUrl; ?>", "_self")'>
-       <div style="position:relative; top:9px">
-        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="<?php echo $indUrl; ?>">Individuals</a>
-       </div>
-      </td>
-<?php
-	}
-	else
-		echo '<td style="background-image:url(images/spacer.3.jpg); width:100" class="cellHeight5"></td>';
-?>
-      <td colspan="2"><img name="spacer.4.jpg" src="images/spacer.4.jpg" width="103" class="cellHeight5" alt=""></td>
 
-      <td align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/output-graph.jpg); width:100" class="cellHeight5" onclick='window.open("<?php echo '?mode=Graph&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>", "_self")'>
-       <div style="position:relative; top:6px">
-        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="<?php echo '?mode=Graph&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>">Output<br>Graphs</a>
-       </div>
-      </td>
-      <td colspan="3" align="center" valign="top" style="font-weight:bold; color:#EEEEEE; cursor:pointer; font-size:11px; background-image:url(images/spacer6.jpg);" class="cellHeight5" onclick='window.open("<?php echo '?mode=Flush&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>", "_self")'>
-       <div style="position:relative; top:9px;">
-        <a style="hover:#FF0000; color:#EEEEEE; text-decoration:none;" href="?mode=Flush&amp;prefix=<?php echo $project->getPrefix();?>">Flush History</a>
-       </div>
-      </td>
-      <td><img name="index_r4_c12" src="images/index_r4_c12.jpg" width="10" class="cellHeight5" alt=""></td>
-      <td><img src="images/spacer.gif" width="1" class="cellHeight5" alt=""></td>
-     </tr>
-     <tr>
-      <td align="center" colspan="12" style="background-image:url(images/index_r1_c1.jpg);" class="pageCell cellHeight1">
-<?php
-	include("menu.php");
-?>
-
-     </td>
-     </tr>
+<tr><td align="center" colspan="12" style="background-image:url(images/index_r1_c1.jpg);" class="pageCell cellHeight1" style="height:60px;">
+<table style="width:100%"><tr>
+<td style="width:20%; text-align:center"><a class="menulink" href="?mode=Members&amp;prefix=<?php echo $project->getPrefix() ?>&amp;tabel=memberoffset&amp;datum=<?php echo $datum; ?>">Member Stats</a></td>
+<td style="width:20%; text-align:center"><a class="menulink" href="<?php echo '?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . $datum; ?>">Team Stats</a></td>
+<td style="width:20%; text-align:center"><a class="menulink" href="<?php echo $baseUrl; ?>/index.php?mode=Individuals&amp;tabel=individualoffset&amp;datum=<?php echo $datum; ?>&amp;prefix=<?php echo $project->getPrefix() ?>">Individual Stats</a>
+<td style="width:20%; text-align:center"><a class="menulink" href="<?php echo '?mode=Graph&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>">Output Graphs</a></td>
+<td style="width:20%; text-align:center"><a class="menulink" href="?mode=Flush&amp;prefix=<?php echo $project->getPrefix();?>">Flush History</a></td>
+</tr></table>
+</td></tr>
+     
      <tr>
       <td colspan="2" style="background-image:url(images/index_r5_c3.jpg); background-position:right top; background-repeat:repeat-y" align="left">
 <?php
