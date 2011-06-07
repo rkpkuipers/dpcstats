@@ -15,7 +15,7 @@
 		?>
 		</ul>
 	</li>
-
+	
 	<li><a href="#">General Links</a>
 		<ul>
 		<?php
@@ -44,13 +44,13 @@
 
 	<li><a href="#">Visual Options</a>
 		<ul>
-			<?php
-	
-			echo getNavBarEntry('Toggle Calendar ', 'index.php?prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel .'&amp;datum=' . $datum. '&amp;mode=' . $mode  . '&amp;naam=' . rawurlencode($naam) . '&amp;cActive=' . ($cActive=='on'?'off':'on') . '&amp;setCActive=&amp;team=' . rawurlencode($team) );
-
-			echo getNavBarEntry('Toggle Daily Top\'s','index.php?prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;datum=' . $datum . '&amp;mode=' . $mode . '&amp;naam=' . rawurlencode($naam) . '&amp;dtActive=' . ($dtActive=='on'?'off':'on') . '&amp;setDtActive=&amp;teams=' . $teams );
-			
-			echo getNavBarEntry('Toggle Shoutbox','index.php?prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;datum=' . $datum . '&amp;mode=' . $mode . '&amp;naam=' . rawurlencode($naam) . '&amp;sbActive=' . ($sbActive=='on'?'off':'on') . '&amp;setSbActive=&amp;teams=' . $teams );
+			<?php	
+			echo getNavBarEntry('Toggle Calendar ', 'index.php?prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) . 
+				'&amp;datum=' . $datum . '&amp;mode=' . $mode  . '&amp;setcActive=' . ($cActive=='on'?'off':'on') . '&amp;team=' . rawurlencode($team) );
+			echo getNavBarEntry('Toggle Daily Top\'s','index.php?prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) .
+				'&amp;datum=' . $datum . '&amp;mode=' . $mode . '&amp;setdtActive=' . ($dtActive=='on'?'off':'on') . '&amp;teams=' . $teams );
+			echo getNavBarEntry('Toggle Shoutbox','index.php?prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '&amp;naam=' . rawurlencode($naam) . 
+				'&amp;datum=' . $datum . '&amp;mode=' . $mode . '&amp;setsbActive=' . ($sbActive=='on'?'off':'on') . '&amp;teams=' . $teams );
 
 			?>
 			

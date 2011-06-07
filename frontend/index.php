@@ -4,13 +4,10 @@ require('classes.php');
 # Record the start time to be able to show a Page loaded in x seconds line
 $start_time = microtime();
 
-# Start the session
-session_start();
-
 # Set/unset variables through cookies, used to save settings for hiding various parts on the site
-$cActive  = handleCookie('cActive',  $_GET['setCActive'],  $_GET['cActive'],  $_COOKIE['cActive']);	# Calender
-$sbActive = handleCookie('sbActive', $_GET['setSbActive'], $_GET['sbActive'], $_COOKIE['sbActive']);	# Shoutbox
-$dtActive = handleCookie('dtActive', $_GET['setDtActive'], $_GET['dtActive'], $_COOKIE['dtActive']);	# Daily tops
+$cActive  = handleCookie('cActive');	# Calender
+$sbActive = handleCookie('sbActive');	# Shoutbox
+$dtActive = handleCookie('dtActive');	# Daily tops
 
 # The allowed array contains all variables used with their default values. 
 # These can be taken from the global array, if they're not set we use the default
