@@ -68,11 +68,11 @@ else
 		$sort = 'avgDaily';
 }
 
-# Load the project data, if none is specified use TSC
+# Load the project data, if none is specified use CP
 if ( isset($_REQUEST['prefix']) )
 	$project = new Project($db, $_REQUEST['prefix'], $tabel);
 else
-	$project = new Project($db, 'tsc', 'memberoffset');
+	$project = new Project($db, 'cp', 'memberoffset');
 
 # Make sure the page expires when the next statsrun has completed
 header('Expires: ' . gmdate("D, d M Y H:i:s ", strtotime("+" . $project->getStatsrunInterval() . " minutes", strtotime($project->getLastUpdate()))) . 'GMT');
@@ -118,7 +118,7 @@ header('Content-Type: text/html; charset=ISO-8859-1');
      </tr>
      <tr>
       <td colspan="12">
-       <a href="/"><img name="index_r2_c1" src="images/index_r2_c1.jpg" class="pageCell cellHeight2" alt="TSC Stats"></a>
+       <a href="/"><img name="index_r2_c1" src="images/index_r2_c1.jpg" class="pageCell cellHeight2" alt="Stats"></a>
       </td>
       <td><img src="images/spacer.gif" width="1" class="cellHeight2" alt=""></td>
      </tr>
