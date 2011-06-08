@@ -302,12 +302,6 @@ function getYesterday($prefix)
 	return date("Y-m-d", strtotime("Yesterday", date("U")));
 }
 
-function getNavBarEntry($link, $target)
-{
-
-	return '<li><a href="' . $target . '">' . $link . '</a></li>'."\n";
-}
-
 function getChangeImage($change, $ts)
 {
         if ( $change == 0 )

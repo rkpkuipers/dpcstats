@@ -1,3 +1,12 @@
+<?php
+
+function getNavBarEntry($link, $target)
+{
+	return '<li><a href="' . $target . '">' . $link . '</a></li>'."\n";
+}
+
+?>
+
 <ul id="nav">
 	<li><a href="#">Projects</a>
 		<ul>
