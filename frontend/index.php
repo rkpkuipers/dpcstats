@@ -52,6 +52,39 @@ if ( isset($_REQUEST['prefix']) )
 else
 	$project = new Project($db, 'cp', 'memberoffset');
 
+# Array of allowed modes
+$pages = array(	'Members' => array('Member Stats', 'members.php'),
+		'Teams' => array('Team Stats', 'members.php'),
+		'Individuals' => array('Individual Stats', 'members.php'),
+		'Subteam' => array('Subteam Stats', 'members.php'),
+		'Graph' => array('Output Graph', 'graphs/progress.php'),
+		'Flush' => array('Flush History', 'flush.php'),
+		'search' => array('Search', 'search.php'),
+		'history' => array('Flush History', 'flushHistory.php'),
+		'detail' => array('Contestant Details', 'detail.php'),
+		'shoutbox' => array('Shoutbox', 'shoutbox.php'),
+		'stats' => array('Stats Engine', 'stats.php'),
+		'avgProd' => array('Average Production Rate', 'average.php'),
+		'monthlyStats' => array('Monthly Stats', 'monthly.php'),
+		'memberGraphs' => array('Member Graphs', 'memberGraphs.php'),
+		'login' => array('Login', 'admin/login.php'),
+		'register' => array('Register', 'admin/register.php'),
+		'verify' => array('Verify', 'admin/verify.php'),
+		'admin' => array('Admin Center', 'admin/admin.php'));
+
+# When the mode is valid set the pagename and pagefile
+if ( isset($pages[$mode]) )
+{
+	$pagename = $pages[$mode][0];
+	$pagefile = $pages[$mode][1];
+}
+# Otherwise revert to default
+else
+{
+	$pagename = 'Welcome';
+	$pagefile = 'members.php';
+}
+
 # Make sure the page expires when the next statsrun has completed
 header('Expires: ' . gmdate("D, d M Y H:i:s ", strtotime("+" . $project->getStatsrunInterval() . " minutes", strtotime($project->getLastUpdate()))) . 'GMT');
 header('Content-Type: text/html; charset=ISO-8859-1');
@@ -113,40 +146,8 @@ header('Content-Type: text/html; charset=ISO-8859-1');
        </td>
       </tr>
       <tr>
-       <td colspan="2" style="background-image:url(images/index_r5_c3.jpg); background-position:right top; background-repeat:repeat-y" align="left">
-<?php
-	$pages = array(	'Members' => array(	'Member Stats', 'members.php'),
-						'Teams' => array('Team Stats', 'members.php'),
-						'Individuals' => array('Individual Stats', 'members.php'),
-						'Subteam' => array('Subteam Stats', 'members.php'),
-						'Graph' => array('Output Graph', 'graphs/progress.php'),
-						'Flush' => array('Flush History', 'flush.php'),
-						'search' => array('Search', 'search.php'),
-						'history' => array('Flush History', 'flushHistory.php'),
-						'detail' => array('Contestant Details', 'detail.php'),
-						'shoutbox' => array('Shoutbox', 'shoutbox.php'),
-						'stats' => array('Stats Engine', 'stats.php'),
-						'avgProd' => array('Average Production Rate', 'average.php'),
-						'monthlyStats' => array('Monthly Stats', 'monthly.php'),
-						'memberGraphs' => array('Member Graphs', 'memberGraphs.php'),
-						'login' => array('Login', 'admin/login.php'),
-						'register' => array('Register', 'admin/register.php'),
-						'verify' => array('Verify', 'admin/verify.php'),
-						'admin' => array('Admin Center', 'admin/admin.php'));
-
-	if ( isset($pages[$mode]) )
-	{
-		$pagename = $pages[$mode][0];
-		$pagefile = $pages[$mode][1];
-	}
-	else
-	{
-		$pagename = 'Welcome';
-		$pagefile = 'members.php';
-	}
-	
-	echo '<center style="color:#FFFFFF; font-size:14px; font-weight:bold;"><a class="wLink" href="' . $project->getWebsite() . '">' . $project->getDescription() . '</a></center>';
-?>
+       <td colspan="2" style="background-image:url(images/index_r5_c3.jpg); background-position:right top; background-repeat:repeat-y;" align="left">
+        <center style="color:#FFFFFF; font-size:14px; font-weight:bold;"><a class="wLink" href="<?php echo $project->getWebsite(); ?>"><?php echo $project->getDescription(); ?></a></center>
        </td>
        <td colspan="9" style="background-image:url(images/index_r5_c3.jpg); background-position:right top; background-repeat:repeat-y" align="left" >
         <table width="100%" border="0">
