@@ -1,5 +1,12 @@
 <?php
 
+# Check if a sorting method was specified
+if ( ( isset($_REQUEST['sort']) ) && ( in_array($_REQUEST['sort'], array('dag', 'daily')) ) )
+	$sort = $_REQUEST['sort'];
+# Default to sorting by day
+else
+	$sort = 'dag';
+
 # Center the content
 echo '<div style="width:100%; text-align:center">';
 
@@ -42,8 +49,8 @@ echo '<table class="colorbox" style="margin-left:auto; margin-right:auto;">';
 echo '<tr>';
 
 # Link the column headers to allow sorting of the table
-echo '<td><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;naam=' . $naam . '&amp;sort=dag">Dag</td>';
-echo '<td align="center"><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;naam=' . $naam . '&amp;sort=daily">Flush</a></td>';
+echo '<td><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;naam=' . $naam . '&amp;sort=dag&amp;prefix=' . $project->getPrefix() . '">Dag</td>';
+echo '<td align="center"><a href="index.php?mode=history&amp;tabel=' . $tabel . '&amp;naam=' . $naam . '&amp;sort=daily&amp;prefix=' . $project->getPrefix() . '">Flush</a></td>';
 
 echo '<td align="center">Total</td>';
 echo '</tr>';

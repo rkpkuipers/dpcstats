@@ -47,16 +47,6 @@ checkTable($tabel);
 if ( $datum > date("Y-m-d") )
 	$datum = date("Y-m-d");
 
-if ( isset ( $_GET['sort']) )
-	$sort = $_GET['sort'];
-else
-{
-	if ( $mode == 'history' )
-		$sort = 'dag';
-	else
-		$sort = 'avgDaily';
-}
-
 # Load the project data, if none is specified use CP
 if ( isset($_REQUEST['prefix']) )
 	$project = new Project($db, $_REQUEST['prefix'], $tabel);
