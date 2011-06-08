@@ -128,20 +128,15 @@ echo '<tr><td colspan="3" style="text-align:right"><a href="index.php?mode=histo
 	'&amp;team=' . rawurlencode($team) . '&amp;naam=' . $naam . '" title="Complete flush history">More...</a></td></tr>';
 echo '</table>';
 
-# Spacer
-echo '<br>';
-
 if ( $showmonthlygraphs )
 {
-	echo '<br>';
-	echo '<img src="graphs/monthlyOutput.php?naam=' . $naam . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '">';
-	echo '<br><br>';
+	echo '<div><br></div>';
 	echo '<img src="graphs/flushHistoryGraph.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;naam=' . rawurlencode($naam) . 
 		'&amp;team=' . rawurlencode($team) . '&amp;timespan=31" alt="History">';
-	
-	# Spacer
-	echo '<div><br></div>';
 }
+
+# Spacer
+echo '<div><br></div>';
 
 $opp = new Oppertunities($naam, $team, $project, $db);
 
