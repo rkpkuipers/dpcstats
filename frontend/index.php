@@ -249,9 +249,8 @@ header('Content-Type: text/html; charset=ISO-8859-1');
      <tr>
       <td colspan="12" class="pageCell" style="background-image:url(images/index_r12_c1.jpg); background-position:right top; background-repeat:repeat-y" align="center">
        <a href="mailto:speedkikker@planet.nl" title="Mail SpeedKikker">Contact</a> 
-       | <a href="http://tadah.mine.nu/traffic/awstats.tadah.mine.nu.html" title="View site traffic">Site Traffic</a>
-       | &copy;opyright 2004-2008 TaDaH
-       | <a href="http://rkuipers.mine.nu/viewcvs/" title="View revision history">Revision <?php echo $project->getVersion();?></a> 
+       | &copy;opyright 2004-<?php echo date("Y"); ?> TaDaH
+       | <a href="http://rkuipers.mine.nu/svn/frontend/" title="View revision history">Revision <?php echo $project->getVersion();?></a> 
        | <?php echo 'Page loaded in ' . sprintf("%0.3f", microtime_diff($start_time, microtime())) . ' seconds'; ?>
       </td>
       <td><img src="images/spacer.gif" width="1" height="34" alt=""></td>
