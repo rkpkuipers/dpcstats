@@ -29,7 +29,11 @@ class StatsRun
 		dailyOffset('memberoffset', $prefix);
 		dailyOffset('subteamoffset', $prefix);
 		dailyOffset('individualoffset', $prefix);
-
+		
+		# Ensure the files directory exists
+		if ( ! is_dir($this->tempdir) )
+			mkdir($this->tempdir, 0777, true) or die("ERROR: Unable to create temporary directory " . $this->tempdir . "\n");
+		
 		# Team stats
 
 		# Obtain the datafile from the project, unzip the file and load it into a simplexml object
