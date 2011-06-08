@@ -60,66 +60,60 @@ header('Content-Type: text/html; charset=ISO-8859-1');
 <html>
  <head>
   <title><?php echo $project->getDescription(); ?> - Statistics</title>
-
-<script type="text/javascript" src="/resources/shoutbox.js"></script>
-
-<link rel="stylesheet" href="/resources/page.css" type="text/css">
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
- <meta http-equiv="Pragma" content="no-cache">
- <link rel="shortcut icon" href="favicon.ico">
-</head>
-<body>
- <table cellpadding="0" cellspacing="0" border="0">
-  <tr>
-   <td rowspan="10" class="styleCell" 
-   	style="background-image:url(images/bg1222.jpg); background-position:right top; background-repeat:repeat-y"></td>
-   <td>
-    <table border="0" cellpadding="0" cellspacing="0" class="pageCell">
-         <tr>
-     
-     
-      <td align="center" colspan="12" style="background-image:url(images/index_r1_c1.jpg);" class="pageCell cellHeight1">
+  <script type="text/javascript" src="/resources/shoutbox.js"></script>
+  <link rel="stylesheet" href="/resources/page.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Pragma" content="no-cache">
+  <link rel="shortcut icon" href="favicon.ico">
+ </head>
+ <body>
+  <table cellpadding="0" cellspacing="0" border="0">
+   <tr>
+    <td rowspan="10" class="styleCell" style="background-image:url(images/bg1222.jpg); background-position:right top; background-repeat:repeat-y"></td>
+    <td>
+     <table border="0" cellpadding="0" cellspacing="0" class="pageCell">
+      <tr>
+       <td align="center" colspan="12" style="background-image:url(images/index_r1_c1.jpg);" class="pageCell cellHeight1">
 <?php
 	include("menu.php");
 ?>
 
-     </td>
-     </tr>
-     <tr>
-      <td><img src="images/spacer.gif" width="159" class="cellHeight4" alt=""></td>
-      <td><img src="images/spacer.gif" width="21" class="cellHeight4" alt=""></td>
-      <td><img src="images/spacer.gif" width="87" class="cellHeight4" alt=""></td>
-      <td><img src="images/spacer.gif" width="99" class="cellHeight4" alt=""></td>
-      <td><img src="images/spacer.gif" width="100" class="cellHeight4" alt=""></td>
-      <td><img src="images/spacer.gif" width="22" class="cellHeight4" alt=""></td>
-      <td><img src="images/spacer.gif" width="81" class="cellHeight4" alt=""></td>
-      <td><img src="images/spacer.gif" width="100" class="cellHeight4" alt=""></td>
-      <td><img src="images/spacer.gif" width="51" class="cellHeight4" alt=""></td>
-      <td><img src="images/spacer.gif" width="37" class="cellHeight4" alt=""></td>
-      <td><img src="images/spacer.gif" width="11" class="cellHeight4" alt=""></td>
-      <td><img src="images/spacer.gif" width="12" class="cellHeight4" alt=""></td>
-      <td><img src="images/spacer.gif" width="1" class="cellHeight4" alt=""></td>
-     </tr>
-     
-     <tr>
-      <td colspan="12">
-       <a href="/"><img name="index_r2_c1" src="images/index_r2_c1.jpg" class="pageCell cellHeight2" alt="Stats"></a>
-      </td>
-      <td><img src="images/spacer.gif" width="1" class="cellHeight2" alt=""></td>
-     </tr>
-
-<tr><td align="center" colspan="12" style="background-image:url(images/index_r1_c1.jpg);" class="pageCell cellHeight1" style="height:60px;">
-<table style="width:100%"><tr>
-<td style="width:20%; text-align:center"><a class="menulink" href="?mode=Members&amp;prefix=<?php echo $project->getPrefix() ?>&amp;tabel=memberoffset&amp;datum=<?php echo $datum; ?>">Member Stats</a></td>
-<td style="width:20%; text-align:center"><a class="menulink" href="<?php echo '?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . $datum; ?>">Team Stats</a></td>
-<td style="width:20%; text-align:center"><a class="menulink" href="<?php echo $baseUrl; ?>/index.php?mode=Individuals&amp;tabel=individualoffset&amp;datum=<?php echo $datum; ?>&amp;prefix=<?php echo $project->getPrefix() ?>">Individual Stats</a>
-<td style="width:20%; text-align:center"><a class="menulink" href="<?php echo '?mode=Graph&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>">Output Graphs</a></td>
-<td style="width:20%; text-align:center"><a class="menulink" href="?mode=Flush&amp;prefix=<?php echo $project->getPrefix();?>">Flush History</a></td>
-</tr></table>
-</td></tr>
-     
-     <tr>
-      <td colspan="2" style="background-image:url(images/index_r5_c3.jpg); background-position:right top; background-repeat:repeat-y" align="left">
+       </td>
+      </tr>
+      <tr>
+       <td><img src="images/spacer.gif" width="159" class="cellHeight4" alt=""></td>
+       <td><img src="images/spacer.gif" width="21" class="cellHeight4" alt=""></td>
+       <td><img src="images/spacer.gif" width="87" class="cellHeight4" alt=""></td>
+       <td><img src="images/spacer.gif" width="99" class="cellHeight4" alt=""></td>
+       <td><img src="images/spacer.gif" width="100" class="cellHeight4" alt=""></td>
+       <td><img src="images/spacer.gif" width="22" class="cellHeight4" alt=""></td>
+       <td><img src="images/spacer.gif" width="81" class="cellHeight4" alt=""></td>
+       <td><img src="images/spacer.gif" width="100" class="cellHeight4" alt=""></td>
+       <td><img src="images/spacer.gif" width="51" class="cellHeight4" alt=""></td>
+       <td><img src="images/spacer.gif" width="37" class="cellHeight4" alt=""></td>
+       <td><img src="images/spacer.gif" width="11" class="cellHeight4" alt=""></td>
+       <td><img src="images/spacer.gif" width="12" class="cellHeight4" alt=""></td>
+       <td><img src="images/spacer.gif" width="1" class="cellHeight4" alt=""></td>
+      </tr>
+      <tr>
+       <td colspan="12"><a href="/"><img name="index_r2_c1" src="images/index_r2_c1.jpg" class="pageCell cellHeight2" alt="Stats"></a></td>
+       <td><img src="images/spacer.gif" width="1" class="cellHeight2" alt=""></td>
+      </tr>
+      <tr>
+       <td align="center" colspan="12" style="background-image:url(images/index_r1_c1.jpg);" class="pageCell cellHeight1" style="height:60px;">
+        <table style="width:100%">
+         <tr>
+          <td style="width:20%; text-align:center"><a class="menulink" href="?mode=Members&amp;prefix=<?php echo $project->getPrefix() ?>&amp;tabel=memberoffset&amp;datum=<?php echo $datum; ?>">Member Stats</a></td>
+          <td style="width:20%; text-align:center"><a class="menulink" href="<?php echo '?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . $datum; ?>">Team Stats</a></td>
+          <td style="width:20%; text-align:center"><a class="menulink" href="<?php echo $baseUrl; ?>/index.php?mode=Individuals&amp;tabel=individualoffset&amp;datum=<?php echo $datum; ?>&amp;prefix=<?php echo $project->getPrefix() ?>">Individual Stats</a>
+          <td style="width:20%; text-align:center"><a class="menulink" href="<?php echo '?mode=Graph&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>">Output Graphs</a></td>
+          <td style="width:20%; text-align:center"><a class="menulink" href="?mode=Flush&amp;prefix=<?php echo $project->getPrefix();?>">Flush History</a></td>
+         </tr>
+        </table>
+       </td>
+      </tr>
+      <tr>
+       <td colspan="2" style="background-image:url(images/index_r5_c3.jpg); background-position:right top; background-repeat:repeat-y" align="left">
 <?php
 	$pages = array(	'Members' => array(	'Member Stats', 'members.php'),
 						'Teams' => array('Team Stats', 'members.php'),
@@ -153,20 +147,20 @@ header('Content-Type: text/html; charset=ISO-8859-1');
 	
 	echo '<center style="color:#FFFFFF; font-size:14px; font-weight:bold;"><a class="wLink" href="' . $project->getWebsite() . '">' . $project->getDescription() . '</a></center>';
 ?>
-      </td>
-      <td colspan="9" style="background-image:url(images/index_r5_c3.jpg); background-position:right top; background-repeat:repeat-y" align="left" >
-       <table width="100%" border="0">
-        <tr style="color:#FFFFFF; font-size:14px;">
-	 <td align="left"><?php echo $pagename . ' of ' . date("F d, Y", strtotime($datum)); ?></td>
-         <td align="right">Last update: <?php echo date("l j F Y, H:i", strtotime($project->getLastUpdate())); ?></td>
-	</tr>
-       </table>
-      </td>
-      <td rowspan="6" style="background-image:url(images/index_r5_c12.jpg); background-position:right top; background-repeat:repeat-y"></td>
-      <td><img src="images/spacer.gif" width="1" height="39" alt=""></td>
-     </tr>
-     <tr>
-      <td valign="top" colspan="2" style="background-image:url(images/gray-back.jpg); background-position:right top; background-repeat:repeat-y"> 
+       </td>
+       <td colspan="9" style="background-image:url(images/index_r5_c3.jpg); background-position:right top; background-repeat:repeat-y" align="left" >
+        <table width="100%" border="0">
+         <tr style="color:#FFFFFF; font-size:14px;">
+          <td align="left"><?php echo $pagename . ' of ' . date("F d, Y", strtotime($datum)); ?></td>
+          <td align="right">Last update: <?php echo date("l j F Y, H:i", strtotime($project->getLastUpdate())); ?></td>
+         </tr>
+        </table>
+       </td>
+       <td rowspan="6" style="background-image:url(images/index_r5_c12.jpg); background-position:right top; background-repeat:repeat-y"></td>
+       <td><img src="images/spacer.gif" width="1" height="39" alt=""></td>
+      </tr>
+      <tr>
+       <td valign="top" colspan="2" style="background-image:url(images/gray-back.jpg); background-position:right top; background-repeat:repeat-y"> 
 <?php
 	if ( isset($_SESSION['username']) )
 	{
@@ -202,24 +196,22 @@ header('Content-Type: text/html; charset=ISO-8859-1');
 			getShoutBoxForm($project, $tabel, $team);
 	}
 ?>
-       <table width="180px" cellspacing="0" cellpadding="0">
-        <tr style="background-image:url(images/left-banner.jpg); height:45px">
-         <td align="center" style="font-size:13px; font-weight:bold; color:#FFFFFF;">Search</td>
-	</tr>
-       </table>					
-       <table width="180" cellpadding="2" cellspacing="1">
-        <tr>
-         <td align="center">
-          <form name="Search" action="index.php" method="get">
-           <p>
-            <input class="TextField" type="text" name="searchString" style="width:155px">
-            <input type="hidden" name="mode" value="search">
-            <br><br>
-            <input type="image" SRC="images/zoek.jpg" value="Search" alt="Search">
-           </p>
-          </form>
-         </td>
-        </tr>
+        <table width="180px" cellspacing="0" cellpadding="0">
+         <tr style="background-image:url(images/left-banner.jpg); height:45px"><td align="center" style="font-size:13px; font-weight:bold; color:#FFFFFF;">Search</td></tr>
+        </table>
+        <table width="180" cellpadding="2" cellspacing="1">
+         <tr>
+          <td align="center">
+           <form name="Search" action="index.php" method="get">
+            <p>
+             <input class="TextField" type="text" name="searchString" style="width:155px">
+             <input type="hidden" name="mode" value="search">
+             <br><br>
+             <input type="image" SRC="images/zoek.jpg" value="Search" alt="Search">
+            </p>
+           </form>
+          </td>
+         </tr>
 <?php
 	if ( in_array($mode, array('Members', 'Teams', 'Subteam')) )
 	{
@@ -235,33 +227,37 @@ header('Content-Type: text/html; charset=ISO-8859-1');
 		echo '</tr>';
 	}
 ?>
-       </table>
-      </td>
-      <td valign="top" rowspan="1" colspan="8" style="background-image:url(images/gray-back2.jpg);">
+        </table>
+       </td>
+       <td valign="top" rowspan="1" colspan="8" style="background-image:url(images/gray-back2.jpg);">
 <?php
 	# Include the file containing the requested content
 	include($pagefile);
 ?>
-      </td>
-      <td rowspan="0" style="background-image:url(images/index_r6_c11.jpg); background-position:right top; background-repeat:repeat-y" width="11" height="100%" ></td>
-      <td style="background-image:url(images/spacer.gif);" width="1"></td>
-     </tr>
-     <tr>
-      <td colspan="12" class="pageCell" style="background-image:url(images/index_r12_c1.jpg); background-position:right top; background-repeat:repeat-y" align="center">
-       <a href="mailto:speedkikker@planet.nl" title="Mail SpeedKikker">Contact</a> 
-       | &copy;opyright 2004-<?php echo date("Y"); ?> TaDaH
-       | <a href="http://rkuipers.mine.nu/svn/frontend/" title="View revision history">Revision <?php echo $project->getVersion();?></a> 
-       | <?php echo 'Page loaded in ' . sprintf("%0.3f", microtime_diff($start_time, microtime())) . ' seconds'; ?>
-      </td>
-      <td><img src="images/spacer.gif" width="1" height="34" alt=""></td>
-     </tr>
-    </table>
-   </td>
-   <td rowspan="10" class="styleCell" style="background-image:url(images/bg1223.jpg); background-position:left top; background-repeat:repeat-y"></td>
-  </tr>
- </table>
-</body>
+       </td>
+       <td rowspan="0" style="background-image:url(images/index_r6_c11.jpg); background-position:right top; background-repeat:repeat-y" width="11" height="100%" ></td>
+       <td style="background-image:url(images/spacer.gif);" width="1"></td>
+      </tr>
+      <tr>
+       <td colspan="12" class="pageCell" style="background-image:url(images/index_r12_c1.jpg); background-position:right top; background-repeat:repeat-y" align="center">
+        <a href="mailto:speedkikker@planet.nl" title="Mail SpeedKikker">Contact</a> 
+        | &copy;opyright 2004-<?php echo date("Y"); ?> TaDaH
+        | <a href="http://rkuipers.mine.nu/svn/frontend/" title="View revision history">Revision <?php echo $project->getVersion();?></a> 
+        | <?php echo 'Page loaded in ' . sprintf("%0.3f", microtime_diff($start_time, microtime())) . ' seconds'; ?>
+       </td>
+       <td><img src="images/spacer.gif" width="1" height="34" alt=""></td>
+      </tr>
+     </table>
+    </td>
+    <td rowspan="10" class="styleCell" style="background-image:url(images/bg1223.jpg); background-position:left top; background-repeat:repeat-y"></td>
+   </tr>
+  </table>
+ </body>
 </html>
+
 <?php
+
+# Close the database connection
 $db->disconnect();
+
 ?>
