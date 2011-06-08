@@ -192,8 +192,8 @@ header('Content-Type: text/html; charset=ISO-8859-1');
 		# Show a login/register form if not logged in, otherwise show a post box
 		if ( ! isset($_SESSION['username']) )
 		{
-			echo '<hr>';
-			echo '<h3>&nbsp;Login</h3>';
+			echo '<div style="width:180px; background-image:url(images/left-banner.jpg); height:45px; text-align:center; font-size:13px; font-weight:bold; color:#FFFFFF;">';
+			echo '<div style="position:relative; top:11px; ">Login</div></div>';
 			echo '<table style="width:100%">';
 			echo '<form name="login" action="admin/login.php" method="post">';
 			echo '<tr><td>Username</td><td style="text-align:right"><input style="width:95px" type="text" name="username" value=""></td></tr>';
