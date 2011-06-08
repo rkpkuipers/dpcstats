@@ -196,9 +196,9 @@ header('Content-Type: text/html; charset=ISO-8859-1');
 			getShoutBoxForm($project, $tabel, $team);
 	}
 ?>
-        <table width="180px" cellspacing="0" cellpadding="0">
-         <tr style="background-image:url(images/left-banner.jpg); height:45px"><td align="center" style="font-size:13px; font-weight:bold; color:#FFFFFF;">Search</td></tr>
-        </table>
+        <div style="width:180px; background-image:url(images/left-banner.jpg); height:45px; text-align:center; font-size:13px; font-weight:bold; color:#FFFFFF;">
+         <div style="position:relative; top:11px; ">Search</div>
+        </div>
         <table width="180" cellpadding="2" cellspacing="1">
          <tr>
           <td align="center">
