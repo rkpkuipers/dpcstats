@@ -47,11 +47,6 @@ checkTable($tabel);
 if ( $datum > date("Y-m-d") )
 	$datum = date("Y-m-d");
 
-if ( isset($_GET['detail']) )
-	$graphDetail = $_GET['detail'];
-else
-	$graphDetail = 0;
-
 if ( isset ( $_GET['sort']) )
 	$sort = $_GET['sort'];
 else
