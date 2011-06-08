@@ -100,7 +100,7 @@ header('Content-Type: text/html; charset=ISO-8859-1');
        <td><img src="images/spacer.gif" width="1" class="cellHeight2" alt=""></td>
       </tr>
       <tr>
-       <td align="center" colspan="12" style="background-image:url(images/index_r1_c1.jpg);" class="pageCell cellHeight1" style="height:60px;">
+       <td align="center" colspan="12" style="background-image:url(images/index_r1_c1.jpg);" class="pageCell cellHeight1">
         <table style="width:100%">
          <tr>
           <td style="width:20%; text-align:center"><a class="menulink" href="?mode=Members&amp;prefix=<?php echo $project->getPrefix() ?>&amp;tabel=memberoffset&amp;datum=<?php echo $datum; ?>">Member Stats</a></td>
@@ -194,13 +194,13 @@ header('Content-Type: text/html; charset=ISO-8859-1');
 		{
 			echo '<div style="width:180px; background-image:url(images/left-banner.jpg); height:45px; text-align:center; font-size:13px; font-weight:bold; color:#FFFFFF;">';
 			echo '<div style="position:relative; top:11px; ">Login</div></div>';
-			echo '<table style="width:100%">';
 			echo '<form name="login" action="admin/login.php" method="post">';
+			echo '<table style="width:100%">';
 			echo '<tr><td>Username</td><td style="text-align:right"><input style="width:95px" type="text" name="username" value=""></td></tr>';
 			echo '<tr><td>Password</td><td style="text-align:right"><input style="width:95px" type="password" name="password" value=""></td></tr>';
 			echo '<tr><td colspan="2" style="text-align:center"><input type="submit" value="Login" class="TextField"></td></tr>';
-			echo '</form>';
 			echo '</table>';
+			echo '</form>';
 			echo '&nbsp;Of <a href="/index.php?mode=register">Register</a>';
 		}
 		else
