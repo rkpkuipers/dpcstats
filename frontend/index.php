@@ -15,7 +15,6 @@ $allowed = array(	'mode' => 'Members',		# Which page to load
 			'tabel' => 'memberoffset',	# Tabel to take data from
 			'datum' => date("Y-m-d"),	# Date to collect data from
 			'naam' => '',			# Name used when collecting detailed member info
-			'frame' => '',			# Let's find out
 			'hl' => '',			# Which team to highlight, used for custom position lists
 			'dlow' => 0,			# offset for the flush list (start at $dlow instead of 1)
 			'low' => 0,			# offset for the overall list

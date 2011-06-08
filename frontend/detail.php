@@ -1,5 +1,11 @@
 <?php
 
+# Check if we want to show monthly graphs
+if ( ( isset($_REQUEST['frame']) ) && ( $_REQUEST['frame'] == 'm' ) )
+	$showmonthlygraphs = true;
+else
+	$showmonthlygraphs = false;
+
 # Strip slashes from the name to enable db lookup of the member
 $naam = stripslashes($naam);
 
@@ -125,7 +131,7 @@ echo '</table>';
 # Spacer
 echo '<br>';
 
-if ( $frame == 'm' )
+if ( $showmonthlygraphs )
 {
 	echo '<br>';
 	echo '<img src="graphs/monthlyOutput.php?naam=' . $naam . '&amp;prefix=' . $project->getPrefix() . '&amp;tabel=' . $tabel . '">';
