@@ -1,17 +1,4 @@
 <?php
-function getLoginRegisterBox($db)
-{
-	echo '<hr>';
-	echo '<h3>Login</h3>';
-	echo '<table style="width:100%">';
-	echo '<form name="login" action="admin/login.php" method="post">';
-	echo '<tr><td>Username</td><td style="text-align:right"><input style="width:95px" type="text" name="username" value=""></td></tr>';
-	echo '<tr><td>Password</td><td style="text-align:right"><input style="width:95px" type="password" name="password" value=""></td></tr>';
-	echo '<tr><td colspan="2" style="text-align:center"><input type="submit" value="Login"></td></tr>';
-	echo '</form>';
-	echo '</table>';
-	echo 'Of <a href="/index.php?mode=register">Register</a>';
-}
 
 function getCalender($datum)
 {
