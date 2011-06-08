@@ -218,7 +218,7 @@ header('Content-Type: text/html; charset=ISO-8859-1');
              <input class="TextField" type="text" name="searchString" style="width:155px">
              <input type="hidden" name="mode" value="search">
              <br><br>
-             <input type="image" SRC="images/zoek.jpg" value="Search" alt="Search">
+             <input type="submit" class="TextField" value="Search" alt="Search">
             </p>
            </form>
           </td>
