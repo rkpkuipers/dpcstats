@@ -15,8 +15,6 @@ else
 ?>
 <br>
 <center>
-<h2>Overall Progress</h2>
-<hr>
 <?php
 $variables = array(	'tabel' => $tabel,
 			'prefix' => $project->getPrefix(),
