@@ -13,32 +13,24 @@ else
 if ( $ts->getDailyFlushers() > 0 )
 {
 echo '<div class="colorbox">';
-?>
-<h4>&nbsp;Today</h4>
-<hr>
-<table width="100%">
-<tr>
-<td align="left">Flushers Today</td>
-<?php
-echo '<td align="right">' . number_format($ts->getDailyFlushers(), 0, ',', '.') . '/' . number_format($ts->getTotalMembers(), 0, ',', '.') . ' (' . number_format($ts->getDailyFlushers() / ( $ts->getTotalMembers() / 100 ), 0, ',', '.') . ' %)</td>';
 
-echo '</tr>';
-echo '<tr>';
-echo '<td align="left">Current Output</td>';
-echo '<td align="right">' . number_format($ts->getDailyOutput(), 0, ',', '.') . ' ' . $project->getWuName() . '</td>';
-?>
-</tr>
-</table>
-<hr>
-<table width="100%"><tr>
-<?php
+# Header
+echo '<h4 style="margin-left:5px;">Today</h4>';
 
+# Flushers and output info
+echo '<div style="float:left; margin-left:5px;">Flushers Today</div><div style="float:right; margin-right:5px; text-align:right;">' .
+	number_format($ts->getDailyFlushers(), 0, ',', '.') . '/' . number_format($ts->getTotalMembers(), 0, ',', '.') . ' (' . number_format($ts->getDailyFlushers() / ( $ts->getTotalMembers() / 100 ), 0, ',', '.') . '%)</div>';
+echo '<div><br></div>';
+echo '<div style="float:left; margin-left:5px;">Current Output</div><div style="float:right; text-align:right; margin-right:5px;">' .
+	number_format($ts->getDailyOutput(), 0, ',', '.') . ' ' . $project->getWuName() . '</div>';
+echo '<div><br></div>';
+
+# When we have more flushers then we can show add jump to page links
 if ( $ts->getDailyFlushers() > $listsize )
 {
-	echo '<td align="left">';
-	echo 'Page: ';
-	echo '<form action="index.php" method="get">';
-	echo '<p>';
+	echo '<form action="index.php" method="get" name="flushersrankingpagejump">';
+	echo '<div style="margin-left:5px; float:left;">';
+	echo 'Jump to page:&nbsp;';
 	echo '<input type="hidden" name="tabel" value="' . $tabel . '">';
 	echo '<input type="hidden" name="low" value="' . $low . '">';
 	echo '<input type="hidden" name="prefix" value="' . $project->getPrefix() . '">';
@@ -48,7 +40,7 @@ if ( $ts->getDailyFlushers() > $listsize )
 		echo '<input type="hidden" name="mode" value="Subteam">';
 		echo '<input type="hidden" name="team" value="' . $team . '">';
 	}
-	echo '<select name="dlow" class="TextField">';
+	echo '<select name="dlow" class="TextField" onchange="javascript:document.flushersrankingpagejump.submit();">';
 	
 	for($i=0;($i*$listsize)<$ts->getDailyFlushers();$i++)
 	{
@@ -60,11 +52,10 @@ if ( $ts->getDailyFlushers() > $listsize )
 	}
 	echo '</select>';
 	echo '&nbsp;';
-	echo '<input type="submit" value="Go" class="TextField">';
-	echo '</p>';
+	echo '</div>';
 	echo '</form>';
         echo '<form action="index.php" method="get">';
-        echo '<p>';
+        echo '<div style="float:left;">';
         echo '<input type="hidden" name="tabel" value="' . $tabel . '">';
         echo '<input type="hidden" name="prefix" value="' . $project->getPrefix() . '">';
         echo '<input type="hidden" name="low" value="0">';
@@ -73,22 +64,22 @@ if ( $ts->getDailyFlushers() > $listsize )
         echo '<input type="hidden" name="flushlist" value="2">';
         echo '<input type="hidden" name="datum" value="' . $datum . '">';
         echo '<input type="submit" value="List" class="TextField">';
-        echo '</p>';
+        echo '</div>';
         echo '</form>';
-	echo '</td>';
+        
+        # Spacer
+        echo '<div><br></div>';
 }
-?>
-<td align="right">
-<form name="Daily" action="graphs/dailyBars.php" method="post">
-<p>
-<input type="hidden" name="tabel" value="<?php echo $tabel ?>">
-<input type="hidden" name="prefix" value="<?php echo $project->getPrefix() ?>">
-<input type="hidden" name="team" value="<?php echo $team; ?>">
-</p>
-<?php
-#echo '<td align="right">
-echo '<INPUT TYPE="image" SRC="images/graph.jpg" value="Graph"></td>';
-echo '</tr></table>';
+
+# Form for the graph functionality
+echo '<form name="Daily" action="graphs/dailyBars.php" method="post">';
+echo '<div>';
+echo '<input type="hidden" name="tabel" value="' . $tabel . '">';
+echo '<input type="hidden" name="prefix" value="' . $project->getPrefix() . '">';
+echo '<input type="hidden" name="team" value="' . $team . '">';
+echo '</div>';
+
+# Line
 echo '<hr>';
 
 if ( $flushlist == 2 )
@@ -174,8 +165,12 @@ for($i=0;$i<count($mbs);$i++)
         echo '</tr>';
 	$pos++;
 }
-echo '</form>';
+
+# Graph button
+echo '<tr><td colspan="9" style="text-align:right"><input type="submit" class="TextField" value="Graph"></tr>';
+
 echo '</table>';
+echo '</form>';
 echo '</div>';
 }
 ?>
