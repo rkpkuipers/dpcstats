@@ -69,8 +69,7 @@ $pages = array(	'Members' => array('Member Stats', 'members.php'),
 		'memberGraphs' => array('Member Graphs', 'memberGraphs.php'),
 		'login' => array('Login', 'admin/login.php'),
 		'register' => array('Register', 'admin/register.php'),
-		'verify' => array('Verify', 'admin/verify.php'),
-		'admin' => array('Admin Center', 'admin/admin.php'));
+		'verify' => array('Verify', 'admin/verify.php'));
 
 # When the mode is valid set the pagename and pagefile
 if ( isset($pages[$mode]) )
