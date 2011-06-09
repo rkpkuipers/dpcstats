@@ -138,7 +138,7 @@ header('Content-Type: text/html; charset=ISO-8859-1');
           <td style="width:20%; text-align:center"><a class="menulink" href="?mode=Members&amp;prefix=<?php echo $project->getPrefix() ?>&amp;tabel=memberoffset&amp;datum=<?php echo $datum; ?>">Member Stats</a></td>
           <td style="width:20%; text-align:center"><a class="menulink" href="<?php echo '?mode=Teams&amp;prefix=' . $project->getPrefix() . '&amp;tabel=teamoffset&amp;datum=' . $datum; ?>">Team Stats</a></td>
           <td style="width:20%; text-align:center"><a class="menulink" href="<?php echo $baseUrl; ?>/index.php?mode=Individuals&amp;tabel=individualoffset&amp;datum=<?php echo $datum; ?>&amp;prefix=<?php echo $project->getPrefix() ?>">Individual Stats</a>
-          <td style="width:20%; text-align:center"><a class="menulink" href="<?php echo '?mode=Graph&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>">Output Graphs</a></td>
+          <td style="width:20%; text-align:center"><a class="menulink" href="<?php echo '?mode=Graph&amp;tabel=teamoffset&amp;prefix=' . $project->getPrefix() . '&amp;datum=' . $datum; ?>">Output Graphs</a></td>
           <td style="width:20%; text-align:center"><a class="menulink" href="?mode=Flush&amp;prefix=<?php echo $project->getPrefix();?>">Flush History</a></td>
          </tr>
         </table>
