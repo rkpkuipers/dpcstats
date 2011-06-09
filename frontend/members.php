@@ -184,23 +184,19 @@ echo '</div>';
 echo '<div class="colorbox">';
 ?>
 <h4><a name="Ranking">&nbsp;Ranking</a></h4>
-<hr>
-<table width="100%">
 <?php
-echo '<tr><td>Total Output</td><td align="right">' . number_format($ts->getTotalOutput(), 0, ',', '.') . ' ' . $project->getWuName() . '</td></tr>';
-?>
-</table>
-<hr>
-<table width="100%">
-<tr>
-<td align="left" valign="middle">
-<?php
+echo '<div style="float:left; margin-left:5px;">Total Output</div>' .
+	'<div style="float:right; margin-right:5px; text-align:right">' . number_format($ts->getTotalOutput(), 0, ',', '.') . ' ' . $project->getWuName() . '</div>';
+
+# Newline
+echo '<div><br></div>';
+
+# When we have more members then we can show add a jump to page line
 if ( $ts->getTotalMembers() > $listsize )
 {
-	echo '<td align="left">';
-        echo 'Page:';
-	echo '<form action="index.php" method="get">';
-	echo '<p>';
+	echo '<form action="index.php" method="get" name="totalrankingpagejump">';
+	echo '<div style="float:left; margin-left:5px;">';
+	echo 'Jump to page:&nbsp;';
 	echo '<input type="hidden" name="tabel" value="' . $tabel . '">';
 	echo '<input type="hidden" name="prefix" value="' . $project->getPrefix() . '">';
 	echo '<input type="hidden" name="dlow" value="' . $dlow . '">';
@@ -208,23 +204,25 @@ if ( $ts->getTotalMembers() > $listsize )
 	echo '<input type="hidden" name="team" value="' . $team . '">';
 	if ( $mode == 'Subteam' )
 		echo '<input type="hidden" name="mode" value="Subteam">';
-	echo '<select name="low" class="TextField">';
-
-        for($i=0;($i*$listsize)<$ts->getTotalMembers();$i++)
-        {
+	echo '<select name="low" class="TextField" onchange="javascript:document.totalrankingpagejump.submit();">';
+	
+	# Loop through the total members divided by the listsize to determine the number of pages
+	for($i=0;($i*$listsize)<$ts->getTotalMembers();$i++)
+	{
 		echo '<option value="' . ( $i * $listsize ) . '"';
-                if ( ( $flushlist == 0 ) && ( ($i) == ($low/$listsize) ) )
-                        echo ' selected';
-
+		
+		# Ensure the current page is selected
+		if ( ( $flushlist == 0 ) && ( ($i) == ($low/$listsize) ) )
+			echo ' selected';
+		
 		echo '>' . ( $i + 1 ) . '</option>';
 	}
- 	echo '</select>';
-	echo '&nbsp;';
-	echo '<input type="submit" value="Go" class="TextField">';
-	echo '</p>';
+	echo '</select>';
+	echo '</div>';
 	echo '</form>';
  	echo '<form action="index.php" method="get">';
-	echo '<p>';
+	echo '<div style="float:left;">';
+	echo '&nbsp;';
 	echo '<input type="hidden" name="tabel" value="' . $tabel . '">';
 	echo '<input type="hidden" name="prefix" value="' . $project->getPrefix() . '">';
 	echo '<input type="hidden" name="low" value="0">';
@@ -233,20 +231,21 @@ if ( $ts->getTotalMembers() > $listsize )
 	echo '<input type="hidden" name="flushlist" value="1">';
 	echo '<input type="hidden" name="datum" value="' . $datum . '">';
 	echo '<input type="submit" value="List" class="TextField">';
-	echo '</p>';
+	echo '</div>';
 	echo '</form>';
+	
+	# Newline
+	echo '<div><br></div>';
 }
 
 ?>
 <form name="progress" method="post" action="index.php">
+<div>
 <input type="hidden" name="tabel" value="<?php echo $tabel?>">
 <input type="hidden" name="prefix" value="<?php echo $project->getPrefix() ?>">
 <input type="hidden" name="mode" value="Graph">
 <input type="hidden" name="team" value="<?php echo $team; ?>">
-</td>
-<td align="right"><INPUT TYPE="image" SRC="images/graph.jpg" value="Graph"></td>
-</tr>
-</table>
+</div>
 <hr>
 
 <table border="0">
@@ -319,9 +318,12 @@ for($i=0;$i<count($mbs);$i++)
         echo '</tr>';
 }
 
+# Submit button for the graph functionality
+echo '<tr><td colspan="9" style="text-align:right"><input type="submit" class="TextField" value="Graph"></td></tr>';
+
 ?>
-</form>
 </table>
+</form>
 </div>
 
 <?php
