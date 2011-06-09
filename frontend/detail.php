@@ -29,7 +29,6 @@ if ( ! $mi->exists() )
 ?>
 <br>
 <center><h2><?php echo str_replace('\\', '', $mi->getNaam()) ?></h2></center>
-<hr>
 <?php
         if ( $mi->isSubteam() )
         {
@@ -56,7 +55,7 @@ $rankPage = ( ( floor((($mi->getRank())-1)/30) ) * 30 );
 # Data table
 echo '<table style="width:400px" class="colorbox">';
 echo '<tr><td width=300 align="left">' . $project->getWuName() . '</td><td width=90 align=right>' . number_format($mi->getCredits(), 0, ',', '.') . '</td></tr>';
-echo '<tr><td colspan="2"><hr></td></tr>';
+
 echo '<tr><td align="left">Todays output</td><td align=right>' . number_format($mi->getFlush(), 0, ',', '.') . '</td></tr>';
 echo '<tr><td align="left">Team Rank</td><td align=right><a href="index.php?tabel=' . $tabel . '&amp;prefix=' . $project->getPrefix() . '&amp;dlow=0&amp;datum=' . $datum . '&amp;team=' . rawurlencode($team) . '&amp;hl=' . rawurlencode($naam) . '&amp;low=' . $rankPage . '#Ranking" title="Overall ranking hightlighting ' . $naam . '">' . $mi->getRank() . '</a></td></tr>';
 echo '<tr><td align="left">Flush rank</td><td align=right>' . $mi->getDailyRank() . '</td></tr>';
