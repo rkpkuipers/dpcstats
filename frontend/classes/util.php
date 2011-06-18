@@ -454,23 +454,4 @@ function parseRML($rml)
 	return $data;
 }
 
-function memberExists($project, $tabel, $member)
-{
-	global $db;
-
-	$query = 'SELECT 
-					naam 
-				FROM 
-					' . $project . '_' . $tabel . ' 
-				WHERE 
-					naam = \'' . $member . '\'
-				AND	dag = \'' . date("Y-m-d") . '\'';
-	
-	$result = $db->selectQuery($query);
-
-	if ( $line = $db->fetchArray($result) )
-		return true;
-	else
-		return false;
-}
 ?>
