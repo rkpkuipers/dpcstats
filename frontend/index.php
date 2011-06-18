@@ -1,9 +1,6 @@
 <?php 
 require('classes.php');
 
-# Record the start time to be able to show a Page loaded in x seconds line
-$start_time = microtime();
-
 # Handle retrieving/setting settings using a cookie
 function handleCookie($name)
 {
@@ -277,7 +274,6 @@ header('Content-Type: text/html; charset=ISO-8859-1');
         <a href="mailto:speedkikker@planet.nl" title="Mail SpeedKikker">Contact</a> 
         | &copy;opyright 2004-<?php echo date("Y"); ?> TaDaH
         | <a href="http://rkuipers.mine.nu/svn/dpcstats/" title="View revision history">Revision <?php echo $project->getVersion();?></a> 
-        | <?php echo 'Page loaded in ' . sprintf("%0.3f", microtime_diff($start_time, microtime())) . ' seconds'; ?>
        </td>
        <td><img src="images/spacer.gif" width="1" height="34" alt=""></td>
       </tr>
