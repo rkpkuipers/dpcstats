@@ -47,7 +47,7 @@ if ( $datum > date("Y-m-d") )
 	$datum = date("Y-m-d");
 
 # Load the project data, if none is specified use CP
-if ( isset($_REQUEST['prefix']) )
+if ( ( isset($_REQUEST['prefix']) ) && ( preg_match('/^[a-z]{2,3}$/', $_REQUEST['prefix']) ) )
 	$project = new Project($db, $_REQUEST['prefix'], $tabel);
 else
 	$project = new Project($db, 'cp', 'memberoffset');
