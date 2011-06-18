@@ -405,15 +405,11 @@ function trBackgroundColor($row)
                 return 'CCCCCC';
 }
 
-
+# Verify the table
 function checkTable($tabel)
 {
-	if (
-            ( $tabel != 'memberoffset' ) &&
-            ( $tabel != 'teamoffset' ) &&
-            ( $tabel != 'subteamoffset' ) &&
-	    ( $tabel != 'individualoffset' )
-   	   )die('Onjuiste tabel opgegeven');
+	if ( ( $tabel != 'memberoffset' ) && ( $tabel != 'teamoffset' ) && ( $tabel != 'subteamoffset' ) && ( $tabel != 'individualoffset' ) )
+		die('ERROR: Invalid table specified');
 }
 
 function getURL($array)
