@@ -4,6 +4,29 @@ require('classes.php');
 # Record the start time to be able to show a Page loaded in x seconds line
 $start_time = microtime();
 
+# Handle retrieving/setting settings using a cookie
+function handleCookie($name)
+{
+	# Check if the value should be set
+	if ( isset($_REQUEST['set' . $name]) )
+	{
+		# Ensure the cookie is not set
+		setcookie($name, FALSE);
+		
+		# Set cookie
+		setcookie($name, $_REQUEST['set' . $name], time()+60*60*24*30);
+		
+		# Return the value it was set to
+		return $_REQUEST['set' . $name];
+	}
+	# Check if the cookie itself is available
+	elseif ( isset($_COOKIE[$name]) )
+		return $_COOKIE[$name];
+	# Default to on for all settings
+	else
+		return 'on';
+}
+
 # Set/unset variables through cookies, used to save settings for hiding various parts on the site
 $cActive  = handleCookie('cActive');	# Calender
 $sbActive = handleCookie('sbActive');	# Shoutbox

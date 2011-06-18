@@ -261,29 +261,6 @@ function microtime_diff($a, $b)
         return $b_sec - $a_sec + $b_dec - $a_dec;
 }
 
-# Handle retrieving/setting settings using a cookie
-function handleCookie($name)
-{
-	# Check if the value should be set
-	if ( isset($_REQUEST['set' . $name]) )
-	{
-		# Ensure the cookie is not set
-		setcookie($name, FALSE);
-		
-		# Set cookie
-		setcookie($name, $_REQUEST['set' . $name], time()+60*60*24*30);
-		
-		# Return the value it was set to
-		return $_REQUEST['set' . $name];
-	}
-	# Check if the cookie itself is available
-	elseif ( isset($_COOKIE[$name]) )
-		return $_COOKIE[$name];
-	# Default to on for all settings
-	else
-		return 'on';
-}
-
 function getYesterday($prefix)
 {
 	return date("Y-m-d", strtotime("Yesterday", date("U")));
