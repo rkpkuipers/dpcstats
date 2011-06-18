@@ -54,7 +54,7 @@ $ts->gather();
 		echo '<option value=';
 		if 	( 
 			 (date("m", strtotime($line['dag']))) != 
-			( date("m", strtotime($project->getCurrentDate())))
+			( date("m", strtotime(date("Y-m-d"))))
 			)
 		{
 			switch(date("m", strtotime($line['dag'])))
@@ -67,7 +67,7 @@ $ts->gather();
 			}
 		}
 		else
-			$mnddat = date("Y-m-d", strtotime($project->getCurrentDate()));
+			$mnddat = date("Y-m-d", strtotime(date("Y-m-d")));
 		echo $mnddat;
 		if ( $maand == $mnddat )echo ' selected';
 		echo '>' . date("F Y", strtotime($line['dag'])) . '</option>';

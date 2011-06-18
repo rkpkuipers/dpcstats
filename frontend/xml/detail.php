@@ -17,7 +17,7 @@ else
 if ( isset($_REQUEST['datum']) )
 	$datum = $_REQUEST['datum'];
 else
-	$datum = getCurrentDate($prefix);
+	$datum = date("Y-m-d");
 
 if ( isset($_REQUEST['naam']) )
 	$naam = $_REQUEST['naam'];

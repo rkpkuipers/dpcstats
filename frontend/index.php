@@ -196,11 +196,11 @@ header('Content-Type: text/html; charset=ISO-8859-1');
 
 	if ( $dtActive == 'on' )
 	{
-		$ml = new MemberList($project->getPrefix() . '_teamoffset', $project->getCurrentDate(), 0, 5, $db);
+		$ml = new MemberList($project->getPrefix() . '_teamoffset', date("Y-m-d"), 0, 5, $db);
 		$ml->generateFlushList();
 		getTop5Table($project, $ml, 'Top 5 Teams', 'teamoffset');
 		
-		$ml = new MemberList($project->getPrefix() . '_memberoffset', $project->getCurrentDate(), 0, 5, $db);
+		$ml = new MemberList($project->getPrefix() . '_memberoffset', date("Y-m-d"), 0, 5, $db);
 		$ml->generateFlushList();
 		getTop5Table($project, $ml, 'Top 5 Members', 'memberoffset');
 	}

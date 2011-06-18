@@ -121,11 +121,6 @@ class Project
 		return $this->projectinfo['tabel'];
 	}
 
-	function getCurrentDate()
-	{
-        	return date("Y-m-d");
-	}
-
 	function getSubteamRank()
 	{
 		if ( $this->teamRank == -1 )

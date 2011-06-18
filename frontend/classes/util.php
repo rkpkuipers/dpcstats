@@ -325,20 +325,6 @@ function getRMLDPCHChangeImage($change, $ts)
 	return '(' . $image . $change . ')';
 }
 
-function getCurrentDate($prefix)
-{
-	return date("Y-m-d");
-/*
-        switch($prefix)
-        {
-	case 'fah':
-		return date("Y-m-d", strtotime("+30 minutes", date("U")));
-		break;
-	default:
-		return date("Y-m-d");
-        }*/
-}
-
 function getPrevDate($datum = '')
 {
 	if ( $datum == '' )
