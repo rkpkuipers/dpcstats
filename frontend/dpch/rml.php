@@ -14,12 +14,7 @@ else
 if ( isset($_GET['datum']) )
 	$datum = $_GET['datum'];
 else
-{
-	if ( $prefix == 'ud' )
-		$datum = getCurrentDate($prefix);
-	else
-		$datum = getYesterday($prefix);
-}
+	$datum = getYesterday($prefix);
 
 $project = new Project($db, $prefix, 'memberoffset', $datum);
 
