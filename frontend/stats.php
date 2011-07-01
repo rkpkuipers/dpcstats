@@ -151,6 +151,5 @@ cronjobs.</P>
 <P STYLE="margin-bottom: 0in"><B>Links</B></P>
 <br>
 <a href="http://tadah.mine.nu/export/database.sql">Database dump zonder data</a><br>
-<a href="http://tadah.mine.nu/export/frontend.tar.bz2">Frontend</a><br>
-<a href="http://tadah.mine.nu/export/backend.tar.bz2">Backend</a><br>
+<a href="http://tadah.mine.nu/export/stats.tar.bz2">Source Code</a><br>
 <a href="crontab">Cronjobs</a>
