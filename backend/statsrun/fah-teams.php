@@ -9,18 +9,27 @@ $datum = getCurrentDate('fah');
 
 dailyOffset('teamoffset', 'fah');
 
-$html = implode('', file ('http://vspx27.stanford.edu/daily_team_summary.txt')) or die("Error retrieving information");
-$data = explode("\t", $html);
+# Download the stats file, unzip, skip the first two lines, and load into a buffer
+exec("wget \"http://fah-web.stanford.edu/daily_team_summary.txt.bz2\" -O - | bunzip2 -c | tail -n +2", $html);
 
+# Variable to store the teams
 $teams = array();
-for($i=10;$i<count($data);$i+=3)
-{
-	$name = $data[$i];
+
+# Loop through the data
+foreach($html as $rawteam) {
+	# Split the data into fields
+	$data = explode("\t", $rawteam);
+
+	# Fetch the name
+	$name = $data[1];
+
+	# Strip slahes
 	$name = str_replace('"', '\"', $name);
 	$name = str_replace('/', '\/', $name);
 	$name = str_replace('\'', '\\\'', $name);
-
-	$score = $data[$i+1];
+	
+	# Fetch the score
+	$score = $data[2];
 
 	if ( ( $score > 0 ) && ( $name != 'Google' ) )
 	{
