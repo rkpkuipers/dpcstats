@@ -10,7 +10,7 @@ $datum = getCurrentDate('fah');
 dailyOffset('teamoffset', 'fah');
 
 # Download the stats file, unzip, skip the first two lines, and load into a buffer
-exec("wget \"http://fah-web.stanford.edu/daily_team_summary.txt.bz2\" -O - | bunzip2 -c | tail -n +2", $html);
+exec("wget -q \"http://fah-web.stanford.edu/daily_team_summary.txt.bz2\" -O - | bunzip2 -c | tail -n +2", $html);
 
 # Variable to store the teams
 $teams = array();
