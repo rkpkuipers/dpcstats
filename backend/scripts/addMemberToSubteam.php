@@ -1,5 +1,5 @@
 #!/usr/bin/php
-<?
+<?php
 
 include (dirname($argv[0]) . '/../classes.php');
 
@@ -10,7 +10,7 @@ $project = $argv[3];
 echo 'Adding ' . $user . ' to subteam ' . $team . ' for project ' . $project . ' (ctrl-c to abort)' . "\n";
 readline("Str");
 
-$datum = getCurrentDate($project);
+$datum = date("Y-m-d");
 
 # Add user day offset to team offset
 $query = 'SELECT
