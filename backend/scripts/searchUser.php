@@ -1,5 +1,5 @@
 #!/usr/bin/php
-<?
+<?php
 
 include (dirname($argv[0]) . '/../classes.php');
 
