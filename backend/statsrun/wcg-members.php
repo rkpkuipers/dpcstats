@@ -1,5 +1,5 @@
 #!/usr/bin/php
-<?
+<?php
 
 include (dirname(realpath($argv[0])) . '/../include.php');
 

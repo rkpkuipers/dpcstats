@@ -1,5 +1,5 @@
 #!/usr/bin/php
-<?
+<?php
 include('include.php');
 
 $query = 'SELECT DISTINCT(naam) FROM fah_individualoffset WHERE naam like \'% - %\'';

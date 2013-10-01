@@ -1,5 +1,5 @@
 #!/usr/bin/php
-<?
+<?php
 
 include('/home/rkuipers/public_html/classes.php');
 
